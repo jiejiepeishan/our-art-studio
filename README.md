@@ -6,8 +6,8 @@ Personal watercolor palette PWA — portfolio, Mix Lab, brand stories, offline-f
 
 ## Credits
 
-- **Studio & palette:** LiShen  
-- **Code collaboration:** built together with **[Grok](https://x.ai)** (xAI), aka **Ace** — architecture, Mix Lab, UI, palette tooling, and shipping help.
+- **Studio & palette:** Peishan Li  
+- **Code collaboration:** built together with **Grok Build** (xAI) — architecture, Mix Lab, UI, palette tooling, and shipping help.
 
 If you fork this project, a nod in your README is appreciated but not required by the MIT license.
 
