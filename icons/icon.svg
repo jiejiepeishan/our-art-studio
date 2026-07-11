@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#FAF6F0"/>
+  <circle cx="256" cy="200" r="88" fill="#C9A89A" opacity="0.9"/>
+  <circle cx="200" cy="280" r="72" fill="#A8B5A0" opacity="0.85"/>
+  <circle cx="312" cy="288" r="68" fill="#C4B8D4" opacity="0.85"/>
+  <text x="256" y="420" text-anchor="middle" font-family="Georgia, serif" font-size="48" fill="#6B5F52">✦</text>
+</svg>

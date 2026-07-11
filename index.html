@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#FAF6F0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <title>Our Art Studio</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon.svg" />
+  <link rel="stylesheet" href="css/style.css?v=66" />
+</head>
+<body>
+  <div class="paper-texture" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="studio-mark">✦</div>
+    <div class="studio-titles">
+      <h1 class="studio-name" id="studio-name">Our Art Studio</h1>
+      <p class="studio-name-zh" id="studio-name-zh">我们的画室</p>
+    </div>
+    <p class="studio-tagline">watercolor palette & mix lab</p>
+    <p class="palette-meta" id="palette-meta"></p>
+  </header>
+
+  <aside class="caveats-banner" id="caveats-banner" aria-label="Studio notes">
+    <button type="button" class="caveats-toggle" id="caveats-toggle" aria-expanded="false">
+      <span class="caveats-toggle-label">Ace's studio notes</span>
+      <span class="caveats-chevron" aria-hidden="true">›</span>
+    </button>
+    <ul class="caveats-list" id="caveats-list" hidden></ul>
+  </aside>
+
+  <p id="load-status" class="load-status">Loading studio…</p>
+  <p id="load-error" class="load-error" hidden></p>
+
+  <nav class="tab-nav" role="tablist">
+    <button class="tab active" role="tab" aria-selected="true" data-tab="palette">Palette</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="current">Current</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="mix">Mix Lab</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="more">More</button>
+  </nav>
+
+  <main>
+    <!-- Palette -->
+    <section id="panel-palette" class="panel active" role="tabpanel">
+      <section class="todays-palette" id="todays-palette" aria-label="Today's palette challenge">
+        <div class="todays-palette-head">
+          <div>
+            <h2 class="section-title">Today's palette</h2>
+            <p class="section-hint">Three colors — one small painting challenge.</p>
+          </div>
+          <button type="button" id="todays-shuffle" class="btn-ghost btn-compact">Shuffle</button>
+        </div>
+        <div id="todays-swatches" class="todays-swatches"></div>
+        <p id="todays-names" class="todays-names"></p>
+      </section>
+      <div class="toolbar">
+        <label class="search-wrap">
+          <span class="sr-only">Search colors</span>
+          <input type="search" id="search" placeholder="Search name, brand, pigment…" autocomplete="off" />
+        </label>
+        <div class="toolbar-row toolbar-row-filters">
+          <select id="brand-filter" aria-label="Filter by brand">
+            <option value="">All brands</option>
+          </select>
+          <select id="family-filter" aria-label="Filter by color family">
+            <option value="">All families</option>
+          </select>
+          <select id="toxicity-filter" aria-label="Filter by toxicity level">
+            <option value="">All toxicity</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+          <select id="format-filter" aria-label="Filter by format">
+            <option value="">All formats</option>
+          </select>
+        </div>
+      </div>
+      <div id="palette-grid" class="palette-grid"></div>
+    </section>
+
+    <!-- Current palette -->
+    <section id="panel-current" class="panel" role="tabpanel" hidden>
+      <h2 class="section-title">Current palette</h2>
+      <p class="section-hint">Colors you reach for most. Add from any color's detail sheet — remove when you swap tubes.</p>
+      <p id="current-count" class="list-meta"></p>
+      <div id="current-grid" class="palette-grid"></div>
+    </section>
+
+    <!-- Mix Lab -->
+    <section id="panel-mix" class="panel" role="tabpanel" hidden>
+      <div class="mix-section">
+        <h2 class="section-title">Find a hue</h2>
+        <p class="section-hint">Name a hue. Tap names to peek; tap #code for the full tube story.</p>
+        <div class="hue-finder">
+          <div class="hue-chips" id="hue-chips"></div>
+          <input type="text" id="hue-input" placeholder="e.g. purple, sage, coral" />
+          <button type="button" id="hue-search-btn" class="btn-primary">Find recipes</button>
+        </div>
+        <div id="hue-color-info" class="hue-color-tag" hidden>
+          <div id="hue-info-swatch" class="hue-info-swatch" aria-hidden="true"></div>
+          <div class="hue-info-text">
+            <p id="hue-info-name" class="hue-info-name"></p>
+            <ul id="hue-info-meta" class="hue-info-variants"></ul>
+          </div>
+        </div>
+        <div id="hue-results" class="hue-results"></div>
+      </div>
+
+      <div class="mix-section">
+        <h2 class="section-title">Pick colors to mix</h2>
+        <p class="section-hint">Tap up to three. A → B → C. #code opens the full card.</p>
+        <div class="mix-picker-toolbar">
+          <button type="button" id="mix-stars-toggle" class="btn-ghost mix-stars-toggle" aria-pressed="false">◈ Mixers only</button>
+        </div>
+        <div id="mix-workspace" class="combo-card mix-workspace"></div>
+        <button type="button" id="mix-clear" class="btn-ghost" hidden>Clear selection</button>
+        <div id="mix-picker" class="mix-picker"></div>
+      </div>
+    </section>
+
+    <!-- Brands Story -->
+    <section id="panel-brands" class="panel" role="tabpanel" hidden>
+      <h2 class="section-title">Brands Story</h2>
+      <p class="section-hint">Hot takes on each paint house — how it behaves, who I picture, and which tubes I'd grab in a fire (kidding) (mostly).</p>
+      <div id="brand-chips" class="brand-chips" role="listbox" aria-label="Filter by brand"></div>
+      <div id="brand-story" class="brand-story"></div>
+    </section>
+
+    <!-- More hub -->
+    <section id="panel-more" class="panel" role="tabpanel" hidden>
+      <h2 class="section-title">More</h2>
+      <p class="section-hint">Brand stories, new colors, and keeping devices in sync.</p>
+      <div class="more-menu" role="menu">
+        <button type="button" class="more-menu-item" role="menuitem" data-more-target="brands">
+          <span class="more-menu-icon" aria-hidden="true">✦</span>
+          <span class="more-menu-body">
+            <span class="more-menu-title">Brands Story</span>
+            <span class="more-menu-desc">Hot takes on each paint house — behavior, vibe, favorites</span>
+          </span>
+          <span class="more-menu-chevron" aria-hidden="true">›</span>
+        </button>
+        <button type="button" class="more-menu-item" role="menuitem" data-more-target="add">
+          <span class="more-menu-icon" aria-hidden="true">+</span>
+          <span class="more-menu-body">
+            <span class="more-menu-title">Add color</span>
+            <span class="more-menu-desc">New tube or pan before it’s in the master list</span>
+          </span>
+          <span class="more-menu-chevron" aria-hidden="true">›</span>
+        </button>
+        <button type="button" class="more-menu-item" role="menuitem" data-more-target="sync">
+          <span class="more-menu-icon" aria-hidden="true">↻</span>
+          <span class="more-menu-body">
+            <span class="more-menu-title">Sync your studio</span>
+            <span class="more-menu-desc">Passphrase sync or export / import between devices</span>
+          </span>
+          <span class="more-menu-chevron" aria-hidden="true">›</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Add / edit color -->
+    <section id="panel-add" class="panel" role="tabpanel" hidden>
+      <h2 class="section-title" id="add-form-title">Add a new color</h2>
+      <p class="section-hint" id="add-form-hint">Enter what’s on the tube or pan label. Saves on this device — great for new paints before they’re in the master list.</p>
+      <form id="color-form" class="color-form" novalidate>
+        <div class="form-row form-row-2">
+          <label class="form-field">
+            <span class="form-label">Brand <em>*</em></span>
+            <input type="text" id="f-brand" name="brand" required autocomplete="off" />
+          </label>
+          <label class="form-field">
+            <span class="form-label">Product code</span>
+            <input type="text" id="f-code" name="code" autocomplete="off" />
+          </label>
+        </div>
+        <div class="form-row form-row-2">
+          <label class="form-field">
+            <span class="form-label">Name (English) <em>*</em></span>
+            <input type="text" id="f-name-en" name="name_en" required autocomplete="off" />
+          </label>
+          <label class="form-field">
+            <span class="form-label">Name (中文)</span>
+            <input type="text" id="f-name-zh" name="name_zh" autocomplete="off" />
+          </label>
+        </div>
+        <div class="form-row form-row-2">
+          <label class="form-field">
+            <span class="form-label">Pigment</span>
+            <input type="text" id="f-pigment" name="pigment" placeholder="e.g. PB29" autocomplete="off" />
+          </label>
+          <label class="form-field">
+            <span class="form-label">Swatch hex <em>*</em></span>
+            <div class="hex-input-row">
+              <input type="color" id="f-hex-picker" value="#888888" aria-label="Pick color" />
+              <input type="text" id="f-hex" name="hex" required pattern="^#[0-9A-Fa-f]{6}$" placeholder="#AABBCC" />
+            </div>
+          </label>
+        </div>
+        <div class="form-row form-row-2">
+          <label class="form-field">
+            <span class="form-label">Format</span>
+            <select id="f-format" name="format">
+              <option value="">—</option>
+              <option value="sample">Sample</option>
+              <option value="tube">Tube</option>
+              <option value="half-pan">Half-pan</option>
+              <option value="full pan">Full pan</option>
+            </select>
+          </label>
+          <label class="form-field">
+            <span class="form-label">Size</span>
+            <input type="text" id="f-size" name="size" placeholder="5ml" autocomplete="off" />
+          </label>
+        </div>
+        <div class="form-row form-row-2">
+          <label class="form-field">
+            <span class="form-label">Family</span>
+            <select id="f-family" name="family">
+              <option value="">—</option>
+            </select>
+          </label>
+          <label class="form-field">
+            <span class="form-label">Toxicity</span>
+            <select id="f-toxicity" name="toxicity">
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </label>
+        </div>
+        <div class="form-row form-row-2">
+          <label class="form-field">
+            <span class="form-label">Transparency</span>
+            <select id="f-transparency" name="transparency">
+              <option value="">—</option>
+              <option value="1">Transparent</option>
+              <option value="2">Semi-transparent</option>
+              <option value="3">Opaque</option>
+            </select>
+          </label>
+          <label class="form-field">
+            <span class="form-label">Lightfastness</span>
+            <select id="f-lightfastness" name="lightfastness">
+              <option value="">—</option>
+              <option value="1">Excellent (I)</option>
+              <option value="2">Very good (II)</option>
+              <option value="3">Fair (III)</option>
+              <option value="4">Poor (IV)</option>
+            </select>
+          </label>
+        </div>
+        <div class="form-row form-checks">
+          <label class="form-check"><input type="checkbox" id="f-granulating" /> Granulating</label>
+          <label class="form-check"><input type="checkbox" id="f-staining" /> Staining</label>
+        </div>
+        <label class="form-field">
+          <span class="form-label">Source / notes</span>
+          <textarea id="f-notes" name="notes" rows="2" placeholder="Tube label, batch date, photo reference…"></textarea>
+        </label>
+        <label class="form-field">
+          <span class="form-label">Ace's note</span>
+          <textarea id="f-ace-note" name="ace_note" rows="2"></textarea>
+        </label>
+        <label class="form-field">
+          <span class="form-label">Best for</span>
+          <input type="text" id="f-best-for" name="best_for" autocomplete="off" />
+        </label>
+        <label class="form-field">
+          <span class="form-label">Toxicity habit</span>
+          <input type="text" id="f-toxicity-habit" name="toxicity_habit" placeholder="Optional handling reminder" autocomplete="off" />
+        </label>
+        <p id="color-form-status" class="form-status" hidden></p>
+        <div class="form-actions">
+          <button type="submit" class="btn-primary" id="color-form-submit">Save color</button>
+          <button type="button" class="btn-ghost" id="color-form-cancel" hidden>Cancel edit</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Sync across devices -->
+    <section id="panel-sync" class="panel" role="tabpanel" hidden>
+      <h2 class="section-title">Sync your studio</h2>
+      <p class="section-hint" id="sync-plain-note">Changes you make here won't sync automatically. To sync with your other devices, use home Wi‑Fi while <code>scripts/serve.sh</code> is running on your Mac — or use <strong>Export / Import</strong> below.</p>
+
+      <div id="sync-offline-reminder" class="sync-offline-reminder" role="status" hidden>Server not connected — auto-sync is off right now.</div>
+
+      <div class="sync-card">
+        <h3 class="sync-card-title">Auto-sync (same server)</h3>
+        <p class="sync-card-text">Works when both devices open the app from the same URL — e.g. your Mac at <code>192.168.x.x:8080</code> or a live site with the sync API enabled.</p>
+        <label class="form-field">
+          <span class="form-label">Sync passphrase</span>
+          <input type="password" id="sync-passphrase" placeholder="Choose a private phrase" autocomplete="off" />
+        </label>
+        <p class="sync-hint">Not stored in the cloud — only a hash is sent. Pick something you’ll remember; same phrase on every device.</p>
+        <div class="form-actions">
+          <button type="button" class="btn-primary" id="sync-save-passphrase">Save passphrase</button>
+          <button type="button" class="btn-ghost" id="sync-now-btn">Sync now</button>
+        </div>
+        <p id="sync-status" class="sync-status">Checking sync…</p>
+      </div>
+
+      <div class="sync-card">
+        <h3 class="sync-card-title">File backup (any host)</h3>
+        <p class="sync-card-text">On static hosting without the API: export on one device, save to iCloud Drive, import on the other.</p>
+        <div class="form-actions">
+          <button type="button" class="btn-primary" id="sync-export-btn">Export studio file</button>
+          <label class="btn-ghost sync-import-label">
+            Import studio file
+            <input type="file" id="sync-import-input" accept="application/json,.json" hidden />
+          </label>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Color detail sheet -->
+  <dialog id="detail-sheet" class="detail-sheet">
+    <div class="sheet-inner">
+      <button type="button" class="sheet-close" id="sheet-close" aria-label="Close">×</button>
+      <div id="sheet-swatch" class="sheet-swatch"></div>
+      <div class="sheet-body">
+        <p id="sheet-brand" class="sheet-brand"></p>
+        <h2 id="sheet-name-en" class="sheet-name-en"></h2>
+        <p id="sheet-name-zh" class="sheet-name-zh"></p>
+        <dl class="spec-grid" id="sheet-specs"></dl>
+        <p id="sheet-toxicity-habit" class="toxicity-habit" hidden></p>
+        <div id="sheet-best-for" class="sheet-section sheet-best-for" hidden>
+          <p class="sheet-section-label">Best for</p>
+          <p id="sheet-best-for-text" class="sheet-section-text"></p>
+        </div>
+        <div id="sheet-ace-note" class="ace-note" hidden>
+          <p class="ace-note-label">Ace's note</p>
+          <p id="sheet-ace-text" class="ace-note-text"></p>
+        </div>
+        <div id="sheet-ace-history" class="sheet-section sheet-ace-history" hidden>
+          <p class="sheet-section-label">Ace's art history bite</p>
+          <p id="sheet-ace-history-text" class="sheet-section-text sheet-history-text"></p>
+        </div>
+        <div id="sheet-mix-tips" class="sheet-section sheet-mix-tips" hidden>
+          <p class="sheet-section-label">Mix with</p>
+          <ul id="sheet-mix-tips-list" class="mix-tips-list"></ul>
+        </div>
+        <div id="sheet-variants" class="sheet-section sheet-variants" hidden>
+          <p class="sheet-section-label">Also in your studio</p>
+          <div id="sheet-variant-chips" class="variant-chips"></div>
+        </div>
+        <p id="sheet-notes" class="sheet-notes"></p>
+        <div class="sheet-actions" id="sheet-actions">
+          <button type="button" id="sheet-current-btn" class="sheet-action-btn"></button>
+          <button type="button" id="sheet-remove-btn" class="sheet-action-btn sheet-action-btn--danger">Remove from studio</button>
+          <button type="button" id="sheet-edit-btn" class="sheet-action-btn">Edit color</button>
+        </div>
+        <div id="sheet-traits" class="trait-row"></div>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="js/mixing.js?v=66"></script>
+  <script src="js/app.js?v=66"></script>
+</body>
+</html>

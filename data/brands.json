@@ -1,0 +1,509 @@
+{
+  "version": 5,
+  "brands": [
+    {
+      "id": "daniel-smith",
+      "name": "Daniel Smith",
+      "origin": "Seattle, USA",
+      "tagline": "For when polite paint won't cut it",
+      "story": [
+        "Daniel Smith is what happens when a paint company stops pretending subtlety is a virtue. Their Primatek line literally grinds rocks — lapis, amethyst, iron ore — and asks your paper to deal with it.",
+        "The granulation is not a bug. It's the whole personality. Skies turn moody, stones look ancient, and boring grey clouds suddenly have opinions.",
+        "Quinacridones? Obnoxiously bright in the best way. A little staining, so maybe don't audition them on your wedding-invite practice sheet.",
+        "Fat tubes, reliable rewet, Seattle energy. If your palette needs one dramatic friend, this is them."
+      ],
+      "artists": [
+        {
+          "name": "Joseph Zbukvic",
+          "note": "Melbourne wizard of wet city light. Basically the DS poster child — atmosphere so thick you could lean on it.",
+          "works": [
+            {
+              "title": "The Piazzetta, Venice",
+              "year": "1840",
+              "artist": "J.M.W. Turner",
+              "caption": "We can't host Zbukvic's copyrighted work — Turner's wet Venice is the public-domain cousin for that atmosphere.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/e/ee/J.M.W._Turner_-_The_Piazzetta%2C_Venice%2C_1840._Watercolour.jpg",
+              "image_local": "images/brands/j-m-w-turner-the-piazzetta-venice-1840-watercolour.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Alvaro Castagnet",
+          "note": "Gesture first, apology never. He made a generation believe bold washes are a lifestyle.",
+          "works": [
+            {
+              "title": "Muddy Alligators",
+              "year": "1917",
+              "artist": "John Singer Sargent",
+              "caption": "Castagnet's own paintings are still copyrighted — Sargent's bold wash swagger is the free demo cousin.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Sargent_-_Muddy_Alligators.jpg/960px-Sargent_-_Muddy_Alligators.jpg",
+              "image_local": "images/brands/sargent-muddy-alligators.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Winslow Homer",
+          "note": "American no-nonsense values. DS granulating blues were born for this kind of blunt beauty.",
+          "works": [
+            {
+              "title": "The Blue Boat",
+              "year": "1892",
+              "artist": "Winslow Homer",
+              "caption": "Three strokes and done. Homer would hate your 47-layer sky.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/The_Blue_Boat_1892_Winslow_Homer.jpg/330px-The_Blue_Boat_1892_Winslow_Homer.jpg",
+              "image_local": "images/brands/the-blue-boat-1892-winslow-homer.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "schmincke",
+      "name": "Schmincke",
+      "origin": "Erkrath, Germany",
+      "tagline": "German engineering, but make it creamy",
+      "story": [
+        "Schmincke Horadam is the overachiever who actually reads the syllabus. Finely milled, balanced, deeply un-dramatic in the best way.",
+        "Creamy in the palette, civilized on the paper, lifts like it remembers you have plans later.",
+        "Almost no grain when you rewet — which is why detail painters quietly marry this brand and never post about it on social media.",
+        "We keep a lot of Schmincke in the studio. My hot take: if you're fighting your paint, switch here and stop blaming your brush."
+      ],
+      "artists": [
+        {
+          "name": "Albrecht Dürer",
+          "note": "Painted a clump of grass in 1503 and humiliated every lazy sketcher since.",
+          "works": [
+            {
+              "title": "The Large Piece of Turf",
+              "year": "1503",
+              "artist": "Albrecht Dürer",
+              "caption": "Botanical nerdery before it was cute. Schmincke vibes, honestly.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Albrecht_D%C3%BCrer_-_Das_gro%C3%9Fe_Rasenst%C3%BCck.jpg/330px-Albrecht_D%C3%BCrer_-_Das_gro%C3%9Fe_Rasenst%C3%BCck.jpg",
+              "image_local": "images/brands/albrecht-d-c3-bcrer-das-gro-c3-9fe-rasenst-c3-bcck.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Paul Klee",
+          "note": "Built tiny color worlds with patience instead of shouting. Very Horadam.",
+          "works": [
+            {
+              "title": "Small Swiss Landscape",
+              "year": "1920",
+              "artist": "Paul Klee",
+              "caption": "Whisper-level washes. No fireworks required.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Paul_Klee_Kleine_Schweizerlandschaft_1920.jpg/330px-Paul_Klee_Kleine_Schweizerlandschaft_1920.jpg",
+              "image_local": "images/brands/paul-klee-kleine-schweizerlandschaft-1920.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Emil Nolde",
+          "note": "Florals so intense they should come with a warning label. Needs pigments that don't panic when layered.",
+          "works": [
+            {
+              "title": "Summer Evening",
+              "year": "1903",
+              "artist": "Emil Nolde",
+              "caption": "Florals and skies that refuse to whisper. Needs pigments that don't panic when layered.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Emil_nolde%2C_sera_d%27estate%2C_1903.jpg/960px-Emil_nolde%2C_sera_d%27estate%2C_1903.jpg",
+              "image_local": "images/brands/emil-nolde-sera-d-estate-1903.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "winsor-newton",
+      "name": "Winsor & Newton",
+      "origin": "London, UK",
+      "tagline": "Your art-school ex who still texts",
+      "story": [
+        "Winsor & Newton is the watercolor everyone met first — usually in a dented tin with someone's name scratched inside.",
+        "Broad range, stocked on every continent, tuned for British manners: transparent washes, controlled blooms, white paper doing honest work.",
+        "Yes they reformulated. No the color names didn't change. Thank you, W&N, for not gaslighting us.",
+        "Not sexy. Extremely reliable. Like good socks. You need those."
+      ],
+      "artists": [
+        {
+          "name": "J.M.W. Turner",
+          "note": "Invented atmospheric drama and possibly fog itself.",
+          "works": [
+            {
+              "title": "The Piazzetta, Venice",
+              "year": "1840",
+              "artist": "J.M.W. Turner",
+              "caption": "Venice dissolving into light. Rude. Gorgeous.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/J.M.W._Turner_-_The_Piazzetta%2C_Venice%2C_1840._Watercolour.jpg/330px-J.M.W._Turner_-_The_Piazzetta%2C_Venice%2C_1840._Watercolour.jpg",
+              "image_local": "images/brands/j-m-w-turner-the-piazzetta-2c-venice-2c-1840-watercolour.jpg"
+            }
+          ]
+        },
+        {
+          "name": "John Singer Sargent",
+          "note": "Portrait royalty who discovered watercolor and immediately had more fun than all of us.",
+          "works": [
+            {
+              "title": "Muddy Alligators",
+              "year": "1917",
+              "artist": "John Singer Sargent",
+              "caption": "Florida swamp chic. Leave the white paper alone like it owes you money.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Sargent_-_Muddy_Alligators.jpg/330px-Sargent_-_Muddy_Alligators.jpg",
+              "image_local": "images/brands/sargent-muddy-alligators.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Winslow Homer",
+          "note": "Would like your delicate fussing. Would not respect it.",
+          "works": [
+            {
+              "title": "The Blue Boat",
+              "year": "1892",
+              "artist": "Winslow Homer",
+              "caption": "Big blue. White paper. Argument over.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/The_Blue_Boat_1892_Winslow_Homer.jpg/330px-The_Blue_Boat_1892_Winslow_Homer.jpg",
+              "image_local": "images/brands/the-blue-boat-1892-winslow-homer.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sennelier",
+      "name": "Sennelier",
+      "origin": "Paris, France",
+      "tagline": "Honeyed, French, slightly smug (deserved)",
+      "story": [
+        "Sennelier made these for Impressionists loitering in Paris with easels and opinions. Honey in the binder — paint stays moist, silky, and a little pleased with itself.",
+        "Washes glow like someone left the afternoon inside the pigment.",
+        "Warm Mediterranean palette: ochres, violets, rose madders. Skin tones, old walls, sun-drunk grass.",
+        "If you like wet, sliding color and romantic excuses to paint outdoors, Sennelier is basically enabling you."
+      ],
+      "artists": [
+        {
+          "name": "Paul Cézanne",
+          "note": "Turned apples into geometry and made it look inevitable.",
+          "works": [
+            {
+              "title": "Montagne Sainte-Victoire",
+              "year": "c. 1900",
+              "artist": "Paul Cézanne",
+              "caption": "Stack transparent patches until a mountain becomes solid. Magic, but stubborn.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/C%C3%A9zanne-Montagne-Sainte-Victoire-Tate.jpg/330px-C%C3%A9zanne-Montagne-Sainte-Victoire-Tate.jpg",
+              "image_local": "images/brands/c-c3-a9zanne-montagne-sainte-victoire-tate.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Pierre Bonnard",
+          "note": "Domestic light, outrageous color. Honey-tube energy before honey tubes were a brand strategy.",
+          "works": [
+            {
+              "title": "Norman Landscape",
+              "year": "c. 1920s",
+              "artist": "Pierre Bonnard",
+              "caption": "Color that glows from inside the paper — Bonnard never met a dull green he couldn't seduce.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Bonnard%2C_Paysage_normand.jpg",
+              "image_local": "images/brands/bonnard-paysage-normand.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Henri Matisse",
+          "note": "Cut the politeness. Color as appetite — Matisse would empty a Sennelier drawer without blinking.",
+          "works": [
+            {
+              "title": "Woman with a Hat",
+              "year": "1905",
+              "artist": "Henri Matisse",
+              "caption": "Fauvism in a hat. When 'too much color' is exactly the right amount.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Matisse-Woman-with-a-Hat.jpg/960px-Matisse-Woman-with-a-Hat.jpg",
+              "image_local": "images/brands/matisse-woman-with-a-hat.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m-graham",
+      "name": "M. Graham",
+      "origin": "Oregon, USA",
+      "tagline": "Honey: nature's anti-panic spray",
+      "story": [
+        "M. Graham puts Pacific Northwest honey in the binder and suddenly your paint stops ghosting you mid-session.",
+        "Slippery, luminous, weirdly friendly — like the tube is on your side.",
+        "High pigment load: tiny squeeze, big puddle. Great if you mix lakes, not puddles.",
+        "Smaller catalog than the giants, but curated like a good playlist. No filler tracks."
+      ],
+      "artists": [
+        {
+          "name": "Charles Reid",
+          "note": "Loose figures, clean color, no overworking — honey paints for painters who leave the white paper alone.",
+          "works": [
+            {
+              "title": "Autumn Foliage with Two Youths Fishing",
+              "year": "c. 1878",
+              "artist": "Winslow Homer",
+              "caption": "Reid's demos are still under copyright — Homer's outdoor loose watercolor is the free cousin.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Winslow_Homer_-_Autumn_Foliage_with_two_Youths_fishing_%28c.1878%29.jpg/960px-Winslow_Homer_-_Autumn_Foliage_with_two_Youths_fishing_%28c.1878%29.jpg",
+              "image_local": "images/brands/winslow-homer-autumn-foliage-with-two-youths-fishing-c-1878.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Andrew Wyeth",
+          "note": "Quiet American hush — values first, drama second. Honey keeps the wash patient.",
+          "works": [
+            {
+              "title": "Adirondack Lake",
+              "year": "1889",
+              "artist": "Winslow Homer",
+              "caption": "Wyeth's estate is still protected — Homer's quiet lake stands in as the public-domain mood board.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Winslow_Homer_-_An_Adirondack_Lake.jpg/960px-Winslow_Homer_-_An_Adirondack_Lake.jpg",
+              "image_local": "images/brands/winslow-homer-an-adirondack-lake.jpg"
+            }
+          ]
+        },
+        {
+          "name": "John Singer Sargent",
+          "note": "Travel watercolor mode: highlights bright, effort invisible.",
+          "works": [
+            {
+              "title": "Muddy Alligators",
+              "year": "1917",
+              "artist": "John Singer Sargent",
+              "caption": "Sun through transparent shadow. Brag quietly.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Sargent_-_Muddy_Alligators.jpg/330px-Sargent_-_Muddy_Alligators.jpg",
+              "image_local": "images/brands/sargent-muddy-alligators.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maimeriblu",
+      "name": "MaimeriBlu",
+      "origin": "Italy",
+      "tagline": "Mediterranean clarity, zero fog machine",
+      "story": [
+        "MaimeriBlu is Italy's old color house showing up with sunglasses and clean cobalts.",
+        "Gum arabic only — no honey — so washes stay crisp, like someone opened a window.",
+        "Earths honest, secondaries well-behaved, mixes that don't devolve into brown soup by accident.",
+        "Full pans are generous and rewet evenly. For orderly, glassy layers and painters who like their chaos planned."
+      ],
+      "artists": [
+        {
+          "name": "Giorgio Morandi",
+          "note": "Quiet bottles, quieter genius. Italian still-life patience — MaimeriBlu's clean earths were born for this hush.",
+          "works": [
+            {
+              "title": "Still-Life with Jar of Olives",
+              "year": "1760",
+              "artist": "Jean-Baptiste-Siméon Chardin",
+              "caption": "Morandi's estate is still protected — Chardin's quiet jars are the free still-life cousin.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Jean_Sim%C3%A9on_Chardin_-_Still-Life_with_Jar_of_Olives_-_WGA04777.jpg/960px-Jean_Sim%C3%A9on_Chardin_-_Still-Life_with_Jar_of_Olives_-_WGA04777.jpg",
+              "image_local": "images/brands/jean-sim-on-chardin-still-life-with-jar-of-olives-wga04777.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Canaletto",
+          "note": "Venice with backbone — architecture, light, and water that behaves (mostly).",
+          "works": [
+            {
+              "title": "The Grand Canal from Palazzo Flangini",
+              "year": "c. 1738",
+              "artist": "Canaletto",
+              "caption": "Venice drawn with a ruler and a love letter. Clear water, clear structure.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Canaletto_Grand_Canal_from_Palazzo_Flangini_-_JPGM.jpg/960px-Canaletto_Grand_Canal_from_Palazzo_Flangini_-_JPGM.jpg",
+              "image_local": "images/brands/canaletto-grand-canal-from-palazzo-flangini-jpgm.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Giovanni Boldini",
+          "note": "Italian swagger in a brushstroke. Fashionable, fast, a little dangerous.",
+          "works": [
+            {
+              "title": "An Elegant Lady",
+              "year": "c. 1900",
+              "artist": "Giovanni Boldini",
+              "caption": "Italian swagger in a brushstroke. Fashionable, fast, a little dangerous.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/GIOVANNI_BOLDINI_-_An_Elegant_Lady.jpg/960px-GIOVANNI_BOLDINI_-_An_Elegant_Lady.jpg",
+              "image_local": "images/brands/giovanni-boldini-an-elegant-lady.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "white-nights",
+      "name": "White Nights",
+      "origin": "St Petersburg, Russia",
+      "tagline": "Big pans, loud color, small price — go",
+      "story": [
+        "White Nights is what Eastern Europe grew up squeezing — Nevskaya Palitra, serious pigment, not cafeteria chalk.",
+        "Pans are chunky and creamy; wake up fast. Beginners get saturation without sanding the paper.",
+        "Bright, a touch staining — commit like you meant it, not like you're apologizing.",
+        "Packaging won't woo you. Paint will. Starter set that doesn't insult your intelligence."
+      ],
+      "artists": [
+        {
+          "name": "Wassily Kandinsky",
+          "note": "Saw a circle, heard music, jumped. Russian boldness in one gesture.",
+          "works": [
+            {
+              "title": "Color Study, Squares with Concentric Circles",
+              "year": "1913",
+              "artist": "Wassily Kandinsky",
+              "caption": "Subject optional. Joy mandatory.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Vassily_Kandinsky%2C_1913_-_Color_Study%2C_Squares_with_Concentric_Circles.jpg/330px-Vassily_Kandinsky%2C_1913_-_Color_Study%2C_Squares_with_Concentric_Circles.jpg",
+              "image_local": "images/brands/vassily-kandinsky-2c-1913-color-study-2c-squares-with-concentric-circles.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Ilya Repin",
+          "note": "Story, weather, and human mess — Russian painting that never whispers.",
+          "works": [
+            {
+              "title": "What Freedom!",
+              "year": "1903",
+              "artist": "Ilya Repin",
+              "caption": "Russian wind in the hair. Narrative watercolor energy with zero shy pigment.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Ilya_Repin-What_freedom%21.jpg/960px-Ilya_Repin-What_freedom%21.jpg",
+              "image_local": "images/brands/ilya-repin-what-freedom.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Nicholas Roerich",
+          "note": "Mythic color and horizon drama. Mountains of the mind, ships of the story.",
+          "works": [
+            {
+              "title": "Guests from Overseas",
+              "year": "1901",
+              "artist": "Nicholas Roerich",
+              "caption": "Mythic color and horizon drama. Mountains of the mind, ships of the story.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Nicholas_Roerich%2C_Guests_from_Overseas.jpg/960px-Nicholas_Roerich%2C_Guests_from_Overseas.jpg",
+              "image_local": "images/brands/nicholas-roerich-guests-from-overseas.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rosa-gallery",
+      "name": "Rosa Gallery",
+      "origin": "Ukraine",
+      "tagline": "Full pans with main-character energy",
+      "story": [
+        "Rosa Gallery shows up with Ukrainian full pans the size of small sandwiches and pigment that doesn't whisper.",
+        "Activates fast, hits bold, perfect when you need a big wash and a exit strategy.",
+        "Convenience mixes, loud secondaries — illustrators and urban sketchers love it because deadlines exist.",
+        "Subtle is not the brand brief. I grab Rosa when I want speed, saturation, and zero ceremony."
+      ],
+      "artists": [
+        {
+          "name": "Maria Prymachenko",
+          "note": "Ukrainian folk fire — beasts, flowers, and color that refuses to be polite.",
+          "works": [
+            {
+              "title": "The Ninth Wave",
+              "year": "1850",
+              "artist": "Ivan Aivazovsky",
+              "caption": "Prymachenko's work is still protected — Aivazovsky's storm is the free Ukrainian-born drama cousin.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Aivazovsky%2C_Ivan_-_The_Ninth_Wave.jpg/960px-Aivazovsky%2C_Ivan_-_The_Ninth_Wave.jpg",
+              "image_local": "images/brands/aivazovsky-ivan-the-ninth-wave.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Taras Shevchenko",
+          "note": "Poet with a paint box. Steppe light, clear line, no corporate landscape polish.",
+          "works": [
+            {
+              "title": "Landscape Study",
+              "year": "c. 1845",
+              "artist": "Taras Shevchenko",
+              "caption": "Poet with a paint box. Steppe light and honest paper.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Taras_Shevchenko_TS13.jpg",
+              "image_local": "images/brands/taras-shevchenko-ts13.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Arkhip Kuindzhi",
+          "note": "Impossible moonlight. Night that glows from the pigment out.",
+          "works": [
+            {
+              "title": "Moonlit Night on the Dnieper",
+              "year": "1880",
+              "artist": "Arkhip Kuindzhi",
+              "caption": "That impossible moonlight green-blue. Night that glows from the pigment out.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Kuindzhi_Moonlit_night_on_the_Dnieper_1880_grm_x2.jpg/960px-Kuindzhi_Moonlit_night_on_the_Dnieper_1880_grm_x2.jpg",
+              "image_local": "images/brands/kuindzhi-moonlit-night-on-the-dnieper-1880-grm-x2.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "roman-szmal",
+      "name": "Roman Szmal",
+      "origin": "Poland",
+      "tagline": "Polish pans that tell you what's inside",
+      "story": [
+        "Roman Szmal Aquarius is the underrated professional line — honest pigment codes, fair price, no mystery goo.",
+        "Rewets like it remembers you. Classics plus a few fun extras, none of them 'sparkle chaos teal.'",
+        "Mixes stay clean — botanical painters, illustrators, anyone allergic to muddy surprises, hello.",
+        "Quiet brand, loud competence. Custom palette builders, take notes."
+      ],
+      "artists": [
+        {
+          "name": "Stanisław Wyspiański",
+          "note": "Art Nouveau tenderness with Polish backbone. Pastel-soft, design-strong.",
+          "works": [
+            {
+              "title": "Motherhood",
+              "year": "1905",
+              "artist": "Stanisław Wyspiański",
+              "caption": "Art Nouveau tenderness with Polish backbone. Pastel-soft, design-strong.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Stanis%C5%82aw_Wyspia%C5%84ski%2C_Macierzy%C5%84stwo.jpg/960px-Stanis%C5%82aw_Wyspia%C5%84ski%2C_Macierzy%C5%84stwo.jpg",
+              "image_local": "images/brands/stanis-aw-wyspia-ski-macierzy-stwo.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Józef Mehoffer",
+          "note": "Spring light and a red accent that steals the scene. Decorative without being fragile.",
+          "works": [
+            {
+              "title": "The Red Umbrella",
+              "year": "c. 1900",
+              "artist": "Józef Mehoffer",
+              "caption": "Spring light and a red accent that steals the scene. Decorative without being fragile.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Czerwona_parasolka_by_J%C3%B3zef_Mehoffer.jpg/960px-Czerwona_parasolka_by_J%C3%B3zef_Mehoffer.jpg",
+              "image_local": "images/brands/czerwona-parasolka-by-j-zef-mehoffer.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Albrecht Dürer",
+          "note": "Would still paint every blade with Aquarius pans. Respect the turf.",
+          "works": [
+            {
+              "title": "The Large Piece of Turf",
+              "year": "1503",
+              "artist": "Albrecht Dürer",
+              "caption": "Transparency wins. Ego loses.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Albrecht_D%C3%BCrer_-_Das_gro%C3%9Fe_Rasenst%C3%BCck.jpg/330px-Albrecht_D%C3%BCrer_-_Das_gro%C3%9Fe_Rasenst%C3%BCck.jpg",
+              "image_local": "images/brands/albrecht-d-c3-bcrer-das-gro-c3-9fe-rasenst-c3-bcck.jpg"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
