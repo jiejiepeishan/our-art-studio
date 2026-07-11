@@ -1,7 +1,93 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="96" fill="#FAF6F0"/>
-  <circle cx="256" cy="200" r="88" fill="#C9A89A" opacity="0.9"/>
-  <circle cx="200" cy="280" r="72" fill="#A8B5A0" opacity="0.85"/>
-  <circle cx="312" cy="288" r="68" fill="#C4B8D4" opacity="0.85"/>
-  <text x="256" y="420" text-anchor="middle" font-family="Georgia, serif" font-size="48" fill="#6B5F52">✦</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Our Art Studio">
+  <defs>
+    <!-- Warm paper studio ground -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FBF7F1"/>
+      <stop offset="100%" stop-color="#F0E6DC"/>
+    </linearGradient>
+
+    <!-- Elegant primary red planet -->
+    <radialGradient id="planetRed" cx="35%" cy="32%" r="65%">
+      <stop offset="0%" stop-color="#F2A8A0"/>
+      <stop offset="45%" stop-color="#C96B62"/>
+      <stop offset="100%" stop-color="#8B3F3A"/>
+    </radialGradient>
+    <radialGradient id="glowRed" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E88A80" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#E88A80" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Elegant yellow / honey gold planet -->
+    <radialGradient id="planetGold" cx="38%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#FFF0B8"/>
+      <stop offset="40%" stop-color="#E8C04A"/>
+      <stop offset="100%" stop-color="#B8891E"/>
+    </radialGradient>
+    <radialGradient id="glowGold" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E8C04A" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#E8C04A" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Elegant blue planet -->
+    <radialGradient id="planetBlue" cx="36%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#B8D0F0"/>
+      <stop offset="42%" stop-color="#6B8FBF"/>
+      <stop offset="100%" stop-color="#3A5578"/>
+    </radialGradient>
+    <radialGradient id="glowBlue" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B8FBF" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#6B8FBF" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Soft shadow under cluster -->
+    <radialGradient id="shadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B5F52" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#6B5F52" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Clip planets for clean edges -->
+    <clipPath id="clipRed"><circle cx="256" cy="198" r="92"/></clipPath>
+    <clipPath id="clipGold"><circle cx="198" cy="292" r="84"/></clipPath>
+    <clipPath id="clipBlue"><circle cx="318" cy="298" r="80"/></clipPath>
+  </defs>
+
+  <!-- Rounded app tile -->
+  <rect width="512" height="512" rx="108" fill="url(#bg)"/>
+
+  <!-- Ambient soft glows (mixing aura) -->
+  <circle cx="256" cy="198" r="118" fill="url(#glowRed)"/>
+  <circle cx="198" cy="292" r="108" fill="url(#glowGold)"/>
+  <circle cx="318" cy="298" r="104" fill="url(#glowBlue)"/>
+
+  <!-- Ground shadow -->
+  <ellipse cx="256" cy="390" rx="130" ry="28" fill="url(#shadow)"/>
+
+  <!-- Red planet (top) -->
+  <circle cx="256" cy="198" r="92" fill="url(#planetRed)"/>
+  <g clip-path="url(#clipRed)" opacity="0.55">
+    <!-- Soft band / atmosphere -->
+    <ellipse cx="256" cy="210" rx="100" ry="18" fill="#8B3F3A" opacity="0.25"/>
+    <ellipse cx="230" cy="170" rx="28" ry="14" fill="#FFF5F2" opacity="0.45"/>
+  </g>
+  <!-- Thin elegant ring -->
+  <ellipse cx="256" cy="198" rx="108" ry="28" fill="none" stroke="#C96B62" stroke-opacity="0.35" stroke-width="3" transform="rotate(-18 256 198)"/>
+
+  <!-- Gold planet (bottom-left) — overlaps red -->
+  <circle cx="198" cy="292" r="84" fill="url(#planetGold)"/>
+  <g clip-path="url(#clipGold)" opacity="0.55">
+    <ellipse cx="175" cy="268" rx="24" ry="12" fill="#FFFDF5" opacity="0.5"/>
+    <ellipse cx="210" cy="310" rx="70" ry="14" fill="#B8891E" opacity="0.2"/>
+  </g>
+  <ellipse cx="198" cy="292" rx="96" ry="22" fill="none" stroke="#E8C04A" stroke-opacity="0.4" stroke-width="2.5" transform="rotate(22 198 292)"/>
+
+  <!-- Blue planet (bottom-right) — overlaps both -->
+  <circle cx="318" cy="298" r="80" fill="url(#planetBlue)"/>
+  <g clip-path="url(#clipBlue)" opacity="0.55">
+    <ellipse cx="295" cy="275" rx="22" ry="11" fill="#F0F6FF" opacity="0.45"/>
+    <ellipse cx="330" cy="318" rx="55" ry="12" fill="#3A5578" opacity="0.22"/>
+  </g>
+  <ellipse cx="318" cy="298" rx="92" ry="20" fill="none" stroke="#6B8FBF" stroke-opacity="0.4" stroke-width="2.5" transform="rotate(-12 318 298)"/>
+
+  <!-- Tiny highlight spark in the mix center (optional jewel) -->
+  <circle cx="258" cy="268" r="6" fill="#FFF9F2" opacity="0.55"/>
 </svg>

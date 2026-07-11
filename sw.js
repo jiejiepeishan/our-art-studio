@@ -1,4 +1,4 @@
-const CACHE = "our-art-studio-v66";
+const CACHE = "our-art-studio-v67";
 const FETCH_TIMEOUT_MS = 4000;
 const BRAND_IMAGES = [
   "./images/brands/aivazovsky-ivan-the-ninth-wave.jpg",
@@ -33,6 +33,9 @@ const ASSETS = [
   "./js/mixing.js",
   "./manifest.json",
   "./icons/icon.svg",
+  "./icons/apple-touch-icon.png",
+  "./icons/icon-192.png",
+  "./icons/icon-512.png",
   ...BRAND_IMAGES,
 ];
 

@@ -106,7 +106,7 @@ function registerServiceWorker() {
     return;
   }
   navigator.serviceWorker
-    .register("./sw.js?v=66")
+    .register("./sw.js?v=67")
     .then((reg) => reg.update())
     .catch(() => {});
 }
