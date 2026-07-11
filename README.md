@@ -2,6 +2,19 @@
 
 Personal watercolor palette PWA — portfolio, Mix Lab, brand stories, offline-friendly.
 
+**License:** [MIT](./LICENSE) — free to use, copy, modify, and build your own studio from this code.
+
+## Credits
+
+- **Studio & palette:** LiShen  
+- **Code collaboration:** built together with **[Grok](https://x.ai)** (xAI), aka **Ace** — architecture, Mix Lab, UI, palette tooling, and shipping help.
+
+If you fork this project, a nod in your README is appreciated but not required by the MIT license.
+
+## What this is
+
+A **starter personal studio**, not a complete commercial color database. Ship your own tubes, notes, and stories. The included palette is one studio’s collection to learn from and replace.
+
 ## Local
 
 ```bash
@@ -11,40 +24,22 @@ bash scripts/serve.sh
 
 Open http://127.0.0.1:8080 — hard refresh: **Cmd+Shift+R**.
 
-Sync between devices needs `scripts/serve.sh` on your Mac (passphrase API).  
-On a static public host, use **Export / Import** under More.
+Device sync needs `scripts/serve.sh` on your Mac. On a static host, use **Export / Import** under More.
 
-## Deploy (static)
+## Deploy
 
-This app is mostly static files (`index.html`, `css/`, `js/`, `data/`, `images/`, `icons/`).
+Static files only for the public site (`index.html`, `css/`, `js/`, `data/`, `images/`, `icons/`).
 
-### Fastest: Netlify Drop
+### Netlify Drop
 
-1. Open [app.netlify.com/drop](https://app.netlify.com/drop) (free account if asked).
-2. Drag the whole `our-art-studio` folder onto the page.
-3. Copy the `*.netlify.app` URL → open on iPhone → Share → **Add to Home Screen**.
+1. Open [app.netlify.com/drop](https://app.netlify.com/drop)  
+2. Drag this folder onto the page  
+3. Open the `*.netlify.app` URL → Add to Home Screen on iPhone  
 
 ### GitHub Pages
 
-```bash
-git init
-git add .
-git commit -m "Our Art Studio live"
-# create a repo on GitHub, then:
-git remote add origin https://github.com/YOU/our-art-studio.git
-git branch -M main
-git push -u origin main
-```
+Push this repo, then: **Settings → Pages → Deploy from branch `main` / root** (or `/docs` if you prefer).
 
-Then: repo **Settings → Pages → Deploy from branch `main` / root**.
+## Updates
 
-## License & assets
-
-- **Code** may be shared for learning.
-- **Palette data, brand stories, demo images** are for this personal studio.  
-  Do not scrape or redistribute artist work. Living painters’ images are not included; demos use public-domain cousins where labeled.
-
-## Updates after live
-
-Edit files locally → redeploy (Netlify: drag again or connect git; GitHub: push).  
-Bump `CACHE` in `sw.js` and `?v=` on assets when you change JS/CSS so phones pick up the new build.
+Edit locally → push (or re-drop on Netlify). Bump `CACHE` in `sw.js` and `?v=` query params when changing JS/CSS so phones pick up the new build.
