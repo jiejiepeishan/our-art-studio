@@ -156,7 +156,7 @@ function registerServiceWorker() {
     return;
   }
   navigator.serviceWorker
-    .register("./sw.js?v=72")
+    .register("./sw.js?v=73")
     .then((reg) => reg.update())
     .catch(() => {});
 }
@@ -1286,72 +1286,17 @@ function renderKits() {
   empty.hidden = true;
   workspace.hidden = false;
   $("#kit-active-name").textContent = kit.name;
-  $("#kit-active-meta").textContent = `${kitFilledCount(kit)} / ${kit.slots.length} wells · grouped by hue · 5 per row`;
+  $("#kit-active-meta").textContent = `${kitFilledCount(kit)} / ${kit.slots.length} wells · spectrum · 5 per row`;
   $("#kit-notes").value = kit.notes || "";
   renderKitTin(kit);
-}
-
-/** Family / hue band order for kit display (warm → cool → neutrals) */
-const KIT_HUE_ORDER = [
-  "red",
-  "coral",
-  "orange",
-  "yellow",
-  "earth",
-  "green",
-  "blue-green",
-  "blue",
-  "purple",
-  "pink",
-  "neutral",
-  "specialty",
-];
-
-function kitHueKey(color) {
-  const f = (color.family || "").toLowerCase().trim();
-  if (f && KIT_HUE_ORDER.includes(f)) return f;
-  // Fallback from hex when family missing
-  try {
-    const { h, s } = Mixing.hexToHsl(color.hex);
-    if (s < 12) return "neutral";
-    if (h < 20 || h >= 340) return "red";
-    if (h < 45) return "orange";
-    if (h < 70) return "yellow";
-    if (h < 160) return "green";
-    if (h < 200) return "blue-green";
-    if (h < 250) return "blue";
-    if (h < 310) return "purple";
-    return "pink";
-  } catch {
-    return "specialty";
-  }
-}
-
-function kitHueLabel(key) {
-  const labels = {
-    red: "Red",
-    coral: "Coral",
-    orange: "Orange",
-    yellow: "Yellow",
-    earth: "Earth / brown",
-    green: "Green",
-    "blue-green": "Blue-green",
-    blue: "Blue",
-    purple: "Purple",
-    pink: "Pink",
-    neutral: "Neutral / grey",
-    specialty: "Other",
-  };
-  return labels[key] || key;
 }
 
 function renderKitTin(kit) {
   const tin = $("#kit-tin");
   if (!tin) return;
-  tin.className = "kit-tin kit-tin--hue";
+  tin.className = "kit-tin kit-tin--spectrum";
   tin.innerHTML = "";
 
-  // Pair each slot index with its color (preserve slot index for remove/fill)
   const filled = [];
   const emptyIdx = [];
   kit.slots.forEach((id, index) => {
@@ -1364,39 +1309,21 @@ function renderKitTin(kit) {
     else emptyIdx.push(index);
   });
 
-  // Group by hue; within group sort by spectrum when in spectrum mode, else keep kit order
-  const groups = new Map();
-  filled.forEach((item) => {
-    const key = kitHueKey(item.color);
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key).push(item);
-  });
+  // Always display filled pans in rainbow spectrum order (learning layout)
+  const sortedColors = Mixing.sortBySpectrum(filled.map((f) => f.color));
+  const byId = new Map(filled.map((f) => [f.color.id, f]));
+  const items = sortedColors.map((c) => byId.get(c.id)).filter(Boolean);
 
-  const orderedKeys = [
-    ...KIT_HUE_ORDER.filter((k) => groups.has(k)),
-    ...[...groups.keys()].filter((k) => !KIT_HUE_ORDER.includes(k)),
-  ];
-
-  orderedKeys.forEach((key) => {
-    let items = groups.get(key);
-    if (kit.orderMode === "spectrum") {
-      const sorted = Mixing.sortBySpectrum(items.map((i) => i.color));
-      const byId = new Map(items.map((i) => [i.color.id, i]));
-      items = sorted.map((c) => byId.get(c.id)).filter(Boolean);
-    }
-
+  if (items.length) {
     const section = document.createElement("section");
     section.className = "kit-hue-group";
-    section.innerHTML = `<h4 class="kit-hue-label">${escapeHtml(kitHueLabel(key))} · ${items.length}</h4>`;
+    section.innerHTML = `<h4 class="kit-hue-label">Spectrum · ${items.length}</h4>`;
     const row = document.createElement("div");
     row.className = "kit-hue-row";
-    // 5 per line; short last line is OK — do not pad empties into the hue row
     items.forEach((item) => row.appendChild(makeKitWell(kit, item.index, item.color)));
     section.appendChild(row);
     tin.appendChild(section);
-  });
-
-  if (!filled.length && !emptyIdx.length) {
+  } else if (!emptyIdx.length) {
     tin.innerHTML = `<p class="empty-state">No wells yet.</p>`;
     return;
   }
@@ -1420,8 +1347,11 @@ function makeKitWell(kit, index, color) {
   btn.dataset.slot = String(index);
   if (color) {
     btn.style.background = color.hex;
-    btn.title = `${color.name_en} — tap to remove`;
-    btn.innerHTML = `<span class="kit-well-name">${escapeHtml(color.name_en)}</span>`;
+    const marks = [];
+    if (color.granulating) marks.push("✦ granulating");
+    if (color.mix_star) marks.push("◈ good for mix");
+    btn.title = [color.name_en, ...marks, "tap to remove"].join(" · ");
+    btn.innerHTML = `${swatchMarksHtml(color)}<span class="kit-well-name">${escapeHtml(color.name_en)}</span>`;
   } else {
     btn.title = "Empty well — tap to pick a color";
     btn.innerHTML = `<span class="kit-well-plus">+</span>`;
@@ -1502,22 +1432,9 @@ function arrangeActiveKitSpectrum() {
     alert("Add at least two colors before arranging.");
     return;
   }
-  // Group by hue band, spectrum within band — matches kit display
-  const byHue = new Map();
-  filled.forEach((c) => {
-    const k = kitHueKey(c);
-    if (!byHue.has(k)) byHue.set(k, []);
-    byHue.get(k).push(c);
-  });
-  const ordered = [];
-  KIT_HUE_ORDER.forEach((k) => {
-    if (!byHue.has(k)) return;
-    ordered.push(...Mixing.sortBySpectrum(byHue.get(k)));
-    byHue.delete(k);
-  });
-  byHue.forEach((list) => ordered.push(...Mixing.sortBySpectrum(list)));
-  const empties = kit.slots.length - ordered.length;
-  kit.slots = [...ordered.map((c) => c.id), ...Array(empties).fill(null)];
+  const sorted = Mixing.sortBySpectrum(filled);
+  const empties = kit.slots.length - sorted.length;
+  kit.slots = [...sorted.map((c) => c.id), ...Array(empties).fill(null)];
   kit.orderMode = "spectrum";
   saveKits();
   renderKits();

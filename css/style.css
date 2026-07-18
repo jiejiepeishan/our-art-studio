@@ -2171,6 +2171,19 @@ button.mix-slot-swatch--filled:active {
   min-height: 52px;
 }
 
+.kit-well .swatch-marks {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  z-index: 1;
+  font-size: 0.62rem;
+  line-height: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  pointer-events: none;
+}
+
 .kit-well--empty {
   background: var(--card);
   border-style: dashed;
