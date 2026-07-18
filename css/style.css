@@ -1601,6 +1601,9 @@ button.mix-slot-swatch--filled:active {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  padding: 0 16px 24px;
+  max-width: 520px;
+  margin: 0 auto;
 }
 
 .form-card {
@@ -1641,12 +1644,6 @@ button.mix-slot-swatch--filled:active {
 .form-actions .btn-primary {
   flex: 1;
   min-width: 140px;
-}
-
-.color-form {
-  padding: 0 16px 24px;
-  max-width: 520px;
-  margin: 0 auto;
 }
 
 .form-row {
