@@ -2137,6 +2137,30 @@ button.mix-slot-swatch--filled:active {
   gap: 6px;
 }
 
+/* End of scroll — rare kit management (arrange / rename / delete) */
+.kit-actions--footer {
+  margin: 20px 0 8px;
+  padding: 14px 0 4px;
+  border-top: 1px dashed var(--blush);
+  justify-content: flex-start;
+  opacity: 0.85;
+}
+
+.kit-actions--footer .btn-ghost {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.kit-actions--footer .kit-delete-btn {
+  margin-left: auto;
+  color: var(--ink-faint);
+}
+
+.kit-actions--footer .kit-delete-btn:hover,
+.kit-actions--footer .kit-delete-btn:focus-visible {
+  color: var(--rose);
+}
+
 .kit-notes-label {
   display: block;
   font-size: 0.72rem;

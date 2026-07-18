@@ -98,11 +98,6 @@
             <h3 id="kit-active-name" class="kit-active-name"></h3>
             <p id="kit-active-meta" class="list-meta"></p>
           </div>
-          <div class="kit-actions">
-            <button type="button" id="kit-arrange-btn" class="btn-ghost btn-compact">Arrange spectrum</button>
-            <button type="button" id="kit-rename-btn" class="btn-ghost btn-compact">Rename</button>
-            <button type="button" id="kit-delete-btn" class="btn-ghost btn-compact">Delete</button>
-          </div>
         </div>
         <div id="kit-guidance" class="kit-guidance" hidden>
           <span class="kit-notes-label">Build guide</span>
@@ -129,6 +124,13 @@
 
         <div id="kit-tin" class="kit-tin" aria-label="Kit wells"></div>
         <p class="kit-tin-hint">Spectrum · 6 per row · ✦ · ◈ · tap = A/B · hold = remove · + = fill</p>
+
+        <!-- Rarely used once a kit is built — live at end of scroll -->
+        <footer class="kit-actions kit-actions--footer" aria-label="Kit management">
+          <button type="button" id="kit-arrange-btn" class="btn-ghost btn-compact">Arrange spectrum</button>
+          <button type="button" id="kit-rename-btn" class="btn-ghost btn-compact">Rename</button>
+          <button type="button" id="kit-delete-btn" class="btn-ghost btn-compact kit-delete-btn">Delete</button>
+        </footer>
       </div>
       <p id="kit-empty-state" class="empty-state">No kits yet — tap + New kit.</p>
     </section>
