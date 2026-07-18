@@ -11,7 +11,7 @@
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
   <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
-  <link rel="stylesheet" href="css/style.css?v=73" />
+  <link rel="stylesheet" href="css/style.css?v=74" />
 </head>
 <body>
   <div class="paper-texture" aria-hidden="true"></div>
@@ -109,7 +109,26 @@
           <textarea id="kit-notes" rows="3" placeholder="e.g. cool yellow, granulating blue, earth for neutrals…"></textarea>
         </label>
         <div id="kit-tin" class="kit-tin" aria-label="Kit wells"></div>
-        <p class="kit-tin-hint">Spectrum order · 5 per row · ✦ granulating · ◈ good for mix · tap + to fill · tap a pan to remove</p>
+        <p class="kit-tin-hint">Spectrum · 5 per row · ✦ granulating · ◈ good for mix · tap pan = wheel A/B · long-press pan = remove · + = fill</p>
+
+        <div class="kit-wheel-section">
+          <h3 class="kit-wheel-title">Mix wheel</h3>
+          <p class="kit-wheel-hint">Two pointers snap to colors <strong>in this kit</strong>. Drag A &amp; B — or tap pans (1st = A, 2nd = B).</p>
+          <div class="kit-wheel-stage" id="kit-wheel-stage">
+            <div class="kit-wheel-disc" aria-hidden="true"></div>
+            <div class="kit-wheel-center" id="kit-wheel-center">
+              <span class="kit-wheel-center-swatch" id="kit-wheel-mix-swatch"></span>
+              <span class="kit-wheel-center-label" id="kit-wheel-mix-label">Mix</span>
+            </div>
+            <button type="button" class="kit-wheel-handle kit-wheel-handle--a" id="kit-wheel-handle-a" aria-label="Color A">A</button>
+            <button type="button" class="kit-wheel-handle kit-wheel-handle--b" id="kit-wheel-handle-b" aria-label="Color B">B</button>
+          </div>
+          <div class="kit-wheel-readout">
+            <p id="kit-wheel-a-line" class="kit-wheel-line"><span class="kit-wheel-tag">A</span> <span id="kit-wheel-a-name">—</span></p>
+            <p id="kit-wheel-b-line" class="kit-wheel-line"><span class="kit-wheel-tag">B</span> <span id="kit-wheel-b-name">—</span></p>
+            <p id="kit-wheel-note" class="kit-wheel-note">Add at least two colors to this kit, then drag the handles.</p>
+          </div>
+        </div>
       </div>
       <p id="kit-empty-state" class="empty-state">No kits yet — tap + New kit.</p>
     </section>
@@ -395,7 +414,7 @@
     </div>
   </dialog>
 
-  <script src="js/mixing.js?v=73"></script>
-  <script src="js/app.js?v=73"></script>
+  <script src="js/mixing.js?v=74"></script>
+  <script src="js/app.js?v=74"></script>
 </body>
 </html>

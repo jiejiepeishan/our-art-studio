@@ -68,6 +68,11 @@ let userData = { removed: [], added: [], overrides: {} };
 let kits = [];
 let activeKitId = null;
 let kitFillSlotIndex = null;
+/** Kit mix wheel: color ids snapped to active kit */
+let kitWheelA = null;
+let kitWheelB = null;
+let kitWheelNextTap = "a";
+let kitWheelDrag = null; // { which: 'a'|'b', pointerId }
 let syncApiAvailable = false;
 let skipNextSyncPush = false;
 let syncPushTimer = null;
@@ -156,7 +161,7 @@ function registerServiceWorker() {
     return;
   }
   navigator.serviceWorker
-    .register("./sw.js?v=73")
+    .register("./sw.js?v=74")
     .then((reg) => reg.update())
     .catch(() => {});
 }
@@ -1289,6 +1294,11 @@ function renderKits() {
   $("#kit-active-meta").textContent = `${kitFilledCount(kit)} / ${kit.slots.length} wells · spectrum · 5 per row`;
   $("#kit-notes").value = kit.notes || "";
   renderKitTin(kit);
+  // Drop wheel picks that left the kit
+  const inKit = new Set(kit.slots.filter(Boolean));
+  if (kitWheelA && !inKit.has(kitWheelA)) kitWheelA = null;
+  if (kitWheelB && !inKit.has(kitWheelB)) kitWheelB = null;
+  renderKitWheel();
 }
 
 function renderKitTin(kit) {
@@ -1343,33 +1353,256 @@ function renderKitTin(kit) {
 function makeKitWell(kit, index, color) {
   const btn = document.createElement("button");
   btn.type = "button";
-  btn.className = "kit-well" + (color ? "" : " kit-well--empty");
+  btn.className =
+    "kit-well" +
+    (color ? "" : " kit-well--empty") +
+    (color && color.id === kitWheelA ? " kit-well--wheel-a" : "") +
+    (color && color.id === kitWheelB ? " kit-well--wheel-b" : "");
   btn.dataset.slot = String(index);
   if (color) {
     btn.style.background = color.hex;
     const marks = [];
     if (color.granulating) marks.push("✦ granulating");
     if (color.mix_star) marks.push("◈ good for mix");
-    btn.title = [color.name_en, ...marks, "tap to remove"].join(" · ");
+    btn.title = [color.name_en, ...marks, "tap → wheel A/B · long-press → remove"].join(" · ");
     btn.innerHTML = `${swatchMarksHtml(color)}<span class="kit-well-name">${escapeHtml(color.name_en)}</span>`;
   } else {
     btn.title = "Empty well — tap to pick a color";
     btn.innerHTML = `<span class="kit-well-plus">+</span>`;
   }
-  btn.addEventListener("click", () => {
-    if (color) {
+
+  let pressTimer = null;
+  let longPressed = false;
+  const clearPress = () => {
+    if (pressTimer) clearTimeout(pressTimer);
+    pressTimer = null;
+  };
+
+  btn.addEventListener("pointerdown", (e) => {
+    if (!color) return;
+    longPressed = false;
+    pressTimer = setTimeout(() => {
+      longPressed = true;
       kit.slots[index] = null;
       kit.orderMode = "manual";
+      if (kitWheelA === color.id) kitWheelA = null;
+      if (kitWheelB === color.id) kitWheelB = null;
       saveKits();
       renderKits();
       updateTabBadges();
       renderPalette();
       refreshDetailActions();
+    }, 480);
+    try {
+      btn.setPointerCapture(e.pointerId);
+    } catch {
+      /* ignore */
+    }
+  });
+  btn.addEventListener("pointerup", (e) => {
+    clearPress();
+    if (longPressed) return;
+    if (color) {
+      // Tap: assign to mix wheel A then B
+      if (kitWheelNextTap === "a" || !kitWheelA) {
+        kitWheelA = color.id;
+        kitWheelNextTap = "b";
+      } else {
+        kitWheelB = color.id;
+        kitWheelNextTap = "a";
+      }
+      renderKitWheel();
+      renderKitTin(kit);
     } else {
       openKitPicker(index);
     }
   });
+  btn.addEventListener("pointercancel", clearPress);
+  btn.addEventListener("click", (e) => {
+    // pointerup already handled; prevent double fire on some browsers
+    e.preventDefault();
+  });
   return btn;
+}
+
+function kitColorsForWheel() {
+  const kit = getActiveKit();
+  if (!kit) return [];
+  return kit.slots
+    .map((id) => palette.colors.find((c) => c.id === id))
+    .filter(Boolean);
+}
+
+function colorHueDeg(c) {
+  try {
+    return Mixing.hexToHsl(c.hex).h;
+  } catch {
+    return 0;
+  }
+}
+
+/** Angle 0° = top (red-ish); CSS rotate clockwise from top */
+function hueToWheelAngle(h) {
+  return h;
+}
+
+function angleToHue(angleDeg) {
+  let a = angleDeg % 360;
+  if (a < 0) a += 360;
+  return a;
+}
+
+function snapToKitColor(hueDeg) {
+  const colors = kitColorsForWheel();
+  if (!colors.length) return null;
+  let best = colors[0];
+  let bestDist = 999;
+  colors.forEach((c) => {
+    const h = colorHueDeg(c);
+    let d = Math.abs(h - hueDeg);
+    if (d > 180) d = 360 - d;
+    // Prefer more chromatic when close
+    const sat = Mixing.hexToHsl(c.hex).s;
+    const score = d - sat * 0.02;
+    if (score < bestDist) {
+      bestDist = score;
+      best = c;
+    }
+  });
+  return best;
+}
+
+function setHandlePosition(el, hueDeg) {
+  if (!el) return;
+  const angle = hueToWheelAngle(hueDeg);
+  el.style.transform = `translate(-50%, -50%) rotate(${angle}deg) translateY(-96px) rotate(${-angle}deg)`;
+}
+
+function renderKitWheel() {
+  const stage = $("#kit-wheel-stage");
+  if (!stage) return;
+  const a = kitWheelA ? palette.colors.find((c) => c.id === kitWheelA) : null;
+  const b = kitWheelB ? palette.colors.find((c) => c.id === kitWheelB) : null;
+  const ha = $("#kit-wheel-handle-a");
+  const hb = $("#kit-wheel-handle-b");
+
+  if (a) {
+    setHandlePosition(ha, colorHueDeg(a));
+    ha.style.background = a.hex;
+    ha.classList.add("is-set");
+  } else {
+    setHandlePosition(ha, 0);
+    ha.style.background = "";
+    ha.classList.remove("is-set");
+  }
+  if (b) {
+    setHandlePosition(hb, colorHueDeg(b));
+    hb.style.background = b.hex;
+    hb.classList.add("is-set");
+  } else {
+    setHandlePosition(hb, 120);
+    hb.style.background = "";
+    hb.classList.remove("is-set");
+  }
+
+  $("#kit-wheel-a-name").textContent = a
+    ? `${a.name_en}${a.granulating ? " ✦" : ""}${a.mix_star ? " ◈" : ""}`
+    : "— tap a pan or drag A";
+  $("#kit-wheel-b-name").textContent = b
+    ? `${b.name_en}${b.granulating ? " ✦" : ""}${b.mix_star ? " ◈" : ""}`
+    : "— tap a pan or drag B";
+
+  const swatch = $("#kit-wheel-mix-swatch");
+  const label = $("#kit-wheel-mix-label");
+  const note = $("#kit-wheel-note");
+
+  if (a && b) {
+    const mix = Mixing.mixColors([a, b], palette);
+    swatch.style.background = mix.hex;
+    label.textContent = mix.hueName || "mix";
+    const tips = mix.tips?.length ? mix.tips[0].result : "";
+    const warn = (mix.warnings || []).find((w) => {
+      const t = w.text || "";
+      return /complement|mud|stain|granulat/i.test(t);
+    });
+    const warnText = warn
+      ? warn.segments
+        ? warn.segments.map((s) => s.t || s.swap?.label || "").join("")
+        : warn.text
+      : "";
+    note.textContent =
+      tips ||
+      warnText ||
+      `≈ ${mix.hex.toUpperCase()} · screen guess — try a swatch on paper.`;
+  } else {
+    swatch.style.background = "var(--paper-deep)";
+    label.textContent = "Mix";
+    const n = kitColorsForWheel().length;
+    note.textContent =
+      n < 2
+        ? "Add at least two colors to this kit, then drag the handles."
+        : "Drag A & B on the wheel (snaps to kit pans), or tap pans to assign.";
+  }
+}
+
+function kitWheelAngleFromEvent(e, stage) {
+  const rect = stage.getBoundingClientRect();
+  const cx = rect.left + rect.width / 2;
+  const cy = rect.top + rect.height / 2;
+  const x = e.clientX - cx;
+  const y = e.clientY - cy;
+  // 0 at top, clockwise — atan2(x, -y)
+  let deg = (Math.atan2(x, -y) * 180) / Math.PI;
+  if (deg < 0) deg += 360;
+  return deg;
+}
+
+function bindKitWheelHandles() {
+  const stage = $("#kit-wheel-stage");
+  if (!stage || stage.dataset.bound) return;
+  stage.dataset.bound = "1";
+
+  const onMove = (e) => {
+    if (!kitWheelDrag) return;
+    const angle = kitWheelAngleFromEvent(e, stage);
+    const snapped = snapToKitColor(angleToHue(angle));
+    if (!snapped) return;
+    if (kitWheelDrag.which === "a") kitWheelA = snapped.id;
+    else kitWheelB = snapped.id;
+    renderKitWheel();
+    const kit = getActiveKit();
+    if (kit) renderKitTin(kit);
+  };
+
+  const onUp = (e) => {
+    if (!kitWheelDrag) return;
+    try {
+      stage.releasePointerCapture(e.pointerId);
+    } catch {
+      /* ignore */
+    }
+    kitWheelDrag = null;
+  };
+
+  ["a", "b"].forEach((which) => {
+    const el = $(`#kit-wheel-handle-${which}`);
+    if (!el) return;
+    el.addEventListener("pointerdown", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      kitWheelDrag = { which, pointerId: e.pointerId };
+      try {
+        stage.setPointerCapture(e.pointerId);
+      } catch {
+        /* ignore */
+      }
+      onMove(e);
+    });
+  });
+
+  stage.addEventListener("pointermove", onMove);
+  stage.addEventListener("pointerup", onUp);
+  stage.addEventListener("pointercancel", onUp);
 }
 
 function openKitPicker(slotIndex) {
@@ -2590,6 +2823,7 @@ function bindEvents() {
   $("#kit-arrange-btn")?.addEventListener("click", arrangeActiveKitSpectrum);
   $("#kit-rename-btn")?.addEventListener("click", renameActiveKit);
   $("#kit-delete-btn")?.addEventListener("click", deleteActiveKit);
+  bindKitWheelHandles();
   $("#kit-notes")?.addEventListener("change", () => {
     const kit = getActiveKit();
     if (!kit) return;
