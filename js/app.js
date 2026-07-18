@@ -8,17 +8,66 @@ let detailColor = null;
 let editingColorId = null;
 
 const STORAGE = {
-  current: "our-art-studio-current",
+  current: "our-art-studio-current", // legacy, cleared on migrate
+  kits: "our-art-studio-kits-v1",
+  activeKit: "our-art-studio-active-kit",
   todays: "our-art-studio-todays-palette",
   userData: "our-art-studio-user-data",
   syncPassphrase: "our-art-studio-sync-passphrase",
   lastSyncedAt: "our-art-studio-last-synced-at",
 };
 
-const SYNC_BUNDLE_VERSION = 1;
+const SYNC_BUNDLE_VERSION = 2;
+const KIT_SLOT_MAX = 36;
+const KIT_SLOT_MIN = 8;
+
+/** Home tin: 4×4 left + 2 big + 2×4 right + 10 bottom = 36 */
+const HOME_TIN = { left: 16, big: 2, right: 8, bottom: 10, total: 36 };
+
+/** Prefill from studio home kit card (confirmed Jul 2026). null = empty / missing catalog */
+const HOME_DEFAULT_SLOTS = [
+  "mg-104",
+  "ds-15ml-hot-mulled-cider-yellow",
+  null, // Winsor Newton purple — not in catalog yet
+  "mg-020-burnt-sienna",
+  "ds-128-prussian-green",
+  "sch-923-desert-brown",
+  "wn-273",
+  "ds-15ml-candy-cane-red",
+  null, // DS transparent green (card) — confirm later
+  "rosa-747",
+  "wn-tube-quin-red",
+  "mb-potters-pink",
+  "sch-hp-940-brilliant-red-violet",
+  "sch-hp-667-raw-umber",
+  "sch-482-delft",
+  "mg-193-ultramarine-violet",
+  "wn-745", // May Green (WNA; card 475 → catalog 745)
+  "rosa-755",
+  "wn-tube-winsor-blue-gs",
+  "wn-tube-paynes-gray",
+  "ds-237-rose-madder",
+  "wn-609",
+  "ds-burnt-sienna",
+  "rosa-761",
+  "ds-034-french-ultramarine",
+  "wn-559",
+  "wn-555",
+  null, // DS 932 — not in catalog yet
+  "ds-undersea-green",
+  "sch-924-desert-green",
+  "ds-174-royal-purple",
+  "ds-moonglow",
+  null,
+  null,
+  null,
+  null,
+];
 
 let userData = { removed: [], added: [], overrides: {} };
-let currentIds = [];
+let kits = [];
+let activeKitId = null;
+let kitFillSlotIndex = null;
 let syncApiAvailable = false;
 let skipNextSyncPush = false;
 let syncPushTimer = null;
@@ -64,12 +113,13 @@ async function init() {
   buildVariantIndex();
 
   loadUserLists();
+  loadKits();
   rebuildFilters();
   await loadBrandStories();
   await initStudioSync();
   renderTodaysPalette();
   renderPalette();
-  renderCurrentPalette();
+  renderKits();
   updateTabBadges();
   renderHueChips();
   bindEvents();
@@ -106,7 +156,7 @@ function registerServiceWorker() {
     return;
   }
   navigator.serviceWorker
-    .register("./sw.js?v=69")
+    .register("./sw.js?v=70")
     .then((reg) => reg.update())
     .catch(() => {});
 }
@@ -381,8 +431,9 @@ function persistPaletteChanges() {
   rebuildFilters();
   mixPickerBuilt = false;
   loadUserLists();
+  loadKits();
   renderPalette();
-  renderCurrentPalette();
+  renderKits();
   updateTabBadges();
   if ($("#panel-mix").classList.contains("active")) ensureMixPicker();
   if (brandStories.length) renderBrandChips();
@@ -401,7 +452,8 @@ function buildSyncBundle() {
       added: userData.added.map((c) => ({ ...c })),
       overrides: { ...userData.overrides },
     },
-    currentIds: [...currentIds],
+    kits: kits.map((k) => ({ ...k, slots: [...k.slots] })),
+    activeKitId,
   };
 }
 
@@ -415,9 +467,10 @@ function applySyncBundle(bundle) {
         ? bundle.userData.overrides
         : {},
   };
-  if (Array.isArray(bundle.currentIds)) {
-    currentIds = bundle.currentIds;
-    saveStoredIds(STORAGE.current, currentIds);
+  if (Array.isArray(bundle.kits) && bundle.kits.length) {
+    kits = bundle.kits.map(normalizeKit);
+    activeKitId = bundle.activeKitId || kits[0]?.id || null;
+    saveKits();
   }
   if (bundle.revision) localSyncRevision = Math.max(localSyncRevision, bundle.revision);
   if (bundle.updatedAt) {
@@ -763,8 +816,7 @@ function removeColorFromStudio(id) {
     delete userData.overrides[id];
   }
 
-  currentIds = currentIds.filter((x) => x !== id);
-  saveStoredIds(STORAGE.current, currentIds);
+  removeColorIdFromAllKits(id);
   selectedMixSlots = selectedMixSlots.map((x) => (x === id ? null : x));
   compactMixSlots();
 
@@ -932,10 +984,112 @@ function startEditColor(c) {
 }
 
 function loadUserLists() {
-  const valid = new Set(palette.colors.map((c) => c.id));
-  currentIds = loadStoredIds(STORAGE.current).filter((id) => valid.has(id));
-  saveStoredIds(STORAGE.current, currentIds);
+  // Legacy single "current" list retired — kits replace it
+  localStorage.removeItem(STORAGE.current);
   localStorage.removeItem("our-art-studio-wishlist");
+}
+
+function uid(prefix = "kit") {
+  return `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`;
+}
+
+function normalizeKit(raw) {
+  const total = Math.min(
+    KIT_SLOT_MAX,
+    Math.max(KIT_SLOT_MIN, Number(raw.slots?.length || raw.slotCount || 12))
+  );
+  const slots = Array.from({ length: total }, (_, i) => {
+    const id = raw.slots?.[i];
+    return id && palette.colors.some((c) => c.id === id) ? id : null;
+  });
+  return {
+    id: raw.id || uid(),
+    name: (raw.name || "Kit").trim() || "Kit",
+    layout: raw.layout === "home-tin" ? "home-tin" : "grid",
+    slots,
+    notes: typeof raw.notes === "string" ? raw.notes : "",
+    orderMode: raw.orderMode === "spectrum" ? "spectrum" : "manual",
+  };
+}
+
+function makeHomeKit() {
+  const slots = Array.from({ length: HOME_TIN.total }, (_, i) => {
+    const id = HOME_DEFAULT_SLOTS[i] || null;
+    return id && palette.colors.some((c) => c.id === id) ? id : null;
+  });
+  return {
+    id: "kit-home",
+    name: "Home",
+    layout: "home-tin",
+    slots,
+    notes:
+      "Home tin from studio photos. Empty wells: WN purple, DS transparent green (card), DS 932 — add when catalogued. Still needs / notes: edit freely.",
+    orderMode: "manual",
+  };
+}
+
+function saveKits() {
+  try {
+    localStorage.setItem(STORAGE.kits, JSON.stringify(kits));
+    if (activeKitId) localStorage.setItem(STORAGE.activeKit, activeKitId);
+  } catch {
+    /* ignore quota */
+  }
+}
+
+function loadKits() {
+  const valid = new Set(palette.colors.map((c) => c.id));
+  let loaded = [];
+  try {
+    loaded = JSON.parse(localStorage.getItem(STORAGE.kits) || "[]");
+  } catch {
+    loaded = [];
+  }
+  if (!Array.isArray(loaded) || !loaded.length) {
+    kits = [makeHomeKit()];
+    activeKitId = kits[0].id;
+    saveKits();
+    return;
+  }
+  kits = loaded.map((k) => {
+    const n = normalizeKit(k);
+    n.slots = n.slots.map((id) => (id && valid.has(id) ? id : null));
+    return n;
+  });
+  const savedActive = localStorage.getItem(STORAGE.activeKit);
+  activeKitId =
+    kits.find((k) => k.id === savedActive)?.id || kits[0]?.id || null;
+}
+
+function getActiveKit() {
+  return kits.find((k) => k.id === activeKitId) || kits[0] || null;
+}
+
+function removeColorIdFromAllKits(id) {
+  let changed = false;
+  kits.forEach((k) => {
+    k.slots = k.slots.map((s) => {
+      if (s === id) {
+        changed = true;
+        return null;
+      }
+      return s;
+    });
+  });
+  if (changed) saveKits();
+}
+
+function kitFilledCount(kit) {
+  return kit.slots.filter(Boolean).length;
+}
+
+function activeKitIds() {
+  const kit = getActiveKit();
+  return kit ? kit.slots.filter(Boolean) : [];
+}
+
+function colorInActiveKit(id) {
+  return activeKitIds().includes(id);
 }
 
 function localDateKey() {
@@ -1017,9 +1171,9 @@ function buildColorCard(group, { showListMarkers = true } = {}) {
   btn.className = "color-card";
   btn.dataset.colorId = c.id;
   const swatchMarks = swatchMarksHtml(c);
-  const inCurrent = variants.some((v) => currentIds.includes(v.id));
+  const inKit = variants.some((v) => colorInActiveKit(v.id));
   const markerHtml =
-    showListMarkers && inCurrent ? `<p class="brand-tag card-marker">★ current</p>` : "";
+    showListMarkers && inKit ? `<p class="brand-tag card-marker">★ kit</p>` : "";
   btn.innerHTML = `
     <div class="swatch" style="background:${c.hex}">${swatchMarks}</div>
     <div class="color-card-meta">
@@ -1060,23 +1214,15 @@ function renderPalette() {
   });
 }
 
-function renderCurrentPalette() {
-  const colors = colorsByIds(currentIds);
-  $("#current-count").textContent = colors.length
-    ? `${colors.length} color${colors.length === 1 ? "" : "s"} in your working set`
-    : "Empty — open a color and tap Add to current palette";
-  renderColorGrid($("#current-grid"), colors, {
-    emptyMessage: "No colors yet — browse Palette, tap a color, then Add to current palette.",
-    showListMarkers: false,
-  });
-}
-
 function updateTabBadges() {
   $$(".tab").forEach((tab) => {
     const name = tab.dataset.tab;
     tab.querySelector(".tab-badge")?.remove();
     let count = 0;
-    if (name === "current") count = currentIds.length;
+    if (name === "kits") {
+      const kit = getActiveKit();
+      count = kit ? kitFilledCount(kit) : 0;
+    }
     if (count > 0) {
       const badge = document.createElement("span");
       badge.className = "tab-badge";
@@ -1086,27 +1232,253 @@ function updateTabBadges() {
   });
 }
 
-function toggleInList(ids, id, add) {
-  const set = new Set(ids);
-  if (add) set.add(id);
-  else set.delete(id);
-  return [...set];
+function renderKits() {
+  const chips = $("#kit-chips");
+  const workspace = $("#kit-workspace");
+  const empty = $("#kit-empty-state");
+  if (!chips) return;
+
+  chips.innerHTML = "";
+  kits.forEach((kit) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "kit-chip" + (kit.id === activeKitId ? " active" : "");
+    btn.textContent = `${kit.name} (${kitFilledCount(kit)}/${kit.slots.length})`;
+    btn.addEventListener("click", () => {
+      activeKitId = kit.id;
+      saveKits();
+      renderKits();
+      updateTabBadges();
+      renderPalette();
+    });
+    chips.appendChild(btn);
+  });
+
+  const kit = getActiveKit();
+  if (!kit) {
+    workspace.hidden = true;
+    empty.hidden = false;
+    return;
+  }
+  empty.hidden = true;
+  workspace.hidden = false;
+  $("#kit-active-name").textContent = kit.name;
+  $("#kit-active-meta").textContent = `${kitFilledCount(kit)} / ${kit.slots.length} wells · ${
+    kit.orderMode === "spectrum" ? "spectrum order" : "manual / tin order"
+  }`;
+  $("#kit-notes").value = kit.notes || "";
+  renderKitTin(kit);
 }
 
-function addToCurrent(id) {
-  if (!palette.colors.some((c) => c.id === id)) return;
-  currentIds = toggleInList(currentIds, id, true);
-  saveStoredIds(STORAGE.current, currentIds);
-  renderCurrentPalette();
+function renderKitTin(kit) {
+  const tin = $("#kit-tin");
+  if (!tin) return;
+  tin.className = "kit-tin" + (kit.layout === "home-tin" ? " kit-tin--home" : " kit-tin--grid");
+  tin.innerHTML = "";
+
+  if (kit.layout === "home-tin" && kit.slots.length === HOME_TIN.total) {
+    const left = document.createElement("div");
+    left.className = "kit-zone kit-zone-left";
+    for (let i = 0; i < 16; i++) left.appendChild(makeKitWell(kit, i));
+    const mid = document.createElement("div");
+    mid.className = "kit-zone kit-zone-mid";
+    const mix = document.createElement("div");
+    mix.className = "kit-mix-well";
+    mix.title = "Mixing area (not a color slot)";
+    mid.appendChild(mix);
+    for (let i = 16; i < 18; i++) mid.appendChild(makeKitWell(kit, i, true));
+    const right = document.createElement("div");
+    right.className = "kit-zone kit-zone-right";
+    for (let i = 18; i < 26; i++) right.appendChild(makeKitWell(kit, i));
+    const bottom = document.createElement("div");
+    bottom.className = "kit-zone kit-zone-bottom";
+    for (let i = 26; i < 36; i++) bottom.appendChild(makeKitWell(kit, i));
+    const row = document.createElement("div");
+    row.className = "kit-tin-top";
+    row.appendChild(left);
+    row.appendChild(mid);
+    row.appendChild(right);
+    tin.appendChild(row);
+    tin.appendChild(bottom);
+  } else {
+    const grid = document.createElement("div");
+    grid.className = "kit-zone kit-zone-grid";
+    kit.slots.forEach((_, i) => grid.appendChild(makeKitWell(kit, i)));
+    tin.appendChild(grid);
+  }
+}
+
+function makeKitWell(kit, index, large = false) {
+  const id = kit.slots[index];
+  const color = id ? palette.colors.find((c) => c.id === id) : null;
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "kit-well" + (large ? " kit-well--large" : "") + (color ? "" : " kit-well--empty");
+  btn.dataset.slot = String(index);
+  if (color) {
+    btn.style.background = color.hex;
+    btn.title = `${color.name_en} — tap to remove`;
+    btn.innerHTML = `<span class="kit-well-name">${escapeHtml(color.name_en)}</span>`;
+  } else {
+    btn.title = "Empty well — tap to pick a color";
+    btn.innerHTML = `<span class="kit-well-plus">+</span>`;
+  }
+  btn.addEventListener("click", () => {
+    if (color) {
+      kit.slots[index] = null;
+      kit.orderMode = "manual";
+      saveKits();
+      renderKits();
+      updateTabBadges();
+      renderPalette();
+      refreshDetailActions();
+    } else {
+      openKitPicker(index);
+    }
+  });
+  return btn;
+}
+
+function openKitPicker(slotIndex) {
+  kitFillSlotIndex = slotIndex;
+  const sheet = $("#kit-picker-sheet");
+  $("#kit-picker-search").value = "";
+  renderKitPickerGrid();
+  sheet.showModal();
+}
+
+function renderKitPickerGrid() {
+  const q = ($("#kit-picker-search")?.value || "").trim().toLowerCase();
+  let list = Mixing.sortBySpectrum(palette.colors);
+  if (q) {
+    list = list.filter((c) => {
+      const hay = [c.name_en, c.name_zh, c.brand, c.pigment, c.code, c.family]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase();
+      return hay.includes(q);
+    });
+  }
+  const kit = getActiveKit();
+  const used = new Set(kit?.slots.filter(Boolean) || []);
+  renderColorGrid($("#kit-picker-grid"), list, {
+    emptyMessage: "No match in palette.",
+    showListMarkers: false,
+  });
+  $("#kit-picker-grid").querySelectorAll(".color-card").forEach((card) => {
+    const id = card.dataset.colorId;
+    if (used.has(id)) card.classList.add("kit-picker-used");
+    card.addEventListener("click", (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      fillKitSlot(id);
+    });
+  });
+}
+
+function fillKitSlot(colorId) {
+  const kit = getActiveKit();
+  if (!kit || kitFillSlotIndex == null) return;
+  if (!palette.colors.some((c) => c.id === colorId)) return;
+  kit.slots[kitFillSlotIndex] = colorId;
+  kit.orderMode = "manual";
+  kitFillSlotIndex = null;
+  saveKits();
+  $("#kit-picker-sheet").close();
+  renderKits();
+  updateTabBadges();
+  renderPalette();
+  refreshDetailActions();
+}
+
+function arrangeActiveKitSpectrum() {
+  const kit = getActiveKit();
+  if (!kit) return;
+  const filled = kit.slots.map((id) => palette.colors.find((c) => c.id === id)).filter(Boolean);
+  if (filled.length < 2) {
+    alert("Add at least two colors before arranging.");
+    return;
+  }
+  const sorted = Mixing.sortBySpectrum(filled);
+  const empties = kit.slots.length - sorted.length;
+  kit.slots = [...sorted.map((c) => c.id), ...Array(empties).fill(null)];
+  kit.orderMode = "spectrum";
+  saveKits();
+  renderKits();
+}
+
+function createNewKit() {
+  const name = (prompt("Kit name?", "Travel") || "").trim();
+  if (!name) return;
+  let n = Number(prompt(`How many wells? (${KIT_SLOT_MIN}–${KIT_SLOT_MAX})`, "12"));
+  if (!Number.isFinite(n)) return;
+  n = Math.min(KIT_SLOT_MAX, Math.max(KIT_SLOT_MIN, Math.round(n)));
+  const kit = normalizeKit({
+    id: uid(),
+    name,
+    layout: "grid",
+    slots: Array(n).fill(null),
+    notes: "",
+    orderMode: "manual",
+  });
+  kits.push(kit);
+  activeKitId = kit.id;
+  saveKits();
+  renderKits();
+  updateTabBadges();
+}
+
+function renameActiveKit() {
+  const kit = getActiveKit();
+  if (!kit) return;
+  const name = (prompt("Rename kit", kit.name) || "").trim();
+  if (!name) return;
+  kit.name = name;
+  saveKits();
+  renderKits();
+}
+
+function deleteActiveKit() {
+  const kit = getActiveKit();
+  if (!kit) return;
+  if (kits.length <= 1) {
+    alert("Keep at least one kit — or empty its wells.");
+    return;
+  }
+  if (!confirm(`Delete kit “${kit.name}”?`)) return;
+  kits = kits.filter((k) => k.id !== kit.id);
+  activeKitId = kits[0].id;
+  saveKits();
+  renderKits();
+  updateTabBadges();
+  renderPalette();
+}
+
+function addToActiveKit(id) {
+  const kit = getActiveKit();
+  if (!kit || !palette.colors.some((c) => c.id === id)) return;
+  if (kit.slots.includes(id)) return;
+  const empty = kit.slots.indexOf(null);
+  if (empty < 0) {
+    alert(`“${kit.name}” is full (${kit.slots.length} wells).`);
+    return;
+  }
+  kit.slots[empty] = id;
+  kit.orderMode = "manual";
+  saveKits();
+  renderKits();
   renderPalette();
   updateTabBadges();
   refreshDetailActions();
 }
 
-function removeFromCurrent(id) {
-  currentIds = toggleInList(currentIds, id, false);
-  saveStoredIds(STORAGE.current, currentIds);
-  renderCurrentPalette();
+function removeFromActiveKit(id) {
+  const kit = getActiveKit();
+  if (!kit) return;
+  kit.slots = kit.slots.map((s) => (s === id ? null : s));
+  kit.orderMode = "manual";
+  saveKits();
+  renderKits();
   renderPalette();
   updateTabBadges();
   refreshDetailActions();
@@ -1692,12 +2064,14 @@ function renderHueChips() {
 }
 
 function updateDetailActionButtons(c) {
-  const inCurrent = currentIds.includes(c.id);
+  const kit = getActiveKit();
+  const inKit = colorInActiveKit(c.id);
   const currentBtn = $("#sheet-current-btn");
-  currentBtn.textContent = inCurrent
-    ? "★ Remove from current palette"
-    : "★ Add to current palette";
-  currentBtn.classList.toggle("is-active", inCurrent);
+  const kitName = kit?.name || "kit";
+  currentBtn.textContent = inKit
+    ? `★ Remove from ${kitName}`
+    : `★ Add to ${kitName}`;
+  currentBtn.classList.toggle("is-active", inKit);
 }
 
 function renderMixTipsHtml(tips) {
@@ -2059,10 +2433,12 @@ function resetMixPanel() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-function resetCurrentPanel() {
+function resetKitsPanel() {
   const sheet = $("#detail-sheet");
-  if (sheet.open) sheet.close();
-  renderCurrentPalette();
+  if (sheet?.open) sheet.close();
+  const picker = $("#kit-picker-sheet");
+  if (picker?.open) picker.close();
+  renderKits();
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
@@ -2137,12 +2513,12 @@ function bindEvents() {
       }
       if (alreadyActive) {
         if (tabName === "palette") resetPalettePanel();
-        if (tabName === "current") resetCurrentPanel();
+        if (tabName === "kits") resetKitsPanel();
         if (tabName === "mix") resetMixPanel();
         return;
       }
       if (tabName === "palette") resetPalettePanel();
-      if (tabName === "current") resetCurrentPanel();
+      if (tabName === "kits") resetKitsPanel();
       if (tabName === "mix") resetMixPanel();
       switchTab(tabName);
     });
@@ -2173,9 +2549,25 @@ function bindEvents() {
 
   $("#sheet-current-btn").addEventListener("click", () => {
     if (!detailColor) return;
-    if (currentIds.includes(detailColor.id)) removeFromCurrent(detailColor.id);
-    else addToCurrent(detailColor.id);
+    if (colorInActiveKit(detailColor.id)) removeFromActiveKit(detailColor.id);
+    else addToActiveKit(detailColor.id);
   });
+
+  $("#kit-add-btn")?.addEventListener("click", createNewKit);
+  $("#kit-arrange-btn")?.addEventListener("click", arrangeActiveKitSpectrum);
+  $("#kit-rename-btn")?.addEventListener("click", renameActiveKit);
+  $("#kit-delete-btn")?.addEventListener("click", deleteActiveKit);
+  $("#kit-notes")?.addEventListener("change", () => {
+    const kit = getActiveKit();
+    if (!kit) return;
+    kit.notes = $("#kit-notes").value;
+    saveKits();
+  });
+  $("#kit-picker-close")?.addEventListener("click", () => {
+    kitFillSlotIndex = null;
+    $("#kit-picker-sheet").close();
+  });
+  $("#kit-picker-search")?.addEventListener("input", renderKitPickerGrid);
   $("#sheet-remove-btn").addEventListener("click", () => {
     if (!detailColor) return;
     removeColorFromStudio(detailColor.id);

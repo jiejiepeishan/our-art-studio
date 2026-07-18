@@ -11,7 +11,7 @@
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
   <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
-  <link rel="stylesheet" href="css/style.css?v=69" />
+  <link rel="stylesheet" href="css/style.css?v=70" />
 </head>
 <body>
   <div class="paper-texture" aria-hidden="true"></div>
@@ -39,7 +39,7 @@
 
   <nav class="tab-nav" role="tablist">
     <button class="tab active" role="tab" aria-selected="true" data-tab="palette">Palette</button>
-    <button class="tab" role="tab" aria-selected="false" data-tab="current">Current</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="kits">Kits</button>
     <button class="tab" role="tab" aria-selected="false" data-tab="mix">Mix Lab</button>
     <button class="tab" role="tab" aria-selected="false" data-tab="more">More</button>
   </nav>
@@ -84,13 +84,47 @@
       <div id="palette-grid" class="palette-grid"></div>
     </section>
 
-    <!-- Current palette -->
-    <section id="panel-current" class="panel" role="tabpanel" hidden>
-      <h2 class="section-title">Current palette</h2>
-      <p class="section-hint">Colors you reach for most. Add from any color's detail sheet — remove when you swap tubes.</p>
-      <p id="current-count" class="list-meta"></p>
-      <div id="current-grid" class="palette-grid"></div>
+    <!-- Kits (physical tins) -->
+    <section id="panel-kits" class="panel" role="tabpanel" hidden>
+      <h2 class="section-title">Kits</h2>
+      <p class="section-hint">Small tins for home, office, travel — build like the real box, arrange by spectrum to learn.</p>
+      <div class="kits-toolbar">
+        <div id="kit-chips" class="kit-chips" role="tablist" aria-label="Your kits"></div>
+        <button type="button" id="kit-add-btn" class="btn-ghost btn-compact">+ New kit</button>
+      </div>
+      <div id="kit-workspace" class="kit-workspace" hidden>
+        <div class="kit-workspace-head">
+          <div>
+            <h3 id="kit-active-name" class="kit-active-name"></h3>
+            <p id="kit-active-meta" class="list-meta"></p>
+          </div>
+          <div class="kit-actions">
+            <button type="button" id="kit-arrange-btn" class="btn-ghost btn-compact">Arrange spectrum</button>
+            <button type="button" id="kit-rename-btn" class="btn-ghost btn-compact">Rename</button>
+            <button type="button" id="kit-delete-btn" class="btn-ghost btn-compact">Delete</button>
+          </div>
+        </div>
+        <label class="kit-notes-card">
+          <span class="kit-notes-label">Still needs / notes</span>
+          <textarea id="kit-notes" rows="3" placeholder="e.g. cool yellow, granulating blue, earth for neutrals…"></textarea>
+        </label>
+        <div id="kit-tin" class="kit-tin" aria-label="Kit wells"></div>
+        <p class="kit-tin-hint">Tap an empty well to pick a color · tap a filled well to remove · drag later TBD</p>
+      </div>
+      <p id="kit-empty-state" class="empty-state">No kits yet — tap + New kit.</p>
     </section>
+
+    <!-- Kit color picker sheet -->
+    <dialog id="kit-picker-sheet" class="detail-sheet kit-picker-sheet">
+      <div class="sheet-inner">
+        <header class="sheet-header">
+          <h2 class="sheet-title">Pick a color</h2>
+          <button type="button" class="sheet-close" id="kit-picker-close" aria-label="Close">×</button>
+        </header>
+        <input type="search" id="kit-picker-search" class="kit-picker-search" placeholder="Search palette…" autocomplete="off" />
+        <div id="kit-picker-grid" class="palette-grid kit-picker-grid"></div>
+      </div>
+    </dialog>
 
     <!-- Mix Lab -->
     <section id="panel-mix" class="panel" role="tabpanel" hidden>
@@ -361,7 +395,7 @@
     </div>
   </dialog>
 
-  <script src="js/mixing.js?v=69"></script>
-  <script src="js/app.js?v=69"></script>
+  <script src="js/mixing.js?v=70"></script>
+  <script src="js/app.js?v=70"></script>
 </body>
 </html>

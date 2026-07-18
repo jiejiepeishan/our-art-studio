@@ -1,9 +1,9 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-07-10-sennelier-807-326",
+  "updated": "2026-07-18-kits-home",
   "source": "Our Art Studio — Jul 10 M. Graham tube batch · Jul 10-2 Sennelier 807/326",
-  "color_count": 207,
+  "color_count": 212,
   "colors": [
     {
       "brand_traits": [
@@ -5917,6 +5917,146 @@
           "verified": false
         }
       ]
+    },
+    {
+      "id": "sch-hp-940-brilliant-red-violet",
+      "brand": "Schmincke",
+      "brand_traits": [
+        "professional",
+        "horadam"
+      ],
+      "name_en": "Brilliant Red Violet",
+      "name_zh": "亮红紫",
+      "code": "940",
+      "pigment": "PV55",
+      "hex": "#C44A8A",
+      "format": "half-pan",
+      "family": "purple",
+      "transparency": 2,
+      "lightfastness": 2,
+      "granulating": false,
+      "staining": true,
+      "toxicity": "low",
+      "notes": "Horadam 940 Brilliant Red Violet (PV55, fluorescent component per catalog). Semi-transparent. Added Jul 2026 from home kit card.",
+      "ace_note": "Electric cool violet-red — opera's quieter cousin. Stains with manners; florals and neon dusk love it.",
+      "mix_star": true,
+      "best_for": "Cool pinks-to-violets, modern florals, and high-chroma accents.",
+      "ace_history": "Brilliant Red Violet sits in Schmincke's modern high-chroma violet range — PV55 territory for painters who want punch without mixing from primaries every time."
+    },
+    {
+      "id": "sch-hp-667-raw-umber",
+      "brand": "Schmincke",
+      "brand_traits": [
+        "professional",
+        "horadam"
+      ],
+      "name_en": "Raw Umber",
+      "name_zh": "生赭褐",
+      "code": "667",
+      "pigment": "PBr7",
+      "hex": "#6B5344",
+      "format": "half-pan",
+      "family": "earth",
+      "transparency": 2,
+      "lightfastness": 1,
+      "granulating": true,
+      "staining": false,
+      "toxicity": "low",
+      "notes": "Horadam 667 Raw Umber (PBr7). Earth brown, granulating. Studio card code 667; catalog also lists related umbers nearby. Added Jul 2026 from home kit.",
+      "ace_note": "Quiet dirt-and-bark brown — cool enough to shadow greens, warm enough for tree trunks. Granulates like it remembers soil.",
+      "mix_star": true,
+      "best_for": "Bark, cool earth neutrals with blue, and muted landscape mid-tones.",
+      "ace_history": "Raw umber is natural iron/manganese earth — the cool brown workhorse of landscape boxes for centuries."
+    },
+    {
+      "id": "ds-034-french-ultramarine",
+      "brand": "Daniel Smith",
+      "brand_traits": [
+        "professional",
+        "premium"
+      ],
+      "name_en": "French Ultramarine",
+      "name_zh": "法式群青",
+      "code": "284600034",
+      "pigment": "PB29",
+      "hex": "#3A4A9C",
+      "format": "tube",
+      "size": "15ml",
+      "family": "blue",
+      "transparency": 1,
+      "lightfastness": 1,
+      "granulating": true,
+      "staining": true,
+      "toxicity": "low",
+      "notes": "DS French Ultramarine PB29. Warm reddish ultramarine, granulating. SKU 284600034. Added Jul 2026 from home kit card DS034.",
+      "ace_note": "The classic granulating sky-and-shadow blue — warmer than straight ultramarine, perfect with burnt sienna for instant storm greys.",
+      "mix_star": true,
+      "best_for": "Skies, atmospheric greys with earths, and clean violets with cool reds.",
+      "ace_history": "French Ultramarine (PB29) is synthetic lapis — Guimet's 19th-century triumph still the landscape painter's first blue.",
+      "mix_tips": [
+        {
+          "with": [
+            "ds-burnt-sienna"
+          ],
+          "result": "Granulating greys and soft storm skies.",
+          "verified": false
+        },
+        {
+          "with": [
+            "ds-237-rose-madder"
+          ],
+          "result": "Classic clean violets.",
+          "verified": false
+        }
+      ]
+    },
+    {
+      "id": "wn-tube-paynes-gray",
+      "brand": "Winsor & Newton",
+      "brand_traits": [
+        "professional"
+      ],
+      "name_en": "Payne's Grey",
+      "name_zh": "佩恩灰",
+      "code": null,
+      "pigment": "PB15/PBk6/PV19",
+      "hex": "#4A5568",
+      "format": "tube",
+      "family": "neutral",
+      "transparency": 2,
+      "lightfastness": 1,
+      "granulating": false,
+      "staining": true,
+      "toxicity": "low",
+      "notes": "W&N Professional Payne's Grey (typical blend blue/black/violet). Added Jul 2026 from home kit card WNP.",
+      "ace_note": "The polite dark — cool grey-blue for shadows without killing the wash. One squeeze replaces three muddy mixes.",
+      "mix_star": true,
+      "best_for": "Cool shadows, storm skies, and quick value without pure black."
+    },
+    {
+      "id": "mg-104",
+      "brand": "M. Graham",
+      "brand_traits": [
+        "professional",
+        "honey"
+      ],
+      "name_en": "Yellow (MG104)",
+      "name_zh": "黄",
+      "code": "33-104",
+      "pigment": "PY",
+      "hex": "#E8C04A",
+      "format": "tube",
+      "size": "15ml",
+      "family": "yellow",
+      "transparency": 1,
+      "lightfastness": 1,
+      "granulating": false,
+      "staining": false,
+      "toxicity": "low",
+      "notes": "Studio home-kit label MG104 (warm yellow). Confirm official M.Graham product name if needed. Added Jul 2026.",
+      "ace_note": "Warm honey yellow from the home tin — primary sunshine until we pin the exact tube name.",
+      "mix_star": true,
+      "best_for": "Warm greens and oranges; home-kit yellow well."
     }
   ],
   "caveats": [
