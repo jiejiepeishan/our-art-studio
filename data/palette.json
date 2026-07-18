@@ -1,9 +1,9 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-07-18-kits-home",
+  "updated": "2026-07-18-sch-211-wheel-6up",
   "source": "Our Art Studio — Jul 10 M. Graham tube batch · Jul 10-2 Sennelier 807/326",
-  "color_count": 212,
+  "color_count": 214,
   "colors": [
     {
       "brand_traits": [
@@ -366,6 +366,32 @@
       "ace_history": "Cadmium yellow (PY35) arrived in the 1840s and shocked the Salon with opaque, buttery light — Monet, Matisse, and every sun-drenched still life owe debt to this heavy metal.",
       "toxicity": "high",
       "toxicity_habit": "Cadmium pigment — wash hands thoroughly, don't spray without ventilation, and keep tubes away from food prep areas."
+    },
+    {
+      "id": "sch-211-chromium-yellow-lemon",
+      "brand": "Schmincke",
+      "brand_traits": [
+        "professional",
+        "horadam",
+        "cadmium-free"
+      ],
+      "name_en": "Chromium Yellow Hue Lemon",
+      "name_zh": "合成铬黄柠檬",
+      "code": "211",
+      "pigment": "PY3",
+      "hex": "#F4ED3C",
+      "format": "half-pan",
+      "family": "yellow",
+      "transparency": 2,
+      "lightfastness": 2,
+      "granulating": false,
+      "staining": false,
+      "toxicity": "low",
+      "notes": "Horadam 211 Chromium Yellow Hue Lemon (Chromgelbton Zitrone). Cool lemon yellow, cadmium-free. Added Jul 2026.",
+      "ace_note": "Zingy cool lemon — the bright edge of a citrus slice. Cooler than 212 Light, cleaner than warm Naples for spring greens.",
+      "mix_star": true,
+      "best_for": "Spring greens, cool highlights, florals, and crisp warm-vs-cool yellow contrast.",
+      "ace_history": "Lemon chromium hues replace toxic lead chrome with Hansa-style PY3 energy — the high-key yellow of plein-air skies and botanical notes."
     },
     {
       "brand_traits": [
@@ -1502,7 +1528,7 @@
       "granulating": true,
       "staining": false,
       "pigment": "PG7/PY3",
-      "notes": "2ml sample. Granulating.",
+      "notes": "2ml sample. Granulating. Also called Shire Green on some lists; code 932.",
       "id": "sch-932-shire-olive",
       "brand": "Schmincke",
       "name_en": "Shire Olive Green",
@@ -5962,7 +5988,7 @@
       "granulating": true,
       "staining": false,
       "toxicity": "low",
-      "notes": "Horadam 667 Raw Umber (PBr7). Earth brown, granulating. Studio card code 667; catalog also lists related umbers nearby. Added Jul 2026 from home kit.",
+      "notes": "Horadam 667 Raw Umber (PBr7). Confirmed studio pan code 667 (not 679). Added/corrected Jul 2026.",
       "ace_note": "Quiet dirt-and-bark brown — cool enough to shadow greens, warm enough for tree trunks. Granulates like it remembers soil.",
       "mix_star": true,
       "best_for": "Bark, cool earth neutrals with blue, and muted landscape mid-tones.",
@@ -6053,10 +6079,33 @@
       "granulating": false,
       "staining": false,
       "toxicity": "low",
-      "notes": "Studio home-kit label MG104 (warm yellow). Confirm official M.Graham product name if needed. Added Jul 2026.",
+      "notes": "Studio home-kit label MG104 (warm yellow). Confirm official M.Graham product name if needed. Added Jul 2026. Superseded for home kit by MaimeriBlu 104 Naples Yellow (mb-naples-yellow).",
       "ace_note": "Warm honey yellow from the home tin — primary sunshine until we pin the exact tube name.",
       "mix_star": true,
       "best_for": "Warm greens and oranges; home-kit yellow well."
+    },
+    {
+      "id": "wn-tube-tyrian-purple",
+      "brand": "Winsor & Newton",
+      "brand_traits": [
+        "professional"
+      ],
+      "name_en": "Tyrian Purple",
+      "name_zh": "泰尔紫",
+      "pigment": "PV37/PR202",
+      "hex": "#6B2A6B",
+      "format": "tube",
+      "family": "purple",
+      "transparency": 1,
+      "lightfastness": 2,
+      "granulating": false,
+      "staining": true,
+      "toxicity": "low",
+      "notes": "W&N Professional Tyrian Purple (PV37/PR202). Intense deep purple, red-blue undertone. Permanence often rated B. Added Jul 2026 from home kit card.",
+      "ace_note": "Royal, botanical purple — deep red-violet for florals and dusk without mixing a muddy pile. Stains with purpose.",
+      "mix_star": true,
+      "best_for": "Botanical purples, deep florals, and rich cool shadows.",
+      "ace_history": "Named for the legendary murex dye of antiquity — modern Tyrian Purple is a synthetic homage for painters who want that historic depth without the snails."
     }
   ],
   "caveats": [

@@ -2190,11 +2190,11 @@ button.mix-slot-swatch--filled:active {
 .kit-hue-row {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 8px;
+  gap: 6px;
   justify-content: start;
 }
 
-/* keep 6-up as primary density */
+/* Always 6-up on phone + desktop (spectrum tin density) */
 
 /* Short rows: only as many cells as colors — grid places them left-aligned */
 .kit-hue-row > .kit-well {
@@ -2286,18 +2286,6 @@ button.mix-slot-swatch--filled:active {
 
 .kit-picker-used {
   opacity: 0.55;
-}
-
-@media (max-width: 400px) {
-  .kit-hue-row {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-
-@media (max-width: 340px) {
-  .kit-hue-row {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }
 
 /* —— Kit mix wheel (A + C: dual pointers, kit-aware) —— */
@@ -2402,7 +2390,7 @@ button.mix-slot-swatch--filled:active {
   margin: 0;
   border: 3px solid #fff;
   border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.22);
   font-size: 0.7rem;
   font-weight: 700;
   color: #fff;
@@ -2418,16 +2406,14 @@ button.mix-slot-swatch--filled:active {
   cursor: grabbing;
 }
 
-.kit-wheel-handle--a {
-  outline: 2px solid var(--rose);
-}
-
-.kit-wheel-handle--b {
-  outline: 2px solid var(--lavender);
+/* Letter contrast when fill is a light paint (set via JS) */
+.kit-wheel-handle.is-light {
+  color: #2a241c;
+  text-shadow: none;
 }
 
 .kit-wheel-handle.is-set {
-  /* fill set via JS from color hex */
+  /* fill + label contrast set via JS from color hex */
 }
 
 .kit-wheel-readout {
@@ -2446,22 +2432,22 @@ button.mix-slot-swatch--filled:active {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.35rem;
+  height: 1.35rem;
   border-radius: 50%;
   font-size: 0.65rem;
   font-weight: 700;
   color: #fff;
   background: var(--ink-soft);
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
   flex-shrink: 0;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
 }
 
-#kit-wheel-a-line .kit-wheel-tag {
-  background: var(--rose);
-}
-
-#kit-wheel-b-line .kit-wheel-tag {
-  background: #8b7aa8;
+.kit-wheel-tag.is-light {
+  color: #2a241c;
+  text-shadow: none;
 }
 
 .kit-wheel-note {

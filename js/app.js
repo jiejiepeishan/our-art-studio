@@ -1676,6 +1676,33 @@ function setHandlePosition(el, hueDeg) {
   el.style.transform = `translate(-50%, -50%) rotate(${angle}deg) translateY(-96px) rotate(${-angle}deg)`;
 }
 
+/** Relative luminance 0–1 for contrast decisions (WCAG-ish) */
+function hexLuminance(hex) {
+  if (!hex || typeof hex !== "string") return 0.5;
+  const m = hex.replace("#", "").match(/^([0-9a-f]{3}|[0-9a-f]{6})$/i);
+  if (!m) return 0.5;
+  let h = m[1];
+  if (h.length === 3) h = h.split("").map((c) => c + c).join("");
+  const r = parseInt(h.slice(0, 2), 16) / 255;
+  const g = parseInt(h.slice(2, 4), 16) / 255;
+  const b = parseInt(h.slice(4, 6), 16) / 255;
+  const lin = (c) => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
+  return 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
+}
+
+/** Paint A/B circle (handle or readout tag) with selected color */
+function paintKitMarker(el, color) {
+  if (!el) return;
+  if (color?.hex) {
+    el.style.background = color.hex;
+    el.classList.add("is-set");
+    el.classList.toggle("is-light", hexLuminance(color.hex) > 0.55);
+  } else {
+    el.style.background = "";
+    el.classList.remove("is-set", "is-light");
+  }
+}
+
 function renderKitWheel() {
   const stage = $("#kit-wheel-stage");
   if (!stage) return;
@@ -1683,25 +1710,26 @@ function renderKitWheel() {
   const b = kitWheelB ? palette.colors.find((c) => c.id === kitWheelB) : null;
   const ha = $("#kit-wheel-handle-a");
   const hb = $("#kit-wheel-handle-b");
+  const tagA = $("#kit-wheel-a-line .kit-wheel-tag");
+  const tagB = $("#kit-wheel-b-line .kit-wheel-tag");
 
   if (a) {
     setHandlePosition(ha, colorHueDeg(a));
-    ha.style.background = a.hex;
-    ha.classList.add("is-set");
+    paintKitMarker(ha, a);
   } else {
     setHandlePosition(ha, 0);
-    ha.style.background = "";
-    ha.classList.remove("is-set");
+    paintKitMarker(ha, null);
   }
   if (b) {
     setHandlePosition(hb, colorHueDeg(b));
-    hb.style.background = b.hex;
-    hb.classList.add("is-set");
+    paintKitMarker(hb, b);
   } else {
     setHandlePosition(hb, 120);
-    hb.style.background = "";
-    hb.classList.remove("is-set");
+    paintKitMarker(hb, null);
   }
+  // Readout A/B chips match the same pans (bug: were fixed rose/lavender)
+  paintKitMarker(tagA, a);
+  paintKitMarker(tagB, b);
 
   $("#kit-wheel-a-name").textContent = a
     ? `${a.name_en}${a.granulating ? " ✦" : ""}${a.mix_star ? " ◈" : ""}`
