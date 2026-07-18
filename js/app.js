@@ -26,15 +26,15 @@ const HOME_TIN = { left: 16, big: 2, right: 8, bottom: 10, total: 36 };
 
 /** Prefill from studio home kit card (confirmed Jul 2026). null = empty / missing catalog */
 const HOME_DEFAULT_SLOTS = [
-  "mg-104",
+  "mb-naples-yellow", // MaimeriBlu 104 Naples Yellow (not MG)
   "ds-15ml-hot-mulled-cider-yellow",
-  null, // Winsor Newton purple — not in catalog yet
+  "wn-tube-tyrian-purple",
   "mg-020-burnt-sienna",
   "ds-128-prussian-green",
   "sch-923-desert-brown",
   "wn-273",
   "ds-15ml-candy-cane-red",
-  null, // DS transparent green (card) — confirm later
+  "ds-15ml-christmas-tree-green",
   "rosa-747",
   "wn-tube-quin-red",
   "mb-potters-pink",
@@ -42,18 +42,18 @@ const HOME_DEFAULT_SLOTS = [
   "sch-hp-667-raw-umber",
   "sch-482-delft",
   "mg-193-ultramarine-violet",
-  "wn-745", // May Green (WNA; card 475 → catalog 745)
-  "rosa-755",
+  "wn-745", // White Nights May Green
+  "rosa-755", // Grass Green
   "wn-tube-winsor-blue-gs",
   "wn-tube-paynes-gray",
   "ds-237-rose-madder",
   "wn-609",
   "ds-burnt-sienna",
-  "rosa-761",
+  "rosa-761", // Golden Brown
   "ds-034-french-ultramarine",
   "wn-559",
   "wn-555",
-  null, // DS 932 — not in catalog yet
+  "sch-932-shire-olive", // Shire Green / Olive 932
   "ds-undersea-green",
   "sch-924-desert-green",
   "ds-174-royal-purple",
@@ -156,7 +156,7 @@ function registerServiceWorker() {
     return;
   }
   navigator.serviceWorker
-    .register("./sw.js?v=70")
+    .register("./sw.js?v=71")
     .then((reg) => reg.update())
     .catch(() => {});
 }
@@ -1056,6 +1056,29 @@ function loadKits() {
     n.slots = n.slots.map((id) => (id && valid.has(id) ? id : null));
     return n;
   });
+  // Refresh Home kit wells when defaults improve (empty slots only — never overwrite filled)
+  const home = kits.find((k) => k.id === "kit-home" || k.name === "Home");
+  if (home && home.layout === "home-tin") {
+    let patched = false;
+    for (let i = 0; i < HOME_TIN.total; i++) {
+      const def = HOME_DEFAULT_SLOTS[i];
+      if (!home.slots[i] && def && valid.has(def)) {
+        home.slots[i] = def;
+        patched = true;
+      }
+      // remap known corrections if old provisional id still sitting
+      if (home.slots[i] === "mg-104" && valid.has("mb-naples-yellow")) {
+        home.slots[i] = "mb-naples-yellow";
+        patched = true;
+      }
+    }
+    if (home.notes && home.notes.includes("Empty wells:")) {
+      home.notes =
+        "Home tin from studio photos (corrected labels Jul 2026). Edit wells anytime · Arrange spectrum to learn rainbow order.";
+      patched = true;
+    }
+    if (patched) saveKits();
+  }
   const savedActive = localStorage.getItem(STORAGE.activeKit);
   activeKitId =
     kits.find((k) => k.id === savedActive)?.id || kits[0]?.id || null;
