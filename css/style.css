@@ -1593,6 +1593,56 @@ button.mix-slot-swatch--filled:active {
 }
 
 /* Add / edit color form */
+.add-form-hero {
+  margin-bottom: 8px;
+}
+
+.color-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-card {
+  margin: 0;
+  padding: 14px 16px 6px;
+  border: 1px solid var(--blush);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.form-card--optional {
+  background: var(--paper-deep);
+  box-shadow: none;
+}
+
+.form-card-legend {
+  padding: 0 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.form-field--checks {
+  justify-content: flex-end;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+  margin-bottom: 24px;
+}
+
+.form-actions .btn-primary {
+  flex: 1;
+  min-width: 140px;
+}
+
 .color-form {
   padding: 0 16px 24px;
   max-width: 520px;
@@ -2146,6 +2196,8 @@ button.mix-slot-swatch--filled:active {
   gap: 8px;
   justify-content: start;
 }
+
+/* keep 6-up as primary density */
 
 /* Short rows: only as many cells as colors — grid places them left-aligned */
 .kit-hue-row > .kit-well {

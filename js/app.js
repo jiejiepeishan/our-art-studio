@@ -21,12 +21,12 @@ const SYNC_BUNDLE_VERSION = 2;
 const KIT_SLOT_MAX = 36;
 const KIT_SLOT_MIN = 8;
 
-/** Home tin: 4×4 left + 2 big + 2×4 right + 10 bottom = 36 */
-const HOME_TIN = { left: 16, big: 2, right: 8, bottom: 10, total: 36 };
+/** Home kit capacity (32 pans — no empty wells) */
+const HOME_TIN = { total: 32 };
 
-/** Prefill from studio home kit card (confirmed Jul 2026). null = empty / missing catalog */
+/** Prefill from studio home kit card (confirmed Jul 2026) */
 const HOME_DEFAULT_SLOTS = [
-  "mb-naples-yellow", // MaimeriBlu 104 Naples Yellow (not MG)
+  "mb-naples-yellow", // MaimeriBlu 104 Naples Yellow
   "ds-15ml-hot-mulled-cider-yellow",
   "wn-tube-tyrian-purple",
   "mg-020-burnt-sienna",
@@ -58,10 +58,6 @@ const HOME_DEFAULT_SLOTS = [
   "sch-924-desert-green",
   "ds-174-royal-purple",
   "ds-moonglow",
-  null,
-  null,
-  null,
-  null,
 ];
 
 let userData = { removed: [], added: [], overrides: {} };
@@ -161,7 +157,7 @@ function registerServiceWorker() {
     return;
   }
   navigator.serviceWorker
-    .register("./sw.js?v=75")
+    .register("./sw.js?v=76")
     .then((reg) => reg.update())
     .catch(() => {});
 }
@@ -1018,18 +1014,18 @@ function normalizeKit(raw) {
 }
 
 function makeHomeKit() {
-  const slots = Array.from({ length: HOME_TIN.total }, (_, i) => {
-    const id = HOME_DEFAULT_SLOTS[i] || null;
-    return id && palette.colors.some((c) => c.id === id) ? id : null;
-  });
+  const slots = HOME_DEFAULT_SLOTS.map((id) =>
+    id && palette.colors.some((c) => c.id === id) ? id : null
+  ).filter(Boolean);
+  // Keep length at 32; pad only if some defaults missing from catalog
+  while (slots.length < HOME_TIN.total) slots.push(null);
   return {
     id: "kit-home",
     name: "Home",
-    layout: "home-tin",
-    slots,
-    notes:
-      "Home tin from studio photos. Empty wells: WN purple, DS transparent green (card), DS 932 — add when catalogued. Still needs / notes: edit freely.",
-    orderMode: "manual",
+    layout: "grid",
+    slots: slots.slice(0, HOME_TIN.total),
+    notes: "",
+    orderMode: "spectrum",
   };
 }
 
@@ -1061,25 +1057,43 @@ function loadKits() {
     n.slots = n.slots.map((id) => (id && valid.has(id) ? id : null));
     return n;
   });
-  // Refresh Home kit wells when defaults improve (empty slots only — never overwrite filled)
+  // Refresh Home kit: 32 wells, drop empty padding, apply known remaps
   const home = kits.find((k) => k.id === "kit-home" || k.name === "Home");
-  if (home && home.layout === "home-tin") {
+  if (home) {
     let patched = false;
-    for (let i = 0; i < HOME_TIN.total; i++) {
-      const def = HOME_DEFAULT_SLOTS[i];
-      if (!home.slots[i] && def && valid.has(def)) {
-        home.slots[i] = def;
+    home.layout = "grid";
+    home.slots = home.slots.map((id) => {
+      if (id === "mg-104" && valid.has("mb-naples-yellow")) {
+        patched = true;
+        return "mb-naples-yellow";
+      }
+      return id && valid.has(id) ? id : null;
+    });
+    // Prefer filled wells only; cap at 32
+    const filled = home.slots.filter(Boolean);
+    const target = HOME_DEFAULT_SLOTS.map((id) =>
+      id && valid.has(id) ? id : null
+    ).filter(Boolean);
+    // Merge: keep user order for filled, add any missing defaults not already in kit
+    const have = new Set(filled);
+    target.forEach((id) => {
+      if (!have.has(id)) {
+        filled.push(id);
+        have.add(id);
         patched = true;
       }
-      // remap known corrections if old provisional id still sitting
-      if (home.slots[i] === "mg-104" && valid.has("mb-naples-yellow")) {
-        home.slots[i] = "mb-naples-yellow";
-        patched = true;
-      }
+    });
+    const next = filled.slice(0, HOME_TIN.total);
+    if (
+      next.length !== home.slots.length ||
+      next.some((id, i) => id !== home.slots[i]) ||
+      home.slots.some((id) => !id)
+    ) {
+      home.slots = next;
+      patched = true;
     }
-    if (home.notes && home.notes.includes("Empty wells:")) {
-      home.notes =
-        "Home tin from studio photos (corrected labels Jul 2026). Edit wells anytime · Arrange spectrum to learn rainbow order.";
+    if (home.notes) {
+      home.notes = "";
       patched = true;
     }
     if (patched) saveKits();
@@ -1291,7 +1305,7 @@ function renderKits() {
   empty.hidden = true;
   workspace.hidden = false;
   $("#kit-active-name").textContent = kit.name;
-  $("#kit-active-meta").textContent = `${kitFilledCount(kit)} / ${kit.slots.length} wells · spectrum · 6 per row`;
+  $("#kit-active-meta").textContent = `${kitFilledCount(kit)} / ${kit.slots.length} · spectrum · 6 / row`;
   updateKitGuidance(kit);
   renderKitTin(kit);
   // Drop wheel picks that left the kit
@@ -1691,10 +1705,10 @@ function renderKitWheel() {
 
   $("#kit-wheel-a-name").textContent = a
     ? `${a.name_en}${a.granulating ? " ✦" : ""}${a.mix_star ? " ◈" : ""}`
-    : "— tap a pan or drag A";
+    : "—";
   $("#kit-wheel-b-name").textContent = b
     ? `${b.name_en}${b.granulating ? " ✦" : ""}${b.mix_star ? " ◈" : ""}`
-    : "— tap a pan or drag B";
+    : "—";
 
   const swatch = $("#kit-wheel-mix-swatch");
   const label = $("#kit-wheel-mix-label");
@@ -1714,18 +1728,17 @@ function renderKitWheel() {
         ? warn.segments.map((s) => s.t || s.swap?.label || "").join("")
         : warn.text
       : "";
+    // Prefer a short mix insight — avoid repeating how-to instructions
     note.textContent =
       tips ||
       warnText ||
-      `≈ ${mix.hex.toUpperCase()} · screen guess — try a swatch on paper.`;
+      `≈ ${mix.hex.toUpperCase()} · screen guess`;
+    note.hidden = false;
   } else {
     swatch.style.background = "var(--paper-deep)";
     label.textContent = "Mix";
-    const n = kitColorsForWheel().length;
-    note.textContent =
-      n < 2
-        ? "Add at least two colors to this kit, then drag the handles."
-        : "Drag A & B on the wheel (snaps to kit pans), or tap pans to assign.";
+    note.textContent = "";
+    note.hidden = true;
   }
 }
 
@@ -1797,22 +1810,90 @@ function openKitPicker(slotIndex) {
   sheet.showModal();
 }
 
+/** Multi-token AND search: code, name, brand, family, hue words */
+function colorMatchesSearchTokens(c, tokens) {
+  if (!tokens.length) return true;
+  const nameEn = (c.name_en || "").toLowerCase();
+  const nameZh = (c.name_zh || "").toLowerCase();
+  const brand = (c.brand || "").toLowerCase();
+  const pigment = (c.pigment || "").toLowerCase();
+  const code = String(c.code || "").toLowerCase();
+  const codeDigits = code.replace(/\D/g, "");
+  const family = (c.family || "").toLowerCase();
+  let hue = "";
+  try {
+    hue = String(Math.round(Mixing.hexToHsl(c.hex).h));
+  } catch {
+    /* ignore */
+  }
+  const hay = [nameEn, nameZh, brand, pigment, code, codeDigits, family, hue]
+    .filter(Boolean)
+    .join(" ");
+
+  const HUE_WORDS = {
+    yellow: ["yellow", "gold", "ochre", "gamboge", "naples", "hansa", "azo"],
+    red: ["red", "scarlet", "crimson", "carmine", "vermilion", "rose", "alizarin"],
+    orange: ["orange", "coral"],
+    green: ["green", "olive", "viridian", "sap", "hooker", "turquoise"],
+    blue: ["blue", "ultramarine", "cerulean", "cobalt", "indigo", "cyan", "phthalo"],
+    purple: ["purple", "violet", "lilac", "magenta", "mauve"],
+    pink: ["pink", "rose", "opera"],
+    brown: ["brown", "umber", "sienna", "earth", "sepia", "ochre"],
+    grey: ["grey", "gray", "neutral", "payne", "black"],
+    gray: ["grey", "gray", "neutral", "payne", "black"],
+  };
+
+  return tokens.every((tok) => {
+    if (hay.includes(tok)) return true;
+    // bare numbers match product codes (211, 33-107, 284600034)
+    if (/^\d{2,}$/.test(tok)) {
+      return codeDigits.includes(tok) || code.includes(tok);
+    }
+    // hue family word → family field or name synonyms
+    const syns = HUE_WORDS[tok];
+    if (syns) {
+      if (syns.some((s) => family.includes(s) || nameEn.includes(s))) return true;
+      if (family === tok) return true;
+    }
+    // brand shorthand
+    const brandMap = {
+      schmincke: "schmincke",
+      sch: "schmincke",
+      ds: "daniel smith",
+      "daniel": "daniel",
+      "m.graham": "m. graham",
+      mg: "m. graham",
+      graham: "m. graham",
+      wn: "winsor",
+      winsor: "winsor",
+      windsor: "winsor",
+      wna: "white nights",
+      "white": "white nights",
+      nights: "white nights",
+      rosa: "rosa",
+      maimeri: "maimeri",
+      mb: "maimeri",
+    };
+    const bm = brandMap[tok];
+    if (bm && brand.includes(bm)) return true;
+    return false;
+  });
+}
+
 function renderKitPickerGrid() {
-  const q = ($("#kit-picker-search")?.value || "").trim().toLowerCase();
+  const raw = ($("#kit-picker-search")?.value || "").trim().toLowerCase();
+  // tokens: split on whitespace / commas; ignore empties
+  const tokens = raw.split(/[\s,]+/).filter(Boolean);
   let list = Mixing.sortBySpectrum(palette.colors);
-  if (q) {
-    list = list.filter((c) => {
-      const hay = [c.name_en, c.name_zh, c.brand, c.pigment, c.code, c.family]
-        .filter(Boolean)
-        .join(" ")
-        .toLowerCase();
-      return hay.includes(q);
-    });
+  if (tokens.length) {
+    list = list.filter((c) => colorMatchesSearchTokens(c, tokens));
   }
   const kit = getActiveKit();
   const used = new Set(kit?.slots.filter(Boolean) || []);
   renderColorGrid($("#kit-picker-grid"), list, {
-    emptyMessage: "No match in palette.",
+    emptyMessage: tokens.length
+      ? `No match for “${raw}” — try brand, code, or hue word.`
+      : "No match in palette.",
     showListMarkers: false,
   });
   $("#kit-picker-grid").querySelectorAll(".color-card").forEach((card) => {

@@ -11,7 +11,7 @@
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
   <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
-  <link rel="stylesheet" href="css/style.css?v=75" />
+  <link rel="stylesheet" href="css/style.css?v=76" />
 </head>
 <body>
   <div class="paper-texture" aria-hidden="true"></div>
@@ -111,7 +111,6 @@
 
         <div class="kit-wheel-section">
           <h3 class="kit-wheel-title">Mix wheel</h3>
-          <p class="kit-wheel-hint">Two pointers snap to colors <strong>in this kit</strong>. Drag A &amp; B — or tap pans (1st = A, 2nd = B).</p>
           <div class="kit-wheel-stage" id="kit-wheel-stage">
             <div class="kit-wheel-disc" aria-hidden="true"></div>
             <div class="kit-wheel-center" id="kit-wheel-center">
@@ -124,12 +123,12 @@
           <div class="kit-wheel-readout">
             <p id="kit-wheel-a-line" class="kit-wheel-line"><span class="kit-wheel-tag">A</span> <span id="kit-wheel-a-name">—</span></p>
             <p id="kit-wheel-b-line" class="kit-wheel-line"><span class="kit-wheel-tag">B</span> <span id="kit-wheel-b-name">—</span></p>
-            <p id="kit-wheel-note" class="kit-wheel-note">Add at least two colors to this kit, then drag the handles.</p>
+            <p id="kit-wheel-note" class="kit-wheel-note" hidden></p>
           </div>
         </div>
 
         <div id="kit-tin" class="kit-tin" aria-label="Kit wells"></div>
-        <p class="kit-tin-hint">Spectrum · 6 per row · ✦ granulating · ◈ good for mix · tap pan = wheel A/B · long-press = remove · + = fill</p>
+        <p class="kit-tin-hint">Spectrum · 6 per row · ✦ · ◈ · tap = A/B · hold = remove · + = fill</p>
       </div>
       <p id="kit-empty-state" class="empty-state">No kits yet — tap + New kit.</p>
     </section>
@@ -141,7 +140,7 @@
           <h2 class="sheet-title">Pick a color</h2>
           <button type="button" class="sheet-close" id="kit-picker-close" aria-label="Close">×</button>
         </header>
-        <input type="search" id="kit-picker-search" class="kit-picker-search" placeholder="Search palette…" autocomplete="off" />
+        <input type="search" id="kit-picker-search" class="kit-picker-search" placeholder="Search: 211 · yellow · schmincke yellow…" autocomplete="off" />
         <div id="kit-picker-grid" class="palette-grid kit-picker-grid"></div>
       </div>
     </dialog>
@@ -220,115 +219,134 @@
 
     <!-- Add / edit color -->
     <section id="panel-add" class="panel" role="tabpanel" hidden>
-      <h2 class="section-title" id="add-form-title">Add a new color</h2>
-      <p class="section-hint" id="add-form-hint">Enter what’s on the tube or pan label. Saves on this device — great for new paints before they’re in the master list.</p>
+      <header class="add-form-hero">
+        <h2 class="section-title" id="add-form-title">Add a new color</h2>
+        <p class="section-hint" id="add-form-hint">What’s on the label — only brand &amp; English name are required. The rest can wait.</p>
+      </header>
       <form id="color-form" class="color-form" novalidate>
-        <div class="form-row form-row-2">
-          <label class="form-field">
-            <span class="form-label">Brand <em>*</em></span>
-            <input type="text" id="f-brand" name="brand" required autocomplete="off" />
-          </label>
-          <label class="form-field">
-            <span class="form-label">Product code</span>
-            <input type="text" id="f-code" name="code" autocomplete="off" />
-          </label>
-        </div>
-        <div class="form-row form-row-2">
-          <label class="form-field">
-            <span class="form-label">Name (English) <em>*</em></span>
-            <input type="text" id="f-name-en" name="name_en" required autocomplete="off" />
-          </label>
-          <label class="form-field">
-            <span class="form-label">Name (中文)</span>
-            <input type="text" id="f-name-zh" name="name_zh" autocomplete="off" />
-          </label>
-        </div>
-        <div class="form-row form-row-2">
-          <label class="form-field">
-            <span class="form-label">Pigment</span>
-            <input type="text" id="f-pigment" name="pigment" placeholder="e.g. PB29" autocomplete="off" />
-          </label>
-          <label class="form-field">
-            <span class="form-label">Swatch hex <em>*</em></span>
-            <div class="hex-input-row">
-              <input type="color" id="f-hex-picker" value="#888888" aria-label="Pick color" />
-              <input type="text" id="f-hex" name="hex" required pattern="^#[0-9A-Fa-f]{6}$" placeholder="#AABBCC" />
+        <fieldset class="form-card">
+          <legend class="form-card-legend">Identity</legend>
+          <div class="form-row form-row-2">
+            <label class="form-field">
+              <span class="form-label">Brand <em>*</em></span>
+              <input type="text" id="f-brand" name="brand" required autocomplete="off" placeholder="e.g. Schmincke" />
+            </label>
+            <label class="form-field">
+              <span class="form-label">Product code</span>
+              <input type="text" id="f-code" name="code" autocomplete="off" placeholder="e.g. 211" />
+            </label>
+          </div>
+          <div class="form-row form-row-2">
+            <label class="form-field">
+              <span class="form-label">Name (English) <em>*</em></span>
+              <input type="text" id="f-name-en" name="name_en" required autocomplete="off" placeholder="As on the tube" />
+            </label>
+            <label class="form-field">
+              <span class="form-label">Name (中文)</span>
+              <input type="text" id="f-name-zh" name="name_zh" autocomplete="off" />
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-card">
+          <legend class="form-card-legend">Look</legend>
+          <div class="form-row form-row-2">
+            <label class="form-field">
+              <span class="form-label">Pigment</span>
+              <input type="text" id="f-pigment" name="pigment" placeholder="e.g. PB29" autocomplete="off" />
+            </label>
+            <label class="form-field">
+              <span class="form-label">Swatch hex <em>*</em></span>
+              <div class="hex-input-row">
+                <input type="color" id="f-hex-picker" value="#888888" aria-label="Pick color" />
+                <input type="text" id="f-hex" name="hex" required pattern="^#[0-9A-Fa-f]{6}$" placeholder="#AABBCC" />
+              </div>
+            </label>
+          </div>
+          <div class="form-row form-row-2">
+            <label class="form-field">
+              <span class="form-label">Family</span>
+              <select id="f-family" name="family">
+                <option value="">—</option>
+              </select>
+            </label>
+            <label class="form-field">
+              <span class="form-label">Format</span>
+              <select id="f-format" name="format">
+                <option value="">—</option>
+                <option value="sample">Sample</option>
+                <option value="tube">Tube</option>
+                <option value="half-pan">Half-pan</option>
+                <option value="full pan">Full pan</option>
+              </select>
+            </label>
+          </div>
+          <div class="form-row form-row-2">
+            <label class="form-field">
+              <span class="form-label">Size</span>
+              <input type="text" id="f-size" name="size" placeholder="5ml · 15ml…" autocomplete="off" />
+            </label>
+            <div class="form-field form-field--checks">
+              <span class="form-label">Behavior</span>
+              <div class="form-checks">
+                <label class="form-check"><input type="checkbox" id="f-granulating" /> Granulating ✦</label>
+                <label class="form-check"><input type="checkbox" id="f-staining" /> Staining</label>
+              </div>
             </div>
-          </label>
-        </div>
-        <div class="form-row form-row-2">
+          </div>
+        </fieldset>
+
+        <fieldset class="form-card form-card--optional">
+          <legend class="form-card-legend">Optional details</legend>
+          <div class="form-row form-row-2">
+            <label class="form-field">
+              <span class="form-label">Transparency</span>
+              <select id="f-transparency" name="transparency">
+                <option value="">—</option>
+                <option value="1">Transparent</option>
+                <option value="2">Semi-transparent</option>
+                <option value="3">Opaque</option>
+              </select>
+            </label>
+            <label class="form-field">
+              <span class="form-label">Lightfastness</span>
+              <select id="f-lightfastness" name="lightfastness">
+                <option value="">—</option>
+                <option value="1">Excellent (I)</option>
+                <option value="2">Very good (II)</option>
+                <option value="3">Fair (III)</option>
+                <option value="4">Poor (IV)</option>
+              </select>
+            </label>
+          </div>
+          <div class="form-row form-row-2">
+            <label class="form-field">
+              <span class="form-label">Toxicity</span>
+              <select id="f-toxicity" name="toxicity">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+            </label>
+            <label class="form-field">
+              <span class="form-label">Toxicity habit</span>
+              <input type="text" id="f-toxicity-habit" name="toxicity_habit" placeholder="Optional handling tip" autocomplete="off" />
+            </label>
+          </div>
           <label class="form-field">
-            <span class="form-label">Format</span>
-            <select id="f-format" name="format">
-              <option value="">—</option>
-              <option value="sample">Sample</option>
-              <option value="tube">Tube</option>
-              <option value="half-pan">Half-pan</option>
-              <option value="full pan">Full pan</option>
-            </select>
+            <span class="form-label">Source / notes</span>
+            <textarea id="f-notes" name="notes" rows="2" placeholder="Tube label, batch date…"></textarea>
           </label>
           <label class="form-field">
-            <span class="form-label">Size</span>
-            <input type="text" id="f-size" name="size" placeholder="5ml" autocomplete="off" />
-          </label>
-        </div>
-        <div class="form-row form-row-2">
-          <label class="form-field">
-            <span class="form-label">Family</span>
-            <select id="f-family" name="family">
-              <option value="">—</option>
-            </select>
+            <span class="form-label">Ace's note</span>
+            <textarea id="f-ace-note" name="ace_note" rows="2" placeholder="Optional studio voice"></textarea>
           </label>
           <label class="form-field">
-            <span class="form-label">Toxicity</span>
-            <select id="f-toxicity" name="toxicity">
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
-            </select>
+            <span class="form-label">Best for</span>
+            <input type="text" id="f-best-for" name="best_for" autocomplete="off" placeholder="Skies, florals…" />
           </label>
-        </div>
-        <div class="form-row form-row-2">
-          <label class="form-field">
-            <span class="form-label">Transparency</span>
-            <select id="f-transparency" name="transparency">
-              <option value="">—</option>
-              <option value="1">Transparent</option>
-              <option value="2">Semi-transparent</option>
-              <option value="3">Opaque</option>
-            </select>
-          </label>
-          <label class="form-field">
-            <span class="form-label">Lightfastness</span>
-            <select id="f-lightfastness" name="lightfastness">
-              <option value="">—</option>
-              <option value="1">Excellent (I)</option>
-              <option value="2">Very good (II)</option>
-              <option value="3">Fair (III)</option>
-              <option value="4">Poor (IV)</option>
-            </select>
-          </label>
-        </div>
-        <div class="form-row form-checks">
-          <label class="form-check"><input type="checkbox" id="f-granulating" /> Granulating</label>
-          <label class="form-check"><input type="checkbox" id="f-staining" /> Staining</label>
-        </div>
-        <label class="form-field">
-          <span class="form-label">Source / notes</span>
-          <textarea id="f-notes" name="notes" rows="2" placeholder="Tube label, batch date, photo reference…"></textarea>
-        </label>
-        <label class="form-field">
-          <span class="form-label">Ace's note</span>
-          <textarea id="f-ace-note" name="ace_note" rows="2"></textarea>
-        </label>
-        <label class="form-field">
-          <span class="form-label">Best for</span>
-          <input type="text" id="f-best-for" name="best_for" autocomplete="off" />
-        </label>
-        <label class="form-field">
-          <span class="form-label">Toxicity habit</span>
-          <input type="text" id="f-toxicity-habit" name="toxicity_habit" placeholder="Optional handling reminder" autocomplete="off" />
-        </label>
+        </fieldset>
+
         <p id="color-form-status" class="form-status" hidden></p>
         <div class="form-actions">
           <button type="submit" class="btn-primary" id="color-form-submit">Save color</button>
@@ -415,7 +433,7 @@
     </div>
   </dialog>
 
-  <script src="js/mixing.js?v=75"></script>
-  <script src="js/app.js?v=75"></script>
+  <script src="js/mixing.js?v=76"></script>
+  <script src="js/app.js?v=76"></script>
 </body>
 </html>
