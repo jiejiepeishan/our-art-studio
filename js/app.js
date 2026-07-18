@@ -1502,9 +1502,22 @@ function arrangeActiveKitSpectrum() {
     alert("Add at least two colors before arranging.");
     return;
   }
-  const sorted = Mixing.sortBySpectrum(filled);
-  const empties = kit.slots.length - sorted.length;
-  kit.slots = [...sorted.map((c) => c.id), ...Array(empties).fill(null)];
+  // Group by hue band, spectrum within band — matches kit display
+  const byHue = new Map();
+  filled.forEach((c) => {
+    const k = kitHueKey(c);
+    if (!byHue.has(k)) byHue.set(k, []);
+    byHue.get(k).push(c);
+  });
+  const ordered = [];
+  KIT_HUE_ORDER.forEach((k) => {
+    if (!byHue.has(k)) return;
+    ordered.push(...Mixing.sortBySpectrum(byHue.get(k)));
+    byHue.delete(k);
+  });
+  byHue.forEach((list) => ordered.push(...Mixing.sortBySpectrum(list)));
+  const empties = kit.slots.length - ordered.length;
+  kit.slots = [...ordered.map((c) => c.id), ...Array(empties).fill(null)];
   kit.orderMode = "spectrum";
   saveKits();
   renderKits();
