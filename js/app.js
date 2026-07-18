@@ -161,7 +161,7 @@ function registerServiceWorker() {
     return;
   }
   navigator.serviceWorker
-    .register("./sw.js?v=74")
+    .register("./sw.js?v=75")
     .then((reg) => reg.update())
     .catch(() => {});
 }
@@ -1291,14 +1291,198 @@ function renderKits() {
   empty.hidden = true;
   workspace.hidden = false;
   $("#kit-active-name").textContent = kit.name;
-  $("#kit-active-meta").textContent = `${kitFilledCount(kit)} / ${kit.slots.length} wells · spectrum · 5 per row`;
-  $("#kit-notes").value = kit.notes || "";
+  $("#kit-active-meta").textContent = `${kitFilledCount(kit)} / ${kit.slots.length} wells · spectrum · 6 per row`;
+  updateKitGuidance(kit);
   renderKitTin(kit);
   // Drop wheel picks that left the kit
   const inKit = new Set(kit.slots.filter(Boolean));
   if (kitWheelA && !inKit.has(kitWheelA)) kitWheelA = null;
   if (kitWheelB && !inKit.has(kitWheelB)) kitWheelB = null;
   renderKitWheel();
+}
+
+/**
+ * Live build coach for kits. Hides when the box already looks balanced.
+ * Teaching focus: limited-palette thinking (primaries, temperature, earth, bosses).
+ */
+function updateKitGuidance(kit) {
+  const el = $("#kit-guidance");
+  const textEl = $("#kit-guidance-text");
+  if (!el || !textEl) return;
+
+  const guide = analyzeKitBuild(kit);
+  if (!guide.show) {
+    el.hidden = true;
+    textEl.textContent = "";
+    return;
+  }
+  el.hidden = false;
+  textEl.textContent = guide.text;
+}
+
+function analyzeKitBuild(kit) {
+  const colors = kit.slots
+    .map((id) => palette.colors.find((c) => c.id === id))
+    .filter(Boolean);
+  const n = colors.length;
+  const cap = kit.slots.length;
+  const fill = n / cap;
+
+  const band = (c) => {
+    try {
+      const { h, s } = Mixing.hexToHsl(c.hex);
+      if (s < 14) return "neutral";
+      if (h < 20 || h >= 345) return "red";
+      if (h < 50) return "orange";
+      if (h < 75) return "yellow";
+      if (h < 165) return "green";
+      if (h < 255) return "blue";
+      if (h < 310) return "purple";
+      return "pink";
+    } catch {
+      return "other";
+    }
+  };
+
+  const counts = {
+    yellow: 0,
+    orange: 0,
+    red: 0,
+    pink: 0,
+    purple: 0,
+    blue: 0,
+    green: 0,
+    neutral: 0,
+    earth: 0,
+    other: 0,
+  };
+  let gran = 0;
+  let mixStars = 0;
+  let phthaloBoss = 0;
+  colors.forEach((c) => {
+    const fam = (c.family || "").toLowerCase();
+    if (fam === "earth") counts.earth++;
+    else counts[band(c)] = (counts[band(c)] || 0) + 1;
+    if (c.granulating) gran++;
+    if (c.mix_star) mixStars++;
+    const pig = (c.pigment || "").toUpperCase();
+    if (/PB15|PG7|PG36/.test(pig) || /phthalo/i.test(c.name_en || "")) phthaloBoss++;
+  });
+
+  const warm = counts.yellow + counts.orange + counts.red + counts.pink + counts.earth;
+  const cool = counts.blue + counts.green + counts.purple;
+  const hasYellow = counts.yellow > 0;
+  const hasRed = counts.red + counts.pink > 0;
+  const hasBlue = counts.blue > 0;
+  const hasEarth = counts.earth > 0;
+  const hasGreen = counts.green > 0;
+  const bands = ["yellow", "red", "blue", "green", "purple", "earth", "neutral"].filter(
+    (k) => (k === "red" ? counts.red + counts.pink > 0 : counts[k] > 0)
+  ).length;
+
+  // Looks good → hide guide (e.g. full Home kit)
+  const looksComplete =
+    n >= 2 &&
+    (fill >= 0.85 || n >= Math.min(cap, 28)) &&
+    hasYellow &&
+    hasRed &&
+    hasBlue &&
+    (hasEarth || counts.neutral > 0 || hasGreen) &&
+    bands >= 4;
+
+  if (looksComplete) {
+    return { show: false, text: "" };
+  }
+
+  // Empty / just started
+  if (n === 0) {
+    return {
+      show: true,
+      text:
+        "Start with three mixers: a yellow, a red or rose, and a blue (warm or cool). That triangle can already mix a surprising range — then add earth and one dark.",
+    };
+  }
+  if (n === 1) {
+    return {
+      show: true,
+      text: `Nice start with ${colors[0].name_en}. Next: pick a different hue family so you can mix — not a second cousin of the same color.`,
+    };
+  }
+  if (n === 2) {
+    return {
+      show: true,
+      text: "Two tubes in. Add a third far away on the wheel so you have a real mixing triangle (yellow + red/rose + blue is classic).",
+    };
+  }
+
+  const tips = [];
+
+  if (!hasYellow) {
+    tips.push("Add a yellow (cool Hansa or warm earth-yellow) — without it, clean greens and oranges are hard.");
+  } else if (counts.yellow === 1 && cap <= 16) {
+    tips.push("One yellow is a start; a second (cooler or warmer) gives cleaner mixes if the kit is small.");
+  }
+
+  if (!hasRed) {
+    tips.push("Add a red or rose (warm scarlet or cool quin rose) so purples and oranges have a path.");
+  }
+
+  if (!hasBlue) {
+    tips.push("Add a blue (ultramarine for granulating skies, or a phthalo for staining punch).");
+  } else if (counts.blue === 1 && n >= 4 && n < cap) {
+    tips.push("Only one blue so far — a second blue (warmer ultra vs cooler phthalo) usually earns its slot.");
+  }
+
+  if (hasYellow && hasBlue && !hasGreen && n >= 4 && n < cap * 0.7) {
+    tips.push("You can mix greens from yellow+blue — or add one convenience green if you paint foliage a lot.");
+  }
+
+  if (!hasEarth && n >= 5 && n < cap) {
+    tips.push("Consider an earth (burnt sienna, raw umber) — the fast road to neutrals with ultramarine.");
+  }
+
+  if (warm > 0 && cool === 0) {
+    tips.push("All warm so far — add something cool (blue/green/violet) so shadows don’t turn muddy brown.");
+  }
+  if (cool > 0 && warm === 0) {
+    tips.push("All cool so far — add a warm yellow or earth so the kit can glow, not only chill.");
+  }
+
+  if (phthaloBoss >= 2 && n <= 12) {
+    tips.push("Two+ phthalo-type bosses in a small kit — go whisper-light when mixing, or swap one for a gentler neighbor.");
+  }
+
+  if (gran === 0 && n >= 6 && n < cap) {
+    tips.push("No granulating color yet — one mineral blue or earth teaches texture (✦) without cluttering the tin.");
+  }
+
+  if (mixStars === 0 && n >= 3) {
+    tips.push("None marked ◈ good-for-mix yet — a few clean mixers make a tiny kit work harder.");
+  }
+
+  if (counts.neutral === 0 && n >= 8 && n < cap) {
+    tips.push("Optional: a grey or Payne’s for quick values without mixing every shadow from scratch.");
+  }
+
+  // Progress-flavored closer
+  const remaining = cap - n;
+  if (!tips.length) {
+    if (remaining > 0) {
+      return {
+        show: true,
+        text: `Solid spread so far (${n}/${cap}). Fill empty wells with gaps you feel when painting — or stop early; small kits teach discipline.`,
+      };
+    }
+    return { show: false, text: "" };
+  }
+
+  const head =
+    remaining > 0
+      ? `${n}/${cap} filled · ${remaining} well${remaining === 1 ? "" : "s"} free. `
+      : `${n}/${cap} filled. `;
+  // One main tip + optional second
+  const body = tips.slice(0, 2).join(" ");
+  return { show: true, text: head + body };
 }
 
 function renderKitTin(kit) {
@@ -1685,7 +1869,7 @@ function createNewKit() {
     layout: "grid",
     slots: Array(n).fill(null),
     notes: "",
-    orderMode: "manual",
+    orderMode: "spectrum",
   });
   kits.push(kit);
   activeKitId = kit.id;
@@ -2824,12 +3008,6 @@ function bindEvents() {
   $("#kit-rename-btn")?.addEventListener("click", renameActiveKit);
   $("#kit-delete-btn")?.addEventListener("click", deleteActiveKit);
   bindKitWheelHandles();
-  $("#kit-notes")?.addEventListener("change", () => {
-    const kit = getActiveKit();
-    if (!kit) return;
-    kit.notes = $("#kit-notes").value;
-    saveKits();
-  });
   $("#kit-picker-close")?.addEventListener("click", () => {
     kitFillSlotIndex = null;
     $("#kit-picker-sheet").close();

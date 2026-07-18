@@ -2090,15 +2090,6 @@ button.mix-slot-swatch--filled:active {
   gap: 6px;
 }
 
-.kit-notes-card {
-  display: block;
-  margin-bottom: 14px;
-  padding: 12px 14px;
-  background: var(--paper-deep);
-  border: 1px solid var(--blush);
-  border-radius: var(--radius-sm);
-}
-
 .kit-notes-label {
   display: block;
   font-size: 0.72rem;
@@ -2109,18 +2100,24 @@ button.mix-slot-swatch--filled:active {
   margin-bottom: 6px;
 }
 
-.kit-notes-card textarea {
-  width: 100%;
-  box-sizing: border-box;
+.kit-guidance {
+  display: block;
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  background: var(--paper-deep);
   border: 1px solid var(--blush);
-  border-radius: 8px;
-  padding: 10px;
-  font: inherit;
+  border-radius: var(--radius-sm);
+}
+
+.kit-guidance[hidden] {
+  display: none !important;
+}
+
+.kit-guidance-text {
+  margin: 0;
   font-size: 0.88rem;
-  background: var(--card);
-  color: var(--ink);
-  resize: vertical;
-  min-height: 4.5em;
+  color: var(--ink-soft);
+  line-height: 1.45;
 }
 
 .kit-tin {
@@ -2145,7 +2142,7 @@ button.mix-slot-swatch--filled:active {
 
 .kit-hue-row {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 8px;
   justify-content: start;
 }
@@ -2242,7 +2239,13 @@ button.mix-slot-swatch--filled:active {
   opacity: 0.55;
 }
 
-@media (max-width: 360px) {
+@media (max-width: 400px) {
+  .kit-hue-row {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 340px) {
   .kit-hue-row {
     grid-template-columns: repeat(4, 1fr);
   }

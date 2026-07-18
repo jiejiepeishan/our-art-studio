@@ -11,7 +11,7 @@
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
   <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
-  <link rel="stylesheet" href="css/style.css?v=74" />
+  <link rel="stylesheet" href="css/style.css?v=75" />
 </head>
 <body>
   <div class="paper-texture" aria-hidden="true"></div>
@@ -104,12 +104,10 @@
             <button type="button" id="kit-delete-btn" class="btn-ghost btn-compact">Delete</button>
           </div>
         </div>
-        <label class="kit-notes-card">
-          <span class="kit-notes-label">Still needs / notes</span>
-          <textarea id="kit-notes" rows="3" placeholder="e.g. cool yellow, granulating blue, earth for neutrals…"></textarea>
-        </label>
-        <div id="kit-tin" class="kit-tin" aria-label="Kit wells"></div>
-        <p class="kit-tin-hint">Spectrum · 5 per row · ✦ granulating · ◈ good for mix · tap pan = wheel A/B · long-press pan = remove · + = fill</p>
+        <div id="kit-guidance" class="kit-guidance" hidden>
+          <span class="kit-notes-label">Build guide</span>
+          <p id="kit-guidance-text" class="kit-guidance-text"></p>
+        </div>
 
         <div class="kit-wheel-section">
           <h3 class="kit-wheel-title">Mix wheel</h3>
@@ -129,6 +127,9 @@
             <p id="kit-wheel-note" class="kit-wheel-note">Add at least two colors to this kit, then drag the handles.</p>
           </div>
         </div>
+
+        <div id="kit-tin" class="kit-tin" aria-label="Kit wells"></div>
+        <p class="kit-tin-hint">Spectrum · 6 per row · ✦ granulating · ◈ good for mix · tap pan = wheel A/B · long-press = remove · + = fill</p>
       </div>
       <p id="kit-empty-state" class="empty-state">No kits yet — tap + New kit.</p>
     </section>
@@ -414,7 +415,7 @@
     </div>
   </dialog>
 
-  <script src="js/mixing.js?v=74"></script>
-  <script src="js/app.js?v=74"></script>
+  <script src="js/mixing.js?v=75"></script>
+  <script src="js/app.js?v=75"></script>
 </body>
 </html>
