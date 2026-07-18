@@ -2125,69 +2125,50 @@ button.mix-slot-swatch--filled:active {
 
 .kit-tin {
   margin-bottom: 8px;
-}
-
-.kit-tin-top {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.kit-zone-left {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 6px;
-}
-
-.kit-zone-mid {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 14px;
 }
 
-.kit-zone-right {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 6px;
+.kit-hue-group {
+  margin: 0;
 }
 
-.kit-zone-bottom {
+.kit-hue-label {
+  margin: 0 0 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.kit-hue-row {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 6px;
+  gap: 8px;
+  justify-content: start;
 }
 
-.kit-zone-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 6px;
+/* Short rows: only as many cells as colors — grid places them left-aligned */
+.kit-hue-row > .kit-well {
+  width: 100%;
 }
 
-.kit-mix-well {
-  flex: 1;
-  min-height: 48px;
-  border-radius: 10px;
-  border: 2px dashed var(--blush);
-  background: rgba(250, 246, 240, 0.5);
-  opacity: 0.7;
+.kit-hue-group--empty .kit-hue-label {
+  color: var(--ink-soft);
 }
 
 .kit-well {
   position: relative;
   aspect-ratio: 1;
   border: 1px solid rgba(61, 52, 41, 0.12);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 0;
   cursor: pointer;
   overflow: hidden;
   box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.08);
-  min-height: 44px;
-}
-
-.kit-well--large {
-  aspect-ratio: 1.2 / 1;
-  min-height: 56px;
+  min-height: 52px;
 }
 
 .kit-well--empty {
@@ -2195,11 +2176,14 @@ button.mix-slot-swatch--filled:active {
   border-style: dashed;
   border-color: var(--blush);
   box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .kit-well-plus {
   color: var(--ink-faint);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
 }
 
 .kit-well-name {
@@ -2207,11 +2191,11 @@ button.mix-slot-swatch--filled:active {
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 3px 4px;
-  font-size: 0.55rem;
+  padding: 4px 4px;
+  font-size: 0.58rem;
   line-height: 1.15;
   color: #fff;
-  background: linear-gradient(transparent, rgba(40, 30, 20, 0.75));
+  background: linear-gradient(transparent, rgba(40, 30, 20, 0.78));
   text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -2245,14 +2229,8 @@ button.mix-slot-swatch--filled:active {
   opacity: 0.55;
 }
 
-@media (max-width: 400px) {
-  .kit-tin-top {
-    grid-template-columns: 1fr;
-  }
-  .kit-zone-bottom {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .kit-zone-grid {
+@media (max-width: 360px) {
+  .kit-hue-row {
     grid-template-columns: repeat(4, 1fr);
   }
 }

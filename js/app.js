@@ -156,7 +156,7 @@ function registerServiceWorker() {
     return;
   }
   navigator.serviceWorker
-    .register("./sw.js?v=71")
+    .register("./sw.js?v=72")
     .then((reg) => reg.update())
     .catch(() => {});
 }
@@ -1286,57 +1286,137 @@ function renderKits() {
   empty.hidden = true;
   workspace.hidden = false;
   $("#kit-active-name").textContent = kit.name;
-  $("#kit-active-meta").textContent = `${kitFilledCount(kit)} / ${kit.slots.length} wells · ${
-    kit.orderMode === "spectrum" ? "spectrum order" : "manual / tin order"
-  }`;
+  $("#kit-active-meta").textContent = `${kitFilledCount(kit)} / ${kit.slots.length} wells · grouped by hue · 5 per row`;
   $("#kit-notes").value = kit.notes || "";
   renderKitTin(kit);
+}
+
+/** Family / hue band order for kit display (warm → cool → neutrals) */
+const KIT_HUE_ORDER = [
+  "red",
+  "coral",
+  "orange",
+  "yellow",
+  "earth",
+  "green",
+  "blue-green",
+  "blue",
+  "purple",
+  "pink",
+  "neutral",
+  "specialty",
+];
+
+function kitHueKey(color) {
+  const f = (color.family || "").toLowerCase().trim();
+  if (f && KIT_HUE_ORDER.includes(f)) return f;
+  // Fallback from hex when family missing
+  try {
+    const { h, s } = Mixing.hexToHsl(color.hex);
+    if (s < 12) return "neutral";
+    if (h < 20 || h >= 340) return "red";
+    if (h < 45) return "orange";
+    if (h < 70) return "yellow";
+    if (h < 160) return "green";
+    if (h < 200) return "blue-green";
+    if (h < 250) return "blue";
+    if (h < 310) return "purple";
+    return "pink";
+  } catch {
+    return "specialty";
+  }
+}
+
+function kitHueLabel(key) {
+  const labels = {
+    red: "Red",
+    coral: "Coral",
+    orange: "Orange",
+    yellow: "Yellow",
+    earth: "Earth / brown",
+    green: "Green",
+    "blue-green": "Blue-green",
+    blue: "Blue",
+    purple: "Purple",
+    pink: "Pink",
+    neutral: "Neutral / grey",
+    specialty: "Other",
+  };
+  return labels[key] || key;
 }
 
 function renderKitTin(kit) {
   const tin = $("#kit-tin");
   if (!tin) return;
-  tin.className = "kit-tin" + (kit.layout === "home-tin" ? " kit-tin--home" : " kit-tin--grid");
+  tin.className = "kit-tin kit-tin--hue";
   tin.innerHTML = "";
 
-  if (kit.layout === "home-tin" && kit.slots.length === HOME_TIN.total) {
-    const left = document.createElement("div");
-    left.className = "kit-zone kit-zone-left";
-    for (let i = 0; i < 16; i++) left.appendChild(makeKitWell(kit, i));
-    const mid = document.createElement("div");
-    mid.className = "kit-zone kit-zone-mid";
-    const mix = document.createElement("div");
-    mix.className = "kit-mix-well";
-    mix.title = "Mixing area (not a color slot)";
-    mid.appendChild(mix);
-    for (let i = 16; i < 18; i++) mid.appendChild(makeKitWell(kit, i, true));
-    const right = document.createElement("div");
-    right.className = "kit-zone kit-zone-right";
-    for (let i = 18; i < 26; i++) right.appendChild(makeKitWell(kit, i));
-    const bottom = document.createElement("div");
-    bottom.className = "kit-zone kit-zone-bottom";
-    for (let i = 26; i < 36; i++) bottom.appendChild(makeKitWell(kit, i));
+  // Pair each slot index with its color (preserve slot index for remove/fill)
+  const filled = [];
+  const emptyIdx = [];
+  kit.slots.forEach((id, index) => {
+    if (!id) {
+      emptyIdx.push(index);
+      return;
+    }
+    const color = palette.colors.find((c) => c.id === id);
+    if (color) filled.push({ index, color });
+    else emptyIdx.push(index);
+  });
+
+  // Group by hue; within group sort by spectrum when in spectrum mode, else keep kit order
+  const groups = new Map();
+  filled.forEach((item) => {
+    const key = kitHueKey(item.color);
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(item);
+  });
+
+  const orderedKeys = [
+    ...KIT_HUE_ORDER.filter((k) => groups.has(k)),
+    ...[...groups.keys()].filter((k) => !KIT_HUE_ORDER.includes(k)),
+  ];
+
+  orderedKeys.forEach((key) => {
+    let items = groups.get(key);
+    if (kit.orderMode === "spectrum") {
+      const sorted = Mixing.sortBySpectrum(items.map((i) => i.color));
+      const byId = new Map(items.map((i) => [i.color.id, i]));
+      items = sorted.map((c) => byId.get(c.id)).filter(Boolean);
+    }
+
+    const section = document.createElement("section");
+    section.className = "kit-hue-group";
+    section.innerHTML = `<h4 class="kit-hue-label">${escapeHtml(kitHueLabel(key))} · ${items.length}</h4>`;
     const row = document.createElement("div");
-    row.className = "kit-tin-top";
-    row.appendChild(left);
-    row.appendChild(mid);
-    row.appendChild(right);
-    tin.appendChild(row);
-    tin.appendChild(bottom);
-  } else {
-    const grid = document.createElement("div");
-    grid.className = "kit-zone kit-zone-grid";
-    kit.slots.forEach((_, i) => grid.appendChild(makeKitWell(kit, i)));
-    tin.appendChild(grid);
+    row.className = "kit-hue-row";
+    // 5 per line; short last line is OK — do not pad empties into the hue row
+    items.forEach((item) => row.appendChild(makeKitWell(kit, item.index, item.color)));
+    section.appendChild(row);
+    tin.appendChild(section);
+  });
+
+  if (!filled.length && !emptyIdx.length) {
+    tin.innerHTML = `<p class="empty-state">No wells yet.</p>`;
+    return;
+  }
+
+  if (emptyIdx.length) {
+    const section = document.createElement("section");
+    section.className = "kit-hue-group kit-hue-group--empty";
+    section.innerHTML = `<h4 class="kit-hue-label">Empty wells · ${emptyIdx.length}</h4>`;
+    const row = document.createElement("div");
+    row.className = "kit-hue-row";
+    emptyIdx.forEach((index) => row.appendChild(makeKitWell(kit, index, null)));
+    section.appendChild(row);
+    tin.appendChild(section);
   }
 }
 
-function makeKitWell(kit, index, large = false) {
-  const id = kit.slots[index];
-  const color = id ? palette.colors.find((c) => c.id === id) : null;
+function makeKitWell(kit, index, color) {
   const btn = document.createElement("button");
   btn.type = "button";
-  btn.className = "kit-well" + (large ? " kit-well--large" : "") + (color ? "" : " kit-well--empty");
+  btn.className = "kit-well" + (color ? "" : " kit-well--empty");
   btn.dataset.slot = String(index);
   if (color) {
     btn.style.background = color.hex;
