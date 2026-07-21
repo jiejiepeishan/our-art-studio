@@ -261,8 +261,9 @@ function renderCaveats() {
     return;
   }
   list.innerHTML = items.map((t) => `<li>${escapeHtml(t)}</li>`).join("");
-  $("#caveats-toggle").addEventListener("click", () => {
+  $("#caveats-toggle")?.addEventListener("click", () => {
     const btn = $("#caveats-toggle");
+    if (!btn) return;
     const open = btn.getAttribute("aria-expanded") === "true";
     btn.setAttribute("aria-expanded", String(!open));
     list.hidden = open;
@@ -3744,13 +3745,13 @@ function bindEvents() {
     e.target.value = "";
   });
 
-  $("#brand-chips").addEventListener("click", (e) => {
+  $("#brand-chips")?.addEventListener("click", (e) => {
     const chip = e.target.closest(".brand-chip");
     if (!chip?.dataset.brandId) return;
     selectBrand(chip.dataset.brandId);
   });
 
-  $("#brand-story").addEventListener("click", (e) => {
+  $("#brand-story")?.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-brand-palette]");
     if (!btn) return;
     openBrandInPalette(btn.dataset.brandPalette);
