@@ -27,7 +27,7 @@ const SYNC_BUNDLE_VERSION = 2;
 const KIT_SLOT_MAX = 36;
 const KIT_SLOT_MIN = 8;
 /** Bump with sw.js CACHE when shipping UI/data */
-const APP_VERSION = "88";
+const APP_VERSION = "89";
 
 /** Resolve assets for GitHub project pages and local server */
 function appBasePath() {
@@ -277,9 +277,11 @@ function initVersionChip() {
 
 function renderCaveats() {
   const list = $("#caveats-list");
+  const banner = $("#caveats-banner");
   const items = palette.caveats || [];
+  if (!list) return;
   if (!items.length) {
-    $("#caveats-banner").hidden = true;
+    if (banner) banner.hidden = true;
     return;
   }
   list.innerHTML = items.map((t) => `<li>${escapeHtml(t)}</li>`).join("");
@@ -312,6 +314,7 @@ function resetFilterSelect(sel, firstLabel) {
 function populateBrandFilter() {
   const brands = [...new Set(palette.colors.map((c) => c.brand))].sort();
   const sel = $("#brand-filter");
+  if (!sel) return;
   brands.forEach((b) => {
     const opt = document.createElement("option");
     opt.value = b;
@@ -2774,12 +2777,7 @@ function mixPickerColors() {
 
 function renderMixPicker() {
   const wrap = $("#mix-picker");
-  wrap.innerHTML = "";
-  const togglerum(colors);
-}
-
-function renderMixPicker() {
-  const wrap = $("#mix-picker");
+  if (!wrap) return;
   wrap.innerHTML = "";
   const toggle = $("#mix-stars-toggle");
   if (toggle) {
