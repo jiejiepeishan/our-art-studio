@@ -27,7 +27,7 @@ const SYNC_BUNDLE_VERSION = 2;
 const KIT_SLOT_MAX = 36;
 const KIT_SLOT_MIN = 8;
 /** Bump with sw.js CACHE when shipping UI/data */
-const APP_VERSION = "84";
+const APP_VERSION = "85";
 
 /** Home kit capacity (32 pans — no empty wells) */
 const HOME_TIN = { total: 32 };
@@ -215,10 +215,21 @@ function registerServiceWorker() {
     if (isLocalDevHost()) unregisterStaleServiceWorkers();
     return;
   }
+  // Explicit scope for GitHub project Pages (/our-art-studio/)
+  const scope = new URL("./", window.location.href).pathname;
   navigator.serviceWorker
-    .register(`./sw.js?v=${APP_VERSION}`)
-    .then((reg) => reg.update())
-    .catch(() => {});
+    .register(`./sw.js?v=${APP_VERSION}`, { scope })
+    .then((reg) => {
+      reg.update();
+      // When a new SW takes control, soft-reload once so users leave stuck caches
+      let refreshing = false;
+      navigator.serviceWorker.addEventListener("controllerchange", () => {
+        if (refreshing) return;
+        refreshing = true;
+        window.location.reload();
+      });
+    })
+    .catch((err) => console.warn("SW register failed", err));
 }
 
 /** Hard refresh path for stuck PWA caches (version chip) */
