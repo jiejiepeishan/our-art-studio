@@ -11,17 +11,23 @@ const STORAGE = {
   current: "our-art-studio-current", // legacy, cleared on migrate
   kits: "our-art-studio-kits-v1",
   activeKit: "our-art-studio-active-kit",
-  todays: "our-art-studio-todays-palette",
+  todays: "our-art-studio-todays-palette", // legacy daily full-palette draw
+  creative: "our-art-studio-creative-fun-v1",
   userData: "our-art-studio-user-data",
   syncPassphrase: "our-art-studio-sync-passphrase",
   lastSyncedAt: "our-art-studio-last-synced-at",
 };
 
+/** Creative Fun: multi-kit pool + intention mode */
+let creativePoolKitIds = [];
+let creativeMode = "play"; // play | mix | temp | complement
+let creativeDrawIds = [];
+
 const SYNC_BUNDLE_VERSION = 2;
 const KIT_SLOT_MAX = 36;
 const KIT_SLOT_MIN = 8;
 /** Bump with sw.js CACHE when shipping UI/data */
-const APP_VERSION = "80";
+const APP_VERSION = "81";
 
 /** Home kit capacity (32 pans — no empty wells) */
 const HOME_TIN = { total: 32 };
@@ -121,9 +127,10 @@ async function init() {
   await loadBrandStories();
   await initStudioSync();
   initVersionChip();
-  renderTodaysPalette();
+  loadCreativeFunState();
   renderPalette();
   renderKits();
+  renderCreativeFun();
   updateTabBadges();
   renderHueChips();
   bindEvents();
@@ -784,12 +791,16 @@ function importStudioFile(file) {
       const edited = Object.keys(bundle.userData.overrides || {}).length;
       const removed = bundle.userData.removed?.length || 0;
       const msg = `Import ${added} added, ${edited} edited, ${removed} removed? This replaces your local changes on this device.`;
-      if (!confirm(msg)) return;
-      applySyncBundle(bundle);
-      setSyncStatus(`Imported from file (${formatSyncTime(bundle.updatedAt)}).`, "ok");
-      if (syncApiAvailable && getSavedPassphrase()) pushRemoteSync({ quiet: true });
+      softConfirm(msg).then((ok) => {
+        if (!ok) return;
+        applySyncBundle(bundle);
+        setSyncStatus(`Imported from file (${formatSyncTime(bundle.updatedAt)}).`, "ok");
+        showToast("Studio imported", { type: "ok" });
+        if (syncApiAvailable && getSavedPassphrase()) pushRemoteSync({ quiet: true });
+      });
     } catch (err) {
       setSyncStatus(`Import failed: ${err.message}`, "error");
+      showToast("Import failed", { type: "error" });
     }
   };
   reader.readAsText(file);
@@ -838,10 +849,10 @@ function getEditableColor(id) {
   return mergeColorEntry(base, userData.overrides[id]);
 }
 
-function removeColorFromStudio(id) {
+async function removeColorFromStudio(id) {
   const name = palette.colors.find((c) => c.id === id)?.name_en || id;
   const msg = `Remove “${name}” from your studio? You can add it again later from Add Color.`;
-  if (!confirm(msg)) return;
+  if (!(await softConfirm(msg))) return;
 
   if (isUserAddedColor(id)) {
     userData.added = userData.added.filter((c) => c.id !== id);
@@ -857,6 +868,7 @@ function removeColorFromStudio(id) {
   persistPaletteChanges();
   detailColor = null;
   $("#detail-sheet").close();
+  showToast(`Removed “${name}”`, { type: "ok" });
 }
 
 function colorFromForm() {
@@ -902,6 +914,7 @@ function fillColorForm(c) {
       "Enter what’s on the tube or pan label. Saves on this device — great for new paints before they’re in the master list.";
     $("#color-form-submit").textContent = "Save color";
     $("#color-form-cancel").hidden = true;
+    updateFormSwatchPreview();
     return;
   }
   editingColorId = c.id;
@@ -935,6 +948,7 @@ function fillColorForm(c) {
   $("#add-form-title").textContent = "Edit color";
   $("#add-form-hint").textContent = "Fix a code, name, or swatch — changes save on this device only.";
   $("#color-form-submit").textContent = "Save changes";
+  updateFormSwatchPreview();
   $("#color-form-cancel").hidden = false;
 }
 
@@ -992,6 +1006,7 @@ function saveColorFromForm(e) {
     persistPaletteChanges();
     const updated = palette.colors.find((c) => c.id === editingColorId);
     showFormStatus(`Updated “${updated?.name_en || data.name_en}”.`);
+    showToast(`Updated “${updated?.name_en || data.name_en}”`, { type: "ok" });
     fillColorForm(null);
     if (updated) {
       switchTab("palette");
@@ -1004,6 +1019,7 @@ function saveColorFromForm(e) {
   userData.added.push({ ...data, id, user_added: true });
   persistPaletteChanges();
   showFormStatus(`Added “${data.name_en}” to your studio.`);
+  showToast(`Added “${data.name_en}”`, { type: "ok" });
   fillColorForm(null);
   switchTab("palette");
   const created = palette.colors.find((c) => c.id === id);
@@ -1173,38 +1189,295 @@ function localDateKey() {
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
 
-function pickRandomTodaysColors(forceNew = false) {
-  const today = localDateKey();
-  if (!forceNew) {
-    try {
-      const saved = JSON.parse(localStorage.getItem(STORAGE.todays) || "null");
-      if (saved?.date === today && saved.ids?.length === 3) {
-        const colors = saved.ids.map((id) => palette.colors.find((c) => c.id === id)).filter(Boolean);
-        if (colors.length === 3) return colors;
+/* —— Soft toasts & confirms —— */
+function showToast(message, { type = "info", duration = 2800 } = {}) {
+  const host = $("#toast-host");
+  if (!host || !message) return;
+  const el = document.createElement("div");
+  el.className = `toast toast--${type}`;
+  el.textContent = message;
+  host.appendChild(el);
+  requestAnimationFrame(() => el.classList.add("show"));
+  setTimeout(() => {
+    el.classList.remove("show");
+    setTimeout(() => el.remove(), 280);
+  }, duration);
+}
+
+function softConfirm(message) {
+  return new Promise((resolve) => {
+    const host = $("#confirm-host");
+    if (!host) {
+      resolve(window.confirm(message));
+      return;
+    }
+    host.hidden = false;
+    host.innerHTML = `
+      <div class="confirm-card" role="dialog" aria-modal="true" aria-label="Confirm">
+        <p>${escapeHtml(message)}</p>
+        <div class="confirm-actions">
+          <button type="button" class="btn-ghost btn-compact" data-confirm="no">Cancel</button>
+          <button type="button" class="btn-primary btn-compact" data-confirm="yes">OK</button>
+        </div>
+      </div>`;
+    const finish = (val) => {
+      host.hidden = true;
+      host.innerHTML = "";
+      resolve(val);
+    };
+    host.querySelector('[data-confirm="yes"]').addEventListener("click", () => finish(true));
+    host.querySelector('[data-confirm="no"]').addEventListener("click", () => finish(false));
+    host.addEventListener(
+      "click",
+      (e) => {
+        if (e.target === host) finish(false);
+      },
+      { once: true }
+    );
+  });
+}
+
+/* —— Creative Fun (kit-scoped limited draws) —— */
+function loadCreativeFunState() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(STORAGE.creative) || "null");
+    if (raw?.mode) creativeMode = raw.mode;
+    if (Array.isArray(raw?.poolKitIds)) creativePoolKitIds = raw.poolKitIds.filter(Boolean);
+    if (Array.isArray(raw?.ids) && raw.ids.length === 3) creativeDrawIds = raw.ids;
+  } catch {
+    /* defaults */
+  }
+  // Ensure pool defaults to active kit when empty/invalid
+  const valid = new Set(kits.map((k) => k.id));
+  creativePoolKitIds = creativePoolKitIds.filter((id) => valid.has(id));
+  if (!creativePoolKitIds.length && activeKitId) creativePoolKitIds = [activeKitId];
+  if (!creativePoolKitIds.length && kits[0]) creativePoolKitIds = [kits[0].id];
+}
+
+function saveCreativeFunState() {
+  try {
+    localStorage.setItem(
+      STORAGE.creative,
+      JSON.stringify({
+        mode: creativeMode,
+        poolKitIds: creativePoolKitIds,
+        ids: creativeDrawIds,
+        date: localDateKey(),
+      })
+    );
+  } catch {
+    /* ignore */
+  }
+}
+
+function creativePoolColors() {
+  const idSet = new Set();
+  creativePoolKitIds.forEach((kid) => {
+    const kit = kits.find((k) => k.id === kid);
+    if (!kit) return;
+    kit.slots.forEach((id) => {
+      if (id) idSet.add(id);
+    });
+  });
+  return [...idSet]
+    .map((id) => palette.colors.find((c) => c.id === id))
+    .filter(Boolean);
+}
+
+function hueBandWarmCool(c) {
+  try {
+    const { h, s } = Mixing.hexToHsl(c.hex);
+    if (s < 12) return "neutral";
+    // warm: red–yellow; cool: green–blue–violet
+    if (h < 70 || h >= 330) return "warm";
+    if (h >= 70 && h < 150) return "green";
+    return "cool";
+  } catch {
+    return "neutral";
+  }
+}
+
+function pickRandomFrom(arr, n) {
+  const pool = [...arr];
+  const out = [];
+  while (out.length < n && pool.length) {
+    const i = Math.floor(Math.random() * pool.length);
+    out.push(pool.splice(i, 1)[0]);
+  }
+  return out;
+}
+
+function drawCreativeTrio(forceNew = false) {
+  const pool = creativePoolColors();
+  if (pool.length < 3) {
+    creativeDrawIds = pool.map((c) => c.id);
+    saveCreativeFunState();
+    return pool;
+  }
+
+  if (!forceNew && creativeDrawIds.length === 3) {
+    const kept = creativeDrawIds
+      .map((id) => pool.find((c) => c.id === id))
+      .filter(Boolean);
+    if (kept.length === 3) return kept;
+  }
+
+  let picked = [];
+  if (creativeMode === "mix") {
+    const stars = pool.filter((c) => c.mix_star);
+    const rest = pool.filter((c) => !c.mix_star);
+    picked = pickRandomFrom(stars.length ? stars : pool, Math.min(2, stars.length || 2));
+    const need = 3 - picked.length;
+    const others = rest.filter((c) => !picked.includes(c));
+    picked = picked.concat(pickRandomFrom(others.length ? others : pool.filter((c) => !picked.includes(c)), need));
+  } else if (creativeMode === "temp") {
+    const warm = pool.filter((c) => hueBandWarmCool(c) === "warm");
+    const cool = pool.filter((c) => hueBandWarmCool(c) === "cool");
+    if (warm.length && cool.length) {
+      picked.push(pickRandomFrom(warm, 1)[0]);
+      picked.push(pickRandomFrom(cool, 1)[0]);
+      const rest = pool.filter((c) => !picked.includes(c));
+      picked = picked.concat(pickRandomFrom(rest, 1));
+    } else {
+      picked = pickRandomFrom(pool, 3);
+    }
+  } else if (creativeMode === "complement") {
+    const a = pickRandomFrom(pool, 1)[0];
+    const target = (Mixing.hexToHsl(a.hex).h + 180) % 360;
+    let best = null;
+    let bestD = 999;
+    pool.forEach((c) => {
+      if (c.id === a.id) return;
+      let d = Math.abs(Mixing.hexToHsl(c.hex).h - target);
+      if (d > 180) d = 360 - d;
+      if (d < bestD) {
+        bestD = d;
+        best = c;
       }
-    } catch {
-      /* use fresh draw */
+    });
+    picked = [a];
+    if (best) picked.push(best);
+    const rest = pool.filter((c) => !picked.includes(c));
+    picked = picked.concat(pickRandomFrom(rest, 3 - picked.length));
+  } else {
+    // play — pure random
+    picked = pickRandomFrom(pool, 3);
+  }
+
+  // pad if short
+  if (picked.length < 3) {
+    const rest = pool.filter((c) => !picked.includes(c));
+    picked = picked.concat(pickRandomFrom(rest, 3 - picked.length));
+  }
+
+  creativeDrawIds = picked.slice(0, 3).map((c) => c.id);
+  saveCreativeFunState();
+  return picked.slice(0, 3);
+}
+
+function creativeModeLabel(mode) {
+  return (
+    {
+      play: "Play · pure random from your tin(s)",
+      mix: "Mix practice · leans on ◈ good-for-mix pans",
+      temp: "Warm + cool · temperature contrast",
+      complement: "Complement · near-opposites for mute greys",
+    }[mode] || ""
+  );
+}
+
+function renderCreativeFun() {
+  const section = $("#creative-fun");
+  if (!section) return;
+
+  // Keep pool valid
+  const valid = new Set(kits.map((k) => k.id));
+  creativePoolKitIds = creativePoolKitIds.filter((id) => valid.has(id));
+  if (!creativePoolKitIds.length && activeKitId && valid.has(activeKitId)) {
+    creativePoolKitIds = [activeKitId];
+  }
+
+  const poolChips = $("#creative-pool-chips");
+  if (poolChips) {
+    poolChips.innerHTML = "";
+    if (!kits.length) {
+      poolChips.innerHTML = `<span class="creative-status">Add a kit first.</span>`;
+    } else {
+      kits.forEach((kit) => {
+        const n = kitFilledCount(kit);
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className =
+          "creative-pool-chip" +
+          (creativePoolKitIds.includes(kit.id) ? " active" : "");
+        btn.textContent = `${kit.name} (${n})`;
+        btn.disabled = n === 0;
+        btn.title =
+          n === 0
+            ? "Empty kit — fill wells first"
+            : "Tap to include/exclude from the draw pool";
+        btn.addEventListener("click", () => {
+          if (n === 0) return;
+          const i = creativePoolKitIds.indexOf(kit.id);
+          if (i >= 0) {
+            if (creativePoolKitIds.length <= 1) {
+              showToast("Keep at least one kit in the pool", { type: "info" });
+              return;
+            }
+            creativePoolKitIds.splice(i, 1);
+          } else {
+            creativePoolKitIds.push(kit.id);
+          }
+          saveCreativeFunState();
+          // New pool → fresh draw
+          drawCreativeTrio(true);
+          renderCreativeFun();
+        });
+        poolChips.appendChild(btn);
+      });
     }
   }
 
-  const pool = [...palette.colors];
-  const picked = [];
-  while (picked.length < 3 && pool.length) {
-    const i = Math.floor(Math.random() * pool.length);
-    picked.push(pool.splice(i, 1)[0]);
-  }
-  localStorage.setItem(
-    STORAGE.todays,
-    JSON.stringify({ date: today, ids: picked.map((c) => c.id) })
-  );
-  return picked;
-}
+  $$(".creative-mode-btn").forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.mode === creativeMode);
+  });
 
-function renderTodaysPalette() {
-  const colors = pickRandomTodaysColors(false);
-  const swatches = $("#todays-swatches");
-  const names = $("#todays-names");
-  swatches.innerHTML = "";
+  const pool = creativePoolColors();
+  const status = $("#creative-status");
+  const colors = drawCreativeTrio(false);
+  const swatches = $("#creative-swatches");
+  const names = $("#creative-names");
+  const toMix = $("#creative-to-mix");
+
+  if (swatches) swatches.innerHTML = "";
+  if (names) names.innerHTML = "";
+
+  if (pool.length < 3) {
+    if (status) {
+      status.textContent =
+        pool.length === 0
+          ? "Pick a kit with colors (or fill wells) — need 3+ pans in the pool."
+          : `Only ${pool.length} pan${pool.length === 1 ? "" : "s"} in the pool — add more to shuffle a trio.`;
+    }
+    if (toMix) toMix.hidden = true;
+    // show whatever we have
+    colors.forEach((c) => {
+      if (!swatches) return;
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "todays-swatch-btn";
+      btn.style.background = c.hex;
+      btn.title = c.name_en;
+      btn.innerHTML = swatchMarksHtml(c);
+      btn.addEventListener("click", () => openDetail(c));
+      swatches.appendChild(btn);
+    });
+    return;
+  }
+
+  if (status) status.textContent = creativeModeLabel(creativeMode);
+  if (toMix) toMix.hidden = false;
+
   colors.forEach((c) => {
     const btn = document.createElement("button");
     btn.type = "button";
@@ -1214,19 +1487,58 @@ function renderTodaysPalette() {
     btn.setAttribute("aria-label", c.name_en);
     btn.innerHTML = swatchMarksHtml(c);
     btn.addEventListener("click", () => openDetail(c));
-    swatches.appendChild(btn);
+    swatches?.appendChild(btn);
   });
-  names.innerHTML = colors
-    .map(
-      (c) =>
-        `<span class="todays-name-line">${escapeHtml(c.name_en)} · ${escapeHtml(c.brand)}</span>`
-    )
-    .join("");
+  if (names) {
+    names.innerHTML = colors
+      .map(
+        (c) =>
+          `<span class="todays-name-line">${escapeHtml(c.name_en)} · ${escapeHtml(c.brand)}</span>`
+      )
+      .join("");
+  }
 }
 
-function shuffleTodaysPalette() {
-  pickRandomTodaysColors(true);
-  renderTodaysPalette();
+function shuffleCreativeFun() {
+  const pool = creativePoolColors();
+  if (pool.length < 3) {
+    showToast("Need 3+ pans in the pool to shuffle", { type: "info" });
+    renderCreativeFun();
+    return;
+  }
+  drawCreativeTrio(true);
+  renderCreativeFun();
+  showToast("New trio ready — paint what you can reach", { type: "ok", duration: 2200 });
+}
+
+function sendCreativeTrioToMixLab() {
+  const colors = creativeDrawIds
+    .map((id) => palette.colors.find((c) => c.id === id))
+    .filter(Boolean)
+    .slice(0, 3);
+  if (colors.length < 2) {
+    showToast("Shuffle a trio first", { type: "info" });
+    return;
+  }
+  selectedMixSlots = [...colors.map((c) => c.id), null, null, null].slice(0, 3);
+  switchTab("mix");
+  renderMixWorkspace();
+  renderMixPicker();
+  showToast("Trio loaded in Mix Lab", { type: "ok" });
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function updateFormSwatchPreview() {
+  const preview = $("#f-hex-preview");
+  if (!preview) return;
+  const raw = ($("#f-hex")?.value || "").trim();
+  const hex = raw.startsWith("#") ? raw : `#${raw}`;
+  if (/^#[0-9A-Fa-f]{6}$/.test(hex)) {
+    preview.style.background = hex;
+  } else {
+    const picker = $("#f-hex-picker")?.value;
+    preview.style.background = picker || "#888888";
+  }
 }
 
 function colorsByIds(ids) {
@@ -1346,6 +1658,8 @@ function renderKits() {
   if (kitWheelA && !inKit.has(kitWheelA)) kitWheelA = null;
   if (kitWheelB && !inKit.has(kitWheelB)) kitWheelB = null;
   renderKitWheel();
+  // Keep Creative Fun pool chips in sync with kit fills/names
+  renderCreativeFun();
 }
 
 /**
@@ -1599,7 +1913,11 @@ function makeKitWell(kit, index, color) {
     const marks = [];
     if (color.granulating) marks.push("✦ granulating");
     if (color.mix_star) marks.push("◈ good for mix");
-    btn.title = [color.name_en, ...marks, "tap → wheel A/B · long-press → remove"].join(" · ");
+    btn.title = [
+      color.name_en,
+      ...marks,
+      "tap → set/unselect A·B · long-press → remove",
+    ].join(" · ");
     btn.innerHTML = `${swatchMarksHtml(color)}<span class="kit-well-name">${escapeHtml(color.name_en)}</span>`;
   } else {
     btn.title = "Empty well — tap to pick a color";
@@ -1638,13 +1956,28 @@ function makeKitWell(kit, index, color) {
     clearPress();
     if (longPressed) return;
     if (color) {
-      // Tap: assign to mix wheel A then B
-      if (kitWheelNextTap === "a" || !kitWheelA) {
+      // Tap selected A/B again → unselect (easy substitute); else assign A then B
+      if (color.id === kitWheelA) {
+        kitWheelA = null;
+        kitWheelNextTap = "a";
+      } else if (color.id === kitWheelB) {
+        kitWheelB = null;
+        kitWheelNextTap = kitWheelA ? "b" : "a";
+      } else if (kitWheelNextTap === "a" || !kitWheelA) {
         kitWheelA = color.id;
         kitWheelNextTap = "b";
-      } else {
+      } else if (!kitWheelB) {
         kitWheelB = color.id;
         kitWheelNextTap = "a";
+      } else {
+        // Both filled, third pan replaces next slot (A/B alternate)
+        if (kitWheelNextTap === "b") {
+          kitWheelB = color.id;
+          kitWheelNextTap = "a";
+        } else {
+          kitWheelA = color.id;
+          kitWheelNextTap = "b";
+        }
       }
       renderKitWheel();
       renderKitTin(kit);
@@ -1799,57 +2132,12 @@ function renderKitWheel() {
       warnText ||
       `≈ ${mix.hex.toUpperCase()} · screen guess`;
     note.hidden = false;
-  } else if (a || b) {
-    // One handle set → suggest a kit complement as the other (idea D)
-    const anchor = a || b;
-    const freeSlot = a ? "B" : "A";
-    const tip = suggestKitComplement(anchor, a?.id || b?.id);
-    swatch.style.background = "var(--paper-deep)";
-    label.textContent = "Mix";
-    if (tip) {
-      note.textContent = `D · try ${tip.name_en} as ${freeSlot} — near complement for mute greys & shadows`;
-      note.hidden = false;
-    } else {
-      note.textContent = `Pick ${freeSlot} from the tin — or drag the other handle`;
-      note.hidden = false;
-    }
   } else {
     swatch.style.background = "var(--paper-deep)";
     label.textContent = "Mix";
     note.textContent = "";
     note.hidden = true;
   }
-}
-
-/** Best near-complement in the active kit (opposite hue ± ~30°) */
-function suggestKitComplement(anchor, excludeId) {
-  if (!anchor) return null;
-  const target = (colorHueDeg(anchor) + 180) % 360;
-  const pool = kitColorsForWheel().filter((c) => c.id !== excludeId);
-  if (!pool.length) return null;
-  let best = null;
-  let bestScore = 999;
-  pool.forEach((c) => {
-    let d = Math.abs(colorHueDeg(c) - target);
-    if (d > 180) d = 360 - d;
-    // Prefer more saturated complements for clearer tip
-    let sat = 50;
-    try {
-      sat = Mixing.hexToHsl(c.hex).s;
-    } catch {
-      /* ignore */
-    }
-    const score = d - sat * 0.05;
-    if (score < bestScore) {
-      bestScore = score;
-      best = c;
-    }
-  });
-  // Only surface if roughly opposite (within ~55°)
-  if (!best) return null;
-  let d = Math.abs(colorHueDeg(best) - target);
-  if (d > 180) d = 360 - d;
-  return d <= 55 ? best : null;
 }
 
 function kitWheelAngleFromEvent(e, stage) {
@@ -2043,7 +2331,7 @@ function arrangeActiveKitSpectrum() {
   if (!kit) return;
   const filled = kit.slots.map((id) => palette.colors.find((c) => c.id === id)).filter(Boolean);
   if (filled.length < 2) {
-    alert("Add at least two colors before arranging.");
+    showToast("Add at least two colors before arranging.", { type: "info" });
     return;
   }
   const sorted = Mixing.sortBySpectrum(filled);
@@ -2052,6 +2340,7 @@ function arrangeActiveKitSpectrum() {
   kit.orderMode = "spectrum";
   saveKits();
   renderKits();
+  showToast("Arranged by spectrum", { type: "ok", duration: 2000 });
 }
 
 function createNewKit() {
@@ -2085,20 +2374,25 @@ function renameActiveKit() {
   renderKits();
 }
 
-function deleteActiveKit() {
+async function deleteActiveKit() {
   const kit = getActiveKit();
   if (!kit) return;
   if (kits.length <= 1) {
-    alert("Keep at least one kit — or empty its wells.");
+    showToast("Keep at least one kit — or empty its wells.", { type: "info" });
     return;
   }
-  if (!confirm(`Delete kit “${kit.name}”?`)) return;
+  if (!(await softConfirm(`Delete kit “${kit.name}”?`))) return;
   kits = kits.filter((k) => k.id !== kit.id);
   activeKitId = kits[0].id;
+  creativePoolKitIds = creativePoolKitIds.filter((id) => id !== kit.id);
+  if (!creativePoolKitIds.length) creativePoolKitIds = [activeKitId];
+  saveCreativeFunState();
   saveKits();
   renderKits();
+  renderCreativeFun();
   updateTabBadges();
   renderPalette();
+  showToast(`Deleted “${kit.name}”`, { type: "ok" });
 }
 
 function addToActiveKit(id) {
@@ -2107,16 +2401,18 @@ function addToActiveKit(id) {
   if (kit.slots.includes(id)) return;
   const empty = kit.slots.indexOf(null);
   if (empty < 0) {
-    alert(`“${kit.name}” is full (${kit.slots.length} wells).`);
+    showToast(`“${kit.name}” is full (${kit.slots.length} wells).`, { type: "info" });
     return;
   }
   kit.slots[empty] = id;
   kit.orderMode = "manual";
   saveKits();
   renderKits();
+  renderCreativeFun();
   renderPalette();
   updateTabBadges();
   refreshDetailActions();
+  showToast(`Added to ${kit.name}`, { type: "ok", duration: 1800 });
 }
 
 function removeFromActiveKit(id) {
@@ -3180,9 +3476,19 @@ function bindEvents() {
   $("#family-filter").addEventListener("change", renderPalette);
   $("#toxicity-filter").addEventListener("change", renderPalette);
   $("#format-filter").addEventListener("change", renderPalette);
-  $("#todays-shuffle").addEventListener("click", shuffleTodaysPalette);
+  $("#creative-shuffle")?.addEventListener("click", shuffleCreativeFun);
+  $("#creative-to-mix")?.addEventListener("click", sendCreativeTrioToMixLab);
+  $$(".creative-mode-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      creativeMode = btn.dataset.mode || "play";
+      saveCreativeFunState();
+      drawCreativeTrio(true);
+      renderCreativeFun();
+    });
+  });
   $("#mix-clear").addEventListener("click", () => {
     selectedMixSlots = [null, null, null];
+    renderMixWorkspace();
     renderMixPicker();
   });
   $("#mix-stars-toggle").addEventListener("click", () => {
@@ -3226,12 +3532,15 @@ function bindEvents() {
   });
   $("#f-hex-picker").addEventListener("input", () => {
     $("#f-hex").value = $("#f-hex-picker").value.toUpperCase();
+    updateFormSwatchPreview();
   });
   $("#f-hex").addEventListener("input", () => {
     const v = $("#f-hex").value.trim();
     const hex = v.startsWith("#") ? v : `#${v}`;
     if (/^#[0-9A-Fa-f]{6}$/.test(hex)) $("#f-hex-picker").value = hex;
+    updateFormSwatchPreview();
   });
+  updateFormSwatchPreview();
   $("#sheet-close").addEventListener("click", () => {
     detailColor = null;
     $("#detail-sheet").close();

@@ -11,10 +11,12 @@
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
   <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
-  <link rel="stylesheet" href="css/style.css?v=80" />
+  <link rel="stylesheet" href="css/style.css?v=81" />
 </head>
 <body>
   <div class="paper-texture" aria-hidden="true"></div>
+  <div id="toast-host" class="toast-host" aria-live="polite" aria-relevant="additions"></div>
+  <div id="confirm-host" class="confirm-host" hidden></div>
 
   <header class="site-header">
     <div class="studio-mark">✦</div>
@@ -24,7 +26,7 @@
     </div>
     <p class="studio-tagline">watercolor palette & mix lab</p>
     <p class="palette-meta" id="palette-meta"></p>
-    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v80</button>
+    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v81</button>
   </header>
 
   <aside class="caveats-banner" id="caveats-banner" aria-label="Studio notes">
@@ -48,17 +50,6 @@
   <main>
     <!-- Palette -->
     <section id="panel-palette" class="panel active" role="tabpanel">
-      <section class="todays-palette" id="todays-palette" aria-label="Today's palette challenge">
-        <div class="todays-palette-head">
-          <div>
-            <h2 class="section-title">Today's palette</h2>
-            <p class="section-hint">Three colors — one small painting challenge.</p>
-          </div>
-          <button type="button" id="todays-shuffle" class="btn-ghost btn-compact">Shuffle</button>
-        </div>
-        <div id="todays-swatches" class="todays-swatches"></div>
-        <p id="todays-names" class="todays-names"></p>
-      </section>
       <div class="toolbar">
         <label class="search-wrap">
           <span class="sr-only">Search colors</span>
@@ -93,6 +84,30 @@
         <div id="kit-chips" class="kit-chips" role="tablist" aria-label="Your kits"></div>
         <button type="button" id="kit-add-btn" class="btn-ghost btn-compact">+ New kit</button>
       </div>
+
+      <!-- Creative Fun: limited random draws from real tins -->
+      <section class="creative-fun" id="creative-fun" aria-label="Creative Fun challenge">
+        <div class="creative-fun-head">
+          <div>
+            <h2 class="section-title">Creative Fun</h2>
+            <p class="section-hint">Three colors from kits you can actually reach — force a tiny painting.</p>
+          </div>
+          <button type="button" id="creative-shuffle" class="btn-ghost btn-compact">Shuffle</button>
+        </div>
+        <p class="creative-pool-label">Draw from</p>
+        <div id="creative-pool-chips" class="creative-pool-chips" role="group" aria-label="Kits in the draw pool"></div>
+        <div id="creative-modes" class="creative-modes" role="group" aria-label="Challenge style">
+          <button type="button" class="creative-mode-btn active" data-mode="play">Play</button>
+          <button type="button" class="creative-mode-btn" data-mode="mix">Mix practice</button>
+          <button type="button" class="creative-mode-btn" data-mode="temp">Warm + cool</button>
+          <button type="button" class="creative-mode-btn" data-mode="complement">Complement</button>
+        </div>
+        <div id="creative-swatches" class="todays-swatches"></div>
+        <p id="creative-names" class="todays-names"></p>
+        <p id="creative-status" class="creative-status"></p>
+        <button type="button" id="creative-to-mix" class="btn-ghost btn-compact creative-to-mix">Send trio to Mix Lab</button>
+      </section>
+
       <div id="kit-workspace" class="kit-workspace" hidden>
         <div class="kit-workspace-head">
           <div>
@@ -124,7 +139,7 @@
         </div>
 
         <div id="kit-tin" class="kit-tin" aria-label="Kit wells"></div>
-        <p class="kit-tin-hint">Spectrum · 6 per row · ✦ · ◈ · tap = A/B · hold = remove · + = fill</p>
+        <p class="kit-tin-hint">Spectrum · 6 / row · tap = set A/B · tap again = unselect · hold = remove · + = fill</p>
 
         <!-- Rarely used once a kit is built — live at end of scroll -->
         <footer class="kit-actions kit-actions--footer" aria-label="Kit management">
@@ -261,6 +276,7 @@
             <label class="form-field">
               <span class="form-label">Swatch hex <em>*</em></span>
               <div class="hex-input-row">
+                <span class="form-swatch-preview" id="f-hex-preview" aria-hidden="true"></span>
                 <input type="color" id="f-hex-picker" value="#888888" aria-label="Pick color" />
                 <input type="text" id="f-hex" name="hex" required pattern="^#[0-9A-Fa-f]{6}$" placeholder="#AABBCC" />
               </div>
@@ -436,7 +452,7 @@
     </div>
   </dialog>
 
-  <script src="js/mixing.js?v=80"></script>
-  <script src="js/app.js?v=80"></script>
+  <script src="js/mixing.js?v=81"></script>
+  <script src="js/app.js?v=81"></script>
 </body>
 </html>
