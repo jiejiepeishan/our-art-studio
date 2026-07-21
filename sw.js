@@ -1,4 +1,4 @@
-const CACHE = "our-art-studio-v82";
+const CACHE = "our-art-studio-v83";
 const FETCH_TIMEOUT_MS = 4000;
 const BRAND_IMAGES = [
   "./images/brands/aivazovsky-ivan-the-ninth-wave.jpg",

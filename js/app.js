@@ -27,7 +27,7 @@ const SYNC_BUNDLE_VERSION = 2;
 const KIT_SLOT_MAX = 36;
 const KIT_SLOT_MIN = 8;
 /** Bump with sw.js CACHE when shipping UI/data */
-const APP_VERSION = "82";
+const APP_VERSION = "83";
 
 /** Home kit capacity (32 pans — no empty wells) */
 const HOME_TIN = { total: 32 };
@@ -1398,6 +1398,31 @@ function creativePoolSummary() {
   return `${names[0]} +${names.length - 1}`;
 }
 
+/** Kit names in the Creative Fun pool that hold this color id */
+function creativeKitNamesForColor(colorId) {
+  if (!colorId) return [];
+  const names = [];
+  creativePoolKitIds.forEach((kid) => {
+    const kit = kits.find((k) => k.id === kid);
+    if (!kit) return;
+    if (kit.slots.includes(colorId)) names.push(kit.name);
+  });
+  return names;
+}
+
+function creativeColorCaption(c) {
+  const bits = [c.name_en, c.brand].filter(Boolean);
+  const kitNames = creativeKitNamesForColor(c.id);
+  // When drawing from multiple kits, show where to find the pan
+  if (creativePoolKitIds.length > 1 && kitNames.length) {
+    bits.push(kitNames.join(" / "));
+  } else if (creativePoolKitIds.length === 1 && kitNames[0]) {
+    // Single kit still helpful as a quiet cue
+    bits.push(kitNames[0]);
+  }
+  return bits.join(" · ");
+}
+
 function closeCreativeKitDropdown() {
   const panel = $("#creative-kit-dd");
   const btn = $("#creative-kit-dd-btn");
@@ -1537,7 +1562,7 @@ function shuffleCreativeFun() {
   showToast("New trio ready — paint what you can reach", { type: "ok", duration: 2200 });
 }
 
-function sendCreativeTrioToMixLab() {
+functiiveTrioToMixLab() {
   const colors = creativeDrawIds
     .map((id) => palette.colors.find((c) => c.id === id))
     .filter(Boolean)
