@@ -104,6 +104,33 @@ body {
   color: var(--ink-faint);
 }
 
+.version-chip {
+  display: inline-block;
+  margin: 10px auto 0;
+  padding: 4px 12px;
+  border: 1px solid var(--blush);
+  border-radius: 999px;
+  background: var(--card);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+.version-chip:hover,
+.version-chip:focus-visible {
+  color: var(--ink);
+  border-color: var(--rose);
+  outline: none;
+}
+
+.version-chip:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
 .load-status {
   max-width: 480px;
   margin: 0 auto 12px;

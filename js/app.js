@@ -20,6 +20,8 @@ const STORAGE = {
 const SYNC_BUNDLE_VERSION = 2;
 const KIT_SLOT_MAX = 36;
 const KIT_SLOT_MIN = 8;
+/** Bump with sw.js CACHE when shipping UI/data */
+const APP_VERSION = "80";
 
 /** Home kit capacity (32 pans — no empty wells) */
 const HOME_TIN = { total: 32 };
@@ -118,6 +120,7 @@ async function init() {
   rebuildFilters();
   await loadBrandStories();
   await initStudioSync();
+  initVersionChip();
   renderTodaysPalette();
   renderPalette();
   renderKits();
@@ -157,9 +160,41 @@ function registerServiceWorker() {
     return;
   }
   navigator.serviceWorker
-    .register("./sw.js?v=76")
+    .register(`./sw.js?v=${APP_VERSION}`)
     .then((reg) => reg.update())
     .catch(() => {});
+}
+
+/** Hard refresh path for stuck PWA caches (version chip) */
+async function forceAppRefresh() {
+  try {
+    if ("serviceWorker" in navigator) {
+      const regs = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(regs.map((r) => r.unregister()));
+    }
+    if (window.caches?.keys) {
+      const keys = await caches.keys();
+      await Promise.all(keys.map((k) => caches.delete(k)));
+    }
+  } catch {
+    /* still reload */
+  }
+  const url = new URL(window.location.href);
+  url.searchParams.set("v", APP_VERSION);
+  url.searchParams.set("_", String(Date.now()));
+  window.location.replace(url.toString());
+}
+
+function initVersionChip() {
+  const chip = $("#app-version-chip");
+  if (!chip) return;
+  chip.textContent = `v${APP_VERSION}`;
+  chip.title = "Tap to fetch the latest studio (clears cache)";
+  chip.addEventListener("click", () => {
+    chip.textContent = "Updating…";
+    chip.disabled = true;
+    forceAppRefresh();
+  });
 }
 
 function renderCaveats() {
@@ -343,7 +378,8 @@ function toxicityLightHtml(level) {
 }
 
 function filteredColors() {
-  const q = $("#search").value.trim().toLowerCase();
+  const raw = ($("#search")?.value || "").trim().toLowerCase();
+  const tokens = raw.split(/[\s,]+/).filter(Boolean);
   const brand = $("#brand-filter").value;
   const family = $("#family-filter").value;
   const toxicity = $("#toxicity-filter")?.value || "";
@@ -357,12 +393,9 @@ function filteredColors() {
     } else if (family && c.family !== family) return false;
     if (toxicity && toxicityLevel(c) !== toxicity) return false;
     if (!matchesFormatFilter(c, format)) return false;
-    if (!q) return true;
-    const hay = [c.name_en, c.name_zh, c.brand, c.pigment, c.code, c.notes, c.family, c.format]
-      .filter(Boolean)
-      .join(" ")
-      .toLowerCase();
-    return hay.includes(q);
+    // Same multi-token AND search as kit picker (code · hue · brand · name)
+    if (tokens.length && !colorMatchesSearchTokens(c, tokens)) return false;
+    return true;
   });
   return Mixing.sortBySpectrum(filtered);
 }
@@ -1340,6 +1373,10 @@ function analyzeKitBuild(kit) {
     .filter(Boolean);
   const n = colors.length;
   const cap = kit.slots.length;
+  // Full tin → hide coach (rarely needed once the box is packed)
+  if (n >= cap && cap > 0) {
+    return { show: false, text: "" };
+  }
   const fill = n / cap;
 
   const band = (c) => {
@@ -1762,12 +1799,57 @@ function renderKitWheel() {
       warnText ||
       `≈ ${mix.hex.toUpperCase()} · screen guess`;
     note.hidden = false;
+  } else if (a || b) {
+    // One handle set → suggest a kit complement as the other (idea D)
+    const anchor = a || b;
+    const freeSlot = a ? "B" : "A";
+    const tip = suggestKitComplement(anchor, a?.id || b?.id);
+    swatch.style.background = "var(--paper-deep)";
+    label.textContent = "Mix";
+    if (tip) {
+      note.textContent = `D · try ${tip.name_en} as ${freeSlot} — near complement for mute greys & shadows`;
+      note.hidden = false;
+    } else {
+      note.textContent = `Pick ${freeSlot} from the tin — or drag the other handle`;
+      note.hidden = false;
+    }
   } else {
     swatch.style.background = "var(--paper-deep)";
     label.textContent = "Mix";
     note.textContent = "";
     note.hidden = true;
   }
+}
+
+/** Best near-complement in the active kit (opposite hue ± ~30°) */
+function suggestKitComplement(anchor, excludeId) {
+  if (!anchor) return null;
+  const target = (colorHueDeg(anchor) + 180) % 360;
+  const pool = kitColorsForWheel().filter((c) => c.id !== excludeId);
+  if (!pool.length) return null;
+  let best = null;
+  let bestScore = 999;
+  pool.forEach((c) => {
+    let d = Math.abs(colorHueDeg(c) - target);
+    if (d > 180) d = 360 - d;
+    // Prefer more saturated complements for clearer tip
+    let sat = 50;
+    try {
+      sat = Mixing.hexToHsl(c.hex).s;
+    } catch {
+      /* ignore */
+    }
+    const score = d - sat * 0.05;
+    if (score < bestScore) {
+      bestScore = score;
+      best = c;
+    }
+  });
+  // Only surface if roughly opposite (within ~55°)
+  if (!best) return null;
+  let d = Math.abs(colorHueDeg(best) - target);
+  if (d > 180) d = 360 - d;
+  return d <= 55 ? best : null;
 }
 
 function kitWheelAngleFromEvent(e, stage) {
