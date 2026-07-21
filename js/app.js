@@ -27,7 +27,7 @@ const SYNC_BUNDLE_VERSION = 2;
 const KIT_SLOT_MAX = 36;
 const KIT_SLOT_MIN = 8;
 /** Bump with sw.js CACHE when shipping UI/data */
-const APP_VERSION = "85";
+const APP_VERSION = "86";
 
 /** Home kit capacity (32 pans — no empty wells) */
 const HOME_TIN = { total: 32 };
@@ -1603,7 +1603,7 @@ function renderCreativeFun() {
     names.innerHTML = colors
       .map(
         (c) =>
-          `<span class="todays-name-line">${escapeHtml(c.name_en)} · ${escapeHtml(c.brand)}</span>`
+          `<span class="todays-name-line">${escapeHtml(creativeColorCaption(c))}</span>`
       )
       .join("");
   }
@@ -1621,7 +1621,7 @@ function shuffleCreativeFun() {
   showToast("New trio ready — paint what you can reach", { type: "ok", duration: 2200 });
 }
 
-functiiveTrioToMixLab() {
+function sendCreativeTrioToMixLab() {
   const colors = creativeDrawIds
     .map((id) => palette.colors.find((c) => c.id === id))
     .filter(Boolean)
