@@ -5,66 +5,83 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#FAF6F0" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <meta http-equiv="Cache-Control" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <title>Our Art Studio</title>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
-  <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
-  <link rel="stylesheet" href="css/style.css?v=87" />
-  <!-- Runs before app.js: if shell is stale, nuke SW/caches once -->
+  <!-- Force correct base for GitHub project pages + local server -->
   <script>
     (function () {
-      var WANT = "87";
+      // /our-art-studio → /our-art-studio/ so relative js/css/data resolve
+      var p = location.pathname;
+      if (!p.endsWith("/") && !/\.html?$/i.test(p)) {
+        location.replace(p + "/" + location.search + location.hash);
+        return;
+      }
+      // One-time: kill any service worker so a stuck SW cannot pin "Loading studio"
+      var FLAG = "oas-disable-sw-v88";
       try {
-        var prev = localStorage.getItem("oas-shell-v");
-        if (prev === WANT) return;
-        localStorage.setItem("oas-shell-v", WANT);
-        var flag = "oas-nuked-" + WANT;
-        if (sessionStorage.getItem(flag)) return;
-        sessionStorage.setItem(flag, "1");
-        var tasks = [];
-        if ("serviceWorker" in navigator) {
-          tasks.push(
-            navigator.serviceWorker.getRegistrations().then(function (rs) {
-              return Promise.all(rs.map(function (r) { return r.unregister(); }));
-            })
-          );
+        if (sessionStorage.getItem(FLAG)) return;
+        if (!("serviceWorker" in navigator)) {
+          sessionStorage.setItem(FLAG, "1");
+          return;
         }
-        if (window.caches && caches.keys) {
-          tasks.push(
-            caches.keys().then(function (keys) {
-              return Promise.all(keys.map(function (k) { return caches.delete(k); }));
-            })
-          );
-        }
-        Promise.all(tasks).then(function () {
-          var u = new URL(location.href);
-          u.searchParams.set("v", WANT);
-          u.searchParams.set("_", String(Date.now()));
-          location.replace(u.toString());
+        navigator.serviceWorker.getRegistrations().then(function (regs) {
+          var tasks = regs.map(function (r) {
+            return r.unregister();
+          });
+          if (window.caches && caches.keys) {
+            tasks.push(
+              caches.keys().then(function (keys) {
+                return Promise.all(
+                  keys.map(function (k) {
+                    return caches.delete(k);
+                  })
+                );
+              })
+            );
+          }
+          return Promise.all(tasks).then(function () {
+            sessionStorage.setItem(FLAG, "1");
+            if (regs.length) location.reload();
+          });
         });
       } catch (e) {}
     })();
   </script>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
+  <link rel="stylesheet" href="css/style.css?v=88" />
 </head>
 <body>
-  <div class="paper-texture" aria-hidden="true"></div>
-  <div id="toast-host" class="toast-host" aria-live="polite" aria-relevant="additions"></div>
-  <div id="confirm-host" class="confirm-host" hidden></div>
-  <p id="stuck-hint" class="load-status" style="display:none">
-    Still loading?
-    <a href="reset.html">Tap here to reset cache</a>
+  <p id="stuck-hint" class="load-status" hidden>
+    Still stuck?
+    <a href="reset.html">Open cache reset</a>
   </p>
   <script>
     setTimeout(function () {
       var s = document.getElementById("load-status");
       var h = document.getElementById("stuck-hint");
-      if (s && !s.hidden && h) h.style.display = "block";
-    }, 4000);
+      if (s && !s.hidden && h) h.hidden = false;
+    }, 5000);
+    window.addEventListener("error", function (e) {
+      var el = document.getElementById("load-error");
+      var st = document.getElementById("load-status");
+      if (!el) return;
+      el.hidden = false;
+      el.textContent =
+        "Script error: " +
+        (e.message || "unknown") +
+        (e.filename ? " (" + e.filename.split("/").pop() + ":" + e.lineno + ")" : "");
+      if (st) st.hidden = true;
+    });
   </script>
 
+  <div class="paper-texture" aria-hidden="true"></div>
+  <div id="toast-host" class="toast-host" aria-live="polite" aria-relevant="additions"></div>
+  <div id="confirm-host" class="confirm-host" hidden></div>
   <header class="site-header">
     <div class="studio-mark">✦</div>
     <div class="studio-titles">
@@ -73,7 +90,7 @@
     </div>
     <p class="studio-tagline">watercolor palette & mix lab</p>
     <p class="palette-meta" id="palette-meta"></p>
-    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v87</button>
+    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v88</button>
   </header>
 
   <aside class="caveats-banner" id="caveats-banner" aria-label="Studio notes">
@@ -512,7 +529,7 @@
     </div>
   </dialog>
 
-  <script src="js/mixing.js?v=87"></script>
-  <script src="js/app.js?v=87"></script>
+  <script src="js/mixing.js?v=88" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load mixing.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/app.js?v=88" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load app.js';document.getElementById('load-status').hidden=true;"></script>
 </body>
 </html>

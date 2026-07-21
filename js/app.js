@@ -27,7 +27,18 @@ const SYNC_BUNDLE_VERSION = 2;
 const KIT_SLOT_MAX = 36;
 const KIT_SLOT_MIN = 8;
 /** Bump with sw.js CACHE when shipping UI/data */
-const APP_VERSION = "87";
+const APP_VERSION = "88";
+
+/** Resolve assets for GitHub project pages and local server */
+function appBasePath() {
+  let p = location.pathname || "/";
+  if (/\.html?$/i.test(p)) p = p.replace(/[^/]+$/, "");
+  else if (!p.endsWith("/")) p += "/";
+  return p;
+}
+function assetUrl(rel) {
+  return appBasePath() + String(rel || "").replace(/^\.\//, "");
+}
 
 /** Home kit capacity (32 pans — no empty wells) */
 const HOME_TIN = { total: 32 };
@@ -118,7 +129,7 @@ async function fetchWithTimeout(url, options = {}, ms = 8000) {
 async function init() {
   try {
   const res = await fetchWithTimeout(
-    `data/palette.json?v=${Date.now()}`,
+    assetUrl(`data/palette.json?v=${Date.now()}`),
     { cache: "no-store" },
     10000
   );
@@ -175,7 +186,8 @@ async function init() {
   } catch (e) {
     console.warn("bindEvents", e);
   }
-  registerServiceWorker();
+  // SW disabled for stability on GitHub Pages (was causing stuck loads / reload loops)
+  disableServiceWorkers();
   hideLoadStatus();
 
   // Secondary loads after paint (must not block)
@@ -184,9 +196,9 @@ async function init() {
   } catch (err) {
     console.error(err);
     showLoadError(
-      "Could not load the studio — try tapping the version chip (or hard-refresh). " +
+      "Could not load the studio: " +
         (err && err.name === "AbortError"
-          ? "Request timed out."
+          ? "Request timed out — check network."
           : err && err.message
             ? err.message
             : String(err))
@@ -210,26 +222,25 @@ async function unregisterStaleServiceWorkers() {
   await Promise.all(regs.map((r) => r.unregister()));
 }
 
-function registerServiceWorker() {
-  if (!("serviceWorker" in navigator) || isLocalDevHost()) {
-    if (isLocalDevHost()) unregisterStaleServiceWorkers();
-    return;
-  }
-  // Explicit scope for GitHub project Pages (/our-art-studio/)
-  const scope = new URL("./", window.location.href).pathname;
+/** Unregister SW everywhere — emergency stability mode for live site */
+function disableServiceWorkers() {
+  if (!("serviceWorker" in navigator)) return;
   navigator.serviceWorker
-    .register(`./sw.js?v=${APP_VERSION}`, { scope })
-    .then((reg) => {
-      reg.update();
-      // When a new SW takes control, soft-reload once so users leave stuck caches
-      let refreshing = false;
-      navigator.serviceWorker.addEventListener("controllerchange", () => {
-        if (refreshing) return;
-        refreshing = true;
-        window.location.reload();
-      });
-    })
-    .catch((err) => console.warn("SW register failed", err));
+    .getRegistrations()
+    .then((regs) => Promise.all(regs.map((r) => r.unregister())))
+    .catch(() => {});
+  if (window.caches?.keys) {
+    caches
+      .keys()
+      .then((keys) => Promise.all(keys.map((k) => caches.delete(k))))
+      .catch(() => {});
+  }
+}
+
+function registerServiceWorker() {
+  // Intentionally no-op while we stabilize GitHub Pages loads.
+  // Call disableServiceWorkers() from init instead.
+  disableServiceWorkers();
 }
 
 /** Hard refresh path for stuck PWA caches (version chip) */
@@ -3345,7 +3356,7 @@ function openDetail(c) {
 async function loadBrandStories() {
   try {
     const res = await fetchWithTimeout(
-      `data/brands.json?v=${Date.now()}`,
+      assetUrl(`data/brands.json?v=${Date.now()}`),
       { cache: "no-store" },
       8000
     );

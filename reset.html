@@ -47,7 +47,7 @@
     Your kit data in this browser is kept.
   </p>
   <button type="button" id="go">Clear cache &amp; open studio</button>
-  <p><a href="./index.html?v=87&amp;fresh=1">Skip — try studio directly</a></p>
+  <p><a href="./index.html?v=88&amp;fresh=1">Skip — try studio directly</a></p>
   <div id="log">Ready.</div>
   <script>
     const log = (msg) => {
@@ -69,11 +69,10 @@
         log("Deleted " + keys.length + " cache(s).");
       }
       try {
-        localStorage.setItem("oas-shell-v", "87");
-        sessionStorage.setItem("oas-nuked-87", "1");
+        sessionStorage.setItem("oas-disable-sw-v88", "1");
       } catch (e) {}
       log("Opening studio…");
-      location.replace("./index.html?v=87&_=" + Date.now());
+      location.replace("./index.html?v=88&_=" + Date.now());
     }
     document.getElementById("go").addEventListener("click", () => {
       document.getElementById("go").disabled = true;
