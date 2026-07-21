@@ -27,7 +27,7 @@ const SYNC_BUNDLE_VERSION = 2;
 const KIT_SLOT_MAX = 36;
 const KIT_SLOT_MIN = 8;
 /** Bump with sw.js CACHE when shipping UI/data */
-const APP_VERSION = "81";
+const APP_VERSION = "82";
 
 /** Home kit capacity (32 pans — no empty wells) */
 const HOME_TIN = { total: 32 };
@@ -77,6 +77,8 @@ let kitWheelA = null;
 let kitWheelB = null;
 let kitWheelNextTap = "a";
 let kitWheelDrag = null; // { which: 'a'|'b', pointerId }
+/** iOS-style jiggle mode for removing pans from spectrum */
+let kitWellEditMode = false;
 let syncApiAvailable = false;
 let skipNextSyncPush = false;
 let syncPushTimer = null;
@@ -1386,61 +1388,86 @@ function creativeModeLabel(mode) {
   );
 }
 
+function creativePoolSummary() {
+  const names = creativePoolKitIds
+    .map((id) => kits.find((k) => k.id === id)?.name)
+    .filter(Boolean);
+  if (!names.length) return "Select kits…";
+  if (names.length === 1) return names[0];
+  if (names.length === 2) return `${names[0]} · ${names[1]}`;
+  return `${names[0]} +${names.length - 1}`;
+}
+
+function closeCreativeKitDropdown() {
+  const panel = $("#creative-kit-dd");
+  const btn = $("#creative-kit-dd-btn");
+  if (panel) panel.hidden = true;
+  if (btn) btn.setAttribute("aria-expanded", "false");
+}
+
+function renderCreativeKitDropdown() {
+  const panel = $("#creative-kit-dd");
+  const btn = $("#creative-kit-dd-btn");
+  if (!panel || !btn) return;
+
+  btn.textContent = creativePoolSummary();
+  panel.innerHTML = "";
+
+  if (!kits.length) {
+    panel.innerHTML = `<p class="creative-status" style="margin:8px">Add a kit first.</p>`;
+    return;
+  }
+
+  kits.forEach((kit) => {
+    const n = kitFilledCount(kit);
+    const label = document.createElement("label");
+    label.className =
+      "creative-dd-option" + (n === 0 ? " is-disabled" : "");
+    const checked = creativePoolKitIds.includes(kit.id);
+    label.innerHTML = `
+      <input type="checkbox" value="${escapeHtml(kit.id)}" ${checked ? "checked" : ""} ${n === 0 ? "disabled" : ""} />
+      <span>${escapeHtml(kit.name)} <span style="color:var(--ink-faint)">(${n})</span></span>`;
+    const input = label.querySelector("input");
+    input?.addEventListener("change", () => {
+      if (n === 0) return;
+      if (input.checked) {
+        if (!creativePoolKitIds.includes(kit.id)) creativePoolKitIds.push(kit.id);
+      } else {
+        if (creativePoolKitIds.length <= 1) {
+          input.checked = true;
+          showToast("Keep at least one kit in the pool", { type: "info" });
+          return;
+        }
+        creativePoolKitIds = creativePoolKitIds.filter((id) => id !== kit.id);
+      }
+      saveCreativeFunState();
+      drawCreativeTrio(true);
+      renderCreativeFun();
+    });
+    panel.appendChild(label);
+  });
+}
+
 function renderCreativeFun() {
   const section = $("#creative-fun");
   if (!section) return;
 
-  // Keep pool valid
+  // Keep pool valid — default to active kit
   const valid = new Set(kits.map((k) => k.id));
   creativePoolKitIds = creativePoolKitIds.filter((id) => valid.has(id));
   if (!creativePoolKitIds.length && activeKitId && valid.has(activeKitId)) {
     creativePoolKitIds = [activeKitId];
   }
-
-  const poolChips = $("#creative-pool-chips");
-  if (poolChips) {
-    poolChips.innerHTML = "";
-    if (!kits.length) {
-      poolChips.innerHTML = `<span class="creative-status">Add a kit first.</span>`;
-    } else {
-      kits.forEach((kit) => {
-        const n = kitFilledCount(kit);
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className =
-          "creative-pool-chip" +
-          (creativePoolKitIds.includes(kit.id) ? " active" : "");
-        btn.textContent = `${kit.name} (${n})`;
-        btn.disabled = n === 0;
-        btn.title =
-          n === 0
-            ? "Empty kit — fill wells first"
-            : "Tap to include/exclude from the draw pool";
-        btn.addEventListener("click", () => {
-          if (n === 0) return;
-          const i = creativePoolKitIds.indexOf(kit.id);
-          if (i >= 0) {
-            if (creativePoolKitIds.length <= 1) {
-              showToast("Keep at least one kit in the pool", { type: "info" });
-              return;
-            }
-            creativePoolKitIds.splice(i, 1);
-          } else {
-            creativePoolKitIds.push(kit.id);
-          }
-          saveCreativeFunState();
-          // New pool → fresh draw
-          drawCreativeTrio(true);
-          renderCreativeFun();
-        });
-        poolChips.appendChild(btn);
-      });
-    }
+  if (!creativePoolKitIds.length && kits[0]) {
+    creativePoolKitIds = [kits[0].id];
   }
 
-  $$(".creative-mode-btn").forEach((btn) => {
-    btn.classList.toggle("active", btn.dataset.mode === creativeMode);
-  });
+  renderCreativeKitDropdown();
+
+  const modeSel = $("#creative-mode-select");
+  if (modeSel && modeSel.value !== creativeMode) {
+    modeSel.value = creativeMode;
+  }
 
   const pool = creativePoolColors();
   const status = $("#creative-status");
@@ -1460,17 +1487,16 @@ function renderCreativeFun() {
           : `Only ${pool.length} pan${pool.length === 1 ? "" : "s"} in the pool — add more to shuffle a trio.`;
     }
     if (toMix) toMix.hidden = true;
-    // show whatever we have
     colors.forEach((c) => {
       if (!swatches) return;
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "todays-swatch-btn";
-      btn.style.background = c.hex;
-      btn.title = c.name_en;
-      btn.innerHTML = swatchMarksHtml(c);
-      btn.addEventListener("click", () => openDetail(c));
-      swatches.appendChild(btn);
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "todays-swatch-btn";
+      b.style.background = c.hex;
+      b.title = c.name_en;
+      b.innerHTML = swatchMarksHtml(c);
+      b.addEventListener("click", () => openDetail(c));
+      swatches.appendChild(b);
     });
     return;
   }
@@ -1479,15 +1505,15 @@ function renderCreativeFun() {
   if (toMix) toMix.hidden = false;
 
   colors.forEach((c) => {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "todays-swatch-btn";
-    btn.style.background = c.hex;
-    btn.title = c.name_en;
-    btn.setAttribute("aria-label", c.name_en);
-    btn.innerHTML = swatchMarksHtml(c);
-    btn.addEventListener("click", () => openDetail(c));
-    swatches?.appendChild(btn);
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "todays-swatch-btn";
+    b.style.background = c.hex;
+    b.title = c.name_en;
+    b.setAttribute("aria-label", c.name_en);
+    b.innerHTML = swatchMarksHtml(c);
+    b.addEventListener("click", () => openDetail(c));
+    swatches?.appendChild(b);
   });
   if (names) {
     names.innerHTML = colors
@@ -1633,7 +1659,13 @@ function renderKits() {
     btn.textContent = `${kit.name} (${kitFilledCount(kit)}/${kit.slots.length})`;
     btn.addEventListener("click", () => {
       activeKitId = kit.id;
+      kitWellEditMode = false;
       saveKits();
+      // Default Creative Fun pool follows the kit you're viewing (if only one selected)
+      if (creativePoolKitIds.length <= 1) {
+        creativePoolKitIds = [kit.id];
+        saveCreativeFunState();
+      }
       renderKits();
       updateTabBadges();
       renderPalette();
@@ -1850,11 +1882,49 @@ function analyzeKitBuild(kit) {
   return { show: true, text: head + body };
 }
 
+function updateKitTinHint() {
+  const hint = $("#kit-tin-hint");
+  const done = $("#kit-edit-done");
+  if (done) done.hidden = !kitWellEditMode;
+  if (!hint) return;
+  hint.textContent = kitWellEditMode
+    ? "Jiggle mode · tap − to remove · Done when finished"
+    : "Spectrum · 6 / row · tap = A/B · hold = edit · + = fill";
+}
+
+function setKitWellEditMode(on) {
+  kitWellEditMode = !!on;
+  const kit = getActiveKit();
+  if (kit) renderKitTin(kit);
+  else updateKitTinHint();
+  if (kitWellEditMode) {
+    showToast("Tap − to remove pans · Done when finished", {
+      type: "info",
+      duration: 2400,
+    });
+  }
+}
+
+function removeColorFromKitSlot(kit, index, colorId) {
+  if (!kit || index < 0 || index >= kit.slots.length) return;
+  kit.slots[index] = null;
+  kit.orderMode = "manual";
+  if (colorId && kitWheelA === colorId) kitWheelA = null;
+  if (colorId && kitWheelB === colorId) kitWheelB = null;
+  saveKits();
+  renderKits();
+  updateTabBadges();
+  renderPalette();
+  refreshDetailActions();
+}
+
 function renderKitTin(kit) {
   const tin = $("#kit-tin");
   if (!tin) return;
-  tin.className = "kit-tin kit-tin--spectrum";
+  tin.className =
+    "kit-tin kit-tin--spectrum" + (kitWellEditMode ? " is-editing" : "");
   tin.innerHTML = "";
+  updateKitTinHint();
 
   const filled = [];
   const emptyIdx = [];
@@ -1905,22 +1975,29 @@ function makeKitWell(kit, index, color) {
   btn.className =
     "kit-well" +
     (color ? "" : " kit-well--empty") +
-    (color && color.id === kitWheelA ? " kit-well--wheel-a" : "") +
-    (color && color.id === kitWheelB ? " kit-well--wheel-b" : "");
+    (color && color.id === kitWheelA && !kitWellEditMode
+      ? " kit-well--wheel-a"
+      : "") +
+    (color && color.id === kitWheelB && !kitWellEditMode
+      ? " kit-well--wheel-b"
+      : "");
   btn.dataset.slot = String(index);
   if (color) {
     btn.style.background = color.hex;
     const marks = [];
     if (color.granulating) marks.push("✦ granulating");
     if (color.mix_star) marks.push("◈ good for mix");
-    btn.title = [
-      color.name_en,
-      ...marks,
-      "tap → set/unselect A·B · long-press → remove",
-    ].join(" · ");
-    btn.innerHTML = `${swatchMarksHtml(color)}<span class="kit-well-name">${escapeHtml(color.name_en)}</span>`;
+    btn.title = kitWellEditMode
+      ? `${color.name_en} · tap − to remove`
+      : [color.name_en, ...marks, "tap → A/B · hold → edit mode"].join(" · ");
+    const removeHtml = kitWellEditMode
+      ? `<span class="kit-well-remove" data-remove="1" aria-label="Remove ${escapeHtml(color.name_en)}">−</span>`
+      : "";
+    btn.innerHTML = `${removeHtml}${swatchMarksHtml(color)}<span class="kit-well-name">${escapeHtml(color.name_en)}</span>`;
   } else {
-    btn.title = "Empty well — tap to pick a color";
+    btn.title = kitWellEditMode
+      ? "Empty well"
+      : "Empty well — tap to pick a color";
     btn.innerHTML = `<span class="kit-well-plus">+</span>`;
   }
 
@@ -1932,19 +2009,13 @@ function makeKitWell(kit, index, color) {
   };
 
   btn.addEventListener("pointerdown", (e) => {
-    if (!color) return;
+    if (!color || kitWellEditMode) return;
+    // Don't start long-press from the remove badge
+    if (e.target?.closest?.("[data-remove]")) return;
     longPressed = false;
     pressTimer = setTimeout(() => {
       longPressed = true;
-      kit.slots[index] = null;
-      kit.orderMode = "manual";
-      if (kitWheelA === color.id) kitWheelA = null;
-      if (kitWheelB === color.id) kitWheelB = null;
-      saveKits();
-      renderKits();
-      updateTabBadges();
-      renderPalette();
-      refreshDetailActions();
+      setKitWellEditMode(true);
     }, 480);
     try {
       btn.setPointerCapture(e.pointerId);
@@ -1955,8 +2026,21 @@ function makeKitWell(kit, index, color) {
   btn.addEventListener("pointerup", (e) => {
     clearPress();
     if (longPressed) return;
+
+    // Edit mode: − removes; empty well can still fill; filled pans only remove via −
+    if (kitWellEditMode) {
+      if (e.target?.closest?.("[data-remove]") && color) {
+        e.preventDefault();
+        e.stopPropagation();
+        removeColorFromKitSlot(kit, index, color.id);
+      } else if (!color) {
+        openKitPicker(index);
+      }
+      return;
+    }
+
     if (color) {
-      // Tap selected A/B again → unselect (easy substitute); else assign A then B
+      // Tap selected A/B again → unselect; else assign A then B
       if (color.id === kitWheelA) {
         kitWheelA = null;
         kitWheelNextTap = "a";
@@ -1969,15 +2053,12 @@ function makeKitWell(kit, index, color) {
       } else if (!kitWheelB) {
         kitWheelB = color.id;
         kitWheelNextTap = "a";
+      } else if (kitWheelNextTap === "b") {
+        kitWheelB = color.id;
+        kitWheelNextTap = "a";
       } else {
-        // Both filled, third pan replaces next slot (A/B alternate)
-        if (kitWheelNextTap === "b") {
-          kitWheelB = color.id;
-          kitWheelNextTap = "a";
-        } else {
-          kitWheelA = color.id;
-          kitWheelNextTap = "b";
-        }
+        kitWheelA = color.id;
+        kitWheelNextTap = "b";
       }
       renderKitWheel();
       renderKitTin(kit);
@@ -1987,7 +2068,6 @@ function makeKitWell(kit, index, color) {
   });
   btn.addEventListener("pointercancel", clearPress);
   btn.addEventListener("click", (e) => {
-    // pointerup already handled; prevent double fire on some browsers
     e.preventDefault();
   });
   return btn;
@@ -3478,14 +3558,27 @@ function bindEvents() {
   $("#format-filter").addEventListener("change", renderPalette);
   $("#creative-shuffle")?.addEventListener("click", shuffleCreativeFun);
   $("#creative-to-mix")?.addEventListener("click", sendCreativeTrioToMixLab);
-  $$(".creative-mode-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      creativeMode = btn.dataset.mode || "play";
-      saveCreativeFunState();
-      drawCreativeTrio(true);
-      renderCreativeFun();
-    });
+  $("#creative-mode-select")?.addEventListener("change", (e) => {
+    creativeMode = e.target.value || "play";
+    saveCreativeFunState();
+    drawCreativeTrio(true);
+    renderCreativeFun();
   });
+  $("#creative-kit-dd-btn")?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const panel = $("#creative-kit-dd");
+    const btn = $("#creative-kit-dd-btn");
+    if (!panel || !btn) return;
+    const open = panel.hidden;
+    panel.hidden = !open;
+    btn.setAttribute("aria-expanded", String(open));
+    if (open) renderCreativeKitDropdown();
+  });
+  document.addEventListener("click", (e) => {
+    const field = e.target?.closest?.(".creative-field--kits");
+    if (!field) closeCreativeKitDropdown();
+  });
+  $("#kit-edit-done")?.addEventListener("click", () => setKitWellEditMode(false));
   $("#mix-clear").addEventListener("click", () => {
     selectedMixSlots = [null, null, null];
     renderMixWorkspace();
@@ -3511,11 +3604,17 @@ function bindEvents() {
   $("#kit-rename-btn")?.addEventListener("click", renameActiveKit);
   $("#kit-delete-btn")?.addEventListener("click", deleteActiveKit);
   bindKitWheelHandles();
-  $("#kit-picker-close")?.addEventListener("click", () => {
-    kitFillSlotIndex = null;
-    $("#kit-picker-sheet").close();
-  });
   $("#kit-picker-search")?.addEventListener("input", renderKitPickerGrid);
+  // Tap dimmed backdrop (outside sheet-inner) to close picker — no × button
+  $("#kit-picker-sheet")?.addEventListener("click", (e) => {
+    if (e.target === $("#kit-picker-sheet")) {
+      kitFillSlotIndex = null;
+      $("#kit-picker-sheet").close();
+    }
+  });
+  $("#kit-picker-sheet")?.addEventListener("cancel", () => {
+    kitFillSlotIndex = null;
+  });
   $("#sheet-remove-btn").addEventListener("click", () => {
     if (!detailColor) return;
     removeColorFromStudio(detailColor.id);

@@ -11,7 +11,7 @@
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
   <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
-  <link rel="stylesheet" href="css/style.css?v=81" />
+  <link rel="stylesheet" href="css/style.css?v=82" />
 </head>
 <body>
   <div class="paper-texture" aria-hidden="true"></div>
@@ -26,7 +26,7 @@
     </div>
     <p class="studio-tagline">watercolor palette & mix lab</p>
     <p class="palette-meta" id="palette-meta"></p>
-    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v81</button>
+    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v82</button>
   </header>
 
   <aside class="caveats-banner" id="caveats-banner" aria-label="Studio notes">
@@ -94,13 +94,23 @@
           </div>
           <button type="button" id="creative-shuffle" class="btn-ghost btn-compact">Shuffle</button>
         </div>
-        <p class="creative-pool-label">Draw from</p>
-        <div id="creative-pool-chips" class="creative-pool-chips" role="group" aria-label="Kits in the draw pool"></div>
-        <div id="creative-modes" class="creative-modes" role="group" aria-label="Challenge style">
-          <button type="button" class="creative-mode-btn active" data-mode="play">Play</button>
-          <button type="button" class="creative-mode-btn" data-mode="mix">Mix practice</button>
-          <button type="button" class="creative-mode-btn" data-mode="temp">Warm + cool</button>
-          <button type="button" class="creative-mode-btn" data-mode="complement">Complement</button>
+        <div class="creative-controls">
+          <div class="creative-field creative-field--kits">
+            <span class="creative-field-label" id="creative-kit-label">Kits</span>
+            <button type="button" id="creative-kit-dd-btn" class="creative-dd-btn" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="creative-kit-label">
+              Home
+            </button>
+            <div id="creative-kit-dd" class="creative-dd-panel" hidden role="listbox" aria-multiselectable="true" aria-labelledby="creative-kit-label"></div>
+          </div>
+          <label class="creative-field">
+            <span class="creative-field-label">Mode</span>
+            <select id="creative-mode-select" class="creative-select" aria-label="Challenge style">
+              <option value="play" selected>Play</option>
+              <option value="mix">Mix practice</option>
+              <option value="temp">Warm + cool</option>
+              <option value="complement">Complement</option>
+            </select>
+          </label>
         </div>
         <div id="creative-swatches" class="todays-swatches"></div>
         <p id="creative-names" class="todays-names"></p>
@@ -139,7 +149,10 @@
         </div>
 
         <div id="kit-tin" class="kit-tin" aria-label="Kit wells"></div>
-        <p class="kit-tin-hint">Spectrum · 6 / row · tap = set A/B · tap again = unselect · hold = remove · + = fill</p>
+        <div class="kit-tin-footer">
+          <p id="kit-tin-hint" class="kit-tin-hint">Spectrum · 6 / row · tap = A/B · hold = edit · + = fill</p>
+          <button type="button" id="kit-edit-done" class="btn-ghost btn-compact kit-edit-done" hidden>Done</button>
+        </div>
 
         <!-- Rarely used once a kit is built — live at end of scroll -->
         <footer class="kit-actions kit-actions--footer" aria-label="Kit management">
@@ -151,12 +164,12 @@
       <p id="kit-empty-state" class="empty-state">No kits yet — tap + New kit.</p>
     </section>
 
-    <!-- Kit color picker sheet -->
+    <!-- Kit color picker sheet (tap dimmed backdrop to close) -->
     <dialog id="kit-picker-sheet" class="detail-sheet kit-picker-sheet">
-      <div class="sheet-inner">
-        <header class="sheet-header">
-          <h2 class="sheet-title">Pick a color</h2>
-          <button type="button" class="sheet-close" id="kit-picker-close" aria-label="Close">×</button>
+      <div class="sheet-inner kit-picker-inner">
+        <header class="kit-picker-header">
+          <h2 class="kit-picker-title">Add to well</h2>
+          <p class="kit-picker-sub">Search or tap a color · tap outside to close</p>
         </header>
         <input type="search" id="kit-picker-search" class="kit-picker-search" placeholder="Search: 211 · yellow · schmincke yellow…" autocomplete="off" />
         <div id="kit-picker-grid" class="palette-grid kit-picker-grid"></div>
@@ -452,7 +465,7 @@
     </div>
   </dialog>
 
-  <script src="js/mixing.js?v=81"></script>
-  <script src="js/app.js?v=81"></script>
+  <script src="js/mixing.js?v=82"></script>
+  <script src="js/app.js?v=82"></script>
 </body>
 </html>
