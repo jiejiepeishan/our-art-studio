@@ -1848,13 +1848,14 @@ function colorMatchesSearchTokens(c, tokens) {
   const code = String(c.code || "").toLowerCase();
   const codeDigits = code.replace(/\D/g, "");
   const family = (c.family || "").toLowerCase();
+  const notes = (c.notes || "").toLowerCase();
   let hue = "";
   try {
     hue = String(Math.round(Mixing.hexToHsl(c.hex).h));
   } catch {
     /* ignore */
   }
-  const hay = [nameEn, nameZh, brand, pigment, code, codeDigits, family, hue]
+  const hay = [nameEn, nameZh, brand, pigment, code, codeDigits, family, hue, notes]
     .filter(Boolean)
     .join(" ");
 
@@ -1901,6 +1902,11 @@ function colorMatchesSearchTokens(c, tokens) {
       rosa: "rosa",
       maimeri: "maimeri",
       mb: "maimeri",
+      pinax: "pinax",
+      sennelier: "sennelier",
+      sen: "sennelier",
+      szmal: "roman szmal",
+      "roman": "roman",
     };
     const bm = brandMap[tok];
     if (bm && brand.includes(bm)) return true;

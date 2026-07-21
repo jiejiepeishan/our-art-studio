@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "brands": [
     {
       "id": "daniel-smith",
@@ -444,6 +444,62 @@
               "caption": "That impossible moonlight green-blue. Night that glows from the pigment out.",
               "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Kuindzhi_Moonlit_night_on_the_Dnieper_1880_grm_x2.jpg/960px-Kuindzhi_Moonlit_night_on_the_Dnieper_1880_grm_x2.jpg",
               "image_local": "images/brands/kuindzhi-moonlit-night-on-the-dnieper-1880-grm-x2.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pinax",
+      "name": "Pinax",
+      "origin": "Russia (Extra series · single-pigment pans)",
+      "tagline": "Labels that teach pigment codes",
+      "story": [
+        "Pinax Extra is the half-pan that refuses mystery meat. Pigment code on the face, series letter, lightfast stars — homework already done.",
+        "The Extra line leans single-pigment: quin rose, pyrrol scarlet, ultramarine, potter's pink, iron oxides. Bright when you want noise, earthy when you want grit.",
+        "Russian branding, bold packaging, pans that activate like they mean business. Not every shade is subtle — some are cheerfully loud.",
+        "We added six from the studio photo: a red-pink corner, a mineral blue, and two granulating earths. Perfect bridge between student kits and full pro tins."
+      ],
+      "artists": [
+        {
+          "name": "Wassily Kandinsky",
+          "note": "Color as language. Pinax's pure singles feel like his squares — each pigment speaking for itself.",
+          "works": [
+            {
+              "title": "Color Study: Squares with Concentric Circles",
+              "year": "1913",
+              "artist": "Wassily Kandinsky",
+              "caption": "Single colors in conversation — the Extra-pan dream, public-domain edition.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Vassily_Kandinsky%2C_1913_-_Color_Study%2C_Squares_with_Concentric_Circles.jpg/960px-Vassily_Kandinsky%2C_1913_-_Color_Study%2C_Squares_with_Concentric_Circles.jpg",
+              "image_local": "images/brands/vassily-kandinsky-2c-1913-color-study-2c-squares-with-concentric-circles.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Nicholas Roerich",
+          "note": "Himalayan blues and stage-set color — mineral clarity, no apology.",
+          "works": [
+            {
+              "title": "Guests from Overseas",
+              "year": "1901",
+              "artist": "Nicholas Roerich",
+              "caption": "Bold blocks of hue landing on the shore. Ultramarine energy before the tube was labeled PB29.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nicholas_Roerich_Guests_from_Overseas.jpg/960px-Nicholas_Roerich_Guests_from_Overseas.jpg",
+              "image_local": "images/brands/nicholas-roerich-guests-from-overseas.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Ilya Repin",
+          "note": "Russian realist fire — flesh, cloth, and sky that still teach mixing.",
+          "works": [
+            {
+              "title": "What Freedom!",
+              "year": "1903",
+              "artist": "Ilya Repin",
+              "caption": "Wind, sea, and unfussy chroma. Paint that shows up for the story.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Ilya_Repin_What_freedom.jpg/960px-Ilya_Repin_What_freedom.jpg",
+              "image_local": "images/brands/ilya-repin-what-freedom.jpg"
             }
           ]
         }
