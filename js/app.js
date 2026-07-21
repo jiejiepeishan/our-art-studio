@@ -27,7 +27,7 @@ const SYNC_BUNDLE_VERSION = 2;
 const KIT_SLOT_MAX = 36;
 const KIT_SLOT_MIN = 8;
 /** Bump with sw.js CACHE when shipping UI/data */
-const APP_VERSION = "83";
+const APP_VERSION = "84";
 
 /** Home kit capacity (32 pans — no empty wells) */
 const HOME_TIN = { total: 32 };
@@ -104,12 +104,29 @@ function hideLoadStatus() {
   if (status) status.hidden = true;
 }
 
+/** Fetch with timeout so a hung network never freezes “Loading studio…” */
+async function fetchWithTimeout(url, options = {}, ms = 8000) {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), ms);
+  try {
+    return await fetch(url, { ...options, signal: ctrl.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function init() {
   try {
-  const res = await fetch(`data/palette.json?v=${Date.now()}`, { cache: "no-store" });
+  const res = await fetchWithTimeout(
+    `data/palette.json?v=${Date.now()}`,
+    { cache: "no-store" },
+    10000
+  );
   if (!res.ok) throw new Error(`Could not load palette (${res.status})`);
   basePalette = await res.json();
-  if (!basePalette.colors?.length) throw new Error("Palette is empty");
+  if (!basePalette.colors || !basePalette.colors.length) {
+    throw new Error("Palette is empty");
+  }
   palette =
     typeof structuredClone === "function"
       ? structuredClone(basePalette)
@@ -117,8 +134,10 @@ async function init() {
   loadUserData();
   applyUserChanges();
 
-  $("#studio-name").textContent = palette.studio_name || "Our Art Studio";
-  $("#studio-name-zh").textContent = palette.studio_name_zh || "";
+  const nameEl = $("#studio-name");
+  const nameZhEl = $("#studio-name-zh");
+  if (nameEl) nameEl.textContent = palette.studio_name || "Our Art Studio";
+  if (nameZhEl) nameZhEl.textContent = palette.studio_name_zh || "";
   updatePaletteMeta();
   renderCaveats();
   buildVariantIndex();
@@ -126,23 +145,51 @@ async function init() {
   loadUserLists();
   loadKits();
   rebuildFilters();
-  await loadBrandStories();
-  await initStudioSync();
   initVersionChip();
   loadCreativeFunState();
-  renderPalette();
-  renderKits();
-  renderCreativeFun();
-  updateTabBadges();
-  renderHueChips();
-  bindEvents();
+
+  // Paint the UI first — never leave “Loading studio…” up for brands/sync
+  try {
+    renderPalette();
+  } catch (e) {
+    console.warn("renderPalette", e);
+  }
+  try {
+    renderKits();
+  } catch (e) {
+    console.warn("renderKits", e);
+  }
+  try {
+    renderCreativeFun();
+  } catch (e) {
+    console.warn("renderCreativeFun", e);
+  }
+  try {
+    updateTabBadges();
+    renderHueChips();
+  } catch (e) {
+    console.warn("badges/hue", e);
+  }
+  try {
+    bindEvents();
+  } catch (e) {
+    console.warn("bindEvents", e);
+  }
   registerServiceWorker();
   hideLoadStatus();
+
+  // Secondary loads after paint (must not block)
+  loadBrandStories().catch((e) => console.warn("brands", e));
+  initStudioSync().catch((e) => console.warn("sync", e));
   } catch (err) {
     console.error(err);
     showLoadError(
-      "Could not load the studio — the server may be stopped. Run scripts/serve.sh on your Mac, then hard-refresh (Cmd+Shift+R). " +
-        err.message
+      "Could not load the studio — try tapping the version chip (or hard-refresh). " +
+        (err && err.name === "AbortError"
+          ? "Request timed out."
+          : err && err.message
+            ? err.message
+            : String(err))
     );
   }
 }
@@ -2705,6 +2752,12 @@ function mixPickerColors() {
 function renderMixPicker() {
   const wrap = $("#mix-picker");
   wrap.innerHTML = "";
+  const togglerum(colors);
+}
+
+function renderMixPicker() {
+  const wrap = $("#mix-picker");
+  wrap.innerHTML = "";
   const toggle = $("#mix-stars-toggle");
   if (toggle) {
     toggle.setAttribute("aria-pressed", String(mixPickerStarsOnly));
@@ -3279,13 +3332,17 @@ function openDetail(c) {
 
 async function loadBrandStories() {
   try {
-    const res = await fetch(`data/brands.json?v=${Date.now()}`, { cache: "no-store" });
+    const res = await fetchWithTimeout(
+      `data/brands.json?v=${Date.now()}`,
+      { cache: "no-store" },
+      8000
+    );
     if (!res.ok) return;
     const data = await res.json();
     const studioBrands = new Set(palette.colors.map((c) => c.brand));
     brandStories = (data.brands || []).filter((b) => studioBrands.has(b.name));
     if (!selectedBrandId || !brandStories.some((b) => b.id === selectedBrandId)) {
-      selectedBrandId = brandStories[0]?.id || null;
+      selectedBrandId = brandStories[0] ? brandStories[0].id : null;
     }
     renderBrandChips();
     renderBrandStory();
@@ -3576,11 +3633,11 @@ function bindEvents() {
     btn.addEventListener("click", () => openMoreTarget(btn.dataset.moreTarget));
   });
 
-  $("#search").addEventListener("input", renderPalette);
-  $("#brand-filter").addEventListener("change", renderPalette);
-  $("#family-filter").addEventListener("change", renderPalette);
-  $("#toxicity-filter").addEventListener("change", renderPalette);
-  $("#format-filter").addEventListener("change", renderPalette);
+  $("#search")?.addEventListener("input", renderPalette);
+  $("#brand-filter")?.addEventListener("change", renderPalette);
+  $("#family-filter")?.addEventListener("change", renderPalette);
+  $("#toxicity-filter")?.addEventListener("change", renderPalette);
+  $("#format-filter")?.addEventListener("change", renderPalette);
   $("#creative-shuffle")?.addEventListener("click", shuffleCreativeFun);
   $("#creative-to-mix")?.addEventListener("click", sendCreativeTrioToMixLab);
   $("#creative-mode-select")?.addEventListener("change", (e) => {
@@ -3604,21 +3661,21 @@ function bindEvents() {
     if (!field) closeCreativeKitDropdown();
   });
   $("#kit-edit-done")?.addEventListener("click", () => setKitWellEditMode(false));
-  $("#mix-clear").addEventListener("click", () => {
+  $("#mix-clear")?.addEventListener("click", () => {
     selectedMixSlots = [null, null, null];
     renderMixWorkspace();
     renderMixPicker();
   });
-  $("#mix-stars-toggle").addEventListener("click", () => {
+  $("#mix-stars-toggle")?.addEventListener("click", () => {
     mixPickerStarsOnly = !mixPickerStarsOnly;
     renderMixPicker();
   });
-  $("#hue-search-btn").addEventListener("click", runHueSearch);
-  $("#hue-input").addEventListener("keydown", (e) => {
+  $("#hue-search-btn")?.addEventListener("click", runHueSearch);
+  $("#hue-input")?.addEventListener("keydown", (e) => {
     if (e.key === "Enter") runHueSearch();
   });
 
-  $("#sheet-current-btn").addEventListener("click", () => {
+  $("#sheet-current-btn")?.addEventListener("click", () => {
     if (!detailColor) return;
     if (colorInActiveKit(detailColor.id)) removeFromActiveKit(detailColor.id);
     else addToActiveKit(detailColor.id);
@@ -3640,46 +3697,48 @@ function bindEvents() {
   $("#kit-picker-sheet")?.addEventListener("cancel", () => {
     kitFillSlotIndex = null;
   });
-  $("#sheet-remove-btn").addEventListener("click", () => {
+  $("#sheet-remove-btn")?.addEventListener("click", () => {
     if (!detailColor) return;
     removeColorFromStudio(detailColor.id);
   });
-  $("#sheet-edit-btn").addEventListener("click", () => {
+  $("#sheet-edit-btn")?.addEventListener("click", () => {
     if (!detailColor) return;
     startEditColor(detailColor);
   });
-  $("#color-form").addEventListener("submit", saveColorFromForm);
-  $("#color-form-cancel").addEventListener("click", () => {
+  $("#color-form")?.addEventListener("submit", saveColorFromForm);
+  $("#color-form-cancel")?.addEventListener("click", () => {
     fillColorForm(null);
     clearFormStatus();
     switchTab("palette");
   });
-  $("#f-hex-picker").addEventListener("input", () => {
-    $("#f-hex").value = $("#f-hex-picker").value.toUpperCase();
+  $("#f-hex-picker")?.addEventListener("input", () => {
+    if ($("#f-hex")) $("#f-hex").value = $("#f-hex-picker").value.toUpperCase();
     updateFormSwatchPreview();
   });
-  $("#f-hex").addEventListener("input", () => {
+  $("#f-hex")?.addEventListener("input", () => {
     const v = $("#f-hex").value.trim();
     const hex = v.startsWith("#") ? v : `#${v}`;
-    if (/^#[0-9A-Fa-f]{6}$/.test(hex)) $("#f-hex-picker").value = hex;
+    if (/^#[0-9A-Fa-f]{6}$/.test(hex) && $("#f-hex-picker")) {
+      $("#f-hex-picker").value = hex;
+    }
     updateFormSwatchPreview();
   });
   updateFormSwatchPreview();
-  $("#sheet-close").addEventListener("click", () => {
+  $("#sheet-close")?.addEventListener("click", () => {
     detailColor = null;
-    $("#detail-sheet").close();
+    $("#detail-sheet")?.close();
   });
-  $("#detail-sheet").addEventListener("click", (e) => {
+  $("#detail-sheet")?.addEventListener("click", (e) => {
     if (e.target === $("#detail-sheet")) {
       detailColor = null;
       $("#detail-sheet").close();
     }
   });
 
-  $("#sync-save-passphrase").addEventListener("click", saveSyncPassphrase);
-  $("#sync-now-btn").addEventListener("click", syncNow);
-  $("#sync-export-btn").addEventListener("click", exportStudioFile);
-  $("#sync-import-input").addEventListener("change", (e) => {
+  $("#sync-save-passphrase")?.addEventListener("click", saveSyncPassphrase);
+  $("#sync-now-btn")?.addEventListener("click", syncNow);
+  $("#sync-export-btn")?.addEventListener("click", exportStudioFile);
+  $("#sync-import-input")?.addEventListener("change", (e) => {
     const file = e.target.files?.[0];
     if (file) importStudioFile(file);
     e.target.value = "";
