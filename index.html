@@ -6,17 +6,64 @@
   <meta name="theme-color" content="#FAF6F0" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
   <title>Our Art Studio</title>
   <link rel="manifest" href="manifest.json" />
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
   <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
-  <link rel="stylesheet" href="css/style.css?v=86" />
+  <link rel="stylesheet" href="css/style.css?v=87" />
+  <!-- Runs before app.js: if shell is stale, nuke SW/caches once -->
+  <script>
+    (function () {
+      var WANT = "87";
+      try {
+        var prev = localStorage.getItem("oas-shell-v");
+        if (prev === WANT) return;
+        localStorage.setItem("oas-shell-v", WANT);
+        var flag = "oas-nuked-" + WANT;
+        if (sessionStorage.getItem(flag)) return;
+        sessionStorage.setItem(flag, "1");
+        var tasks = [];
+        if ("serviceWorker" in navigator) {
+          tasks.push(
+            navigator.serviceWorker.getRegistrations().then(function (rs) {
+              return Promise.all(rs.map(function (r) { return r.unregister(); }));
+            })
+          );
+        }
+        if (window.caches && caches.keys) {
+          tasks.push(
+            caches.keys().then(function (keys) {
+              return Promise.all(keys.map(function (k) { return caches.delete(k); }));
+            })
+          );
+        }
+        Promise.all(tasks).then(function () {
+          var u = new URL(location.href);
+          u.searchParams.set("v", WANT);
+          u.searchParams.set("_", String(Date.now()));
+          location.replace(u.toString());
+        });
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
   <div class="paper-texture" aria-hidden="true"></div>
   <div id="toast-host" class="toast-host" aria-live="polite" aria-relevant="additions"></div>
   <div id="confirm-host" class="confirm-host" hidden></div>
+  <p id="stuck-hint" class="load-status" style="display:none">
+    Still loading?
+    <a href="reset.html">Tap here to reset cache</a>
+  </p>
+  <script>
+    setTimeout(function () {
+      var s = document.getElementById("load-status");
+      var h = document.getElementById("stuck-hint");
+      if (s && !s.hidden && h) h.style.display = "block";
+    }, 4000);
+  </script>
 
   <header class="site-header">
     <div class="studio-mark">✦</div>
@@ -26,7 +73,7 @@
     </div>
     <p class="studio-tagline">watercolor palette & mix lab</p>
     <p class="palette-meta" id="palette-meta"></p>
-    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v86</button>
+    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v87</button>
   </header>
 
   <aside class="caveats-banner" id="caveats-banner" aria-label="Studio notes">
@@ -465,7 +512,7 @@
     </div>
   </dialog>
 
-  <script src="js/mixing.js?v=86"></script>
-  <script src="js/app.js?v=86"></script>
+  <script src="js/mixing.js?v=87"></script>
+  <script src="js/app.js?v=87"></script>
 </body>
 </html>

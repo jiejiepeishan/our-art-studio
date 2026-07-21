@@ -27,7 +27,7 @@ const SYNC_BUNDLE_VERSION = 2;
 const KIT_SLOT_MAX = 36;
 const KIT_SLOT_MIN = 8;
 /** Bump with sw.js CACHE when shipping UI/data */
-const APP_VERSION = "86";
+const APP_VERSION = "87";
 
 /** Home kit capacity (32 pans — no empty wells) */
 const HOME_TIN = { total: 32 };

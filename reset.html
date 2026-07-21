@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
+  <title>Reset Our Art Studio</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #faf6f0;
+      color: #3d3429;
+      max-width: 28rem;
+      margin: 3rem auto;
+      padding: 0 1.25rem;
+      line-height: 1.5;
+    }
+    h1 { font-size: 1.35rem; }
+    button {
+      display: block;
+      width: 100%;
+      margin: 1rem 0;
+      padding: 0.9rem 1rem;
+      border: none;
+      border-radius: 12px;
+      background: #3d3429;
+      color: #faf6f0;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    #log {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      background: #fff;
+      border: 1px solid #e8d5c8;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      white-space: pre-wrap;
+    }
+    a { color: #6b5f52; }
+  </style>
+</head>
+<body>
+  <h1>Reset studio cache</h1>
+  <p>
+    This clears the stuck service worker and local app cache, then opens a fresh studio.
+    Your kit data in this browser is kept.
+  </p>
+  <button type="button" id="go">Clear cache &amp; open studio</button>
+  <p><a href="./index.html?v=87&amp;fresh=1">Skip — try studio directly</a></p>
+  <div id="log">Ready.</div>
+  <script>
+    const log = (msg) => {
+      const el = document.getElementById("log");
+      el.textContent += "\n" + msg;
+    };
+    async function nuke() {
+      log("Unregistering service workers…");
+      if ("serviceWorker" in navigator) {
+        const regs = await navigator.serviceWorker.getRegistrations();
+        await Promise.all(regs.map((r) => r.unregister()));
+        log("Removed " + regs.length + " service worker(s).");
+      } else {
+        log("No service worker API.");
+      }
+      if (window.caches && caches.keys) {
+        const keys = await caches.keys();
+        await Promise.all(keys.map((k) => caches.delete(k)));
+        log("Deleted " + keys.length + " cache(s).");
+      }
+      try {
+        localStorage.setItem("oas-shell-v", "87");
+        sessionStorage.setItem("oas-nuked-87", "1");
+      } catch (e) {}
+      log("Opening studio…");
+      location.replace("./index.html?v=87&_=" + Date.now());
+    }
+    document.getElementById("go").addEventListener("click", () => {
+      document.getElementById("go").disabled = true;
+      nuke().catch((e) => {
+        log("Error: " + (e && e.message ? e.message : e));
+        document.getElementById("go").disabled = false;
+      });
+    });
+    // Auto-run so one open is enough
+    nuke().catch((e) => log("Auto-run error: " + e));
+  </script>
+</body>
+</html>
