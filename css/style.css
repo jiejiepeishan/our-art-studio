@@ -2491,6 +2491,14 @@ button.mix-slot-swatch--filled:active {
   justify-content: center;
 }
 
+.kit-well--add {
+  border-color: var(--ink-faint);
+}
+
+.kit-hue-group--add .kit-hue-label {
+  color: var(--ink-faint);
+}
+
 .kit-well-plus {
   color: var(--ink-faint);
   font-size: 1.15rem;

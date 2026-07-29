@@ -24,10 +24,10 @@ let creativeMode = "play"; // play | mix | temp | complement
 let creativeDrawIds = [];
 
 const SYNC_BUNDLE_VERSION = 2;
+/** Soft ceiling so a kit doesn’t grow forever; wells are added/removed on the fly */
 const KIT_SLOT_MAX = 36;
-const KIT_SLOT_MIN = 8;
 /** Bump with sw.js CACHE when shipping UI/data */
-const APP_VERSION = "89";
+const APP_VERSION = "90";
 
 /** Resolve assets for GitHub project pages and local server */
 function appBasePath() {
@@ -1119,14 +1119,12 @@ function uid(prefix = "kit") {
 }
 
 function normalizeKit(raw) {
-  const total = Math.min(
-    KIT_SLOT_MAX,
-    Math.max(KIT_SLOT_MIN, Number(raw.slots?.length || raw.slotCount || 12))
-  );
-  const slots = Array.from({ length: total }, (_, i) => {
-    const id = raw.slots?.[i];
-    return id && palette.colors.some((c) => c.id === id) ? id : null;
-  });
+  // Flexible wells: size = colors you keep. Drop empty pads from older fixed-size kits.
+  const rawSlots = Array.isArray(raw.slots) ? raw.slots : [];
+  const slots = rawSlots
+    .map((id) => (id && palette.colors.some((c) => c.id === id) ? id : null))
+    .filter(Boolean)
+    .slice(0, KIT_SLOT_MAX);
   return {
     id: raw.id || uid(),
     name: (raw.name || "Kit").trim() || "Kit",
@@ -1178,7 +1176,8 @@ function loadKits() {
   }
   kits = loaded.map((k) => {
     const n = normalizeKit(k);
-    n.slots = n.slots.map((id) => (id && valid.has(id) ? id : null));
+    // Drop missing/invalid colors entirely (no empty pad wells)
+    n.slots = n.slots.filter((id) => id && valid.has(id));
     return n;
   });
   // Refresh Home kit: 32 wells, drop empty padding, apply known remaps
@@ -1754,7 +1753,8 @@ function renderKits() {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "kit-chip" + (kit.id === activeKitId ? " active" : "");
-    btn.textContent = `${kit.name} (${kitFilledCount(kit)}/${kit.slots.length})`;
+    const n = kitFilledCount(kit);
+    btn.textContent = `${kit.name} (${n})`;
     btn.addEventListener("click", () => {
       activeKitId = kit.id;
       kitWellEditMode = false;
@@ -1780,7 +1780,11 @@ function renderKits() {
   empty.hidden = true;
   workspace.hidden = false;
   $("#kit-active-name").textContent = kit.name;
-  $("#kit-active-meta").textContent = `${kitFilledCount(kit)} / ${kit.slots.length} · spectrum · 6 / row`;
+  const n = kitFilledCount(kit);
+  $("#kit-active-meta").textContent =
+    n === 0
+      ? `Empty · tap + to add wells · spectrum · 6 / row`
+      : `${n} pan${n === 1 ? "" : "s"} · spectrum · 6 / row · + adds more`;
   updateKitGuidance(kit);
   renderKitTin(kit);
   // Drop wheel picks that left the kit
@@ -1816,12 +1820,7 @@ function analyzeKitBuild(kit) {
     .map((id) => palette.colors.find((c) => c.id === id))
     .filter(Boolean);
   const n = colors.length;
-  const cap = kit.slots.length;
-  // Full tin → hide coach (rarely needed once the box is packed)
-  if (n >= cap && cap > 0) {
-    return { show: false, text: "" };
-  }
-  const fill = n / cap;
+  // Wells grow on demand — coach by palette balance, not a fixed tin size
 
   const band = (c) => {
     try {
@@ -1875,10 +1874,9 @@ function analyzeKitBuild(kit) {
     (k) => (k === "red" ? counts.red + counts.pink > 0 : counts[k] > 0)
   ).length;
 
-  // Looks good → hide guide (e.g. full Home kit)
+  // Looks good → hide guide (balanced kit; size is flexible)
   const looksComplete =
-    n >= 2 &&
-    (fill >= 0.85 || n >= Math.min(cap, 28)) &&
+    n >= 6 &&
     hasYellow &&
     hasRed &&
     hasBlue &&
@@ -1894,7 +1892,7 @@ function analyzeKitBuild(kit) {
     return {
       show: true,
       text:
-        "Start with three mixers: a yellow, a red or rose, and a blue (warm or cool). That triangle can already mix a surprising range — then add earth and one dark.",
+        "Tap + to add wells as you go. Start with three mixers: a yellow, a red or rose, and a blue — then earth and one dark if you need them.",
     };
   }
   if (n === 1) {
@@ -1914,7 +1912,7 @@ function analyzeKitBuild(kit) {
 
   if (!hasYellow) {
     tips.push("Add a yellow (cool Hansa or warm earth-yellow) — without it, clean greens and oranges are hard.");
-  } else if (counts.yellow === 1 && cap <= 16) {
+  } else if (counts.yellow === 1 && n <= 12) {
     tips.push("One yellow is a start; a second (cooler or warmer) gives cleaner mixes if the kit is small.");
   }
 
@@ -1924,15 +1922,15 @@ function analyzeKitBuild(kit) {
 
   if (!hasBlue) {
     tips.push("Add a blue (ultramarine for granulating skies, or a phthalo for staining punch).");
-  } else if (counts.blue === 1 && n >= 4 && n < cap) {
+  } else if (counts.blue === 1 && n >= 4 && n < 16) {
     tips.push("Only one blue so far — a second blue (warmer ultra vs cooler phthalo) usually earns its slot.");
   }
 
-  if (hasYellow && hasBlue && !hasGreen && n >= 4 && n < cap * 0.7) {
+  if (hasYellow && hasBlue && !hasGreen && n >= 4 && n < 14) {
     tips.push("You can mix greens from yellow+blue — or add one convenience green if you paint foliage a lot.");
   }
 
-  if (!hasEarth && n >= 5 && n < cap) {
+  if (!hasEarth && n >= 5 && n < 20) {
     tips.push("Consider an earth (burnt sienna, raw umber) — the fast road to neutrals with ultramarine.");
   }
 
@@ -1947,7 +1945,7 @@ function analyzeKitBuild(kit) {
     tips.push("Two+ phthalo-type bosses in a small kit — go whisper-light when mixing, or swap one for a gentler neighbor.");
   }
 
-  if (gran === 0 && n >= 6 && n < cap) {
+  if (gran === 0 && n >= 6 && n < 20) {
     tips.push("No granulating color yet — one mineral blue or earth teaches texture (✦) without cluttering the tin.");
   }
 
@@ -1955,27 +1953,21 @@ function analyzeKitBuild(kit) {
     tips.push("None marked ◈ good-for-mix yet — a few clean mixers make a tiny kit work harder.");
   }
 
-  if (counts.neutral === 0 && n >= 8 && n < cap) {
+  if (counts.neutral === 0 && n >= 8 && n < 20) {
     tips.push("Optional: a grey or Payne’s for quick values without mixing every shadow from scratch.");
   }
 
-  // Progress-flavored closer
-  const remaining = cap - n;
   if (!tips.length) {
-    if (remaining > 0) {
+    if (n < 12) {
       return {
         show: true,
-        text: `Solid spread so far (${n}/${cap}). Fill empty wells with gaps you feel when painting — or stop early; small kits teach discipline.`,
+        text: `Solid spread so far (${n} pans). Add more when a gap shows up in painting — or stop; small kits teach discipline.`,
       };
     }
     return { show: false, text: "" };
   }
 
-  const head =
-    remaining > 0
-      ? `${n}/${cap} filled · ${remaining} well${remaining === 1 ? "" : "s"} free. `
-      : `${n}/${cap} filled. `;
-  // One main tip + optional second
+  const head = `${n} pan${n === 1 ? "" : "s"}. `;
   const body = tips.slice(0, 2).join(" ");
   return { show: true, text: head + body };
 }
@@ -1986,8 +1978,8 @@ function updateKitTinHint() {
   if (done) done.hidden = !kitWellEditMode;
   if (!hint) return;
   hint.textContent = kitWellEditMode
-    ? "Jiggle mode · tap − to remove · Done when finished"
-    : "Spectrum · 6 / row · tap = A/B · hold = edit · + = fill";
+    ? "Jiggle mode · tap − to remove a well · Done when finished"
+    : "Spectrum · 6 / row · tap = A/B · hold = edit · + = add well";
 }
 
 function setKitWellEditMode(on) {
@@ -2005,7 +1997,8 @@ function setKitWellEditMode(on) {
 
 function removeColorFromKitSlot(kit, index, colorId) {
   if (!kit || index < 0 || index >= kit.slots.length) return;
-  kit.slots[index] = null;
+  // Drop the well entirely (not leave a null hole) — size follows the painting kit
+  kit.slots.splice(index, 1);
   kit.orderMode = "manual";
   if (colorId && kitWheelA === colorId) kitWheelA = null;
   if (colorId && kitWheelB === colorId) kitWheelB = null;
@@ -2014,6 +2007,32 @@ function removeColorFromKitSlot(kit, index, colorId) {
   updateTabBadges();
   renderPalette();
   refreshDetailActions();
+}
+
+function canAddKitWell(kit) {
+  return !!kit && kit.slots.length < KIT_SLOT_MAX;
+}
+
+function makeAddKitWellButton(kit) {
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "kit-well kit-well--empty kit-well--add";
+  btn.title = canAddKitWell(kit)
+    ? "Add a well — pick a color"
+    : `Max ${KIT_SLOT_MAX} wells`;
+  btn.setAttribute("aria-label", "Add a well");
+  btn.innerHTML = `<span class="kit-well-plus">+</span>`;
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!canAddKitWell(kit)) {
+      showToast(`Max ${KIT_SLOT_MAX} wells in a kit.`, { type: "info" });
+      return;
+    }
+    // Append mode: picker will push a new well when a color is chosen
+    openKitPicker(-1);
+  });
+  return btn;
 }
 
 function renderKitTin(kit) {
@@ -2051,10 +2070,13 @@ function renderKitTin(kit) {
     section.appendChild(row);
     tin.appendChild(section);
   } else if (!emptyIdx.length) {
-    tin.innerHTML = `<p class="empty-state">No wells yet.</p>`;
-    return;
+    const intro = document.createElement("p");
+    intro.className = "empty-state";
+    intro.textContent = "No wells yet — tap + to add your first color.";
+    tin.appendChild(intro);
   }
 
+  // Legacy empty slots (from older fixed-size kits) stay fillable until removed
   if (emptyIdx.length) {
     const section = document.createElement("section");
     section.className = "kit-hue-group kit-hue-group--empty";
@@ -2062,6 +2084,18 @@ function renderKitTin(kit) {
     const row = document.createElement("div");
     row.className = "kit-hue-row";
     emptyIdx.forEach((index) => row.appendChild(makeKitWell(kit, index, null)));
+    section.appendChild(row);
+    tin.appendChild(section);
+  }
+
+  // Always offer grow-on-demand (unless at soft max)
+  if (canAddKitWell(kit)) {
+    const section = document.createElement("section");
+    section.className = "kit-hue-group kit-hue-group--add";
+    section.innerHTML = `<h4 class="kit-hue-label">Add well</h4>`;
+    const row = document.createElement("div");
+    row.className = "kit-hue-row";
+    row.appendChild(makeAddKitWellButton(kit));
     section.appendChild(row);
     tin.appendChild(section);
   }
@@ -2094,9 +2128,12 @@ function makeKitWell(kit, index, color) {
     btn.innerHTML = `${removeHtml}${swatchMarksHtml(color)}<span class="kit-well-name">${escapeHtml(color.name_en)}</span>`;
   } else {
     btn.title = kitWellEditMode
-      ? "Empty well"
+      ? "Empty well · tap − to delete · tap + area to fill"
       : "Empty well — tap to pick a color";
-    btn.innerHTML = `<span class="kit-well-plus">+</span>`;
+    const removeHtml = kitWellEditMode
+      ? `<span class="kit-well-remove" data-remove="1" aria-label="Remove empty well">−</span>`
+      : "";
+    btn.innerHTML = `${removeHtml}<span class="kit-well-plus">+</span>`;
   }
 
   let pressTimer = null;
@@ -2125,12 +2162,12 @@ function makeKitWell(kit, index, color) {
     clearPress();
     if (longPressed) return;
 
-    // Edit mode: − removes; empty well can still fill; filled pans only remove via −
+    // Edit mode: − deletes the well; empty well can still fill via tap
     if (kitWellEditMode) {
-      if (e.target?.closest?.("[data-remove]") && color) {
+      if (e.target?.closest?.("[data-remove]")) {
         e.preventDefault();
         e.stopPropagation();
-        removeColorFromKitSlot(kit, index, color.id);
+        removeColorFromKitSlot(kit, index, color ? color.id : null);
       } else if (!color) {
         openKitPicker(index);
       }
@@ -2493,7 +2530,27 @@ function fillKitSlot(colorId) {
   const kit = getActiveKit();
   if (!kit || kitFillSlotIndex == null) return;
   if (!palette.colors.some((c) => c.id === colorId)) return;
-  kit.slots[kitFillSlotIndex] = colorId;
+  if (kit.slots.includes(colorId)) {
+    showToast("Already in this kit", { type: "info", duration: 1800 });
+    return;
+  }
+
+  // -1 = grow-on-demand (new well); else fill a legacy empty index
+  if (kitFillSlotIndex === -1) {
+    // Prefer reusing a null hole from older fixed-size kits, else append
+    const empty = kit.slots.indexOf(null);
+    if (empty >= 0) {
+      kit.slots[empty] = colorId;
+    } else if (kit.slots.length >= KIT_SLOT_MAX) {
+      showToast(`Max ${KIT_SLOT_MAX} wells in a kit.`, { type: "info" });
+      return;
+    } else {
+      kit.slots.push(colorId);
+    }
+  } else {
+    if (kitFillSlotIndex < 0 || kitFillSlotIndex >= kit.slots.length) return;
+    kit.slots[kitFillSlotIndex] = colorId;
+  }
   kit.orderMode = "manual";
   kitFillSlotIndex = null;
   saveKits();
@@ -2513,8 +2570,8 @@ function arrangeActiveKitSpectrum() {
     return;
   }
   const sorted = Mixing.sortBySpectrum(filled);
-  const empties = kit.slots.length - sorted.length;
-  kit.slots = [...sorted.map((c) => c.id), ...Array(empties).fill(null)];
+  // No empty padding — kit size = colors you keep
+  kit.slots = sorted.map((c) => c.id);
   kit.orderMode = "spectrum";
   saveKits();
   renderKits();
@@ -2524,22 +2581,22 @@ function arrangeActiveKitSpectrum() {
 function createNewKit() {
   const name = (prompt("Kit name?", "Travel") || "").trim();
   if (!name) return;
-  let n = Number(prompt(`How many wells? (${KIT_SLOT_MIN}–${KIT_SLOT_MAX})`, "12"));
-  if (!Number.isFinite(n)) return;
-  n = Math.min(KIT_SLOT_MAX, Math.max(KIT_SLOT_MIN, Math.round(n)));
+  // No well count — start empty; add/remove wells whenever
   const kit = normalizeKit({
     id: uid(),
     name,
     layout: "grid",
-    slots: Array(n).fill(null),
+    slots: [],
     notes: "",
     orderMode: "spectrum",
   });
   kits.push(kit);
   activeKitId = kit.id;
+  kitWellEditMode = false;
   saveKits();
   renderKits();
   updateTabBadges();
+  showToast(`“${name}” ready — tap + to add wells`, { type: "ok", duration: 2400 });
 }
 
 function renameActiveKit() {
@@ -2578,11 +2635,14 @@ function addToActiveKit(id) {
   if (!kit || !palette.colors.some((c) => c.id === id)) return;
   if (kit.slots.includes(id)) return;
   const empty = kit.slots.indexOf(null);
-  if (empty < 0) {
-    showToast(`“${kit.name}” is full (${kit.slots.length} wells).`, { type: "info" });
+  if (empty >= 0) {
+    kit.slots[empty] = id;
+  } else if (kit.slots.length >= KIT_SLOT_MAX) {
+    showToast(`“${kit.name}” is full (max ${KIT_SLOT_MAX} wells).`, { type: "info" });
     return;
+  } else {
+    kit.slots.push(id);
   }
-  kit.slots[empty] = id;
   kit.orderMode = "manual";
   saveKits();
   renderKits();
@@ -2596,8 +2656,11 @@ function addToActiveKit(id) {
 function removeFromActiveKit(id) {
   const kit = getActiveKit();
   if (!kit) return;
-  kit.slots = kit.slots.map((s) => (s === id ? null : s));
+  // Remove the well entirely (same as tin −)
+  kit.slots = kit.slots.filter((s) => s !== id);
   kit.orderMode = "manual";
+  if (kitWheelA === id) kitWheelA = null;
+  if (kitWheelB === id) kitWheelB = null;
   saveKits();
   renderKits();
   renderPalette();
