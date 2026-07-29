@@ -19,7 +19,7 @@
         return;
       }
       // One-time: kill any service worker so a stuck SW cannot pin "Loading studio"
-      var FLAG = "oas-disable-sw-v97";
+      var FLAG = "oas-disable-sw-v98";
       try {
         if (sessionStorage.getItem(FLAG)) return;
         if (!("serviceWorker" in navigator)) {
@@ -53,7 +53,7 @@
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
   <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
-  <link rel="stylesheet" href="css/style.css?v=97" />
+  <link rel="stylesheet" href="css/style.css?v=98" />
 </head>
 <body>
   <p id="stuck-hint" class="load-status" hidden>
@@ -90,7 +90,7 @@
     </div>
     <p class="studio-tagline">watercolor palette & mix lab</p>
     <p class="palette-meta" id="palette-meta"></p>
-    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v97</button>
+    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v98</button>
   </header>
 
   <aside class="caveats-banner" id="caveats-banner" aria-label="Studio notes">
@@ -142,7 +142,6 @@
 
     <!-- Kits (physical tins) -->
     <section id="panel-kits" class="panel" role="tabpanel" hidden>
-      <h2 class="section-title">Kits</h2>
       <p class="section-hint">Small tins for home, office, travel — build like the real box, arrange by spectrum to learn.</p>
       <div class="kits-toolbar">
         <div class="kit-switcher" id="kit-switcher">
@@ -398,7 +397,6 @@
 
     <!-- More hub -->
     <section id="panel-more" class="panel" role="tabpanel" hidden>
-      <h2 class="section-title">More</h2>
       <p class="section-hint">Brand stories, new colors, and keeping devices in sync.</p>
       <div class="more-menu" role="menu">
         <button type="button" class="more-menu-item" role="menuitem" data-more-target="brands">
@@ -645,7 +643,7 @@
     </div>
   </dialog>
 
-  <script src="js/mixing.js?v=97" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load mixing.js';document.getElementById('load-status').hidden=true;"></script>
-  <script src="js/app.js?v=97" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load app.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/mixing.js?v=98" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load mixing.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/app.js?v=98" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load app.js';document.getElementById('load-status').hidden=true;"></script>
 </body>
 </html>
