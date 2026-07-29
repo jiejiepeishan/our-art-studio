@@ -27,7 +27,7 @@ const SYNC_BUNDLE_VERSION = 2;
 /** Soft ceiling so a kit doesn’t grow forever; wells are added/removed on the fly */
 const KIT_SLOT_MAX = 36;
 /** Bump with sw.js CACHE when shipping UI/data */
-const APP_VERSION = "93";
+const APP_VERSION = "94";
 
 /** Resolve assets for GitHub project pages and local server */
 function appBasePath() {
@@ -1994,7 +1994,7 @@ function analyzeKitPortrait(kit) {
   if (!suits.length) suits.push("still finding its job — keep painting and the tin will confess");
   const suitsLine = suits.join(" · ");
 
-  // Watch-outs
+  // Watch-outs (handling + palette gaps only — no separate Build guide)
   const watch = [];
   if (phthaloBoss >= 2) watch.push("two+ phthalo-type bosses — whisper-light when mixing");
   if (staining >= Math.max(3, Math.ceil(n * 0.4))) {
@@ -2003,23 +2003,20 @@ function analyzeKitPortrait(kit) {
   if (warm > 0 && cool === 0) watch.push("all warm so far — cool shadow friends missing");
   if (cool > 0 && warm === 0) watch.push("all cool so far — needs a warm glow");
   if (!hasEarth && n >= 6) watch.push("no earth yet — neutrals will work harder");
-  if (!watch.length) watch.push("nothing alarming — just don’t let the loudest pan drive every mix");
-  const watchLine = watch.slice(0, 3).join(" · ");
+  if (!hasYellow && n >= 3) watch.push("no yellow yet — clean greens and oranges work harder");
+  if (!hasRed && n >= 3) watch.push("no red/rose yet — purples and oranges lack a path");
+  if (!hasBlue && n >= 3) watch.push("no blue yet — skies and cool shadows need a seat");
+  const watchLine = watch.length
+    ? watch.slice(0, 3).join(" · ")
+    : "Nothing loud — trust the tin and paint.";
 
-  // Scorecard tags
+  // Visible chips only (dropped Mixing gym / Landscape lean / Bloom playground)
   const tags = [];
-  if (mixStars >= 3 || (hasYellow && hasRed && hasBlue && mixStars >= 1)) {
-    tags.push({ id: "mix", label: "Mixing gym" });
-  }
-  if (hasEarth && hasBlue && (hasYellow || hasGreen)) {
-    tags.push({ id: "land", label: "Landscape lean" });
-  }
-  if (controlScore > bloomScore + n * 0.2 && n >= 3) {
-    tags.push({ id: "control", label: "Control tin" });
-  }
-  if (bloomScore > controlScore + n * 0.2 || gran >= 3) {
-    tags.push({ id: "bloom", label: "Bloom playground" });
-  }
+  const isControlTin = controlScore > bloomScore + n * 0.2 && n >= 3;
+  const isBloom = bloomScore > controlScore + n * 0.2 || gran >= 3;
+  const isMixGym = mixStars >= 3 || (hasYellow && hasRed && hasBlue && mixStars >= 1);
+  const isLand = hasEarth && hasBlue && (hasYellow || hasGreen);
+  if (isControlTin) tags.push({ id: "control", label: "Control tin" });
   if (n <= 8 && hasYellow && hasRed && hasBlue) {
     tags.push({ id: "travel", label: "Travel triangle" });
   }
@@ -2027,21 +2024,35 @@ function analyzeKitPortrait(kit) {
   if (warm > 0 && cool === 0 && n >= 3) tags.push({ id: "need-cool", label: "Needs cool", gap: true });
   if (cool > 0 && warm === 0 && n >= 3) tags.push({ id: "need-warm", label: "Needs warm", gap: true });
 
-  // Ace one-liner
+  // Ace one-liner — witty always; fold build coach only when the tin still needs help
   const topBrand = brandRank[0]?.[0] || "this tin";
   let ace = "";
-  if (tags.some((t) => t.id === "control") && /schmincke|winsor|maimeri/i.test(topBrand)) {
+  if (isControlTin && /schmincke|winsor|maimeri/i.test(topBrand)) {
     ace = `${topBrand} is running a polite engineering firm in this tin — edges stay where you put them. Reward: control practice; risk: forgetting to play.`;
-  } else if (tags.some((t) => t.id === "bloom")) {
+  } else if (isBloom) {
     ace = `This box wants water and courage. Let ${topBrand} bloom once on purpose — then decide if you’re the boss or the paint is.`;
-  } else if (tags.some((t) => t.id === "mix")) {
+  } else if (isMixGym) {
     ace = `A little mixing gym in a metal box. Pick three strangers from different hue families and make them negotiate.`;
-  } else if (tags.some((t) => t.id === "land")) {
+  } else if (isLand) {
     ace = `Landscape bones are here: earth for dirt, blue for air, something warm for light. Now go abuse a scrap of paper.`;
   } else if (n <= 4) {
     ace = `Tiny tin energy (${n} pans). Limitation is the tutor — finish a study before you add another tube.`;
   } else {
     ace = `${n} pans, ${brandRank.length} brand${brandRank.length === 1 ? "" : "s"}. Ace’s take: paint one subject twice with only half the tin — you’ll meet your real favorites.`;
+  }
+
+  // Former Build guide: only when coach still has something useful (not a balanced tin)
+  const guide = analyzeKitBuild(kit);
+  if (guide.show && guide.text) {
+    // Keep Ace short: one coach sentence, not the whole paragraph
+    const coach = guide.text
+      .replace(/^\d+\s*pans?\.\s*/i, "")
+      .split(/(?<=[.!?])\s+/)
+      .map((s) => s.trim())
+      .filter(Boolean)[0];
+    if (coach && coach.length > 12) {
+      ace = `${ace} ${coach}`;
+    }
   }
 
   return {
@@ -2051,6 +2062,8 @@ function analyzeKitPortrait(kit) {
     watchouts: watchLine,
     ace,
     tags,
+    // Internal flags for practice card (not all shown as chips)
+    flags: { isControlTin, isBloom, isMixGym, isLand, hasYellow, hasRed, hasBlue, hasEarth, hasGreen },
   };
 }
 
@@ -2332,8 +2345,177 @@ function renderWetInWet(kit) {
   if (tip) tip.textContent = wetInWetTip(a, b);
 }
 
+/** Stable daily seed so practice card doesn’t flicker every re-render */
+function practiceSeed(kitId) {
+  const day = new Date().toDateString();
+  const s = `${kitId || "kit"}|${day}|${APP_VERSION}`;
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+function seededPick(arr, seed, n = 1) {
+  if (!arr.length) return [];
+  const a = [...arr];
+  let s = seed >>> 0;
+  for (let i = a.length - 1; i > 0; i--) {
+    s = (Math.imul(s, 1664525) + 1013904223) >>> 0;
+    const j = s % (i + 1);
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a.slice(0, Math.min(n, a.length));
+}
+
+/** All mix_tips whose partners are also in this kit */
+function collectKitMixRecipes(colors) {
+  const idSet = new Set(colors.map((c) => c.id));
+  const byId = new Map(colors.map((c) => [c.id, c]));
+  const recipes = [];
+  const seen = new Set();
+
+  colors.forEach((host) => {
+    (host.mix_tips || []).forEach((tip) => {
+      const partners = tip.with || [];
+      if (!partners.length) return;
+      if (!partners.every((id) => idSet.has(id))) return;
+      const partnerColors = partners.map((id) => byId.get(id)).filter(Boolean);
+      if (partnerColors.length !== partners.length) return;
+      const recipeIds = [host.id, ...partners].sort();
+      const key = recipeIds.join("|") + "|" + (tip.result || "");
+      if (seen.has(key)) return;
+      seen.add(key);
+      recipes.push({
+        colors: [host, ...partnerColors],
+        result: (tip.result || "").trim(),
+        verified: !!tip.verified,
+      });
+    });
+  });
+
+  recipes.sort((a, b) => Number(b.verified) - Number(a.verified));
+  return recipes;
+}
+
+function studySubjectForHue(hueName, mixHex) {
+  const h = (hueName || "").toLowerCase();
+  let hue = 90;
+  try {
+    hue = Mixing.hexToHsl(mixHex || "#888").h;
+  } catch {
+    /* ignore */
+  }
+  if (/green|sage|olive|teal/.test(h) || (hue >= 75 && hue < 165)) {
+    return {
+      scene: "a small grassland strip",
+      wash: "a first wash for distant grass and sunlit bank",
+      wet: "cooler darker green clumps into the wet wash",
+      hard: "a warm path or fence post when matte",
+    };
+  }
+  if (/blue|cyan|indigo/.test(h) || (hue >= 185 && hue < 255)) {
+    return {
+      scene: "a sky-and-water scrap",
+      wash: "a soft sky or distant water band",
+      wet: "a slightly greener or greyer note into the wet edge for weather",
+      hard: "a hard horizon or rooftop when dry",
+    };
+  }
+  if (/purple|violet|lilac|magenta/.test(h) || (hue >= 255 && hue < 320)) {
+    return {
+      scene: "evening shadows on a wall",
+      wash: "a milk–cream shadow shape",
+      wet: "a warmer note into the wet shadow for reflected light",
+      hard: "a hard window edge when matte",
+    };
+  }
+  if (/orange|coral|peach/.test(h) || (hue >= 15 && hue < 45)) {
+    return {
+      scene: "warm rooftops or late light on stone",
+      wash: "a light warm plane",
+      wet: "a cooler violet-grey into the shade side while shiny",
+      hard: "a hard eave line when matte",
+    };
+  }
+  if (/yellow|gold/.test(h) || (hue >= 45 && hue < 75)) {
+    return {
+      scene: "sunlit field or stucco wall",
+      wash: "a pale tea–milk light plane",
+      wet: "a soft earth or green into the wet edge for mid-ground",
+      hard: "a dark accent (tree trunk / window) when matte",
+    };
+  }
+  if (/brown|earth|neutral|gray|grey/.test(h) || hue < 15 || hue >= 345) {
+    return {
+      scene: "a muddy path or tree trunk study",
+      wash: "a mid earth wash for ground or bark",
+      wet: "a cooler blue-grey into the wet shadow",
+      hard: "a hard root or curb when matte",
+    };
+  }
+  return {
+    scene: "a 10-minute mini landscape scrap",
+    wash: "a first atmospheric wash",
+    wet: "a second tin color into the wet edge for depth",
+    hard: "one hard accent when matte",
+  };
+}
+
+function formatStudyExercise(recipe, colors, seed, index) {
+  const pair = recipe.colors.slice(0, 2);
+  const a = pair[0];
+  const b = pair[1] || pair[0];
+  const rest = colors.filter((c) => c.id !== a.id && c.id !== b.id);
+  const accent = seededPick(rest, seed + 17 + index * 31, 1)[0] || null;
+
+  let resultText = recipe.result;
+  let mark = recipe.verified ? "Verified recipe" : "Ace’s try — experiment";
+  let mixHex = a.hex;
+
+  if (!resultText) {
+    try {
+      const mix = Mixing.mixColors([a, b], palette);
+      resultText = mix.hueName
+        ? `a ${mix.hueName} (screen guess ≈ ${mix.hex.toUpperCase()})`
+        : `a mixed hue (screen guess ≈ ${mix.hex.toUpperCase()})`;
+      mixHex = mix.hex;
+      mark = "Ace’s try — experiment";
+    } catch {
+      resultText = "an interesting middle hue";
+      mark = "Ace’s try — experiment";
+    }
+  } else if (!recipe.verified) {
+    mark = "Ace’s try — experiment";
+  }
+
+  // Hue for subject: parse from mix when we have hex
+  let hueName = resultText;
+  try {
+    const mix = Mixing.mixColors([a, b], palette);
+    hueName = mix.hueName || resultText;
+    mixHex = mix.hex || mixHex;
+  } catch {
+    /* keep */
+  }
+  const subject = studySubjectForHue(hueName, mixHex);
+  const wetFriend = accent ? accent.name_en : b.name_en;
+
+  const title = `${a.name_en} + ${b.name_en}`;
+  const body = `Mix ${a.name_en} with ${b.name_en} → ${resultText}. [${mark}] Study: paint ${subject.scene}. Use that mix for ${subject.wash}; while it still shines, wet-in-wet with ${wetFriend} for ${subject.wet}; then ${subject.hard}.`;
+
+  return {
+    id: `study-${a.id}-${b.id}-${index}`,
+    kicker: recipe.verified ? "Study · verified" : "Study · Ace’s try",
+    title,
+    body,
+  };
+}
+
 /**
- * Build 2–3 micro-exercises from kit contents + scorecard tags.
+ * Practice card: 1 skill drill + 2 mini studies.
+ * Studies auto-pick pairs (not Mix wheel). Prefer verified kit recipes; else Ace’s try.
  */
 function buildCurriculumExercises(kit) {
   const colors = (kit?.slots || [])
@@ -2341,146 +2523,134 @@ function buildCurriculumExercises(kit) {
     .filter(Boolean);
   if (!colors.length) return [];
 
+  const seed = practiceSeed(kit.id);
   const portrait = analyzeKitPortrait(kit);
-  const tagIds = new Set((portrait.tags || []).map((t) => t.id));
-  const byId = new Map(colors.map((c) => [c.id, c]));
-  const pick =
-    (pred) => colors.find(pred) || null;
+  const flags = portrait.flags || {};
+  const pick = (pred) => colors.find(pred) || null;
   const gran = pick((c) => c.granulating);
   const mixer = pick((c) => c.mix_star);
-  const earth = pick((c) => (c.family || "").toLowerCase() === "earth");
-  const blue = pick((c) => {
-    try {
-      const { h, s } = Mixing.hexToHsl(c.hex);
-      return s >= 14 && h >= 165 && h < 255;
-    } catch {
-      return /blue/i.test(c.family || "") || /blue/i.test(c.name_en || "");
-    }
-  });
-  const yellow = pick((c) => {
-    try {
-      const { h, s } = Mixing.hexToHsl(c.hex);
-      return s >= 14 && h >= 40 && h < 75;
-    } catch {
-      return /yellow/i.test(c.family || "");
-    }
-  });
   const controlBrand = pick((c) =>
     /schmincke|winsor|newton|maimeri/i.test(c.brand || "")
   );
 
-  const a = kitWheelA && byId.has(kitWheelA) ? byId.get(kitWheelA) : null;
-  const b = kitWheelB && byId.has(kitWheelB) ? byId.get(kitWheelB) : null;
-
-  const pool = [];
-
-  // 1) Always: water ladder on a sensible pan
-  const ladderColor = waterLabColorId && byId.has(waterLabColorId)
-    ? byId.get(waterLabColorId)
-    : mixer || gran || colors[0];
-  pool.push({
-    id: "ladder",
-    kicker: "Water",
+  // —— 1 skill (ladder / edges / lift / bloom), auto-picked ——
+  const skillPool = [];
+  const ladderColor = mixer || gran || seededPick(colors, seed + 3, 1)[0];
+  skillPool.push({
+    id: "skill-ladder",
+    kicker: "Skill · water",
     title: `Ladder with ${ladderColor.name_en}`,
-    body: `In Water lab, climb Tea → Milk → Cream → Butter using only this pan. Stop between steps when the sheen dies. Goal: four distinct values, not four similar puddles.`,
+    body: `In Water lab, climb Tea → Milk → Cream → Butter with only this pan. Wait for the sheen to die between steps. Goal: four distinct values — not four similar puddles.`,
   });
 
-  // 2) Wet-in-wet if we can name a pair
   if (colors.length >= 2) {
-    const wa = a || colors[0];
-    const wb = b && b.id !== wa.id ? b : colors.find((c) => c.id !== wa.id) || colors[1];
-    pool.push({
-      id: "wet",
-      kicker: "Edges",
-      title: a && b ? "Soft vs hard with your Mix wheel pair" : `Soft vs hard: ${wa.name_en} + ${wb.name_en}`,
-      body: a && b
-        ? `Use A/B already on the Mix wheel. Do the Wet-in-wet soft strip, then the hard-edge strip. One sentence after: which edge matched the subject in your head?`
-        : `Tap Spectrum to set A = ${wa.name_en} and B = ${wb.name_en}, then run both drills in Wet-in-wet. Compare soft atmosphere vs hard collage edges.`,
-    });
-  }
-
-  // 3) Tag / content-specific extras (pick best)
-  if (tagIds.has("mix") || (mixer && yellow && blue)) {
-    const y = yellow || mixer || colors[0];
-    const r = pick((c) => {
-      try {
-        const { h, s } = Mixing.hexToHsl(c.hex);
-        return s >= 14 && (h < 20 || h >= 345 || (h >= 300 && h < 345));
-      } catch {
-        return /red|rose|pink/i.test(c.name_en || "");
-      }
-    }) || colors[Math.min(1, colors.length - 1)];
-    const bl = blue || colors[Math.min(2, colors.length - 1)];
-    if (y && r && bl && new Set([y.id, r.id, bl.id]).size >= 2) {
-      pool.push({
-        id: "triangle",
-        kicker: "Mixing gym",
-        title: "Primary triangle, milk strength only",
-        body: `Premix only at milk–cream: ${y.name_en} + ${r.name_en}, ${y.name_en} + ${bl.name_en}, ${r.name_en} + ${bl.name_en}. Three swatches. No butter until you can name each mix out loud.`,
+    const pair = seededPick(colors, seed + 11, 2);
+    const wa = pair[0];
+    const wb = pair[1] || colors.find((c) => c.id !== wa.id);
+    if (wa && wb) {
+      skillPool.push({
+        id: "skill-wet",
+        kicker: "Skill · edges",
+        title: `Soft vs hard: ${wa.name_en} + ${wb.name_en}`,
+        body: `Set these two on the Mix wheel if you like, then run both Wet-in-wet drills: soft bloom while shiny, hard edge when matte. One sentence after: which edge matched the mood you wanted?`,
       });
     }
   }
 
-  if (tagIds.has("land") || (earth && blue)) {
-    const e = earth || colors[0];
-    const bl = blue || colors.find((c) => c.id !== e.id) || colors[0];
-    pool.push({
-      id: "land",
-      kicker: "Landscape lean",
-      title: "Dirt + air strip",
-      body: `Wet a horizontal band. Drop ${e.name_en} low (earth) and ${bl.name_en} high (sky) so they kiss once in the middle. Leave a little paper light. One pass — no fixing.`,
-    });
-  }
-
-  if (tagIds.has("control") || controlBrand) {
-    const c = controlBrand || colors[0];
-    pool.push({
-      id: "lift",
-      kicker: "Control tin",
+  if (controlBrand || flags.isControlTin) {
+    const c = controlBrand || ladderColor;
+    skillPool.push({
+      id: "skill-lift",
+      kicker: "Skill · control",
       title: `Lift test: ${c.name_en}`,
-      body: `Paint a cream rectangle. When damp (sheen almost gone), lift a soft highlight with a clean damp brush or tissue. Note how far it lifts — control brands often forgive; staining pans don’t.`,
+      body: `Paint a cream rectangle. When damp (sheen almost gone), lift a soft highlight with a clean damp brush or tissue. Note how far it lifts — forgiving pans teach; staining pans don’t.`,
     });
   }
 
-  if (tagIds.has("bloom") || gran) {
-    const g = gran || colors[0];
-    pool.push({
-      id: "bloom",
-      kicker: "Bloom playground",
+  if (gran || flags.isBloom) {
+    const g = gran || ladderColor;
+    skillPool.push({
+      id: "skill-bloom",
+      kicker: "Skill · bloom",
       title: `Invite a bloom with ${g.name_en}`,
-      body: `Milk wash, still shiny: drop a clean water bead at the edge and watch the bloom. Second strip: same wash, wait for matte, drop water — compare. Texture is a teacher, not a mistake.`,
+      body: `Milk wash, still shiny: drop a clean water bead at the edge and watch. Second strip: same wash, wait for matte, drop water — compare. Texture is a teacher, not a mistake.`,
     });
   }
 
-  if (tagIds.has("travel") || colors.length <= 6) {
-    pool.push({
-      id: "limit",
-      kicker: "Limited kit",
-      title: "Half-tin study",
-      body: `Cover half the pans (or ignore them). Paint a 10-minute mini subject with only the other half. Limitation is the tutor — add nothing mid-study.`,
-    });
-  }
+  const skill = seededPick(skillPool, seed + 5, 1)[0];
 
-  // Prefer variety: ladder + wet + one specialty
-  const chosen = [];
-  const take = (id) => {
-    const item = pool.find((p) => p.id === id);
-    if (item && !chosen.some((c) => c.id === item.id)) chosen.push(item);
+  // —— 2 studies from verified recipes first, then Ace pairs ——
+  const recipes = collectKitMixRecipes(colors);
+  const verified = recipes.filter((r) => r.verified && r.colors.length >= 2);
+  const unverifiedTips = recipes.filter((r) => !r.verified && r.colors.length >= 2);
+
+  const studies = [];
+  const usedPairKeys = new Set();
+  const pairKey = (cols) =>
+    cols
+      .slice(0, 2)
+      .map((c) => c.id)
+      .sort()
+      .join("|");
+
+  const pushStudy = (recipe, idx) => {
+    if (!recipe?.colors || recipe.colors.length < 2) return;
+    const key = pairKey(recipe.colors);
+    if (usedPairKeys.has(key)) return;
+    usedPairKeys.add(key);
+    studies.push(formatStudyExercise(recipe, colors, seed, idx));
   };
-  take("ladder");
-  take("wet");
-  // Specialty priority by tags
-  if (tagIds.has("mix")) take("triangle");
-  else if (tagIds.has("land")) take("land");
-  else if (tagIds.has("bloom")) take("bloom");
-  else if (tagIds.has("control")) take("lift");
-  else if (tagIds.has("travel")) take("limit");
-  // Fill to 3
-  for (const p of pool) {
-    if (chosen.length >= 3) break;
-    if (!chosen.some((c) => c.id === p.id)) chosen.push(p);
+
+  seededPick(verified, seed + 19, 4).forEach((r, i) => {
+    if (studies.length >= 2) return;
+    pushStudy(r, i);
+  });
+
+  // Ace-suggested pairs: prefer different families / mix stars, not Mix wheel
+  if (studies.length < 2 && colors.length >= 2) {
+    const candidates = [];
+    for (let i = 0; i < colors.length; i++) {
+      for (let j = i + 1; j < colors.length; j++) {
+        const ca = colors[i];
+        const cb = colors[j];
+        const key = pairKey([ca, cb]);
+        if (usedPairKeys.has(key)) continue;
+        let score = 0;
+        if (ca.mix_star) score += 2;
+        if (cb.mix_star) score += 2;
+        if ((ca.family || "") !== (cb.family || "")) score += 2;
+        try {
+          const ha = Mixing.hexToHsl(ca.hex).h;
+          const hb = Mixing.hexToHsl(cb.hex).h;
+          const dh = Math.min(Math.abs(ha - hb), 360 - Math.abs(ha - hb));
+          if (dh > 40) score += 2;
+          if (dh > 80) score += 1;
+        } catch {
+          /* ignore */
+        }
+        candidates.push({ colors: [ca, cb], result: "", verified: false, score });
+      }
+    }
+    candidates.sort((a, b) => b.score - a.score);
+    const top = candidates.slice(0, Math.min(8, candidates.length));
+    seededPick(top, seed + 29, 4).forEach((r, i) => {
+      if (studies.length >= 2) return;
+      pushStudy(r, 10 + i);
+    });
   }
-  return chosen.slice(0, 3);
+
+  // Fill with unverified stored tips if still short
+  if (studies.length < 2) {
+    seededPick(unverifiedTips, seed + 41, 4).forEach((r, i) => {
+      if (studies.length >= 2) return;
+      pushStudy({ ...r, verified: false }, 20 + i);
+    });
+  }
+
+  const out = [];
+  if (skill) out.push(skill);
+  out.push(...studies.slice(0, 2));
+  return out;
 }
 
 function renderKitCurriculum(kit) {
@@ -2507,22 +2677,13 @@ function renderKitCurriculum(kit) {
 }
 
 /**
- * Live build coach for kits. Hides when the box already looks balanced.
- * Teaching focus: limited-palette thinking (primaries, temperature, earth, bosses).
+ * Build guide UI retired — coach text now folds into Kit note Ace line when needed.
  */
-function updateKitGuidance(kit) {
+function updateKitGuidance(_kit) {
   const el = $("#kit-guidance");
   const textEl = $("#kit-guidance-text");
-  if (!el || !textEl) return;
-
-  const guide = analyzeKitBuild(kit);
-  if (!guide.show) {
-    el.hidden = true;
-    textEl.textContent = "";
-    return;
-  }
-  el.hidden = false;
-  textEl.textContent = guide.text;
+  if (el) el.hidden = true;
+  if (textEl) textEl.textContent = "";
 }
 
 function analyzeKitBuild(kit) {
