@@ -19,7 +19,7 @@
         return;
       }
       // One-time: kill any service worker so a stuck SW cannot pin "Loading studio"
-      var FLAG = "oas-disable-sw-v92";
+      var FLAG = "oas-disable-sw-v93";
       try {
         if (sessionStorage.getItem(FLAG)) return;
         if (!("serviceWorker" in navigator)) {
@@ -53,7 +53,7 @@
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
   <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
-  <link rel="stylesheet" href="css/style.css?v=92" />
+  <link rel="stylesheet" href="css/style.css?v=93" />
 </head>
 <body>
   <p id="stuck-hint" class="load-status" hidden>
@@ -90,7 +90,7 @@
     </div>
     <p class="studio-tagline">watercolor palette & mix lab</p>
     <p class="palette-meta" id="palette-meta"></p>
-    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v92</button>
+    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v93</button>
   </header>
 
   <aside class="caveats-banner" id="caveats-banner" aria-label="Studio notes">
@@ -296,6 +296,45 @@
             <ol id="water-lab-steps" class="water-lab-steps"></ol>
             <p id="water-lab-tip" class="water-lab-tip"></p>
           </div>
+        </section>
+
+        <!-- Wet-in-wet: two-pan soft vs hard edge (uses Mix wheel A/B) -->
+        <section id="wet-lab" class="water-lab wet-lab" aria-label="Wet-in-wet practice">
+          <div class="water-lab-head">
+            <h3 class="water-lab-title">Wet-in-wet</h3>
+            <p class="water-lab-sub">Two pans from the Mix wheel — soft bloom vs hard edge. Same pair, two water stories.</p>
+          </div>
+          <div id="wet-lab-empty" class="water-lab-empty" hidden>
+            Tap two colors on Spectrum to set <strong>A</strong> and <strong>B</strong> on the Mix wheel, then come back here.
+          </div>
+          <div id="wet-lab-body" class="water-lab-body">
+            <div class="wet-lab-pair" id="wet-lab-pair" aria-live="polite"></div>
+            <div class="wet-lab-demos" aria-hidden="true">
+              <div class="wet-lab-demo">
+                <div class="wet-lab-demo-swatch wet-lab-demo-swatch--soft" id="wet-lab-demo-soft"></div>
+                <span class="wet-lab-demo-label">Soft edge</span>
+              </div>
+              <div class="wet-lab-demo">
+                <div class="wet-lab-demo-swatch wet-lab-demo-swatch--hard" id="wet-lab-demo-hard"></div>
+                <span class="wet-lab-demo-label">Hard edge</span>
+              </div>
+            </div>
+            <ol id="wet-lab-drills" class="water-lab-steps wet-lab-drills"></ol>
+            <p id="wet-lab-tip" class="water-lab-tip"></p>
+            <button type="button" id="wet-lab-scroll-wheel" class="btn-ghost btn-compact">Scroll to Mix wheel</button>
+          </div>
+        </section>
+
+        <!-- Kit curriculum: 2–3 micro-exercises from this tin -->
+        <section id="kit-curriculum" class="kit-curriculum" aria-label="Practice card">
+          <div class="water-lab-head">
+            <h3 class="water-lab-title">Practice card</h3>
+            <p class="water-lab-sub">Two or three drills tailored to this kit — short, paint-first, English only.</p>
+          </div>
+          <div id="kit-curriculum-empty" class="water-lab-empty" hidden>
+            Add a few pans and I’ll write you a tiny curriculum.
+          </div>
+          <ol id="kit-curriculum-list" class="kit-curriculum-list"></ol>
         </section>
 
         <!-- Rarely used once a kit is built — live at end of scroll -->
@@ -609,7 +648,7 @@
     </div>
   </dialog>
 
-  <script src="js/mixing.js?v=92" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load mixing.js';document.getElementById('load-status').hidden=true;"></script>
-  <script src="js/app.js?v=92" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load app.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/mixing.js?v=93" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load mixing.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/app.js?v=93" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load app.js';document.getElementById('load-status').hidden=true;"></script>
 </body>
 </html>

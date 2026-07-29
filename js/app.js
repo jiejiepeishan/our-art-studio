@@ -27,7 +27,7 @@ const SYNC_BUNDLE_VERSION = 2;
 /** Soft ceiling so a kit doesn’t grow forever; wells are added/removed on the fly */
 const KIT_SLOT_MAX = 36;
 /** Bump with sw.js CACHE when shipping UI/data */
-const APP_VERSION = "92";
+const APP_VERSION = "93";
 
 /** Resolve assets for GitHub project pages and local server */
 function appBasePath() {
@@ -1867,6 +1867,8 @@ function renderKits() {
   if (kitWheelA && !inKit.has(kitWheelA)) kitWheelA = null;
   if (kitWheelB && !inKit.has(kitWheelB)) kitWheelB = null;
   renderKitWheel();
+  renderWetInWet(kit);
+  renderKitCurriculum(kit);
   // Keep Creative Fun pool chips in sync with kit fills/names
   renderCreativeFun();
 }
@@ -2246,6 +2248,262 @@ function renderWaterLab(kit) {
   if (tipEl) {
     tipEl.textContent = waterLabTipForColor(active);
   }
+}
+
+function wetLabPairChipHtml(tag, color) {
+  if (!color) {
+    return `<span class="wet-lab-chip wet-lab-chip--empty"><span class="wet-lab-chip-tag">${escapeHtml(tag)}</span><span class="wet-lab-chip-name">—</span></span>`;
+  }
+  return `<span class="wet-lab-chip">
+    <span class="wet-lab-chip-swatch" style="background:${escapeHtml(color.hex)}"></span>
+    <span class="wet-lab-chip-tag">${escapeHtml(tag)}</span>
+    <span class="wet-lab-chip-name">${escapeHtml(color.name_en)}</span>
+  </span>`;
+}
+
+function wetInWetTip(a, b) {
+  const bits = [];
+  if (a.granulating || b.granulating) {
+    bits.push("At least one ✦ granulator — soft edge will show texture; don’t stir hard edge into soup.");
+  }
+  if (a.staining && b.staining) {
+    bits.push("Both stain — soft blooms stay; hard edges are permanent. Commit lightly.");
+  }
+  if (a.mix_star && b.mix_star) {
+    bits.push("Two ◈ mixers — also try a third strip: milk-strength premix of A+B down the middle.");
+  }
+  if (!bits.length) {
+    bits.push("Rule of thumb: soft = second color while the first still shines; hard = wait until matte, then paint beside (not into) the first.");
+  }
+  return bits.join(" ");
+}
+
+/**
+ * Wet-in-wet drills from Mix wheel A/B — soft edge vs hard edge.
+ */
+function renderWetInWet(kit) {
+  const section = $("#wet-lab");
+  if (!section) return;
+
+  const a = kitWheelA ? palette.colors.find((c) => c.id === kitWheelA) : null;
+  const b = kitWheelB ? palette.colors.find((c) => c.id === kitWheelB) : null;
+  // Must both be in this kit (wheel can lag one frame)
+  const inKit = new Set((kit?.slots || []).filter(Boolean));
+  const aOk = a && inKit.has(a.id);
+  const bOk = b && inKit.has(b.id);
+
+  const emptyEl = $("#wet-lab-empty");
+  const bodyEl = $("#wet-lab-body");
+
+  if (!aOk || !bOk) {
+    if (emptyEl) emptyEl.hidden = false;
+    if (bodyEl) bodyEl.hidden = true;
+    return;
+  }
+  if (emptyEl) emptyEl.hidden = true;
+  if (bodyEl) bodyEl.hidden = false;
+
+  const pair = $("#wet-lab-pair");
+  if (pair) {
+    pair.innerHTML =
+      wetLabPairChipHtml("A", a) +
+      `<span class="wet-lab-pair-plus" aria-hidden="true">+</span>` +
+      wetLabPairChipHtml("B", b);
+  }
+
+  const soft = $("#wet-lab-demo-soft");
+  const hard = $("#wet-lab-demo-hard");
+  if (soft) {
+    soft.style.background = `linear-gradient(90deg, ${a.hex} 0%, ${a.hex} 28%, ${hexToRgba(b.hex, 0.85)} 52%, ${b.hex} 100%)`;
+  }
+  if (hard) {
+    hard.style.background = `linear-gradient(90deg, ${a.hex} 0%, ${a.hex} 48%, ${b.hex} 52%, ${b.hex} 100%)`;
+  }
+
+  const drills = $("#wet-lab-drills");
+  if (drills) {
+    drills.innerHTML = `
+      <li><strong>Soft edge (wet-in-wet)</strong> — Wet a strip of paper (clean water sheen). Drop <em>${escapeHtml(a.name_en)}</em> at milk–cream strength. While it still shines, touch <em>${escapeHtml(b.name_en)}</em> into the wet edge and let them meet. Don’t scrub.</li>
+      <li><strong>Hard edge (wet-on-dry)</strong> — Same two colors. Paint a shape with A; wait until the sheen dies (matte). Paint B right against the edge — clean meeting line, no second color into the first.</li>
+      <li><strong>Compare</strong> — Same pair, two strips. Soft should feel atmospheric; hard should read as cut paper shapes. Name which mood you wanted.</li>`;
+  }
+
+  const tip = $("#wet-lab-tip");
+  if (tip) tip.textContent = wetInWetTip(a, b);
+}
+
+/**
+ * Build 2–3 micro-exercises from kit contents + scorecard tags.
+ */
+function buildCurriculumExercises(kit) {
+  const colors = (kit?.slots || [])
+    .map((id) => palette.colors.find((c) => c.id === id))
+    .filter(Boolean);
+  if (!colors.length) return [];
+
+  const portrait = analyzeKitPortrait(kit);
+  const tagIds = new Set((portrait.tags || []).map((t) => t.id));
+  const byId = new Map(colors.map((c) => [c.id, c]));
+  const pick =
+    (pred) => colors.find(pred) || null;
+  const gran = pick((c) => c.granulating);
+  const mixer = pick((c) => c.mix_star);
+  const earth = pick((c) => (c.family || "").toLowerCase() === "earth");
+  const blue = pick((c) => {
+    try {
+      const { h, s } = Mixing.hexToHsl(c.hex);
+      return s >= 14 && h >= 165 && h < 255;
+    } catch {
+      return /blue/i.test(c.family || "") || /blue/i.test(c.name_en || "");
+    }
+  });
+  const yellow = pick((c) => {
+    try {
+      const { h, s } = Mixing.hexToHsl(c.hex);
+      return s >= 14 && h >= 40 && h < 75;
+    } catch {
+      return /yellow/i.test(c.family || "");
+    }
+  });
+  const controlBrand = pick((c) =>
+    /schmincke|winsor|newton|maimeri/i.test(c.brand || "")
+  );
+
+  const a = kitWheelA && byId.has(kitWheelA) ? byId.get(kitWheelA) : null;
+  const b = kitWheelB && byId.has(kitWheelB) ? byId.get(kitWheelB) : null;
+
+  const pool = [];
+
+  // 1) Always: water ladder on a sensible pan
+  const ladderColor = waterLabColorId && byId.has(waterLabColorId)
+    ? byId.get(waterLabColorId)
+    : mixer || gran || colors[0];
+  pool.push({
+    id: "ladder",
+    kicker: "Water",
+    title: `Ladder with ${ladderColor.name_en}`,
+    body: `In Water lab, climb Tea → Milk → Cream → Butter using only this pan. Stop between steps when the sheen dies. Goal: four distinct values, not four similar puddles.`,
+  });
+
+  // 2) Wet-in-wet if we can name a pair
+  if (colors.length >= 2) {
+    const wa = a || colors[0];
+    const wb = b && b.id !== wa.id ? b : colors.find((c) => c.id !== wa.id) || colors[1];
+    pool.push({
+      id: "wet",
+      kicker: "Edges",
+      title: a && b ? "Soft vs hard with your Mix wheel pair" : `Soft vs hard: ${wa.name_en} + ${wb.name_en}`,
+      body: a && b
+        ? `Use A/B already on the Mix wheel. Do the Wet-in-wet soft strip, then the hard-edge strip. One sentence after: which edge matched the subject in your head?`
+        : `Tap Spectrum to set A = ${wa.name_en} and B = ${wb.name_en}, then run both drills in Wet-in-wet. Compare soft atmosphere vs hard collage edges.`,
+    });
+  }
+
+  // 3) Tag / content-specific extras (pick best)
+  if (tagIds.has("mix") || (mixer && yellow && blue)) {
+    const y = yellow || mixer || colors[0];
+    const r = pick((c) => {
+      try {
+        const { h, s } = Mixing.hexToHsl(c.hex);
+        return s >= 14 && (h < 20 || h >= 345 || (h >= 300 && h < 345));
+      } catch {
+        return /red|rose|pink/i.test(c.name_en || "");
+      }
+    }) || colors[Math.min(1, colors.length - 1)];
+    const bl = blue || colors[Math.min(2, colors.length - 1)];
+    if (y && r && bl && new Set([y.id, r.id, bl.id]).size >= 2) {
+      pool.push({
+        id: "triangle",
+        kicker: "Mixing gym",
+        title: "Primary triangle, milk strength only",
+        body: `Premix only at milk–cream: ${y.name_en} + ${r.name_en}, ${y.name_en} + ${bl.name_en}, ${r.name_en} + ${bl.name_en}. Three swatches. No butter until you can name each mix out loud.`,
+      });
+    }
+  }
+
+  if (tagIds.has("land") || (earth && blue)) {
+    const e = earth || colors[0];
+    const bl = blue || colors.find((c) => c.id !== e.id) || colors[0];
+    pool.push({
+      id: "land",
+      kicker: "Landscape lean",
+      title: "Dirt + air strip",
+      body: `Wet a horizontal band. Drop ${e.name_en} low (earth) and ${bl.name_en} high (sky) so they kiss once in the middle. Leave a little paper light. One pass — no fixing.`,
+    });
+  }
+
+  if (tagIds.has("control") || controlBrand) {
+    const c = controlBrand || colors[0];
+    pool.push({
+      id: "lift",
+      kicker: "Control tin",
+      title: `Lift test: ${c.name_en}`,
+      body: `Paint a cream rectangle. When damp (sheen almost gone), lift a soft highlight with a clean damp brush or tissue. Note how far it lifts — control brands often forgive; staining pans don’t.`,
+    });
+  }
+
+  if (tagIds.has("bloom") || gran) {
+    const g = gran || colors[0];
+    pool.push({
+      id: "bloom",
+      kicker: "Bloom playground",
+      title: `Invite a bloom with ${g.name_en}`,
+      body: `Milk wash, still shiny: drop a clean water bead at the edge and watch the bloom. Second strip: same wash, wait for matte, drop water — compare. Texture is a teacher, not a mistake.`,
+    });
+  }
+
+  if (tagIds.has("travel") || colors.length <= 6) {
+    pool.push({
+      id: "limit",
+      kicker: "Limited kit",
+      title: "Half-tin study",
+      body: `Cover half the pans (or ignore them). Paint a 10-minute mini subject with only the other half. Limitation is the tutor — add nothing mid-study.`,
+    });
+  }
+
+  // Prefer variety: ladder + wet + one specialty
+  const chosen = [];
+  const take = (id) => {
+    const item = pool.find((p) => p.id === id);
+    if (item && !chosen.some((c) => c.id === item.id)) chosen.push(item);
+  };
+  take("ladder");
+  take("wet");
+  // Specialty priority by tags
+  if (tagIds.has("mix")) take("triangle");
+  else if (tagIds.has("land")) take("land");
+  else if (tagIds.has("bloom")) take("bloom");
+  else if (tagIds.has("control")) take("lift");
+  else if (tagIds.has("travel")) take("limit");
+  // Fill to 3
+  for (const p of pool) {
+    if (chosen.length >= 3) break;
+    if (!chosen.some((c) => c.id === p.id)) chosen.push(p);
+  }
+  return chosen.slice(0, 3);
+}
+
+function renderKitCurriculum(kit) {
+  const list = $("#kit-curriculum-list");
+  const empty = $("#kit-curriculum-empty");
+  if (!list) return;
+
+  const exercises = buildCurriculumExercises(kit);
+  if (!exercises.length) {
+    list.innerHTML = "";
+    if (empty) empty.hidden = false;
+    return;
+  }
+  if (empty) empty.hidden = true;
+  list.innerHTML = exercises
+    .map(
+      (ex) => `<li class="kit-curriculum-item">
+      <span class="kit-curriculum-item-kicker">${escapeHtml(ex.kicker)}</span>
+      <p class="kit-curriculum-item-title">${escapeHtml(ex.title)}</p>
+      <p class="kit-curriculum-item-body">${escapeHtml(ex.body)}</p>
+    </li>`
+    )
+    .join("");
 }
 
 /**
@@ -2804,6 +3062,13 @@ function renderKitWheel() {
     label.textContent = "Mix";
     note.textContent = "";
     note.hidden = true;
+  }
+
+  // Keep wet-in-wet + practice card in sync when A/B change
+  const kit = getActiveKit();
+  if (kit) {
+    renderWetInWet(kit);
+    renderKitCurriculum(kit);
   }
 }
 
@@ -4228,7 +4493,14 @@ function bindEvents() {
   $("#water-lab-color")?.addEventListener("change", (e) => {
     waterLabColorId = e.target.value || null;
     const kit = getActiveKit();
-    if (kit) renderWaterLab(kit);
+    if (kit) {
+      renderWaterLab(kit);
+      renderKitCurriculum(kit);
+    }
+  });
+  $("#wet-lab-scroll-wheel")?.addEventListener("click", () => {
+    const stage = $("#kit-wheel-stage") || $(".kit-wheel-section");
+    stage?.scrollIntoView({ behavior: "smooth", block: "center" });
   });
   $("#kit-edit-done")?.addEventListener("click", () => setKitWellEditMode(false));
   $("#mix-clear")?.addEventListener("click", () => {

@@ -2728,6 +2728,138 @@ button.mix-slot-swatch--filled:active {
   display: none;
 }
 
+/* Wet-in-wet pair + demos */
+.wet-lab-pair {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.wet-lab-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px 6px 6px;
+  border-radius: 999px;
+  border: 1px solid var(--blush);
+  background: var(--paper, #faf7f2);
+  font-size: 0.82rem;
+  color: var(--ink);
+  max-width: 100%;
+}
+
+.wet-lab-chip-swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid rgba(61, 52, 41, 0.15);
+  flex-shrink: 0;
+}
+
+.wet-lab-chip-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+}
+
+.wet-lab-chip-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 10rem;
+}
+
+.wet-lab-pair-plus {
+  color: var(--ink-faint);
+  font-weight: 600;
+}
+
+.wet-lab-demos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.wet-lab-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.wet-lab-demo-swatch {
+  width: 100%;
+  aspect-ratio: 1.4;
+  border-radius: 12px;
+  border: 1px solid rgba(61, 52, 41, 0.12);
+  background-color: #f7f1e8;
+  overflow: hidden;
+}
+
+.wet-lab-demo-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ink-faint);
+}
+
+.wet-lab #wet-lab-scroll-wheel {
+  margin-top: 4px;
+}
+
+/* Practice card / curriculum */
+.kit-curriculum {
+  margin: 16px 0 8px;
+  padding: 14px;
+  border: 1px solid var(--blush);
+  border-radius: var(--radius-sm);
+  background: var(--card);
+}
+
+.kit-curriculum-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.kit-curriculum-item {
+  margin: 0;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(61, 52, 41, 0.08);
+  background: rgba(196, 184, 212, 0.1);
+}
+
+.kit-curriculum-item-kicker {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.kit-curriculum-item-title {
+  margin: 0 0 4px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.kit-curriculum-item-body {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
 .kit-workspace-head {
   display: flex;
   flex-wrap: wrap;
