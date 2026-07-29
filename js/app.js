@@ -27,7 +27,7 @@ const SYNC_BUNDLE_VERSION = 2;
 /** Soft ceiling so a kit doesn’t grow forever; wells are added/removed on the fly */
 const KIT_SLOT_MAX = 36;
 /** Bump with sw.js CACHE when shipping UI/data */
-const APP_VERSION = "94";
+const APP_VERSION = "95";
 
 /** Resolve assets for GitHub project pages and local server */
 function appBasePath() {
@@ -92,6 +92,8 @@ let kitWheelDrag = null; // { which: 'a'|'b', pointerId }
 let kitWellEditMode = false;
 /** Water lab: selected practice color id (must stay in active kit) */
 let waterLabColorId = null;
+/** Extra entropy for Practice card shuffle (0 = daily seed only) */
+let practiceShuffleNonce = 0;
 let syncApiAvailable = false;
 let skipNextSyncPush = false;
 let syncPushTimer = null;
@@ -2010,19 +2012,12 @@ function analyzeKitPortrait(kit) {
     ? watch.slice(0, 3).join(" · ")
     : "Nothing loud — trust the tin and paint.";
 
-  // Visible chips only (dropped Mixing gym / Landscape lean / Bloom playground)
+  // Scorecard chips removed — flags still feed Ace / practice card
   const tags = [];
   const isControlTin = controlScore > bloomScore + n * 0.2 && n >= 3;
   const isBloom = bloomScore > controlScore + n * 0.2 || gran >= 3;
   const isMixGym = mixStars >= 3 || (hasYellow && hasRed && hasBlue && mixStars >= 1);
   const isLand = hasEarth && hasBlue && (hasYellow || hasGreen);
-  if (isControlTin) tags.push({ id: "control", label: "Control tin" });
-  if (n <= 8 && hasYellow && hasRed && hasBlue) {
-    tags.push({ id: "travel", label: "Travel triangle" });
-  }
-  if (!hasEarth && n >= 5) tags.push({ id: "need-earth", label: "Needs earth", gap: true });
-  if (warm > 0 && cool === 0 && n >= 3) tags.push({ id: "need-cool", label: "Needs cool", gap: true });
-  if (cool > 0 && warm === 0 && n >= 3) tags.push({ id: "need-warm", label: "Needs warm", gap: true });
 
   // Ace one-liner — witty always; fold build coach only when the tin still needs help
   const topBrand = brandRank[0]?.[0] || "this tin";
@@ -2084,18 +2079,9 @@ function renderKitNote(kit) {
 
   const tagsEl = $("#kit-note-tags");
   if (tagsEl) {
+    // Chips retired — keep container empty/hidden
     tagsEl.innerHTML = "";
-    if (portrait.tags.length) {
-      tagsEl.hidden = false;
-      portrait.tags.forEach((t) => {
-        const span = document.createElement("span");
-        span.className = "kit-note-tag" + (t.gap ? " kit-note-tag--gap" : "");
-        span.textContent = t.label;
-        tagsEl.appendChild(span);
-      });
-    } else {
-      tagsEl.hidden = true;
-    }
+    tagsEl.hidden = true;
   }
 
   const ta = $("#kit-note-personal");
@@ -2345,16 +2331,23 @@ function renderWetInWet(kit) {
   if (tip) tip.textContent = wetInWetTip(a, b);
 }
 
-/** Stable daily seed so practice card doesn’t flicker every re-render */
+/** Stable daily seed so practice card doesn’t flicker every re-render; shuffle nonce refreshes picks */
 function practiceSeed(kitId) {
   const day = new Date().toDateString();
-  const s = `${kitId || "kit"}|${day}|${APP_VERSION}`;
+  const s = `${kitId || "kit"}|${day}|${APP_VERSION}|${practiceShuffleNonce}`;
   let h = 2166136261;
   for (let i = 0; i < s.length; i++) {
     h ^= s.charCodeAt(i);
     h = Math.imul(h, 16777619);
   }
   return h >>> 0;
+}
+
+function shufflePracticeCard() {
+  practiceShuffleNonce += 1;
+  const kit = getActiveKit();
+  if (kit) renderKitCurriculum(kit);
+  showToast("Fresh practice picks", { type: "ok", duration: 1600 });
 }
 
 function seededPick(arr, seed, n = 1) {
@@ -2656,9 +2649,11 @@ function buildCurriculumExercises(kit) {
 function renderKitCurriculum(kit) {
   const list = $("#kit-curriculum-list");
   const empty = $("#kit-curriculum-empty");
+  const shuffleBtn = $("#kit-practice-shuffle");
   if (!list) return;
 
   const exercises = buildCurriculumExercises(kit);
+  if (shuffleBtn) shuffleBtn.disabled = !exercises.length;
   if (!exercises.length) {
     list.innerHTML = "";
     if (empty) empty.hidden = false;
@@ -4663,6 +4658,7 @@ function bindEvents() {
     const stage = $("#kit-wheel-stage") || $(".kit-wheel-section");
     stage?.scrollIntoView({ behavior: "smooth", block: "center" });
   });
+  $("#kit-practice-shuffle")?.addEventListener("click", shufflePracticeCard);
   $("#kit-edit-done")?.addEventListener("click", () => setKitWellEditMode(false));
   $("#mix-clear")?.addEventListener("click", () => {
     selectedMixSlots = [null, null, null];

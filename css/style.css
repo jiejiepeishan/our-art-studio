@@ -2819,6 +2819,23 @@ button.mix-slot-swatch--filled:active {
   background: var(--card);
 }
 
+.kit-curriculum-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.kit-curriculum-head .water-lab-sub {
+  margin-bottom: 0;
+}
+
+.kit-curriculum-head #kit-practice-shuffle {
+  flex-shrink: 0;
+  align-self: center;
+}
+
 .kit-curriculum-list {
   margin: 0;
   padding: 0;
