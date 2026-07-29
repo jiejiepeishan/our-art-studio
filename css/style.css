@@ -2316,32 +2316,416 @@ button.mix-slot-swatch--filled:active {
 /* —— Kits (physical tins) —— */
 .kits-toolbar {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-wrap: nowrap;
+  align-items: stretch;
   gap: 10px;
   margin-bottom: 14px;
 }
 
-.kit-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+.kit-switcher {
+  position: relative;
   flex: 1;
+  min-width: 0;
 }
 
-.kit-chip {
-  padding: 8px 14px;
+.kit-switcher-btn {
+  appearance: none;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 10px 32px 10px 12px;
   border: 1px solid var(--blush);
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
+  background: var(--card)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%239a8f82' d='M1 1l5 5 5-5'/%3E%3C/svg%3E")
+    no-repeat right 12px center;
+  font: inherit;
+  font-size: 0.88rem;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kit-switcher-btn[aria-expanded="true"] {
+  border-color: var(--lavender);
+  box-shadow: 0 0 0 2px rgba(196, 184, 212, 0.35);
+}
+
+.kit-switcher-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 4px);
+  z-index: 30;
+  max-height: 260px;
+  overflow-y: auto;
+  padding: 6px;
   background: var(--card);
-  font-size: 0.8rem;
+  border: 1px solid var(--blush);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+}
+
+.kit-switcher-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  font: inherit;
+  font-size: 0.88rem;
+  color: var(--ink);
+  text-align: left;
   cursor: pointer;
 }
 
-.kit-chip.active {
-  border-color: var(--lavender);
-  background: rgba(196, 184, 212, 0.25);
+.kit-switcher-option:hover,
+.kit-switcher-option:focus-visible {
+  background: var(--paper-deep);
+  outline: none;
+}
+
+.kit-switcher-option.is-active {
+  background: rgba(196, 184, 212, 0.22);
   font-weight: 600;
+}
+
+.kit-switcher-option-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kit-switcher-option-meta {
+  flex-shrink: 0;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--ink-faint);
+}
+
+.kit-switcher-option.is-active .kit-switcher-option-meta {
+  color: var(--ink-soft);
+}
+
+.kit-switcher-check {
+  flex-shrink: 0;
+  color: var(--lavender);
+  font-size: 0.95rem;
+}
+
+.kits-toolbar #kit-add-btn {
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* Kit note card (auto portrait + personal) */
+.kit-note-card {
+  margin: 16px 0 8px;
+  padding: 0;
+  border: 1px solid var(--blush);
+  border-radius: var(--radius-sm);
+  background: var(--card);
+  overflow: hidden;
+}
+
+.kit-note-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
+  padding: 12px 14px;
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  cursor: pointer;
+  text-align: left;
+}
+
+.kit-note-toggle-chevron {
+  color: var(--ink-faint);
+  font-size: 0.85rem;
+  transition: transform 0.15s ease;
+}
+
+.kit-note-toggle[aria-expanded="false"] .kit-note-toggle-chevron {
+  transform: rotate(-90deg);
+}
+
+.kit-note-body {
+  padding: 0 14px 14px;
+}
+
+.kit-note-body[hidden] {
+  display: none;
+}
+
+.kit-note-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 12px;
+}
+
+.kit-note-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--blush);
+  background: rgba(196, 184, 212, 0.18);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  letter-spacing: 0.01em;
+}
+
+.kit-note-tag--gap {
+  background: rgba(212, 165, 116, 0.12);
+  border-color: rgba(212, 165, 116, 0.35);
+}
+
+.kit-note-dl {
+  margin: 0;
+}
+
+.kit-note-row {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 8px 12px;
+  padding: 6px 0;
+  border-top: 1px solid rgba(61, 52, 41, 0.06);
+}
+
+.kit-note-row:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.kit-note-row dt {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.kit-note-row dd {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.kit-note-ace {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(196, 184, 212, 0.15);
+  font-size: 0.86rem;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.kit-note-ace:empty {
+  display: none;
+}
+
+.kit-note-personal-label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 14px 0 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.kit-note-personal-hint {
+  font-weight: 400;
+  font-size: 0.72rem;
+  color: var(--ink-faint);
+  font-style: italic;
+}
+
+.kit-note-personal {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--blush);
+  border-radius: 10px;
+  background: var(--paper, #faf7f2);
+  font: inherit;
+  font-size: 0.86rem;
+  line-height: 1.4;
+  color: var(--ink);
+  resize: vertical;
+  min-height: 4.5em;
+}
+
+.kit-note-personal:focus {
+  outline: none;
+  border-color: var(--lavender);
+  box-shadow: 0 0 0 2px rgba(196, 184, 212, 0.35);
+}
+
+/* —— Water lab (ladder practice) —— */
+.water-lab {
+  margin: 16px 0 8px;
+  padding: 14px;
+  border: 1px solid var(--blush);
+  border-radius: var(--radius-sm);
+  background: var(--card);
+}
+
+.water-lab-head {
+  margin-bottom: 12px;
+}
+
+.water-lab-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.water-lab-sub {
+  margin: 4px 0 0;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--ink-faint);
+  font-style: italic;
+}
+
+.water-lab-empty {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--ink-faint);
+  line-height: 1.4;
+}
+
+.water-lab-pick-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0 0 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.water-lab-color-select {
+  appearance: none;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 10px 32px 10px 12px;
+  border: 1px solid var(--blush);
+  border-radius: var(--radius-sm);
+  background: var(--paper, #faf7f2)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%239a8f82' d='M1 1l5 5 5-5'/%3E%3C/svg%3E")
+    no-repeat right 12px center;
+  font: inherit;
+  font-size: 0.88rem;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.water-lab-color-select:focus {
+  outline: none;
+  border-color: var(--lavender);
+  box-shadow: 0 0 0 2px rgba(196, 184, 212, 0.35);
+}
+
+.water-lab-swatch-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.water-lab-swatch {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  border: 1px solid rgba(61, 52, 41, 0.12);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  /* paper under translucent washes */
+  background-color: #f7f1e8;
+  background-image:
+    linear-gradient(45deg, rgba(0, 0, 0, 0.03) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(0, 0, 0, 0.03) 25%, transparent 25%);
+  background-size: 8px 8px;
+}
+
+.water-lab-swatch-fill {
+  position: absolute;
+  inset: 0;
+}
+
+.water-lab-swatch-label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 4px 2px;
+  font-size: 0.58rem;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(40, 30, 20, 0.72));
+  letter-spacing: 0.02em;
+}
+
+.water-lab-steps {
+  margin: 0 0 10px;
+  padding: 0 0 0 1.15rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.water-lab-steps li {
+  margin: 0 0 6px;
+}
+
+.water-lab-steps li:last-child {
+  margin-bottom: 0;
+}
+
+.water-lab-steps strong {
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.water-lab-tip {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(196, 184, 212, 0.15);
+  font-size: 0.82rem;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.water-lab-tip:empty {
+  display: none;
 }
 
 .kit-workspace-head {

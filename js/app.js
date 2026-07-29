@@ -27,7 +27,7 @@ const SYNC_BUNDLE_VERSION = 2;
 /** Soft ceiling so a kit doesn’t grow forever; wells are added/removed on the fly */
 const KIT_SLOT_MAX = 36;
 /** Bump with sw.js CACHE when shipping UI/data */
-const APP_VERSION = "90";
+const APP_VERSION = "92";
 
 /** Resolve assets for GitHub project pages and local server */
 function appBasePath() {
@@ -90,6 +90,8 @@ let kitWheelNextTap = "a";
 let kitWheelDrag = null; // { which: 'a'|'b', pointerId }
 /** iOS-style jiggle mode for removing pans from spectrum */
 let kitWellEditMode = false;
+/** Water lab: selected practice color id (must stay in active kit) */
+let waterLabColorId = null;
 let syncApiAvailable = false;
 let skipNextSyncPush = false;
 let syncPushTimer = null;
@@ -568,7 +570,12 @@ function buildSyncBundle() {
       added: userData.added.map((c) => ({ ...c })),
       overrides: { ...userData.overrides },
     },
-    kits: kits.map((k) => ({ ...k, slots: [...k.slots] })),
+    kits: kits.map((k) => ({
+      ...k,
+      slots: [...k.slots],
+      personalNote: k.personalNote || k.notes || "",
+      notes: k.personalNote || k.notes || "",
+    })),
     activeKitId,
   };
 }
@@ -1125,12 +1132,21 @@ function normalizeKit(raw) {
     .map((id) => (id && palette.colors.some((c) => c.id === id) ? id : null))
     .filter(Boolean)
     .slice(0, KIT_SLOT_MAX);
+  // Personal note is locked for the user; migrate legacy `notes` if needed
+  let personalNote = "";
+  if (typeof raw.personalNote === "string" && raw.personalNote.trim()) {
+    personalNote = raw.personalNote;
+  } else if (typeof raw.notes === "string" && raw.notes.trim()) {
+    personalNote = raw.notes;
+  }
   return {
     id: raw.id || uid(),
     name: (raw.name || "Kit").trim() || "Kit",
     layout: raw.layout === "home-tin" ? "home-tin" : "grid",
     slots,
-    notes: typeof raw.notes === "string" ? raw.notes : "",
+    personalNote,
+    // Mirror for older export/import readers that only knew `notes`
+    notes: personalNote,
     orderMode: raw.orderMode === "spectrum" ? "spectrum" : "manual",
   };
 }
@@ -1146,6 +1162,7 @@ function makeHomeKit() {
     name: "Home",
     layout: "grid",
     slots: slots.slice(0, HOME_TIN.total),
+    personalNote: "",
     notes: "",
     orderMode: "spectrum",
   };
@@ -1215,8 +1232,9 @@ function loadKits() {
       home.slots = next;
       patched = true;
     }
-    if (home.notes) {
-      home.notes = "";
+    // Keep personal notes; only clear empty legacy mirror field noise
+    if (home.notes && !home.personalNote) {
+      home.personalNote = home.notes;
       patched = true;
     }
     if (patched) saveKits();
@@ -1742,34 +1760,89 @@ function updateTabBadges() {
   });
 }
 
+function closeKitSwitcher() {
+  const panel = $("#kit-switcher-panel");
+  const btn = $("#kit-switcher-btn");
+  if (panel) panel.hidden = true;
+  if (btn) btn.setAttribute("aria-expanded", "false");
+}
+
+function toggleKitSwitcher() {
+  const panel = $("#kit-switcher-panel");
+  const btn = $("#kit-switcher-btn");
+  if (!panel || !btn) return;
+  const open = panel.hidden;
+  panel.hidden = !open;
+  btn.setAttribute("aria-expanded", String(open));
+  if (open) renderKitSwitcherPanel();
+}
+
+function selectActiveKit(kitId) {
+  if (!kits.some((k) => k.id === kitId)) return;
+  activeKitId = kitId;
+  kitWellEditMode = false;
+  closeKitSwitcher();
+  saveKits();
+  // Default Creative Fun pool follows the kit you're viewing (if only one selected)
+  if (creativePoolKitIds.length <= 1) {
+    creativePoolKitIds = [kitId];
+    saveCreativeFunState();
+  }
+  renderKits();
+  updateTabBadges();
+  renderPalette();
+}
+
+function renderKitSwitcherPanel() {
+  const panel = $("#kit-switcher-panel");
+  if (!panel) return;
+  panel.innerHTML = "";
+  if (!kits.length) {
+    panel.innerHTML = `<p class="empty-state" style="margin:8px;padding:4px">No kits yet.</p>`;
+    return;
+  }
+  kits.forEach((kit) => {
+    const n = kitFilledCount(kit);
+    const active = kit.id === activeKitId;
+    const opt = document.createElement("button");
+    opt.type = "button";
+    opt.setAttribute("role", "option");
+    opt.setAttribute("aria-selected", String(active));
+    opt.className = "kit-switcher-option" + (active ? " is-active" : "");
+    opt.innerHTML = `
+      <span class="kit-switcher-option-name">${escapeHtml(kit.name)}</span>
+      <span class="kit-switcher-option-meta">${n} pan${n === 1 ? "" : "s"}</span>
+      ${active ? `<span class="kit-switcher-check" aria-hidden="true">✓</span>` : ""}`;
+    opt.addEventListener("click", (e) => {
+      e.stopPropagation();
+      selectActiveKit(kit.id);
+    });
+    panel.appendChild(opt);
+  });
+}
+
+function renderKitSwitcherButton() {
+  const btn = $("#kit-switcher-btn");
+  if (!btn) return;
+  const kit = getActiveKit();
+  if (!kit) {
+    btn.textContent = "Select kit";
+    return;
+  }
+  const n = kitFilledCount(kit);
+  btn.textContent = `${kit.name} · ${n} pan${n === 1 ? "" : "s"}`;
+}
+
 function renderKits() {
-  const chips = $("#kit-chips");
   const workspace = $("#kit-workspace");
   const empty = $("#kit-empty-state");
-  if (!chips) return;
+  if (!$("#kit-switcher-btn")) return;
 
-  chips.innerHTML = "";
-  kits.forEach((kit) => {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "kit-chip" + (kit.id === activeKitId ? " active" : "");
-    const n = kitFilledCount(kit);
-    btn.textContent = `${kit.name} (${n})`;
-    btn.addEventListener("click", () => {
-      activeKitId = kit.id;
-      kitWellEditMode = false;
-      saveKits();
-      // Default Creative Fun pool follows the kit you're viewing (if only one selected)
-      if (creativePoolKitIds.length <= 1) {
-        creativePoolKitIds = [kit.id];
-        saveCreativeFunState();
-      }
-      renderKits();
-      updateTabBadges();
-      renderPalette();
-    });
-    chips.appendChild(btn);
-  });
+  renderKitSwitcherButton();
+  // Keep open panel contents in sync if user left it open
+  if ($("#kit-switcher-panel") && !$("#kit-switcher-panel").hidden) {
+    renderKitSwitcherPanel();
+  }
 
   const kit = getActiveKit();
   if (!kit) {
@@ -1787,6 +1860,8 @@ function renderKits() {
       : `${n} pan${n === 1 ? "" : "s"} · spectrum · 6 / row · + adds more`;
   updateKitGuidance(kit);
   renderKitTin(kit);
+  renderKitNote(kit);
+  renderWaterLab(kit);
   // Drop wheel picks that left the kit
   const inKit = new Set(kit.slots.filter(Boolean));
   if (kitWheelA && !inKit.has(kitWheelA)) kitWheelA = null;
@@ -1794,6 +1869,383 @@ function renderKits() {
   renderKitWheel();
   // Keep Creative Fun pool chips in sync with kit fills/names
   renderCreativeFun();
+}
+
+/**
+ * Auto kit portrait: brands, handling character, suits, watch-outs, scorecard tags, Ace line.
+ * Recomputed on every render — never overwrites kit.personalNote.
+ */
+function analyzeKitPortrait(kit) {
+  const colors = (kit?.slots || [])
+    .map((id) => palette.colors.find((c) => c.id === id))
+    .filter(Boolean);
+  const n = colors.length;
+
+  if (!n) {
+    return {
+      brands: "No pans yet — add a few and I’ll gossip about the tin.",
+      character: "An empty tin is full of potential (and zero drama).",
+      suits: "Anything you like — start with a yellow, red/rose, and blue.",
+      watchouts: "None yet. The first boss color will introduce itself.",
+      ace: "Tap + under Add well. Your future limited palette is waiting.",
+      tags: [],
+    };
+  }
+
+  // —— Brand tally + handling bias ——
+  const brandCounts = new Map();
+  colors.forEach((c) => {
+    const b = (c.brand || "Unknown").trim() || "Unknown";
+    brandCounts.set(b, (brandCounts.get(b) || 0) + 1);
+  });
+  const brandRank = [...brandCounts.entries()].sort((a, b) => b[1] - a[1]);
+  // Consistent format: Brand × N (show all brands, sorted by count)
+  const brandsLine = brandRank.map(([name, count]) => `${name} × ${count}`).join(" · ");
+
+  const feelOf = (brand) => {
+    const b = (brand || "").toLowerCase();
+    // bloom/vibrant vs control (0–2 scale)
+    if (/daniel\s*smith|rosa|white\s*nights|sennelier/.test(b)) return { control: 0, bloom: 2, vibrant: 2 };
+    if (/schmincke|winsor|newton|maimeri/.test(b)) return { control: 2, bloom: 0, vibrant: 0 };
+    if (/graham|roman\s*szmal/.test(b)) return { control: 1, bloom: 1, vibrant: 1 };
+    if (/pinax/.test(b)) return { control: 1, bloom: 1, vibrant: 1 };
+    return { control: 1, bloom: 1, vibrant: 1 };
+  };
+
+  let controlScore = 0;
+  let bloomScore = 0;
+  let vibrantScore = 0;
+  let gran = 0;
+  let mixStars = 0;
+  let staining = 0;
+  let phthaloBoss = 0;
+  colors.forEach((c) => {
+    const f = feelOf(c.brand);
+    controlScore += f.control;
+    bloomScore += f.bloom;
+    vibrantScore += f.vibrant;
+    if (c.granulating) gran++;
+    if (c.mix_star) mixStars++;
+    if (c.staining) staining++;
+    const pig = (c.pigment || "").toUpperCase();
+    if (/PB15|PG7|PG36/.test(pig) || /phthalo/i.test(c.name_en || "")) phthaloBoss++;
+  });
+
+  const band = (c) => {
+    try {
+      const { h, s } = Mixing.hexToHsl(c.hex);
+      if (s < 14) return "neutral";
+      if (h < 20 || h >= 345) return "red";
+      if (h < 50) return "orange";
+      if (h < 75) return "yellow";
+      if (h < 165) return "green";
+      if (h < 255) return "blue";
+      if (h < 310) return "purple";
+      return "pink";
+    } catch {
+      return "other";
+    }
+  };
+  const counts = {
+    yellow: 0,
+    orange: 0,
+    red: 0,
+    pink: 0,
+    purple: 0,
+    blue: 0,
+    green: 0,
+    neutral: 0,
+    earth: 0,
+  };
+  colors.forEach((c) => {
+    const fam = (c.family || "").toLowerCase();
+    if (fam === "earth") counts.earth++;
+    else counts[band(c)] = (counts[band(c)] || 0) + 1;
+  });
+  const hasYellow = counts.yellow > 0;
+  const hasRed = counts.red + counts.pink > 0;
+  const hasBlue = counts.blue > 0;
+  const hasEarth = counts.earth > 0;
+  const hasGreen = counts.green > 0;
+  const warm = counts.yellow + counts.orange + counts.red + counts.pink + counts.earth;
+  const cool = counts.blue + counts.green + counts.purple;
+
+  // Character — feel only (✦ / ◈ counts live on Spectrum wells; don't repeat here)
+  const characterParts = [];
+  if (controlScore > bloomScore + n * 0.3) {
+    characterParts.push("leans toward control — creamy lifts, polite edges, good for second washes");
+  } else if (bloomScore > controlScore + n * 0.3) {
+    characterParts.push("leans spreadable and lively — blooms welcome if you let them");
+  } else {
+    characterParts.push("mixed personality — some pans behave, some gossip on the paper");
+  }
+  if (vibrantScore >= n * 1.2) characterParts.push("high saturation energy");
+  const character = characterParts.join("; ") + ".";
+
+  // Suits
+  const suits = [];
+  if (hasEarth && hasBlue && (hasYellow || hasGreen)) suits.push("landscape-friendly");
+  if (mixStars >= 3 || (hasYellow && hasRed && hasBlue && n >= 3)) suits.push("strong for mixing practice");
+  if (controlScore > bloomScore && n >= 4) suits.push("detail / urban sketch control");
+  if (bloomScore > controlScore && gran >= 2) suits.push("wet-in-wet and atmospheric washes");
+  if (n <= 8 && hasYellow && hasRed && hasBlue) suits.push("travel primary triangle");
+  if (!suits.length) suits.push("still finding its job — keep painting and the tin will confess");
+  const suitsLine = suits.join(" · ");
+
+  // Watch-outs
+  const watch = [];
+  if (phthaloBoss >= 2) watch.push("two+ phthalo-type bosses — whisper-light when mixing");
+  if (staining >= Math.max(3, Math.ceil(n * 0.4))) {
+    watch.push("several staining pans — commit on purpose, lift carefully");
+  }
+  if (warm > 0 && cool === 0) watch.push("all warm so far — cool shadow friends missing");
+  if (cool > 0 && warm === 0) watch.push("all cool so far — needs a warm glow");
+  if (!hasEarth && n >= 6) watch.push("no earth yet — neutrals will work harder");
+  if (!watch.length) watch.push("nothing alarming — just don’t let the loudest pan drive every mix");
+  const watchLine = watch.slice(0, 3).join(" · ");
+
+  // Scorecard tags
+  const tags = [];
+  if (mixStars >= 3 || (hasYellow && hasRed && hasBlue && mixStars >= 1)) {
+    tags.push({ id: "mix", label: "Mixing gym" });
+  }
+  if (hasEarth && hasBlue && (hasYellow || hasGreen)) {
+    tags.push({ id: "land", label: "Landscape lean" });
+  }
+  if (controlScore > bloomScore + n * 0.2 && n >= 3) {
+    tags.push({ id: "control", label: "Control tin" });
+  }
+  if (bloomScore > controlScore + n * 0.2 || gran >= 3) {
+    tags.push({ id: "bloom", label: "Bloom playground" });
+  }
+  if (n <= 8 && hasYellow && hasRed && hasBlue) {
+    tags.push({ id: "travel", label: "Travel triangle" });
+  }
+  if (!hasEarth && n >= 5) tags.push({ id: "need-earth", label: "Needs earth", gap: true });
+  if (warm > 0 && cool === 0 && n >= 3) tags.push({ id: "need-cool", label: "Needs cool", gap: true });
+  if (cool > 0 && warm === 0 && n >= 3) tags.push({ id: "need-warm", label: "Needs warm", gap: true });
+
+  // Ace one-liner
+  const topBrand = brandRank[0]?.[0] || "this tin";
+  let ace = "";
+  if (tags.some((t) => t.id === "control") && /schmincke|winsor|maimeri/i.test(topBrand)) {
+    ace = `${topBrand} is running a polite engineering firm in this tin — edges stay where you put them. Reward: control practice; risk: forgetting to play.`;
+  } else if (tags.some((t) => t.id === "bloom")) {
+    ace = `This box wants water and courage. Let ${topBrand} bloom once on purpose — then decide if you’re the boss or the paint is.`;
+  } else if (tags.some((t) => t.id === "mix")) {
+    ace = `A little mixing gym in a metal box. Pick three strangers from different hue families and make them negotiate.`;
+  } else if (tags.some((t) => t.id === "land")) {
+    ace = `Landscape bones are here: earth for dirt, blue for air, something warm for light. Now go abuse a scrap of paper.`;
+  } else if (n <= 4) {
+    ace = `Tiny tin energy (${n} pans). Limitation is the tutor — finish a study before you add another tube.`;
+  } else {
+    ace = `${n} pans, ${brandRank.length} brand${brandRank.length === 1 ? "" : "s"}. Ace’s take: paint one subject twice with only half the tin — you’ll meet your real favorites.`;
+  }
+
+  return {
+    brands: brandsLine,
+    character,
+    suits: suitsLine,
+    watchouts: watchLine,
+    ace,
+    tags,
+  };
+}
+
+function renderKitNote(kit) {
+  const card = $("#kit-note-card");
+  if (!card || !kit) return;
+
+  const portrait = analyzeKitPortrait(kit);
+  const setText = (id, text) => {
+    const el = $(id);
+    if (el) el.textContent = text || "—";
+  };
+  setText("#kit-note-brands", portrait.brands);
+  setText("#kit-note-character", portrait.character);
+  setText("#kit-note-suits", portrait.suits);
+  setText("#kit-note-watch", portrait.watchouts);
+  setText("#kit-note-ace", portrait.ace);
+
+  const tagsEl = $("#kit-note-tags");
+  if (tagsEl) {
+    tagsEl.innerHTML = "";
+    if (portrait.tags.length) {
+      tagsEl.hidden = false;
+      portrait.tags.forEach((t) => {
+        const span = document.createElement("span");
+        span.className = "kit-note-tag" + (t.gap ? " kit-note-tag--gap" : "");
+        span.textContent = t.label;
+        tagsEl.appendChild(span);
+      });
+    } else {
+      tagsEl.hidden = true;
+    }
+  }
+
+  const ta = $("#kit-note-personal");
+  if (ta) {
+    // Don't clobber while the user is typing
+    if (document.activeElement !== ta) {
+      ta.value = kit.personalNote || kit.notes || "";
+      ta.dataset.kitId = kit.id;
+    } else if (ta.dataset.kitId !== kit.id) {
+      ta.value = kit.personalNote || kit.notes || "";
+      ta.dataset.kitId = kit.id;
+    }
+  }
+}
+
+function saveActiveKitPersonalNote() {
+  const ta = $("#kit-note-personal");
+  const kit = getActiveKit();
+  if (!ta || !kit) return;
+  if (ta.dataset.kitId && ta.dataset.kitId !== kit.id) return;
+  const text = ta.value;
+  kit.personalNote = text;
+  kit.notes = text; // mirror for older sync readers
+  saveKits();
+  if (typeof scheduleSyncPush === "function") scheduleSyncPush();
+}
+
+/** Classic water-control ladder — same hue, more pigment each step */
+const WATER_LADDER = [
+  {
+    id: "tea",
+    label: "Tea",
+    opacity: 0.18,
+    recipe: "Mostly water, a breath of pigment. Should look like tinted water, not “light paint.”",
+  },
+  {
+    id: "milk",
+    label: "Milk",
+    opacity: 0.38,
+    recipe: "Still transparent — paper glow shows through. Good for first washes and sky bases.",
+  },
+  {
+    id: "cream",
+    label: "Cream",
+    opacity: 0.62,
+    recipe: "Paint and water share the brush. Mid-values, soft shape, still movable for a moment.",
+  },
+  {
+    id: "butter",
+    label: "Butter",
+    opacity: 0.9,
+    recipe: "Pigment-rich, little free water. For darks and accents — easy to overdo if the paper is still shiny.",
+  },
+];
+
+function hexToRgba(hex, alpha) {
+  const h = String(hex || "#888888").replace("#", "");
+  const full =
+    h.length === 3
+      ? h
+          .split("")
+          .map((c) => c + c)
+          .join("")
+      : h.padEnd(6, "0").slice(0, 6);
+  const n = parseInt(full, 16);
+  if (!Number.isFinite(n)) return `rgba(120,100,80,${alpha})`;
+  const r = (n >> 16) & 255;
+  const g = (n >> 8) & 255;
+  const b = n & 255;
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+
+function waterLabTipForColor(color) {
+  if (!color) return "";
+  const bits = [];
+  if (color.granulating) {
+    bits.push("✦ Granulating — tea and milk show texture best; don’t scrub butter into mud.");
+  }
+  if (color.staining) {
+    bits.push("Staining — tea is your friend for first layers; butter won’t lift clean later.");
+  }
+  if (color.mix_star) {
+    bits.push("◈ Good mixer — try the ladder, then mix a neighbor at milk strength only.");
+  }
+  if (!bits.length) {
+    bits.push(
+      "Watch the sheen: shiny = still wet enough to bloom; matte = safer for the next darker step."
+    );
+  } else {
+    bits.push("Climb only when the previous step loses its shine — patience is a water skill.");
+  }
+  return bits.join(" ");
+}
+
+/**
+ * Water lab — ladder practice for the active kit.
+ * Pick one pan; four target washes (Tea → Butter). No scoring, just targets + tips.
+ */
+function renderWaterLab(kit) {
+  const section = $("#water-lab");
+  if (!section || !kit) return;
+
+  const colors = (kit.slots || [])
+    .map((id) => palette.colors.find((c) => c.id === id))
+    .filter(Boolean);
+
+  const emptyEl = $("#water-lab-empty");
+  const bodyEl = $("#water-lab-body");
+  const select = $("#water-lab-color");
+  const swatchRow = $("#water-lab-swatch-row");
+  const stepsEl = $("#water-lab-steps");
+  const tipEl = $("#water-lab-tip");
+
+  if (!colors.length) {
+    if (emptyEl) emptyEl.hidden = false;
+    if (bodyEl) bodyEl.hidden = true;
+    waterLabColorId = null;
+    return;
+  }
+  if (emptyEl) emptyEl.hidden = true;
+  if (bodyEl) bodyEl.hidden = false;
+
+  // Keep selection inside this kit; default first pan
+  if (!waterLabColorId || !colors.some((c) => c.id === waterLabColorId)) {
+    waterLabColorId = colors[0].id;
+  }
+  const active = colors.find((c) => c.id === waterLabColorId) || colors[0];
+
+  if (select) {
+    const prevFocus = document.activeElement === select;
+    select.innerHTML = "";
+    colors.forEach((c) => {
+      const opt = document.createElement("option");
+      opt.value = c.id;
+      opt.textContent = `${c.name_en}${c.brand ? ` · ${c.brand}` : ""}`;
+      if (c.id === active.id) opt.selected = true;
+      select.appendChild(opt);
+    });
+    if (prevFocus) select.focus();
+  }
+
+  if (swatchRow) {
+    swatchRow.innerHTML = "";
+    WATER_LADDER.forEach((step) => {
+      const cell = document.createElement("div");
+      cell.className = "water-lab-swatch";
+      cell.setAttribute("role", "listitem");
+      cell.title = `${step.label}: target wash strength`;
+      cell.innerHTML = `
+        <span class="water-lab-swatch-fill" style="background:${hexToRgba(active.hex, step.opacity)}"></span>
+        <span class="water-lab-swatch-label">${escapeHtml(step.label)}</span>`;
+      swatchRow.appendChild(cell);
+    });
+  }
+
+  if (stepsEl) {
+    stepsEl.innerHTML = WATER_LADDER.map(
+      (step) =>
+        `<li><strong>${escapeHtml(step.label)}</strong> — ${escapeHtml(step.recipe)}</li>`
+    ).join("");
+  }
+
+  if (tipEl) {
+    tipEl.textContent = waterLabTipForColor(active);
+  }
 }
 
 /**
@@ -2587,12 +3039,14 @@ function createNewKit() {
     name,
     layout: "grid",
     slots: [],
+    personalNote: "",
     notes: "",
     orderMode: "spectrum",
   });
   kits.push(kit);
   activeKitId = kit.id;
   kitWellEditMode = false;
+  closeKitSwitcher();
   saveKits();
   renderKits();
   updateTabBadges();
@@ -3627,6 +4081,7 @@ function resetKitsPanel() {
   if (sheet?.open) sheet.close();
   const picker = $("#kit-picker-sheet");
   if (picker?.open) picker.close();
+  closeKitSwitcher();
   renderKits();
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
@@ -3738,11 +4193,42 @@ function bindEvents() {
     const open = panel.hidden;
     panel.hidden = !open;
     btn.setAttribute("aria-expanded", String(open));
-    if (open) renderCreativeKitDropdown();
+    if (open) {
+      closeKitSwitcher();
+      renderCreativeKitDropdown();
+    }
+  });
+  $("#kit-switcher-btn")?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    closeCreativeKitDropdown();
+    toggleKitSwitcher();
   });
   document.addEventListener("click", (e) => {
-    const field = e.target?.closest?.(".creative-field--kits");
-    if (!field) closeCreativeKitDropdown();
+    const creativeField = e.target?.closest?.(".creative-field--kits");
+    if (!creativeField) closeCreativeKitDropdown();
+    const kitSwitch = e.target?.closest?.("#kit-switcher");
+    if (!kitSwitch) closeKitSwitcher();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeKitSwitcher();
+      closeCreativeKitDropdown();
+    }
+  });
+  $("#kit-note-toggle")?.addEventListener("click", () => {
+    const body = $("#kit-note-body");
+    const btn = $("#kit-note-toggle");
+    if (!body || !btn) return;
+    const open = body.hidden;
+    body.hidden = !open;
+    btn.setAttribute("aria-expanded", String(open));
+  });
+  $("#kit-note-personal")?.addEventListener("input", saveActiveKitPersonalNote);
+  $("#kit-note-personal")?.addEventListener("change", saveActiveKitPersonalNote);
+  $("#water-lab-color")?.addEventListener("change", (e) => {
+    waterLabColorId = e.target.value || null;
+    const kit = getActiveKit();
+    if (kit) renderWaterLab(kit);
   });
   $("#kit-edit-done")?.addEventListener("click", () => setKitWellEditMode(false));
   $("#mix-clear")?.addEventListener("click", () => {

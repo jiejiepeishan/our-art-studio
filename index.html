@@ -19,7 +19,7 @@
         return;
       }
       // One-time: kill any service worker so a stuck SW cannot pin "Loading studio"
-      var FLAG = "oas-disable-sw-v90";
+      var FLAG = "oas-disable-sw-v92";
       try {
         if (sessionStorage.getItem(FLAG)) return;
         if (!("serviceWorker" in navigator)) {
@@ -53,7 +53,7 @@
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
   <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
-  <link rel="stylesheet" href="css/style.css?v=90" />
+  <link rel="stylesheet" href="css/style.css?v=92" />
 </head>
 <body>
   <p id="stuck-hint" class="load-status" hidden>
@@ -90,7 +90,7 @@
     </div>
     <p class="studio-tagline">watercolor palette & mix lab</p>
     <p class="palette-meta" id="palette-meta"></p>
-    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v90</button>
+    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v92</button>
   </header>
 
   <aside class="caveats-banner" id="caveats-banner" aria-label="Studio notes">
@@ -145,7 +145,26 @@
       <h2 class="section-title">Kits</h2>
       <p class="section-hint">Small tins for home, office, travel — build like the real box, arrange by spectrum to learn.</p>
       <div class="kits-toolbar">
-        <div id="kit-chips" class="kit-chips" role="tablist" aria-label="Your kits"></div>
+        <div class="kit-switcher" id="kit-switcher">
+          <button
+            type="button"
+            id="kit-switcher-btn"
+            class="kit-switcher-btn"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            aria-controls="kit-switcher-panel"
+            aria-label="Select kit"
+          >
+            Select kit
+          </button>
+          <div
+            id="kit-switcher-panel"
+            class="kit-switcher-panel"
+            hidden
+            role="listbox"
+            aria-label="Your kits"
+          ></div>
+        </div>
         <button type="button" id="kit-add-btn" class="btn-ghost btn-compact">+ New kit</button>
       </div>
 
@@ -217,6 +236,67 @@
           <p id="kit-tin-hint" class="kit-tin-hint">Spectrum · 6 / row · tap = A/B · hold = edit · + = fill</p>
           <button type="button" id="kit-edit-done" class="btn-ghost btn-compact kit-edit-done" hidden>Done</button>
         </div>
+
+        <!-- Auto kit portrait + locked personal note (under Add well) -->
+        <section id="kit-note-card" class="kit-note-card" aria-label="Kit note">
+          <button type="button" id="kit-note-toggle" class="kit-note-toggle" aria-expanded="true" aria-controls="kit-note-body">
+            <span class="kit-note-toggle-label">Kit note</span>
+            <span class="kit-note-toggle-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div id="kit-note-body" class="kit-note-body">
+            <div id="kit-note-tags" class="kit-note-tags" hidden></div>
+            <dl class="kit-note-dl">
+              <div class="kit-note-row">
+                <dt>Brands</dt>
+                <dd id="kit-note-brands">—</dd>
+              </div>
+              <div class="kit-note-row">
+                <dt>Character</dt>
+                <dd id="kit-note-character">—</dd>
+              </div>
+              <div class="kit-note-row">
+                <dt>Suits</dt>
+                <dd id="kit-note-suits">—</dd>
+              </div>
+              <div class="kit-note-row">
+                <dt>Watch-outs</dt>
+                <dd id="kit-note-watch">—</dd>
+              </div>
+            </dl>
+            <p id="kit-note-ace" class="kit-note-ace"></p>
+            <label class="kit-note-personal-label" for="kit-note-personal">
+              Your note
+              <span class="kit-note-personal-hint">Yours alone — never overwritten by Ace</span>
+            </label>
+            <textarea
+              id="kit-note-personal"
+              class="kit-note-personal"
+              rows="3"
+              placeholder="e.g. office travel tin · don’t forget paper towels…"
+              autocomplete="off"
+            ></textarea>
+          </div>
+        </section>
+
+        <!-- Water lab: ladder practice (Phase 3a) -->
+        <section id="water-lab" class="water-lab" aria-label="Water lab">
+          <div class="water-lab-head">
+            <h3 class="water-lab-title">Water lab</h3>
+            <p class="water-lab-sub">Same color, four water loads — train your eye before the paper judges you.</p>
+          </div>
+          <div id="water-lab-empty" class="water-lab-empty" hidden>
+            Add a pan to this kit first — then pick one and climb the ladder.
+          </div>
+          <div id="water-lab-body" class="water-lab-body">
+            <label class="water-lab-pick-label" for="water-lab-color">
+              Practice color
+              <select id="water-lab-color" class="water-lab-color-select" aria-label="Color for water ladder"></select>
+            </label>
+            <div id="water-lab-swatch-row" class="water-lab-swatch-row" role="list" aria-label="Water ladder targets"></div>
+            <ol id="water-lab-steps" class="water-lab-steps"></ol>
+            <p id="water-lab-tip" class="water-lab-tip"></p>
+          </div>
+        </section>
 
         <!-- Rarely used once a kit is built — live at end of scroll -->
         <footer class="kit-actions kit-actions--footer" aria-label="Kit management">
@@ -529,7 +609,7 @@
     </div>
   </dialog>
 
-  <script src="js/mixing.js?v=90" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load mixing.js';document.getElementById('load-status').hidden=true;"></script>
-  <script src="js/app.js?v=90" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load app.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/mixing.js?v=92" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load mixing.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/app.js?v=92" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load app.js';document.getElementById('load-status').hidden=true;"></script>
 </body>
 </html>
