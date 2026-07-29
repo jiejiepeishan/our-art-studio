@@ -1,5 +1,5 @@
 /* Our Art Studio — service worker (GitHub Pages project site safe) */
-const CACHE = "our-art-studio-v98";
+const CACHE = "our-art-studio-v99";
 const FETCH_TIMEOUT_MS = 12000;
 
 /** Core shell — must install for offline. Failures here are serious. */

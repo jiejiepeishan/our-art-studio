@@ -27,7 +27,7 @@ const SYNC_BUNDLE_VERSION = 2;
 /** Soft ceiling so a kit doesn’t grow forever; wells are added/removed on the fly */
 const KIT_SLOT_MAX = 36;
 /** Bump with sw.js CACHE when shipping UI/data */
-const APP_VERSION = "98";
+const APP_VERSION = "99";
 
 /** Resolve assets for GitHub project pages and local server */
 function appBasePath() {
@@ -3285,9 +3285,25 @@ function bindKitWheelHandles() {
 function openKitPicker(slotIndex) {
   kitFillSlotIndex = slotIndex;
   const sheet = $("#kit-picker-sheet");
-  $("#kit-picker-search").value = "";
+  const search = $("#kit-picker-search");
+  if (search) search.value = "";
   renderKitPickerGrid();
   sheet.showModal();
+  // Don't autofocus search on iPhone — focus + small type triggers Safari page zoom
+}
+
+/** Close kit color picker and unstick iOS Safari zoom if it was focused */
+function closeKitPicker() {
+  const search = $("#kit-picker-search");
+  if (search && document.activeElement === search) search.blur();
+  else if (document.activeElement?.blur) document.activeElement.blur();
+  const sheet = $("#kit-picker-sheet");
+  if (sheet?.open) sheet.close();
+  kitFillSlotIndex = null;
+  // Nudge layout after dialog closes (helps some iOS versions settle scale)
+  requestAnimationFrame(() => {
+    window.scrollTo(window.scrollX, window.scrollY);
+  });
 }
 
 /** Multi-token AND search: code, name, brand, family, hue words */
@@ -3421,7 +3437,7 @@ function fillKitSlot(colorId) {
   kit.orderMode = "manual";
   kitFillSlotIndex = null;
   saveKits();
-  $("#kit-picker-sheet").close();
+  closeKitPicker();
   renderKits();
   updateTabBadges();
   renderPalette();
@@ -4682,13 +4698,14 @@ function bindEvents() {
   $("#kit-picker-search")?.addEventListener("input", renderKitPickerGrid);
   // Tap dimmed backdrop (outside sheet-inner) to close picker — no × button
   $("#kit-picker-sheet")?.addEventListener("click", (e) => {
-    if (e.target === $("#kit-picker-sheet")) {
-      kitFillSlotIndex = null;
-      $("#kit-picker-sheet").close();
-    }
+    if (e.target === $("#kit-picker-sheet")) closeKitPicker();
   });
   $("#kit-picker-sheet")?.addEventListener("cancel", () => {
-    kitFillSlotIndex = null;
+    closeKitPicker();
+  });
+  $("#kit-picker-sheet")?.addEventListener("close", () => {
+    const search = $("#kit-picker-search");
+    search?.blur();
   });
   $("#sheet-remove-btn")?.addEventListener("click", () => {
     if (!detailColor) return;

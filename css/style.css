@@ -39,6 +39,17 @@ body {
   padding-bottom: calc(24px + var(--safe-bottom));
 }
 
+/*
+ * iOS Safari auto-zooms focused form controls under 16px and often
+ * leaves the whole page zoomed after the kit picker / dialog closes.
+ * Keep interactive fields at ≥16px so add-well doesn’t “slide” the UI.
+ */
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
 .paper-texture {
   position: fixed;
   inset: 0;
@@ -3092,8 +3103,11 @@ button.mix-slot-swatch--filled:active {
   padding: 12px 14px;
   border: 1px solid var(--blush);
   border-radius: var(--radius-sm);
-  font: inherit;
+  font-family: inherit;
+  font-size: 16px; /* must stay ≥16px — iOS zoom trap */
+  line-height: 1.4;
   background: var(--card);
+  color: var(--ink);
 }
 
 .kit-picker-grid {
