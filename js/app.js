@@ -27,7 +27,7 @@ const SYNC_BUNDLE_VERSION = 2;
 /** Soft ceiling so a kit doesn’t grow forever; wells are added/removed on the fly */
 const KIT_SLOT_MAX = 36;
 /** Bump with sw.js CACHE when shipping UI/data */
-const APP_VERSION = "95";
+const APP_VERSION = "96";
 
 /** Resolve assets for GitHub project pages and local server */
 function appBasePath() {
@@ -1855,11 +1855,6 @@ function renderKits() {
   empty.hidden = true;
   workspace.hidden = false;
   $("#kit-active-name").textContent = kit.name;
-  const n = kitFilledCount(kit);
-  $("#kit-active-meta").textContent =
-    n === 0
-      ? `Empty · tap + to add wells · spectrum · 6 / row`
-      : `${n} pan${n === 1 ? "" : "s"} · spectrum · 6 / row · + adds more`;
   updateKitGuidance(kit);
   renderKitTin(kit);
   renderKitNote(kit);

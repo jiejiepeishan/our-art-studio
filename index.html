@@ -19,7 +19,7 @@
         return;
       }
       // One-time: kill any service worker so a stuck SW cannot pin "Loading studio"
-      var FLAG = "oas-disable-sw-v95";
+      var FLAG = "oas-disable-sw-v96";
       try {
         if (sessionStorage.getItem(FLAG)) return;
         if (!("serviceWorker" in navigator)) {
@@ -53,7 +53,7 @@
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
   <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
-  <link rel="stylesheet" href="css/style.css?v=95" />
+  <link rel="stylesheet" href="css/style.css?v=96" />
 </head>
 <body>
   <p id="stuck-hint" class="load-status" hidden>
@@ -90,7 +90,7 @@
     </div>
     <p class="studio-tagline">watercolor palette & mix lab</p>
     <p class="palette-meta" id="palette-meta"></p>
-    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v95</button>
+    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v96</button>
   </header>
 
   <aside class="caveats-banner" id="caveats-banner" aria-label="Studio notes">
@@ -168,44 +168,10 @@
         <button type="button" id="kit-add-btn" class="btn-ghost btn-compact">+ New kit</button>
       </div>
 
-      <!-- Creative Fun: limited random draws from real tins -->
-      <section class="creative-fun" id="creative-fun" aria-label="Creative Fun challenge">
-        <div class="creative-fun-head">
-          <div>
-            <h2 class="section-title">Creative Fun</h2>
-            <p class="section-hint">Three colors from kits you can actually reach — force a tiny painting.</p>
-          </div>
-          <button type="button" id="creative-shuffle" class="btn-ghost btn-compact">Shuffle</button>
-        </div>
-        <div class="creative-controls">
-          <div class="creative-field creative-field--kits">
-            <span class="creative-field-label" id="creative-kit-label">Kits</span>
-            <button type="button" id="creative-kit-dd-btn" class="creative-dd-btn" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="creative-kit-label">
-              Home
-            </button>
-            <div id="creative-kit-dd" class="creative-dd-panel" hidden role="listbox" aria-multiselectable="true" aria-labelledby="creative-kit-label"></div>
-          </div>
-          <label class="creative-field">
-            <span class="creative-field-label">Mode</span>
-            <select id="creative-mode-select" class="creative-select" aria-label="Challenge style">
-              <option value="play" selected>Play</option>
-              <option value="mix">Mix practice</option>
-              <option value="temp">Warm + cool</option>
-              <option value="complement">Complement</option>
-            </select>
-          </label>
-        </div>
-        <div id="creative-swatches" class="todays-swatches"></div>
-        <p id="creative-names" class="todays-names"></p>
-        <p id="creative-status" class="creative-status"></p>
-        <button type="button" id="creative-to-mix" class="btn-ghost btn-compact creative-to-mix">Send trio to Mix Lab</button>
-      </section>
-
       <div id="kit-workspace" class="kit-workspace" hidden>
         <div class="kit-workspace-head">
           <div>
             <h3 id="kit-active-name" class="kit-active-name"></h3>
-            <p id="kit-active-meta" class="list-meta"></p>
           </div>
         </div>
         <div id="kit-guidance" class="kit-guidance" hidden>
@@ -338,6 +304,39 @@
             Add a few pans and I’ll write you a tiny curriculum.
           </div>
           <ol id="kit-curriculum-list" class="kit-curriculum-list"></ol>
+        </section>
+
+        <!-- Creative Fun: freer challenge after concrete practice -->
+        <section class="creative-fun" id="creative-fun" aria-label="Creative Fun challenge">
+          <div class="creative-fun-head">
+            <div>
+              <h2 class="section-title">Creative Fun</h2>
+              <p class="section-hint">Three colors from kits you can actually reach — force a tiny painting after the drills.</p>
+            </div>
+            <button type="button" id="creative-shuffle" class="btn-ghost btn-compact">Shuffle</button>
+          </div>
+          <div class="creative-controls">
+            <div class="creative-field creative-field--kits">
+              <span class="creative-field-label" id="creative-kit-label">Kits</span>
+              <button type="button" id="creative-kit-dd-btn" class="creative-dd-btn" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="creative-kit-label">
+                Home
+              </button>
+              <div id="creative-kit-dd" class="creative-dd-panel" hidden role="listbox" aria-multiselectable="true" aria-labelledby="creative-kit-label"></div>
+            </div>
+            <label class="creative-field">
+              <span class="creative-field-label">Mode</span>
+              <select id="creative-mode-select" class="creative-select" aria-label="Challenge style">
+                <option value="play" selected>Play</option>
+                <option value="mix">Mix practice</option>
+                <option value="temp">Warm + cool</option>
+                <option value="complement">Complement</option>
+              </select>
+            </label>
+          </div>
+          <div id="creative-swatches" class="todays-swatches"></div>
+          <p id="creative-names" class="todays-names"></p>
+          <p id="creative-status" class="creative-status"></p>
+          <button type="button" id="creative-to-mix" class="btn-ghost btn-compact creative-to-mix">Send trio to Mix Lab</button>
         </section>
 
         <!-- Rarely used once a kit is built — live at end of scroll -->
@@ -651,7 +650,7 @@
     </div>
   </dialog>
 
-  <script src="js/mixing.js?v=95" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load mixing.js';document.getElementById('load-status').hidden=true;"></script>
-  <script src="js/app.js?v=95" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load app.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/mixing.js?v=96" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load mixing.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/app.js?v=96" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load app.js';document.getElementById('load-status').hidden=true;"></script>
 </body>
 </html>
