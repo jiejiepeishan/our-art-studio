@@ -27,7 +27,7 @@ const SYNC_BUNDLE_VERSION = 2;
 /** Soft ceiling so a kit doesn’t grow forever; wells are added/removed on the fly */
 const KIT_SLOT_MAX = 36;
 /** Bump with sw.js CACHE when shipping UI/data */
-const APP_VERSION = "96";
+const APP_VERSION = "97";
 
 /** Resolve assets for GitHub project pages and local server */
 function appBasePath() {
@@ -1854,7 +1854,6 @@ function renderKits() {
   }
   empty.hidden = true;
   workspace.hidden = false;
-  $("#kit-active-name").textContent = kit.name;
   updateKitGuidance(kit);
   renderKitTin(kit);
   renderKitNote(kit);
