@@ -19,7 +19,7 @@
         return;
       }
       // One-time: kill any service worker so a stuck SW cannot pin "Loading studio"
-      var FLAG = "oas-disable-sw-v100";
+      var FLAG = "oas-disable-sw-v101";
       try {
         if (sessionStorage.getItem(FLAG)) return;
         if (!("serviceWorker" in navigator)) {
@@ -53,7 +53,7 @@
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
   <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
-  <link rel="stylesheet" href="css/style.css?v=100" />
+  <link rel="stylesheet" href="css/style.css?v=101" />
 </head>
 <body>
   <p id="stuck-hint" class="load-status" hidden>
@@ -90,7 +90,7 @@
     </div>
     <p class="studio-tagline">watercolor palette & mix lab</p>
     <p class="palette-meta" id="palette-meta"></p>
-    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v100</button>
+    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v101</button>
   </header>
 
   <aside class="caveats-banner" id="caveats-banner" aria-label="Studio notes">
@@ -235,6 +235,27 @@
               placeholder="e.g. office travel tin · don’t forget paper towels…"
               autocomplete="off"
             ></textarea>
+          </div>
+        </section>
+
+        <!-- Ace’s palette read — hybrid coach while building; review when solid -->
+        <section id="palette-read" class="palette-read" hidden aria-label="Ace’s palette read">
+          <button
+            type="button"
+            id="palette-read-toggle"
+            class="palette-read-toggle"
+            aria-expanded="false"
+            aria-controls="palette-read-body"
+          >
+            <span class="palette-read-toggle-main">
+              <span class="palette-read-label">Ace’s palette read</span>
+              <span id="palette-read-status" class="palette-read-status"></span>
+            </span>
+            <span class="palette-read-toggle-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div id="palette-read-body" class="palette-read-body" hidden>
+            <div id="palette-read-prose" class="palette-read-prose"></div>
+            <div id="palette-read-suggestions" class="palette-read-suggestions" hidden></div>
           </div>
         </section>
 
@@ -644,7 +665,7 @@
     </div>
   </dialog>
 
-  <script src="js/mixing.js?v=100" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load mixing.js';document.getElementById('load-status').hidden=true;"></script>
-  <script src="js/app.js?v=100" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load app.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/mixing.js?v=101" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load mixing.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/app.js?v=101" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load app.js';document.getElementById('load-status').hidden=true;"></script>
 </body>
 </html>

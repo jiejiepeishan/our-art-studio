@@ -2605,6 +2605,147 @@ button.mix-slot-swatch--filled:active {
   box-shadow: 0 0 0 2px rgba(196, 184, 212, 0.35);
 }
 
+/* Ace’s palette read (kit coach) */
+.palette-read {
+  margin: 12px 0 8px;
+  border: 1px solid var(--blush);
+  border-radius: var(--radius-sm);
+  background: var(--card);
+  overflow: hidden;
+}
+
+.palette-read.is-teaching {
+  border-color: rgba(196, 184, 212, 0.65);
+  box-shadow: 0 0 0 1px rgba(196, 184, 212, 0.2);
+}
+
+.palette-read-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  margin: 0;
+  padding: 12px 14px;
+  border: none;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  color: var(--ink-soft);
+}
+
+.palette-read-toggle-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.palette-read-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.palette-read-status {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--ink-faint);
+  font-style: italic;
+}
+
+.palette-read-toggle-chevron {
+  color: var(--ink-faint);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+
+.palette-read-toggle[aria-expanded="false"] .palette-read-toggle-chevron {
+  transform: rotate(-90deg);
+}
+
+.palette-read-body {
+  padding: 0 14px 14px;
+}
+
+.palette-read-body[hidden] {
+  display: none;
+}
+
+.palette-read-prose p {
+  margin: 0 0 10px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.palette-read-prose p:last-child {
+  margin-bottom: 0;
+}
+
+.palette-read-suggestions {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.palette-read-suggest {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(61, 52, 41, 0.08);
+  background: rgba(196, 184, 212, 0.12);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  color: var(--ink);
+  width: 100%;
+}
+
+.palette-read-suggest:hover,
+.palette-read-suggest:focus-visible {
+  border-color: var(--lavender);
+  outline: none;
+}
+
+.palette-read-suggest-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid rgba(61, 52, 41, 0.12);
+  flex-shrink: 0;
+}
+
+.palette-read-suggest-text {
+  min-width: 0;
+}
+
+.palette-read-suggest-name {
+  display: block;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.palette-read-suggest-meta {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--ink-faint);
+  margin-top: 1px;
+}
+
+.palette-read-suggest-why {
+  display: block;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin-top: 4px;
+  color: var(--ink);
+}
+
 /* —— Water lab (ladder practice) —— */
 .water-lab {
   margin: 16px 0 8px;

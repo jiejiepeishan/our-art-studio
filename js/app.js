@@ -27,7 +27,7 @@ const SYNC_BUNDLE_VERSION = 2;
 /** Soft ceiling so a kit doesn’t grow forever; wells are added/removed on the fly */
 const KIT_SLOT_MAX = 36;
 /** Bump with sw.js CACHE when shipping UI/data */
-const APP_VERSION = "100";
+const APP_VERSION = "101";
 
 /** Resolve assets for GitHub project pages and local server */
 function appBasePath() {
@@ -94,6 +94,13 @@ let kitWellEditMode = false;
 let waterLabColorId = null;
 /** Extra entropy for Practice card shuffle (0 = daily seed only) */
 let practiceShuffleNonce = 0;
+/**
+ * Ace’s palette read open state:
+ * null = auto (open when teaching gaps, collapsed when solid)
+ * true/false = user override until kit switch
+ */
+let paletteReadOpenOverride = null;
+let paletteReadKitId = null;
 let syncApiAvailable = false;
 let skipNextSyncPush = false;
 let syncPushTimer = null;
@@ -1783,6 +1790,8 @@ function selectActiveKit(kitId) {
   if (!kits.some((k) => k.id === kitId)) return;
   activeKitId = kitId;
   kitWellEditMode = false;
+  paletteReadOpenOverride = null; // re-auto open/collapse for the new tin
+  paletteReadKitId = kitId;
   closeKitSwitcher();
   saveKits();
   // Default Creative Fun pool follows the kit you're viewing (if only one selected)
@@ -1857,6 +1866,7 @@ function renderKits() {
   updateKitGuidance(kit);
   renderKitTin(kit);
   renderKitNote(kit);
+  renderPaletteRead(kit);
   renderWaterLab(kit);
   // Drop wheel picks that left the kit
   const inKit = new Set(kit.slots.filter(Boolean));
@@ -2101,6 +2111,471 @@ function saveActiveKitPersonalNote() {
   kit.notes = text; // mirror for older sync readers
   saveKits();
   if (typeof scheduleSyncPush === "function") scheduleSyncPush();
+}
+
+/* —— Ace’s palette read (Version B coach, catalog-only suggestions) —— */
+
+function kitColorHue(c) {
+  try {
+    return Mixing.hexToHsl(c.hex);
+  } catch {
+    return { h: 0, s: 0, l: 50 };
+  }
+}
+
+function isCoolYellow(c) {
+  const pig = (c.pigment || "").toUpperCase();
+  const n = (c.name_en || "").toLowerCase();
+  if (/PY3\b|LEMON|HANSA YELLOW LIGHT/.test(pig + n.toUpperCase())) return true;
+  if ((c.family || "") !== "yellow") return false;
+  const { h, s } = kitColorHue(c);
+  return s >= 20 && h >= 50 && h < 75;
+}
+
+function isWarmYellow(c) {
+  const n = (c.name_en || "").toLowerCase();
+  const pig = (c.pigment || "").toUpperCase();
+  if (/NAPLES|GOLD|OCHRE|SIENNA|PY150|PY216|PY40|CADMIUM YELLOW/.test(pig + " " + n.toUpperCase()))
+    return true;
+  if ((c.family || "") !== "yellow") return false;
+  const { h, s } = kitColorHue(c);
+  return s >= 15 && h >= 35 && h < 55;
+}
+
+function isCoolRose(c) {
+  const n = (c.name_en || "").toLowerCase();
+  const pig = (c.pigment || "").toUpperCase();
+  const fam = (c.family || "").toLowerCase();
+  if (/PV19|PR122|QUIN.*ROSE|PERMANENT ROSE|OPERA|MAGENTA|CRIMSON LAKE/.test(pig + " " + n.toUpperCase()))
+    return true;
+  if (fam === "pink") return true;
+  if (fam === "red" || fam === "purple") {
+    const { h, s } = kitColorHue(c);
+    return s >= 25 && h >= 300 && h < 350;
+  }
+  return false;
+}
+
+function isWarmFireRed(c) {
+  const n = (c.name_en || "").toLowerCase();
+  const pig = (c.pigment || "").toUpperCase();
+  if (/PYRROL|PYRROLE|SCARLET|CADMIUM RED|VERMILION|PO73|PR254|PR108|ENGLISH RED|VENETIAN/.test(
+    pig + " " + n.toUpperCase()
+  ))
+    return true;
+  if ((c.family || "") === "red" || (c.family || "") === "orange") {
+    const { h, s } = kitColorHue(c);
+    return s >= 30 && (h < 30 || h >= 350 || (h >= 10 && h < 45));
+  }
+  return false;
+}
+
+function isWarmBlue(c) {
+  const n = (c.name_en || "").toLowerCase();
+  const pig = (c.pigment || "").toUpperCase();
+  if (/rose of ultramarine|ultramarine violet|ultramarine pink|ultramarine red/i.test(n))
+    return false;
+  if (/ultramarine|pb29/i.test(n + " " + pig)) return true;
+  if (/cobalt blue/i.test(n) && !/turq/i.test(n)) return true;
+  if ((c.family || "") !== "blue") return false;
+  const { h, s } = kitColorHue(c);
+  return s >= 15 && h >= 220 && h < 270;
+}
+
+function isCoolBlue(c) {
+  const n = (c.name_en || "").toLowerCase();
+  const pig = (c.pigment || "").toUpperCase();
+  if (/PHTHALO BLUE|PB15|CERULEAN|MANGANESE|PB35|PB15:3|HELIO BLUE|WINSOR BLUE/.test(
+    pig + " " + n.toUpperCase()
+  ))
+    return true;
+  if ((c.family || "") !== "blue" && (c.family || "") !== "blue-green") return false;
+  const { h, s } = kitColorHue(c);
+  return s >= 15 && h >= 180 && h < 230;
+}
+
+function isPhthaloGreen(c) {
+  const n = (c.name_en || "").toLowerCase();
+  const pig = (c.pigment || "").toUpperCase();
+  return /PG7|PG36|PHTHALO GREEN|VIRIDIAN|HELIO GREEN/.test(pig + " " + n.toUpperCase()) &&
+    !/MAY GREEN|SAP|HOOKER/.test(n.toUpperCase());
+}
+
+function isWarmConvenienceGreen(c) {
+  const n = (c.name_en || "").toLowerCase();
+  return /sap green|may green|hooker|olive|shire|desert green|foliage/i.test(n);
+}
+
+function isIcyGreen(c) {
+  return isPhthaloGreen(c) || /turquoise|teal|glacier|ice green|helio turquoise/i.test(c.name_en || "");
+}
+
+function isWarmEarth(c) {
+  const n = (c.name_en || "").toLowerCase();
+  if ((c.family || "") !== "earth" && !/sienna|umber|ochre|sepia|brown/i.test(n)) return false;
+  if (/raw umber|green umber/i.test(n)) return false;
+  if (/burnt sienna|burnt umber|venetian|english red|yellow ochre|raw sienna|sepia/i.test(n))
+    return true;
+  const { h } = kitColorHue(c);
+  return h < 50 || h >= 340;
+}
+
+function isCoolEarth(c) {
+  const n = (c.name_en || "").toLowerCase();
+  return /raw umber|green umber|cool brown/i.test(n);
+}
+
+function isDeepDarkBlue(c) {
+  const n = (c.name_en || "").toLowerCase();
+  const pig = (c.pigment || "").toUpperCase();
+  return /ANTHRAQUINONE|INDANTHRENE|PB60|DEEP SEA|PAYNE|INDIGO/i.test(pig + " " + n);
+}
+
+function analyzeKitRoles(colors) {
+  const inKit = new Set(colors.map((c) => c.id));
+  return {
+    inKit,
+    n: colors.length,
+    coolYellow: colors.filter(isCoolYellow),
+    warmYellow: colors.filter(isWarmYellow),
+    coolRose: colors.filter(isCoolRose),
+    warmFireRed: colors.filter(isWarmFireRed),
+    warmBlue: colors.filter(isWarmBlue),
+    coolBlue: colors.filter(isCoolBlue),
+    deepBlue: colors.filter(isDeepDarkBlue),
+    phthaloGreen: colors.filter(isPhthaloGreen),
+    warmGreen: colors.filter(isWarmConvenienceGreen),
+    icyGreen: colors.filter(isIcyGreen),
+    warmEarth: colors.filter(isWarmEarth),
+    coolEarth: colors.filter(isCoolEarth),
+    anyYellow: colors.filter((c) => (c.family || "") === "yellow" || isCoolYellow(c) || isWarmYellow(c)),
+    anyBlue: colors.filter((c) => /blue/i.test(c.family || "") || isWarmBlue(c) || isCoolBlue(c)),
+    anyGreen: colors.filter((c) => (c.family || "") === "green" || isIcyGreen(c) || isWarmConvenienceGreen(c)),
+    anyRed: colors.filter((c) => isCoolRose(c) || isWarmFireRed(c) || (c.family || "") === "red"),
+  };
+}
+
+/** Prefer catalog colors not already in kit; score by role match */
+function findCatalogForRole(role, inKitIds) {
+  const pool = palette.colors.filter((c) => c && c.id && !inKitIds.has(c.id));
+  const scored = [];
+  pool.forEach((c) => {
+    let score = 0;
+    if (role === "warmFireRed" && isWarmFireRed(c)) score = 10 + (c.mix_star ? 2 : 0);
+    if (role === "coolRose" && isCoolRose(c)) score = 10 + (c.mix_star ? 2 : 0);
+    if (role === "coolYellow" && isCoolYellow(c)) score = 10 + (c.mix_star ? 2 : 0);
+    if (role === "warmYellow" && isWarmYellow(c)) score = 8;
+    if (role === "warmBlue" && isWarmBlue(c)) score = 10 + (c.granulating ? 1 : 0);
+    if (role === "coolBlue" && isCoolBlue(c)) score = 9;
+    if (role === "warmGreen" && isWarmConvenienceGreen(c)) score = 10;
+    if (role === "warmEarth" && isWarmEarth(c)) score = 10 + (c.mix_star ? 1 : 0);
+    if (role === "coolEarth" && isCoolEarth(c)) score = 10;
+    if (role === "anyYellow" && ((c.family || "") === "yellow" || isCoolYellow(c))) score = 7;
+    if (role === "anyBlue" && /blue/i.test(c.family || "")) score = 7;
+    if (score > 0) scored.push({ c, score });
+  });
+  scored.sort((a, b) => b.score - a.score);
+  return scored[0]?.c || null;
+}
+
+/**
+ * Version B descriptive coach + dual advice + catalog suggestions.
+ * needsTeaching = show open by default (hybrid).
+ */
+function buildAcePaletteRead(kit) {
+  const colors = (kit?.slots || [])
+    .map((id) => palette.colors.find((c) => c.id === id))
+    .filter(Boolean);
+  const roles = analyzeKitRoles(colors);
+  const paragraphs = [];
+  const suggestions = []; // { color, why }
+  const gaps = []; // internal
+
+  if (!colors.length) {
+    return {
+      needsTeaching: true,
+      status: "Empty tin — let’s start a triangle",
+      paragraphs: [
+        "Your tin is a blank page. Ace’s read: start with three mixers that disagree on the wheel — a yellow, a cool rose or warm red, and a blue. That triangle already paints more than a dozen lonely convenience tubes.",
+        "Dual advice: if you love mixing, skip a third green for now and force foliage from yellow + blue + a touch of earth. If you paint leaves every day and hate premixing, a warm sap-type green later is kindness, not laziness.",
+      ],
+      suggestions: [
+        {
+          color: findCatalogForRole("coolYellow", roles.inKit),
+          why: "Cool/mid primary yellow — clean greens and high-key light.",
+        },
+        {
+          color: findCatalogForRole("coolRose", roles.inKit) || findCatalogForRole("warmFireRed", roles.inKit),
+          why: "A red role — cool rose for florals/glazes, or warm fire red for heat.",
+        },
+        {
+          color: findCatalogForRole("warmBlue", roles.inKit) || findCatalogForRole("coolBlue", roles.inKit),
+          why: "Blue for sky, water, and the other half of every neutral.",
+        },
+      ].filter((s) => s.color),
+    };
+  }
+
+  // Gap detection
+  if (!roles.anyYellow.length) {
+    gaps.push("yellow");
+    const sug = findCatalogForRole("coolYellow", roles.inKit) || findCatalogForRole("anyYellow", roles.inKit);
+    if (sug)
+      suggestions.push({
+        color: sug,
+        why: "No yellow yet — without one, clean greens and oranges stay out of reach.",
+      });
+  }
+  if (!roles.warmFireRed.length && roles.coolRose.length) {
+    gaps.push("warmRed");
+    const sug = findCatalogForRole("warmFireRed", roles.inKit);
+    if (sug)
+      suggestions.push({
+        color: sug,
+        why: "You have cool rose energy but no fire red — sunsets and warm florals need heat, not only magenta.",
+      });
+  } else if (!roles.coolRose.length && roles.warmFireRed.length) {
+    gaps.push("coolRose");
+    const sug = findCatalogForRole("coolRose", roles.inKit);
+    if (sug)
+      suggestions.push({
+        color: sug,
+        why: "Warm red is covered; a cool rose opens clean purples and floral glazes.",
+      });
+  } else if (!roles.anyRed.length) {
+    gaps.push("anyRed");
+    const sug =
+      findCatalogForRole("warmFireRed", roles.inKit) || findCatalogForRole("coolRose", roles.inKit);
+    if (sug)
+      suggestions.push({
+        color: sug,
+        why: "No red role at all — pick warm fire or cool rose depending on heat vs florals.",
+      });
+  }
+  if (!roles.anyBlue.length) {
+    gaps.push("blue");
+    const sug = findCatalogForRole("warmBlue", roles.inKit) || findCatalogForRole("coolBlue", roles.inKit);
+    if (sug)
+      suggestions.push({
+        color: sug,
+        why: "No blue — skies, water, and chromatic darks need a seat.",
+      });
+  }
+  if (
+    roles.icyGreen.length >= 2 &&
+    !roles.warmGreen.length &&
+    roles.anyGreen.length >= 2
+  ) {
+    gaps.push("warmGreen");
+    const sug = findCatalogForRole("warmGreen", roles.inKit);
+    if (sug)
+      suggestions.push({
+        color: sug,
+        why: "Greens are mostly icy/synthetic — a warm convenience green saves foliage time (or keep mixing from yellow + earth).",
+      });
+  }
+  if (!roles.warmEarth.length && roles.n >= 4) {
+    gaps.push("warmEarth");
+    const sug = findCatalogForRole("warmEarth", roles.inKit);
+    if (sug)
+      suggestions.push({
+        color: sug,
+        why: "No warm earth — Burnt Sienna-type pans unlock bark, skin warmth, and classic greys with ultramarine.",
+      });
+  }
+  if (roles.warmEarth.length && !roles.coolEarth.length && roles.n >= 6) {
+    gaps.push("coolEarth");
+    const sug = findCatalogForRole("coolEarth", roles.inKit);
+    if (sug)
+      suggestions.push({
+        color: sug,
+        why: "Warm earth is here; Raw Umber-type cool earth is the teammate for slate greys and pine shadows — not a sienna swap.",
+      });
+  }
+
+  // Redundant phthalo blue when deep + teal already present
+  const phthaloBlueInKit = colors.filter(
+    (c) =>
+      isCoolBlue(c) &&
+      /phthalo|pb15|helio blue|windsor blue/i.test((c.name_en || "") + (c.pigment || ""))
+  );
+  const hasTeal =
+    colors.some((c) => /turquoise|teal|helio turquoise/i.test(c.name_en || "")) ||
+    colors.some((c) => (c.family || "") === "blue-green");
+  const skipPhthaloBlue =
+    phthaloBlueInKit.length === 0 &&
+    (roles.deepBlue.length > 0 || roles.coolBlue.length > 0) &&
+    hasTeal;
+
+  // Prose — Version B
+  const nameList = (arr) => arr.slice(0, 3).map((c) => c.name_en).join(", ");
+
+  if (gaps.includes("warmRed") && roles.coolRose.length) {
+    paragraphs.push(
+      `Your tin is clever but a little shy in the heat. ${nameList(roles.coolRose)} ${roles.coolRose.length === 1 ? "is" : "are"} beautiful cool rose energy — florals, glazes, polite pinks — yet ${roles.coolRose.length === 1 ? "it" : "they"} will never give you a sunset that bites. That’s a role hole, not a “not enough reds” hole.`
+    );
+    if (suggestions[0]?.color && isWarmFireRed(suggestions[0].color)) {
+      paragraphs.push(
+        `${suggestions[0].color.name_en} (${suggestions[0].color.brand}) is the furnace missing from the row: warm, clean with yellow into orange that doesn’t go brick. Put a fire red next to a cool green and you can knead darks that still feel alive.`
+      );
+    }
+  }
+
+  if (gaps.includes("warmGreen")) {
+    paragraphs.push(
+      `Your greens lean refrigerator-light${roles.icyGreen.length ? ` (${nameList(roles.icyGreen)})` : ""} — excellent for glass water and electric leaves, then they make you earn every olive. A warm sap-type green is laziness in the best sense; if you’d rather learn, force yellow + earth + a whisper of blue and treat convenience green as optional.`
+    );
+  }
+
+  if (gaps.includes("yellow")) {
+    paragraphs.push(
+      "No yellow means your blues and reds have no bridge into clean greens or pure oranges. One primary yellow does more work than three near-identical convenience neutrals."
+    );
+  }
+
+  if (gaps.includes("blue")) {
+    paragraphs.push(
+      "Without a blue, the tin can’t build sky, water, or honest chromatic darks. Warm ultramarine and cool phthalo are different jobs — start with one, learn its manners, then add the other if you need both weather and ice."
+    );
+  }
+
+  if (gaps.includes("warmEarth") || gaps.includes("coolEarth")) {
+    paragraphs.push(
+      "Earths are temperature tools, not “brown.” Burnt Sienna-type pans are roasted warm red-brown; Raw Umber-type pans are cool espresso with a greenish undertone. They team with blues into different greys — keep both roles when the tin has room."
+    );
+  }
+
+  if (skipPhthaloBlue || (roles.deepBlue.length && hasTeal && roles.coolBlue.length >= 1)) {
+    paragraphs.push(
+      "Dual advice on blue shopping: if you already own a deep dark blue and a turquoise/teal, pure Phthalo Blue often stacks the same cool personality twice. Spend the slot on a missing temperature role (warm red, warm green, earth) instead."
+    );
+  }
+
+  // Always dual advice closer when teaching
+  if (gaps.length) {
+    paragraphs.push(
+      "Dual advice overall: buy for roles you can’t mix cleanly, mix for roles you’re willing to practice. A small tin with a full temperature story beats a fat tin of cousins."
+    );
+  }
+
+  // Balanced tin — short review prose
+  const needsTeaching = gaps.length > 0 || colors.length < 3;
+  if (!needsTeaching) {
+    paragraphs.push(
+      `This tin already has a working temperature story — yellows, reds/roses, blues, and enough earth or green to paint real light. Ace’s review: keep painting before you shop; limitation is still the better tutor.`
+    );
+    if (roles.warmEarth.length && roles.coolEarth.length) {
+      paragraphs.push(
+        `Your warm earth (${nameList(roles.warmEarth)}) and cool earth (${nameList(roles.coolEarth)}) are teammates, not twins — use them on purpose for heat vs slate.`
+      );
+    }
+    if (roles.coolRose.length && roles.warmFireRed.length) {
+      paragraphs.push(
+        `Cool rose + warm fire red both present — you can choose heat or glaze without fighting the wrong primary.`
+      );
+    }
+    paragraphs.push(
+      "Dual advice: if something still feels missing, it’s probably a convenience color for a subject you paint weekly — not another near-duplicate primary."
+    );
+  }
+
+  // Opening line when we have colors but only generic gaps
+  if (needsTeaching && !paragraphs.length) {
+    paragraphs.push(
+      `Ace’s read of this tin (${colors.length} pans): a few mixing roles still need a seat. Open the suggestions below — each is already in your studio catalog.`
+    );
+  }
+
+  // Dedupe suggestions by color id, max 3
+  const seen = new Set();
+  const uniqSug = [];
+  suggestions.forEach((s) => {
+    if (!s.color || seen.has(s.color.id)) return;
+    seen.add(s.color.id);
+    uniqSug.push(s);
+  });
+
+  return {
+    needsTeaching,
+    status: needsTeaching
+      ? gaps.length
+        ? `${gaps.length} role gap${gaps.length === 1 ? "" : "s"} · building mode`
+        : "Still building"
+      : "Looks solid · review anytime",
+    paragraphs,
+    suggestions: uniqSug.slice(0, 3),
+  };
+}
+
+function renderPaletteRead(kit) {
+  const section = $("#palette-read");
+  if (!section || !kit) return;
+
+  if (paletteReadKitId !== kit.id) {
+    paletteReadKitId = kit.id;
+    paletteReadOpenOverride = null;
+  }
+
+  const read = buildAcePaletteRead(kit);
+  section.hidden = false;
+  section.classList.toggle("is-teaching", read.needsTeaching);
+
+  const statusEl = $("#palette-read-status");
+  if (statusEl) statusEl.textContent = read.status;
+
+  const prose = $("#palette-read-prose");
+  if (prose) {
+    prose.innerHTML = (read.paragraphs || [])
+      .map((p) => `<p>${escapeHtml(p)}</p>`)
+      .join("");
+  }
+
+  const sugWrap = $("#palette-read-suggestions");
+  if (sugWrap) {
+    if (read.suggestions?.length) {
+      sugWrap.hidden = false;
+      sugWrap.innerHTML = read.suggestions
+        .map((s) => {
+          const c = s.color;
+          return `<button type="button" class="palette-read-suggest" data-color-id="${escapeHtml(c.id)}">
+            <span class="palette-read-suggest-swatch" style="background:${escapeHtml(c.hex)}" aria-hidden="true"></span>
+            <span class="palette-read-suggest-text">
+              <span class="palette-read-suggest-name">${escapeHtml(c.name_en)}</span>
+              <span class="palette-read-suggest-meta">${escapeHtml(c.brand)}${c.temp_role ? " · " + escapeHtml(c.temp_role.split(" · ").slice(0, 2).join(" · ")) : ""}</span>
+              <span class="palette-read-suggest-why">${escapeHtml(s.why)}</span>
+            </span>
+          </button>`;
+        })
+        .join("");
+      sugWrap.querySelectorAll(".palette-read-suggest").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const col = palette.colors.find((x) => x.id === btn.dataset.colorId);
+          if (col && typeof openDetail === "function") openDetail(col);
+        });
+      });
+    } else {
+      sugWrap.hidden = true;
+      sugWrap.innerHTML = "";
+    }
+  }
+
+  // Hybrid open state
+  const defaultOpen = read.needsTeaching;
+  const open =
+    paletteReadOpenOverride === null ? defaultOpen : paletteReadOpenOverride;
+  const body = $("#palette-read-body");
+  const toggle = $("#palette-read-toggle");
+  if (body) body.hidden = !open;
+  if (toggle) toggle.setAttribute("aria-expanded", String(open));
+}
+
+function togglePaletteRead() {
+  const body = $("#palette-read-body");
+  if (!body) return;
+  const next = body.hidden;
+  paletteReadOpenOverride = next;
+  body.hidden = !next;
+  $("#palette-read-toggle")?.setAttribute("aria-expanded", String(next));
 }
 
 /** Classic water-control ladder — same hue, more pigment each step */
@@ -4680,6 +5155,7 @@ function bindEvents() {
     stage?.scrollIntoView({ behavior: "smooth", block: "center" });
   });
   $("#kit-practice-shuffle")?.addEventListener("click", shufflePracticeCard);
+  $("#palette-read-toggle")?.addEventListener("click", togglePaletteRead);
   $("#kit-edit-done")?.addEventListener("click", () => setKitWellEditMode(false));
   $("#mix-clear")?.addEventListener("click", () => {
     selectedMixSlots = [null, null, null];
