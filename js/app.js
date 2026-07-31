@@ -27,7 +27,7 @@ const SYNC_BUNDLE_VERSION = 2;
 /** Soft ceiling so a kit doesn’t grow forever; wells are added/removed on the fly */
 const KIT_SLOT_MAX = 36;
 /** Bump with sw.js CACHE when shipping UI/data */
-const APP_VERSION = "99";
+const APP_VERSION = "100";
 
 /** Resolve assets for GitHub project pages and local server */
 function appBasePath() {
@@ -4182,6 +4182,17 @@ function openDetail(c) {
   $("#sheet-name-en").textContent = c.name_en;
   $("#sheet-name-zh").textContent = c.name_zh;
   $("#sheet-notes").textContent = c.notes ? `Source: ${c.notes}` : "";
+
+  const tempRoleEl = $("#sheet-temp-role");
+  if (tempRoleEl) {
+    if (c.temp_role) {
+      tempRoleEl.hidden = false;
+      tempRoleEl.textContent = c.temp_role;
+    } else {
+      tempRoleEl.hidden = true;
+      tempRoleEl.textContent = "";
+    }
+  }
 
   const sisters = findColorVariants(c).filter((x) => x.id !== c.id);
   const variantsEl = $("#sheet-variants");

@@ -1531,6 +1531,18 @@ button.mix-slot-swatch--filled:active {
   color: var(--ink-soft);
 }
 
+.sheet-temp-role {
+  margin: 10px 0 0;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(196, 184, 212, 0.18);
+  border: 1px solid rgba(196, 184, 212, 0.35);
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
 .spec-grid {
   display: grid;
   grid-template-columns: auto 1fr;
