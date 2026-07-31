@@ -1748,6 +1748,11 @@ button.mix-slot-swatch--filled:active {
   font-style: italic;
   line-height: 1.5;
   color: var(--ink);
+  white-space: pre-line; /* original + Version B paragraphs */
+}
+
+.sheet-history-text {
+  white-space: pre-line;
 }
 
 .sheet-variants {
