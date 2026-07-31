@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-07-31-temp-role-enrich",
+  "updated": "2026-07-31-orange-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow",
   "color_count": 225,
   "colors": [
@@ -25,7 +25,7 @@
       "format": "tube",
       "size": "5ml",
       "family": "green",
-      "ace_note": "Kelpy, moody, and a little theatrical — ultramarine sinks while gold floats. Gorgeous for shadows that feel alive, not muddy. Pairs dangerously well with Moonglow. Temperature read: warm yellow (gold / glaze yellow). Dual advice: fantastic mixer — still dose staining power like hot sauce.",
+      "ace_note": "Kelpy, moody, and a little theatrical — ultramarine sinks while gold floats. Gorgeous for shadows that feel alive, not muddy. Pairs dangerously well with Moonglow.",
       "mix_star": true,
       "best_for": "Underwater greens, kelp forests, cool shadow foliage, and teal-leaning atmospheric passages.",
       "ace_history": "Undersea Green pairs ultramarine with quinacridone gold — a contemporary DS blend aimed at marine and botanical depth rather than a single historical pigment name.",
@@ -76,7 +76,7 @@
       "format": "tube",
       "size": "5ml",
       "family": "earth",
-      "ace_note": "Your warm-weather sketching workhorse. DS version granulates nicely; lean into it for tree bark and sun-warmed skin tones. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper; earns a ◈ as a cooperative mixer. With Ultramarine it builds classic greys; it will not do Raw Umber's cool slate job — keep both roles if you can.",
+      "ace_note": "Your warm-weather sketching workhorse. DS version granulates nicely; lean into it for tree bark and sun-warmed skin tones.",
       "mix_star": true,
       "best_for": "Tree bark, warm skin undertones, earthy shadows, and granulating mid-tones in plein-air sketches.",
       "ace_history": "Burnt sienna is iron earth roasted (calcined) until warm red-orange appears — a portrait and landscape staple. Same broad iron family as some umbers, opposite kitchen temperature from raw cool earths. DS often leans into granulation on wet paper.",
@@ -126,7 +126,7 @@
       "format": "tube",
       "size": "5ml",
       "family": "purple",
-      "ace_note": "The drama queen. Three pigments having a party on wet paper — violet, blue-green halos, granulation everywhere. Skies, snow shadows, anything that needs magic hour. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "The drama queen. Three pigments having a party on wet paper — violet, blue-green halos, granulation everywhere. Skies, snow shadows, anything that needs magic hour.",
       "mix_star": true,
       "best_for": "Night skies, snow shadows, magical granulating washes, and moody backgrounds where one pigment does the choreography.",
       "ace_history": "Moonglow is a modern Daniel Smith hero — a deliberate three-pigment dance (anthraquinoid red, ultramarine, viridian) built for granulation on the paper, not for copying a single historic tube.",
@@ -175,7 +175,7 @@
       "hex": "#6BA3C7",
       "format": "half-pan",
       "family": "blue",
-      "ace_note": "Milky, soft, a little stubborn — won't mix into screaming brights, but skies love it. Semi-opaque means it can rescue washed-out washes. On paper: more body/coverage than a pure stain.",
+      "ace_note": "Milky, soft, a little stubborn — won't mix into screaming brights, but skies love it. Semi-opaque means it can rescue washed-out washes.",
       "ace_history": "Cerulean blue (PB35) was synthesized in the 1860s as a safer stand-in for cobalt sky blues — Turner and the Impressionists chased this milky, non-staining hue for distant horizons.",
       "toxicity": "low",
       "temp_role": "Cool blue · Milky semi-opaque cerulean · more opaque"
@@ -199,7 +199,7 @@
       "hex": "#3EB8A8",
       "format": "half-pan",
       "family": "blue-green",
-      "ace_note": "Clean tropical water without the phthalo aggression. Bright but behaves — tropical seas, ceramic glazes, fresh spring foliage highlights. Temperature read: cool turquoise (blue-green water).",
+      "ace_note": "Clean tropical water without the phthalo aggression. Bright but behaves — tropical seas, ceramic glazes, fresh spring foliage highlights.",
       "ace_history": "Helio turquoise is Schmincke's phthalocyanine turquoise (PB16) — a 20th-century pigment that gave poster designers and watercolorists a clean tropical blue-green without grinding gemstones.",
       "toxicity": "low",
       "temp_role": "Cool turquoise · Phthalo turquoise / blue-green"
@@ -223,7 +223,7 @@
       "hex": "#007A5E",
       "format": "half-pan",
       "family": "green",
-      "ace_note": "A tiny squeeze goes a mile. Staining, transparent, powerful — respect the ratio or it will eat your whole painting. On paper: transparent in washes; stains — commit lightly first; earns a ◈ as a cooperative mixer. Dual advice: fantastic mixer — still dose staining power like hot sauce.",
+      "ace_note": "A tiny squeeze goes a mile. Staining, transparent, powerful — respect the ratio or it will eat your whole painting.",
       "mix_star": true,
       "best_for": "Mixing clean greens, deep foliage shadows, and turquoise-leaning accents — a staining powerhouse.",
       "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch. Horadam milling aims for creamy rewet and control.",
@@ -272,7 +272,7 @@
       "hex": "#6DB856",
       "format": "half-pan",
       "family": "green",
-      "ace_note": "Spring in a tube. Softer than raw phthalo — think new leaves, not alien slime. Lovely with your yellows for natural greens. Temperature read: cool yellow (lemon / green-leaning primary).",
+      "ace_note": "Spring in a tube. Softer than raw phthalo — think new leaves, not alien slime. Lovely with your yellows for natural greens.",
       "mix_star": true,
       "best_for": "Spring leaves, mixed greens straight from the tube, and cheerful landscape passages.",
       "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch. Horadam milling aims for creamy rewet and control.",
@@ -321,7 +321,7 @@
       "hex": "#3A6B4A",
       "format": "half-pan",
       "family": "green",
-      "ace_note": "Deep cobalt green — dignified and muted. Forest shadows that recede instead of shout. Pairs well with your ochres for tired summer foliage. Temperature read: warm-leaning green (olive/leaf).",
+      "ace_note": "Deep cobalt green — dignified and muted. Forest shadows that recede instead of shout. Pairs well with your ochres for tired summer foliage.",
       "ace_history": "Cobalt green (PG26) dates to 19th-century mineral chemistry — muted and dignified, it was the landscape painter's quiet shadow green before phthalo took over the mixing bench.",
       "toxicity": "medium",
       "toxicity_habit": "Cobalt pigment — wash hands after painting; keep food and drink away from the palette.",
@@ -346,7 +346,7 @@
       "hex": "#F5E642",
       "format": "half-pan",
       "family": "yellow",
-      "ace_note": "Cool, transparent, lemon-bright — your mixing primary for clean greens. Cadmium who? This one plays nice with blues. On paper: transparent in washes. Hansa/Azo-type yellows often share one job — you rarely need two near-identical primaries unless you crave a micro temperature split.",
+      "ace_note": "Cool, transparent, lemon-bright — your mixing primary for clean greens. Cadmium who? This one plays nice with blues.",
       "ace_history": "Hansa lemon (PY3) is a clean, cool yellow from the azo family — the transparent primary that replaced harsh chrome yellows in 20th-century mixing charts.",
       "toxicity": "low",
       "temp_role": "Cool yellow · Cool lemon primary yellow · transparent"
@@ -371,7 +371,7 @@
       "hex": "#F5D547",
       "format": "half-pan",
       "family": "yellow",
-      "ace_note": "Buttery and opaque — covers, pushes, asserts. Mix small amounts into earths for sunlit paths. On paper: more body/coverage than a pure stain.",
+      "ace_note": "Buttery and opaque — covers, pushes, asserts. Mix small amounts into earths for sunlit paths.",
       "ace_history": "Cadmium yellow (PY35) arrived in the 1840s and shocked the Salon with opaque, buttery light — Monet, Matisse, and every sun-drenched still life owe debt to this heavy metal.",
       "toxicity": "high",
       "toxicity_habit": "Cadmium pigment — wash hands thoroughly, don't spray without ventilation, and keep tubes away from food prep areas.",
@@ -398,7 +398,7 @@
       "staining": false,
       "toxicity": "low",
       "notes": "Horadam 211 Chromium Yellow Hue Lemon (Chromgelbton Zitrone). Cool lemon yellow, cadmium-free. Added Jul 2026.",
-      "ace_note": "Zingy cool lemon — the bright edge of a citrus slice. Cooler than 212 Light, cleaner than warm Naples for spring greens. On paper: semi-transparent — glazes with a little presence; earns a ◈ as a cooperative mixer. Hansa/Azo-type yellows often share one job — you rarely need two near-identical primaries unless you crave a micro temperature split.",
+      "ace_note": "Zingy cool lemon — the bright edge of a citrus slice. Cooler than 212 Light, cleaner than warm Naples for spring greens.",
       "mix_star": true,
       "best_for": "Spring greens, cool highlights, florals, and crisp warm-vs-cool yellow contrast.",
       "ace_history": "Arylide Hansa yellow (PY3) is a 20th-century organic that replaced toxic chrome lemons — transparent, high-chroma, the classic cool mixer for spring greens. Horadam milling aims for creamy rewet and control.",
@@ -424,7 +424,7 @@
       "hex": "#E8C020",
       "format": "half-pan",
       "family": "yellow",
-      "ace_note": "Warm golden yellow with a vintage temperament. Less harsh than cadmium, lovely in autumn light. On paper: more body/coverage than a pure stain.",
+      "ace_note": "Warm golden yellow with a vintage temperament. Less harsh than cadmium, lovely in autumn light.",
       "ace_history": "Chromium yellow (PY34) is the Victorian warm yellow — less toxic than lead chrome, still opaque, still the color of gaslight and gilt frames in 19th-century watercolors.",
       "toxicity": "low",
       "temp_role": "Warm yellow · Bright mid yellow · more opaque"
@@ -448,10 +448,10 @@
       "hex": "#E88A30",
       "format": "half-pan",
       "family": "orange",
-      "ace_note": "Sunset bait. Opaque and confident — one touch warms an entire landscape edge. On paper: more body/coverage than a pure stain.",
-      "ace_history": "Cadmium orange (PO20) sits between yellow and red on the periodic table and on the palette — a mid-century modern favorite for bold posters and ripe-fruit still lifes.",
+      "ace_note": "Sunset bait. Opaque and confident — one touch warms an entire landscape edge.\n\nThink of it as heat you can aim: roofs at six o'clock, terracotta pots, the warm side of a cheek when the cool rose is already in the shadow. Mixed with a cool blue it dirties fast into olive-mud — that's not a failure, it's a warning that this pan wants warm company (yellow, sienna, a soft red) more than it wants ultramarine arguments.\n\nDual advice: if you already own a transparent orange (like DS Transparent Orange), keep this one for covering and solid sun; use the transparent cousin for glow through paper. You rarely need two opaque fire pans — you often need one that covers and one that glazes.",
+      "ace_history": "Chromium / benzimidazolone oranges (PO62) stand in for the old lead-chrome \"chrome orange\" of industrial color — the forbidden bright that posters and sign painters loved. Horadam's \"Hue\" keeps the temperature of that tradition with modern lightfast organics, milled for Schmincke's creamy rewet rather than chalky house-paint drama.",
       "toxicity": "low",
-      "temp_role": "Warm orange · Orange accent / bridge color · more opaque"
+      "temp_role": "Warm orange · Sunset / heat accent · more body than a pure stain"
     },
     {
       "brand_traits": [
@@ -473,7 +473,7 @@
       "hex": "#E04E3A",
       "format": "half-pan",
       "family": "red",
-      "ace_note": "Classic warm red. Bold florals, ripe fruit, lips on portraits. Opaque enough to correct mistakes. On paper: more body/coverage than a pure stain.",
+      "ace_note": "Classic warm red. Bold florals, ripe fruit, lips on portraits. Opaque enough to correct mistakes.",
       "ace_history": "Cadmium red (PR108) replaced fugitive vermilion in commercial and fine art — opaque warmth for florals, flesh accents, and corrections. Horadam milling aims for creamy rewet and control.",
       "toxicity": "high",
       "toxicity_habit": "Cadmium pigment — wash hands thoroughly, don't spray without ventilation, and keep tubes away from food prep areas.",
@@ -498,7 +498,7 @@
       "hex": "#6B2D3A",
       "format": "half-pan",
       "family": "red",
-      "ace_note": "Deep, transparent wine-red. Glaze it for shadows that feel rich instead of dead. Stains — commit with intention. On paper: transparent in washes; stains — commit lightly first.",
+      "ace_note": "Deep, transparent wine-red. Glaze it for shadows that feel rich instead of dead. Stains — commit with intention.",
       "ace_history": "Perylene maroon (PR179) is a modern transparent wine-red — built for glazing shadows in botanical art where old madder lakes would have gone fugitive.",
       "toxicity": "low",
       "temp_role": "Warm red family · Deep transparent wine red · staining · transparent"
@@ -522,7 +522,7 @@
       "hex": "#5A6B3C",
       "format": "half-pan",
       "family": "green",
-      "ace_note": "Same olive soul as your tube, now in travel size. Handy for plein air olives and muted landscape middles. Temperature read: cool green (blue-shade staining).",
+      "ace_note": "Same olive soul as your tube, now in travel size. Handy for plein air olives and muted landscape middles.",
       "ace_history": "The same olive mixture in a half-pan — Horadam's travel format preserves a color European sketchers have used since tube greens replaced grinding malachite.",
       "toxicity": "low",
       "temp_role": "Cool green · Cool staining phthalo green"
@@ -546,7 +546,7 @@
       "hex": "#F5E6C8",
       "format": "half-pan",
       "family": "yellow",
-      "ace_note": "Soft, chalky warmth — not a screaming yellow. Skin tones, faded walls, that hazy Mediterranean afternoon. On paper: more body/coverage than a pure stain.",
+      "ace_note": "Soft, chalky warmth — not a screaming yellow. Skin tones, faded walls, that hazy Mediterranean afternoon.",
       "ace_history": "Naples yellow began as lead antimonate on Roman walls and Renaissance panels — today's PY216 blends chase that soft, chalky warmth without the poison.",
       "toxicity": "medium",
       "toxicity_habit": "Cobalt pigment — wash hands after painting; keep food and drink away from the palette.",
@@ -571,7 +571,7 @@
       "hex": "#C9A227",
       "format": "half-pan",
       "family": "earth",
-      "ace_note": "The earth tone you reach for without thinking. Reliable, humble, mixes into a hundred natural greens. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "The earth tone you reach for without thinking. Reliable, humble, mixes into a hundred natural greens.",
       "ace_history": "Synthetic or natural iron yellow (PY42) continues ochre's ancient job — muted sunlight, underpainting warmth, and greens that look like land instead of neon. Horadam milling aims for creamy rewet and control.",
       "toxicity": "low",
       "temp_role": "Earth mid · Earth yellow / ochre family"
@@ -595,7 +595,7 @@
       "hex": "#8B4A2F",
       "format": "half-pan",
       "family": "earth",
-      "ace_note": "Schmincke's burnt sienna — a touch more granulation than DS perhaps. Your half-pan workhorse for quick warm browns. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper; earns a ◈ as a cooperative mixer. With Ultramarine it builds classic greys; it will not do Raw Umber's cool slate job — keep both roles if you can.",
+      "ace_note": "Schmincke's burnt sienna — a touch more granulation than DS perhaps. Your half-pan workhorse for quick warm browns.",
       "mix_star": true,
       "best_for": "Quick warm browns in half-pan sketching, skin undertones, and granulating earth shadows.",
       "ace_history": "Burnt sienna is iron earth roasted (calcined) until warm red-orange appears — a portrait and landscape staple. Same broad iron family as some umbers, opposite kitchen temperature from raw cool earths. DS often leans into granulation on wet paper.",
@@ -644,7 +644,7 @@
       "hex": "#A84B3A",
       "format": "half-pan",
       "family": "red",
-      "ace_note": "Earthy PR101 Venetian red — terracotta brick warmth, not vermilion heat. Opaque and color-intense. On paper: more body/coverage than a pure stain.",
+      "ace_note": "Earthy PR101 Venetian red — terracotta brick warmth, not vermilion heat. Opaque and color-intense.",
       "ace_history": "English Venetian red (PR101) is calcined iron oxide — the brick-and-terracotta tone British watercolourists used beside raw sienna on muddy Thames sketches.",
       "toxicity": "low",
       "temp_role": "Warm red family · Iron oxide red / Venetian earth red · more opaque"
@@ -668,7 +668,7 @@
       "hex": "#4A3728",
       "format": "half-pan",
       "family": "neutral",
-      "ace_note": "Instant vintage. Warm sepia lines and aged atmospheres. Stains, so sketch lightly first. On paper: semi-transparent — glazes with a little presence; stains — commit lightly first.",
+      "ace_note": "Instant vintage. Warm sepia lines and aged atmospheres. Stains, so sketch lightly first.",
       "ace_history": "Sepia ink came from cuttlefish sacs before chemists cloned it with iron and carbon — Victorian album sketches and Turner atmospherics ran on this warm brown.",
       "toxicity": "low",
       "temp_role": "Near-neutral dark · Carbon / lamp black family · staining"
@@ -692,7 +692,7 @@
       "hex": "#2C2C2C",
       "format": "half-pan",
       "family": "neutral",
-      "ace_note": "Not pure evil black — slightly warm, slightly gentle. Mixes into neutrals better than lamp black ever did. On paper: semi-transparent — glazes with a little presence; stains — commit lightly first.",
+      "ace_note": "Not pure evil black — slightly warm, slightly gentle. Mixes into neutrals better than lamp black ever did.",
       "ace_history": "Ivory black was literally charred bone until substitutes arrived — slightly warm PBk9 still echoes the Old Master tradition of never using pure lamp black in skies.",
       "toxicity": "low",
       "temp_role": "Near-neutral dark · Neutral / value tool · staining"
@@ -716,7 +716,7 @@
       "hex": "#C41E3A",
       "format": "half-pan",
       "family": "red",
-      "ace_note": "Half-pan carmine for quick florals on the go. Same staining personality — small brushloads! On paper: transparent in washes; stains — commit lightly first.",
+      "ace_note": "Half-pan carmine for quick florals on the go. Same staining personality — small brushloads!",
       "ace_history": "Half-pan carmine is the plein-air florist's shortcut — the same PR176 chemistry Sargent-era painters wished had existed when madder faded in sunlight.",
       "toxicity": "low",
       "temp_role": "Warm red family · Red / warm accent · staining · transparent"
@@ -740,7 +740,7 @@
       "hex": "#C2186B",
       "format": "half-pan",
       "family": "red",
-      "ace_note": "Cool magenta primary. Your clean violet route starts here + any blue. Also makes shockingly good shadows in florals. On paper: transparent in washes; stains — commit lightly first.",
+      "ace_note": "Cool magenta primary. Your clean violet route starts here + any blue. Also makes shockingly good shadows in florals.",
       "ace_history": "Quinacridone magenta (PR122) is a cool primary for modern mixing charts — pink-violet energy for florals and clean purples with blues. Horadam milling aims for creamy rewet and control.",
       "toxicity": "low",
       "temp_role": "Cool rose / pink · Cool magenta / quin violet-red · staining · transparent"
@@ -764,7 +764,7 @@
       "hex": "#2C3E6B",
       "format": "half-pan",
       "family": "blue",
-      "ace_note": "Moody, granulating, nocturnal. Night skies, denim, deep water — lets the paper texture sing. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper; earns a ◈ as a cooperative mixer. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Moody, granulating, nocturnal. Night skies, denim, deep water — lets the paper texture sing.",
       "mix_star": true,
       "best_for": "Night skies, denim blues, deep shadows, and granulating cool darks.",
       "ace_history": "Indigo in watercolor is traditionally a mixed or synthetic substitute for plant indigo — Schmincke's granulating version chases that stormy, textile-blue romance.",
@@ -813,7 +813,7 @@
       "hex": "#1B3A5C",
       "format": "half-pan",
       "family": "blue",
-      "ace_note": "Intense, staining, slightly historic drama. Strong in mixes — a little pushes the whole wash toward teal or deep green. On paper: more body/coverage than a pure stain; stains — commit lightly first.",
+      "ace_note": "Intense, staining, slightly historic drama. Strong in mixes — a little pushes the whole wash toward teal or deep green.",
       "ace_history": "Prussian blue (PB27) was discovered by accident in Berlin in 1704 — the first modern synthetic pigment, beloved by Hokusai's waves and Romantic storm clouds.",
       "toxicity": "low",
       "temp_role": "Cool blue · Blue for sky, water, and mixes · staining · more opaque"
@@ -837,7 +837,7 @@
       "hex": "#7B2D8E",
       "format": "half-pan",
       "family": "purple",
-      "ace_note": "Bright purple with opinion. Mix with cool yellow for muted violets, or let it solo for floral rebellion. On paper: semi-transparent — glazes with a little presence; stains — commit lightly first.",
+      "ace_note": "Bright purple with opinion. Mix with cool yellow for muted violets, or let it solo for floral rebellion.",
       "ace_history": "Brilliant purple (PR122) in Schmincke's box line targets designers who want a cool, high-chroma violet — a child of 20th-century organic chemistry, not Tyrian shellfish.",
       "toxicity": "low",
       "temp_role": "Cool violet-blue · Cool magenta / quin violet-red · staining"
@@ -862,7 +862,7 @@
       "hex": "#C0C0C0",
       "format": "half-pan",
       "family": "specialty",
-      "ace_note": "Not here to mix — here to sparkle. Treat it like jewelry on the paper: last layer, light touch, no apologies. Temperature read: neutral / low-chroma (grey family).",
+      "ace_note": "Not here to mix — here to sparkle. Treat it like jewelry on the paper: last layer, light touch, no apologies.",
       "ace_history": "PW20 mica silver is a decorative watercolor tradition — Victorian scrapbooks and modern galaxy painters use it where pigment alone cannot fake metal light.",
       "toxicity": "low",
       "temp_role": "Neutral / low-chroma · Mica / interference specialty · more opaque"
@@ -886,7 +886,7 @@
       "hex": "#C4956A",
       "format": "half-pan",
       "family": "earth",
-      "ace_note": "Shimmery warm ochre — earthy but fancy. Sunlit stucco, honey, gilded edges on autumn leaves. On paper: more body/coverage than a pure stain.",
+      "ace_note": "Shimmery warm ochre — earthy but fancy. Sunlit stucco, honey, gilded edges on autumn leaves.",
       "ace_history": "Synthetic or natural iron yellow (PY42) continues ochre's ancient job — muted sunlight, underpainting warmth, and greens that look like land instead of neon. Horadam milling aims for creamy rewet and control.",
       "toxicity": "low",
       "temp_role": "Warm earth · Earth yellow / ochre family · more opaque"
@@ -910,7 +910,7 @@
       "hex": "#F0D4A8",
       "format": "full pan",
       "family": "yellow",
-      "ace_note": "Warmer, pinker Naples — skin tones and faded peach walls. Softer than regular Naples for portraits. On paper: more body/coverage than a pure stain.",
+      "ace_note": "Warmer, pinker Naples — skin tones and faded peach walls. Softer than regular Naples for portraits.",
       "ace_history": "Warmer Naples variants lean toward skin and stucco — the same historic hue family that Pompeian fresco restorers still match with modern PY216 blends.",
       "toxicity": "low",
       "temp_role": "Warm orange · Soft chalky warm yellow (Naples family) · more opaque"
@@ -934,7 +934,7 @@
       "hex": "#D4A84B",
       "format": "full pan",
       "family": "earth",
-      "ace_note": "Glazing gold. Transparent ochre that builds sun-glow in layers without going chalky. On paper: transparent in washes.",
+      "ace_note": "Glazing gold. Transparent ochre that builds sun-glow in layers without going chalky.",
       "ace_history": "Synthetic or natural iron yellow (PY42) continues ochre's ancient job — muted sunlight, underpainting warmth, and greens that look like land instead of neon. Horadam milling aims for creamy rewet and control.",
       "toxicity": "low",
       "temp_role": "Earth mid · Earth yellow / ochre family · transparent"
@@ -958,7 +958,7 @@
       "hex": "#2E8B57",
       "format": "full pan",
       "family": "green",
-      "ace_note": "Classic emerald — cooler than phthalo, calmer than viridian. Foliage with good manners. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Classic emerald — cooler than phthalo, calmer than viridian. Foliage with good manners.",
       "ace_history": "Emerald green (PG18) echoes the toxic Victorian copper arsenite name — modern versions give safe, cool emerald passages for botanical illustrators. Horadam milling aims for creamy rewet and control.",
       "toxicity": "low",
       "temp_role": "Cool green · Green — convenience or mixer"
@@ -982,7 +982,7 @@
       "hex": "#E32636",
       "format": "full pan",
       "family": "red",
-      "ace_note": "Modern screaming scarlet (PR254). High impact florals, signage, anything that needs to be noticed from across the room. Temperature read: warm red-orange (fire primary).",
+      "ace_note": "Modern screaming scarlet (PR254). High impact florals, signage, anything that needs to be noticed from across the room.",
       "ace_history": "Pyrrole red (PR254) is a modern lightfast fire-engine red — cleaner mixes than many earth reds, staining enough to commit with intention. Horadam milling aims for creamy rewet and control.",
       "toxicity": "low",
       "temp_role": "Warm red-orange · Warm modern organic red (pyrrol) · staining"
@@ -1006,7 +1006,7 @@
       "hex": "#7A3B2E",
       "format": "half-pan",
       "family": "earth",
-      "ace_note": "Warm brown with a red heartbeat. Old book pages, tree trunks in late light, cozy neutrals. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Warm brown with a red heartbeat. Old book pages, tree trunks in late light, cozy neutrals.",
       "ace_history": "Madder brown nods to Rubia tinctorum roots — when madder was fermented and heated it gave warm browns; modern blends keep the romance without the fugitive dye.",
       "toxicity": "low",
       "temp_role": "Warm earth · Earth for land, bark, and neutrals"
@@ -1030,7 +1030,7 @@
       "hex": "#C9A227",
       "format": "full pan",
       "family": "earth",
-      "ace_note": "Box twin of your ochre half-pan. Stockpile energy — you will use this forever. Temperature read: earth mid (muted iron). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Box twin of your ochre half-pan. Stockpile energy — you will use this forever.",
       "ace_history": "Synthetic or natural iron yellow (PY42) continues ochre's ancient job — muted sunlight, underpainting warmth, and greens that look like land instead of neon. Horadam milling aims for creamy rewet and control.",
       "toxicity": "low",
       "temp_role": "Earth mid · Earth yellow / ochre family"
@@ -1054,7 +1054,7 @@
       "hex": "#F06A9A",
       "format": "half-pan",
       "family": "pink",
-      "ace_note": "Loud, fluorescent-leaning rose. Gorgeous fresh; may shift over time — paint the moment, not the archive. Temperature read: cool rose / pink (quin-leaning).",
+      "ace_note": "Loud, fluorescent-leaning rose. Gorgeous fresh; may shift over time — paint the moment, not the archive.",
       "ace_history": "Quinacridone magenta (PR122) is a cool primary for modern mixing charts — pink-violet energy for florals and clean purples with blues. Horadam milling aims for creamy rewet and control.",
       "toxicity": "low",
       "temp_role": "Cool rose / pink · Cool rose primary"
@@ -1080,7 +1080,7 @@
       "family": "pink",
       "series": 3,
       "notes": "Photo 483f6c53. 半块固形. Grade 3. ★★★ lightfast. Verified: Maimeri/Jerry's (PR233 standard for Potter's Pink).",
-      "ace_note": "The quiet fixer-upper of your palette. Dusty rose that softens loud mixes and makes skin feel human instead of plastic. I would marry this color if it were legal. Temperature read: warm red family (orange-leaning or mid red).",
+      "ace_note": "The quiet fixer-upper of your palette. Dusty rose that softens loud mixes and makes skin feel human instead of plastic. I would marry this color if it were legal.",
       "mix_star": true,
       "best_for": "Soft skin blush, dusty skies, faded florals, and gentle greys when mixed.",
       "ace_history": "Potter's Pink (PR233) is named for ceramics glazing — a muted, lightfast rose that became a portrait painter's secret for softening everything it touches.",
@@ -1131,7 +1131,7 @@
       "family": "earth",
       "series": 2,
       "notes": "Photo 483f6c53. 半块固形. Grade 2, semi-opaque (■). ★★★. Verified: Jerry's Artarama — PBr25, granulating.",
-      "ace_note": "Sounds medieval, paints like warm autumn gossip. Granulating, semi-opaque — terracotta shadows, moody foliage, dragon not included. On paper: more body/coverage than a pure stain; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Sounds medieval, paints like warm autumn gossip. Granulating, semi-opaque — terracotta shadows, moody foliage, dragon not included.",
       "ace_history": "Dragon's blood resin tinted medieval varnishes and manuscript borders — PBr25 today gives that legendary name as a granulating warm earth, not actual dragon.",
       "toxicity": "low",
       "temp_role": "Warm earth · Earth for land, bark, and neutrals · granulating · more opaque"
@@ -1157,7 +1157,7 @@
       "family": "yellow",
       "series": 1,
       "notes": "Photo 483f6c53. 半块固形. Grade 1, transparent (□). ★★★. Verified: Jerry's Artarama — PY183, staining.",
-      "ace_note": "Italian sunshine without cadmium baggage. Transparent, staining — rewets like it remembers everything. Mixes clean greens with your blues. On paper: transparent in washes; stains — commit lightly first.",
+      "ace_note": "Italian sunshine without cadmium baggage. Transparent, staining — rewets like it remembers everything. Mixes clean greens with your blues.",
       "ace_history": "PY183 benzimidazolone yellow is a modern transparent gold — Italian lines like MaimeriBlu favor it where cadmium opacity would choke a delicate wash.",
       "toxicity": "low",
       "temp_role": "Warm yellow · Yellow for mixing and light · staining · transparent"
@@ -1183,7 +1183,7 @@
       "family": "pink",
       "series": 3,
       "notes": "Photo 483f6c53. 半块固形. Grade 3, transparent (□). ★★★. Verified: Jerry's Artarama — PV19 quinacridone, staining.",
-      "ace_note": "PV19 with a softer wardrobe than screaming quin rose. Florals, blushes, and those 'almost red' moments. Pairs beautifully with Potter's Pink for gentle portraits. Temperature read: cool rose (magenta-violet primary). Dual advice: fantastic mixer — still dose staining power like hot sauce.",
+      "ace_note": "PV19 with a softer wardrobe than screaming quin rose. Florals, blushes, and those 'almost red' moments. Pairs beautifully with Potter's Pink for gentle portraits.",
       "mix_star": true,
       "best_for": "Florals, lips, warm pinks, and layering over Potter's Pink for depth.",
       "ace_history": "Rose lake pigments descend from madder lakes — synthetic PV19 quin rose is the modern workhorse replacing fugitive natural lakes in professional lines.",
@@ -1232,7 +1232,7 @@
         "professional",
         "maimeri"
       ],
-      "ace_note": "Italian violet with manners — cleaner than screaming quin purple, loves a wet-on-wet sky at dusk. Temperature read: cool rose (magenta-violet primary).",
+      "ace_note": "Italian violet with manners — cleaner than screaming quin purple, loves a wet-on-wet sky at dusk.",
       "ace_history": "Quinacridone violet (PV19) replaced fugitive aniline violets — the cool floral purple that 20th-century botanical artists finally trusted in full sun.",
       "toxicity": "low",
       "temp_role": "Cool rose · Cool quinacridone rose / violet-red · staining · transparent"
@@ -1256,7 +1256,7 @@
         "professional",
         "maimeri"
       ],
-      "ace_note": "Soft warm white-yellow — skin, walls, afternoon light. A gentle corrector, not a mixing primary. On paper: more body/coverage than a pure stain.",
+      "ace_note": "Soft warm white-yellow — skin, walls, afternoon light. A gentle corrector, not a mixing primary.",
       "ace_history": "Italian Naples is the portraitist's pale warmth — the same hue family Old Master workshops called giallo di Napoli for flesh and marble shadows.",
       "toxicity": "medium",
       "toxicity_habit": "Nickel-containing pigment — wash hands after sessions; no eating at the desk.",
@@ -1277,7 +1277,7 @@
       "hex": "#3A6B9A",
       "family": "blue",
       "format": "half-pan",
-      "ace_note": "Dutch canal blue — calm, slightly muted, built for ceramic skies. Temperature read: cool blue (green-shade / phthalo). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Dutch canal blue — calm, slightly muted, built for ceramic skies.",
       "brand_traits": [
         "professional",
         "horadam"
@@ -1301,7 +1301,7 @@
       "hex": "#D4A82A",
       "family": "yellow",
       "format": "half-pan",
-      "ace_note": "Modern Schmincke yellow with city energy — warm and contemporary. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper; earns a ◈ as a cooperative mixer. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Modern Schmincke yellow with city energy — warm and contemporary.",
       "brand_traits": [
         "professional",
         "horadam"
@@ -1350,7 +1350,7 @@
       "hex": "#6B5B7A",
       "family": "purple",
       "format": "pan",
-      "ace_note": "Arctic violet — muted, botanical, like heather on cold ground. Temperature read: cool violet-blue (indigo/violet bridge). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Arctic violet — muted, botanical, like heather on cold ground.",
       "brand_traits": [
         "professional",
         "horadam"
@@ -1375,7 +1375,7 @@
       "hex": "#1E3D5C",
       "family": "blue",
       "format": "pan, 5ml tube",
-      "ace_note": "Deep diving blue-green — night water and whale shadows. Temperature read: cool green (blue-shade staining). On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper; earns a ◈ as a cooperative mixer. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Deep diving blue-green — night water and whale shadows.",
       "brand_traits": [
         "professional",
         "horadam"
@@ -1424,7 +1424,7 @@
       "hex": "#8FB8B0",
       "family": "green",
       "format": "pan, 5ml tube",
-      "ace_note": "Pale icy green — glaciers, sea foam in winter. Temperature read: cool green (blue-shade staining). On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Pale icy green — glaciers, sea foam in winter.",
       "brand_traits": [
         "professional",
         "horadam"
@@ -1466,7 +1466,7 @@
       "hex": "#A8D4E8",
       "family": "blue",
       "format": "2ml sample",
-      "ace_note": "Mist limited ice — ethereal winter light. Temperature read: cool blue (green-shade staining). On paper: transparent in washes.",
+      "ace_note": "Mist limited ice — ethereal winter light.",
       "brand_traits": [
         "professional",
         "horadam"
@@ -1490,7 +1490,7 @@
       "hex": "#6B7A4A",
       "family": "green",
       "format": "2ml sample",
-      "ace_note": "Dry sage desert green — southwestern dust. Temperature read: cool green (blue-shade staining). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Dry sage desert green — southwestern dust.",
       "brand_traits": [
         "professional",
         "horadam"
@@ -1514,7 +1514,7 @@
       "hex": "#E8C84A",
       "family": "yellow",
       "format": "2ml sample",
-      "ace_note": "Shire sunshine — warm pastoral yellow, Hobbit-core meadows. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper; earns a ◈ as a cooperative mixer. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Shire sunshine — warm pastoral yellow, Hobbit-core meadows.",
       "brand_traits": [
         "professional",
         "horadam"
@@ -1564,7 +1564,7 @@
       "hex": "#9A7A5A",
       "family": "earth",
       "format": "2ml sample",
-      "ace_note": "Desert Brown brings warm earth energy to the tin — worth knowing by temperature, not just by pretty swatch. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Desert Brown brings warm earth energy to the tin — worth knowing by temperature, not just by pretty swatch.",
       "brand_traits": [
         "professional",
         "horadam"
@@ -1588,7 +1588,7 @@
       "hex": "#5A6B3C",
       "family": "green",
       "format": "2ml sample",
-      "ace_note": "Olive drab with a story — rolling hills and quiet landscapes. Temperature read: cool yellow (lemon / green-leaning primary). On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper; earns a ◈ as a cooperative mixer. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Olive drab with a story — rolling hills and quiet landscapes.",
       "brand_traits": [
         "professional",
         "horadam"
@@ -1637,7 +1637,7 @@
       "hex": "#5A4A3A",
       "family": "earth",
       "format": "2ml sample",
-      "ace_note": "Brown with cosmic depth — sediment stars in the wash. Temperature read: warm earth (red-orange roast). On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Brown with cosmic depth — sediment stars in the wash.",
       "brand_traits": [
         "professional",
         "horadam"
@@ -1661,7 +1661,7 @@
       "hex": "#4A3A6B",
       "family": "purple",
       "format": "2ml sample",
-      "ace_note": "Galaxy purple — granulating sediment, constellation freckles. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Galaxy purple — granulating sediment, constellation freckles.",
       "brand_traits": [
         "professional",
         "horadam"
@@ -1704,7 +1704,7 @@
       "hex": "#1A4A6B",
       "family": "blue",
       "format": "2ml sample",
-      "ace_note": "Deep Sea Blue brings warm blue energy to the tin — worth knowing by temperature, not just by pretty swatch. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper; earns a ◈ as a cooperative mixer. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Deep Sea Blue brings warm blue energy to the tin — worth knowing by temperature, not just by pretty swatch.",
       "brand_traits": [
         "professional",
         "horadam"
@@ -1753,7 +1753,7 @@
       "hex": "#A89888",
       "family": "earth",
       "format": "2ml sample",
-      "ace_note": "Cool taupe brown — glacial moraine stone. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Cool taupe brown — glacial moraine stone.",
       "brand_traits": [
         "professional",
         "horadam"
@@ -1777,7 +1777,7 @@
       "hex": "#8A9A4A",
       "family": "specialty",
       "format": "metallic powder 2ml",
-      "ace_note": "Metallic alchemist — mix into ultramarine and chase that vintage lapis lazuli glow. Temperature read: cool yellow (lemon / green-leaning primary).",
+      "ace_note": "Metallic alchemist — mix into ultramarine and chase that vintage lapis lazuli glow.",
       "brand_traits": [
         "professional",
         "horadam",
@@ -1803,7 +1803,7 @@
       "hex": "#9A6A3A",
       "family": "specialty",
       "format": "metallic powder 2ml",
-      "ace_note": "Warm metallic whisper — lapis experiment partner to Green Gold, but sunset gold flecks. On paper: more body/coverage than a pure stain.",
+      "ace_note": "Warm metallic whisper — lapis experiment partner to Green Gold, but sunset gold flecks.",
       "brand_traits": [
         "professional",
         "horadam",
@@ -1835,7 +1835,7 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Soft cobalt green — skies and sea glass without phthalo aggression. Temperature read: cool green (blue-shade staining). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Soft cobalt green — skies and sea glass without phthalo aggression.",
       "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch.",
       "toxicity": "medium",
       "toxicity_habit": "Cobalt pigment — wash hands after painting; keep food and drink away from the palette.",
@@ -1862,7 +1862,7 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Staining rose-red — bold florals, one brushload goes far. On paper: semi-transparent — glazes with a little presence; stains — commit lightly first.",
+      "ace_note": "Staining rose-red — bold florals, one brushload goes far.",
       "ace_history": "Quinacridone reds/corals (PR209) are transparent organics built for glow — modern glazing reds that keep florals luminous.",
       "toxicity": "low",
       "temp_role": "Cool rose / pink · Warm quinacridone coral-red · staining"
@@ -1888,7 +1888,7 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Cool violet rose — purple when red feels too warm. On paper: semi-transparent — glazes with a little presence; stains — commit lightly first.",
+      "ace_note": "Cool violet rose — purple when red feels too warm.",
       "ace_history": "Rose violet (PV19) bridges red and purple on the quinacridone tree — a cool floral hue that botanical painters adopted once madder violet proved unreliable.",
       "toxicity": "low",
       "temp_role": "Cool rose · Cool quinacridone rose / violet-red · staining"
@@ -1915,7 +1915,7 @@
         "2ml-sample",
         "granulating"
       ],
-      "ace_note": "Blue settles, rose floats — dimensional purple that paints its own shadows. The wet-on-wet drama queen of the violet corner. Temperature read: cool rose (magenta-violet primary). Dual advice: fantastic mixer — still dose staining power like hot sauce.",
+      "ace_note": "Blue settles, rose floats — dimensional purple that paints its own shadows. The wet-on-wet drama queen of the violet corner.",
       "ace_history": "A modern convenience blend: ultramarine's mineral granulation meeting quinacridone rose's stain — built for skies and florals that refuse flat purple.",
       "toxicity": "low",
       "mix_star": true,
@@ -1943,7 +1943,7 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Volcanic earth — warm, archaeological, buried-city vibes. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Volcanic earth — warm, archaeological, buried-city vibes.",
       "ace_history": "Named for the buried Roman city — Herculaneum earth is warm PBr7 volcanic tone, the kind of archaeological brown used in reconstruction sketches and classical studies.",
       "toxicity": "low",
       "temp_role": "Warm earth · Natural/synthetic iron earth brown"
@@ -1969,7 +1969,7 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Deep teal-green — dark foliage and ink-like greens. Temperature read: cool green (blue-shade staining). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Deep teal-green — dark foliage and ink-like greens.",
       "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch.",
       "toxicity": "low",
       "temp_role": "Cool green · Cool staining phthalo green"
@@ -1995,7 +1995,7 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Transparent warm oxide — glazes like autumn light. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Transparent warm oxide — glazes like autumn light.",
       "ace_history": "Mars/Venetian reds (PR101) are calcined iron oxides — brick, terracotta, and portrait underpainting since industrial iron pigments matured.",
       "toxicity": "low",
       "temp_role": "Warm earth · Iron oxide red / Venetian earth red"
@@ -2021,7 +2021,7 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Peachy rose — delicate skin, petals, sunrise. Temperature read: cool rose (magenta-violet primary). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Peachy rose — delicate skin, petals, sunrise.",
       "ace_history": "Rose peach blends modern quin reds with violet — a portrait and botanical convenience shade for sunrise skin and soft petals, not a single historic mineral.",
       "toxicity": "low",
       "temp_role": "Cool rose · Warm quinacridone coral-red"
@@ -2047,7 +2047,7 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Green gold — instant natural olives and sunlit leaves. Temperature read: warm yellow (gold / glaze yellow). On paper: semi-transparent — glazes with a little presence; earns a ◈ as a cooperative mixer.",
+      "ace_note": "Green gold — instant natural olives and sunlit leaves.",
       "mix_star": true,
       "best_for": "Autumn foliage, sunlit grass, olive-gold glazes, and natural landscape greens without phthalo harshness.",
       "ace_history": "Green gold pigments echo medieval manuscript greens and modern PY129/PO49 blends — DS's version targets landscape painters who want warmth in foliage.",
@@ -2100,7 +2100,7 @@
         "2ml-sample",
         "primatek"
       ],
-      "ace_note": "PrimaTek pipestone — earthy pink-brown, sacred stone on paper. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "PrimaTek pipestone — earthy pink-brown, sacred stone on paper.",
       "ace_history": "Pipestone is sacred Catlinite from Minnesota quarries — Daniel Smith's PrimaTek line grinds real stone for earthy pink-brown granulation no synthetic can copy.",
       "toxicity": "low",
       "temp_role": "Warm earth · Iron oxide red / Venetian earth red"
@@ -2126,7 +2126,7 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Warm golden rose — sunsets and honey light. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Warm golden rose — sunsets and honey light.",
       "ace_history": "Nickel Azo Yellow (PY150) is a transparent warm yellow that underpins many quinacridone-gold blends — luminous glazes, not chalky coverage.",
       "toxicity": "medium",
       "toxicity_habit": "Nickel-containing pigment — wash hands after sessions; no eating at the desk.",
@@ -2154,7 +2154,7 @@
         "2ml-sample",
         "primatek"
       ],
-      "ace_note": "PrimaTek tiger's eye — golden brown granulation, treasure in 2ml. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "PrimaTek tiger's eye — golden brown granulation, treasure in 2ml.",
       "ace_history": "PBr7 covers raw and burnt earths — iron-rich clays, sometimes with manganese in umbers. Roasting (calcining) swings the same family from cool espresso to warm red-brown. DS often leans into granulation and drama on wet paper.",
       "toxicity": "low",
       "temp_role": "Warm earth · Natural/synthetic iron earth brown · granulating"
@@ -2181,7 +2181,7 @@
         "2ml-sample",
         "primatek"
       ],
-      "ace_note": "PrimaTek amazonite — milky green-blue granulation, gemstone skies. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper; stains — commit lightly first. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "PrimaTek amazonite — milky green-blue granulation, gemstone skies.",
       "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch. DS often leans into granulation and drama on wet paper.",
       "toxicity": "low",
       "temp_role": "Cool green · Cool staining phthalo green · granulating · staining"
@@ -2208,7 +2208,7 @@
         "2ml-sample",
         "primatek"
       ],
-      "ace_note": "PrimaTek hematite violet — moody granulating purple-gray drama. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper; stains — commit lightly first. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "PrimaTek hematite violet — moody granulating purple-gray drama.",
       "mix_star": false,
       "best_for": "Moody granulating violets, geological texture, and dramatic shadow accents.",
       "ace_history": "Hematite is iron oxide — Daniel Smith's PrimaTek line grinds real mineral pigments for granulation patterns no synthetic can fake. DS often leans into granulation and drama on wet paper.",
@@ -2253,7 +2253,7 @@
         "2ml-sample",
         "primatek"
       ],
-      "ace_note": "PrimaTek rhodonite — dusty rose mineral, tender and geological. Temperature read: warm red family (orange-leaning or mid red). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "PrimaTek rhodonite — dusty rose mineral, tender and geological.",
       "ace_history": "Mars/Venetian reds (PR101) are calcined iron oxides — brick, terracotta, and portrait underpainting since industrial iron pigments matured.",
       "toxicity": "low",
       "temp_role": "Warm red family · Iron oxide red / Venetian earth red"
@@ -2279,7 +2279,7 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Regal staining purple — wears a crown in florals. On paper: semi-transparent — glazes with a little presence; stains — commit lightly first.",
+      "ace_note": "Regal staining purple — wears a crown in florals.",
       "ace_history": "Royal purple (PV23) echoes Tyrian dye mythology — synthetic dioxazine gives staining, regal violets that ancient Phoenician traders would have sold their sandals for.",
       "toxicity": "low",
       "temp_role": "Cool violet-blue · Violet for shadow and florals · staining"
@@ -2305,7 +2305,7 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Muted mineral green — subtle, not screaming phthalo. Temperature read: cool green (blue-shade staining). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Muted mineral green — subtle, not screaming phthalo.",
       "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch.",
       "toxicity": "low",
       "temp_role": "Cool green · Cool staining phthalo green"
@@ -2331,7 +2331,7 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Lunar blue — floats, granulates, night sky in a sample pan. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper; stains — commit lightly first; earns a ◈ as a cooperative mixer. Dual advice: fantastic mixer — still dose staining power like hot sauce.",
+      "ace_note": "Lunar blue — floats, granulates, night sky in a sample pan.",
       "mix_star": true,
       "best_for": "Moonlit water, nocturnal skies, and granulating blue washes that bloom without going flat.",
       "ace_history": "Phthalocyanine blue (PB15) arrived mid-20th century — transparent, staining, powerful; a whisper mixes oceans and deep greens. DS often leans into granulation and drama on wet paper.",
@@ -2382,10 +2382,10 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Transparent orange heat — sunsets without opacity. On paper: semi-transparent — glazes with a little presence.",
-      "ace_history": "Transparent orange (PO48) brings quinacridone heat without opacity — modern sunset painters glaze with it where cadmium would flatten the wash.",
+      "ace_note": "Transparent orange heat — sunsets without opacity.\n\nThis is the opposite of brick on top of the paper. PO48 (perinone family) wants light through the wash: late sky, silk scarves, fruit skin that still looks juicy. Drop it into a wet blue and you get soft bruised violets and storm edges; drop it into yellow and the sun gets louder without turning into poster paint.\n\nDual advice: if Chromium Orange Hue is already your opaque hammer, this is the glass. Don't buy a third warm orange just in case — learn when you need cover vs when you need glow. Cadmium orange fans: this is how you get heat without the heavy blanket.",
+      "ace_history": "Transparent Orange (PO48) is a modern perinone pigment — built for clean, luminous orange that cadmium's opacity can't do. Contemporary landscape and floral painters glaze with it where old opaque oranges would sit like shutters on the paper. DS markets that glow hard; the legend is chemistry, not a medieval name.",
       "toxicity": "low",
-      "temp_role": "Warm orange · Orange accent / bridge color"
+      "temp_role": "Warm orange · Glaze heat · transparent sunset"
     },
     {
       "transparency": 2,
@@ -2409,7 +2409,7 @@
         "2ml-sample",
         "primatek"
       ],
-      "ace_note": "PrimaTek mica red — shimmer meets earth. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "PrimaTek mica red — shimmer meets earth.",
       "ace_history": "Mars/Venetian reds (PR101) are calcined iron oxides — brick, terracotta, and portrait underpainting since industrial iron pigments matured.",
       "toxicity": "low",
       "temp_role": "Warm red family · Iron oxide red / Venetian earth red"
@@ -2435,7 +2435,7 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Dark perylene green — deep transparent foliage shadows. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Dark perylene green — deep transparent foliage shadows.",
       "ace_history": "Phthalo green yellow-shade (PG36) is warmer than blue-shade PG7 — still staining and strong, friendlier for spring mixes.",
       "toxicity": "low",
       "temp_role": "Cool green · Yellow-leaning phthalo green"
@@ -2462,7 +2462,7 @@
         "2ml-sample",
         "primatek"
       ],
-      "ace_note": "PrimaTek jadeite — cool jade granulation, landscape poetry. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper; stains — commit lightly first. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "PrimaTek jadeite — cool jade granulation, landscape poetry.",
       "ace_history": "Jadeite genuine is ground jade — cool granulating green prized in Chinese carving traditions, now sedimenting on watercolor paper like landscape jade.",
       "toxicity": "low",
       "temp_role": "Cool green · Cool staining phthalo green · granulating · staining"
@@ -2489,7 +2489,7 @@
         "2ml-sample",
         "primatek"
       ],
-      "ace_note": "PrimaTek blue apatite — granulating cloudy gemstone skies. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper; stains — commit lightly first. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "PrimaTek blue apatite — granulating cloudy gemstone skies.",
       "ace_history": "Phthalocyanine blue (PB15) arrived mid-20th century — transparent, staining, powerful; a whisper mixes oceans and deep greens. DS often leans into granulation and drama on wet paper.",
       "toxicity": "low",
       "temp_role": "Cool blue · Cool staining phthalo blue · granulating · staining"
@@ -2516,7 +2516,7 @@
         "2ml-sample",
         "primatek"
       ],
-      "ace_note": "PrimaTek green apatite — mineral green forests with geology. Temperature read: cool blue (green-shade staining). On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper; stains — commit lightly first. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "PrimaTek green apatite — mineral green forests with geology.",
       "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch. DS often leans into granulation and drama on wet paper.",
       "toxicity": "low",
       "temp_role": "Cool blue · Cool staining phthalo green · granulating · staining"
@@ -2543,7 +2543,7 @@
         "2ml-sample",
         "primatek"
       ],
-      "ace_note": "PrimaTek garnet — deep jewel-tone passages. Temperature read: warm red family (orange-leaning or mid red). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "PrimaTek garnet — deep jewel-tone passages.",
       "ace_history": "Mars/Venetian reds (PR101) are calcined iron oxides — brick, terracotta, and portrait underpainting since industrial iron pigments matured.",
       "toxicity": "low",
       "temp_role": "Warm red family · Iron oxide red / Venetian earth red"
@@ -2569,7 +2569,7 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Carnelian brings warm red family energy to the tin — worth knowing by temperature, not just by pretty swatch. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Carnelian brings warm red family energy to the tin — worth knowing by temperature, not just by pretty swatch.",
       "ace_history": "Carnelian is banded chalcedony — the semiprecious orange-red that Roman signet rings were carved from, now staining boldly on paper.",
       "toxicity": "low",
       "temp_role": "Warm red family · Red / warm accent"
@@ -2595,7 +2595,7 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Permanent rose madder — classic cool pink. On paper: semi-transparent — glazes with a little presence; stains — commit lightly first.",
+      "ace_note": "Permanent rose madder — classic cool pink.",
       "ace_history": "Quinacridone reds/corals (PR209) are transparent organics built for glow — modern glazing reds that keep florals luminous.",
       "toxicity": "low",
       "temp_role": "Cool rose · Warm quinacridone coral-red · staining"
@@ -2621,7 +2621,7 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Living coral — tropical warmth on paper. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Living coral — tropical warmth on paper.",
       "ace_history": "Coral reef blends warm quin reds with orange — a contemporary tropical convenience color for reef sketches and travel journals, not a historic pigment name.",
       "toxicity": "low",
       "temp_role": "Warm red family · Warm quinacridone coral-red"
@@ -2647,7 +2647,7 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Bright yellow no.2 — clean sunshine without cadmium. Temperature read: warm yellow (gold/orange edge). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Bright yellow no.2 — clean sunshine without cadmium.",
       "ace_history": "PY154 benzimidazolone yellow is a clean, transparent sunshine — a cadmium alternative born from 20th-century organic pigment research.",
       "toxicity": "low",
       "temp_role": "Warm yellow · Yellow for mixing and light"
@@ -2672,7 +2672,7 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Clean isoindoline yellow — bright without cadmium. Temperature read: warm orange (yellow-red bridge). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Clean isoindoline yellow — bright without cadmium.",
       "ace_history": "Isoindoline yellow (PY139) is a bright, transparent modern yellow — White Nights uses it where artists want clean color without cadmium weight.",
       "toxicity": "low",
       "temp_role": "Warm orange · Yellow for mixing and light"
@@ -2697,7 +2697,7 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Bordeaux claret — wine-stain red for velvet shadows. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Bordeaux claret — wine-stain red for velvet shadows.",
       "ace_history": "Claret echoes Bordeaux wine stains — a mixed red-violet convenience shade from Nevskaya Palitra for velvet shadows and Eastern European still-life tradition.",
       "toxicity": "low",
       "temp_role": "Warm red family · Red / warm accent"
@@ -2722,7 +2722,7 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Rose mist granulation — soft pink fog, romantic texture. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper; earns a ◈ as a cooperative mixer. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Rose mist granulation — soft pink fog, romantic texture.",
       "mix_star": true,
       "best_for": "Romantic florals, soft backgrounds, granulating pink fog, and gentle skin tones.",
       "ace_history": "White Nights' granulating mist colors come from St. Petersburg's Nevskaya Palitra — a Soviet-era factory tradition now famous for sedimentary specialty blends.",
@@ -2772,7 +2772,7 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Reliable burnt umber — every palette needs this sensible adult. Temperature read: warm earth (red-orange roast). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Reliable burnt umber — every palette needs this sensible adult.",
       "ace_history": "Burnt umber is roasted umber earth — warmer and often darker than raw. Classic with ultramarine for quick chromatic blacks and soft greys.",
       "toxicity": "low",
       "temp_role": "Warm earth · Warm dark earth for chromatic blacks"
@@ -2797,7 +2797,7 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Mountain mist — cloudy granulating gray-blue atmosphere. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Mountain mist — cloudy granulating gray-blue atmosphere.",
       "ace_history": "Carbon blacks (PBk6) are soot-descended darks — strong, often cool; in watercolor they can deaden mixes, so many painters prefer mixed chromatic blacks.",
       "toxicity": "low",
       "temp_role": "Neutral / low-chroma · Carbon / lamp black family · granulating"
@@ -2822,7 +2822,7 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Black mystery — granulating dark with secrets. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Black mystery — granulating dark with secrets.",
       "ace_history": "Carbon blacks (PBk6) are soot-descended darks — strong, often cool; in watercolor they can deaden mixes, so many painters prefer mixed chromatic blacks.",
       "toxicity": "low",
       "temp_role": "Near-neutral dark · Carbon / lamp black family · granulating"
@@ -2847,7 +2847,7 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Turquoise blue — bright clean tropical water. Temperature read: cool blue (green-shade staining). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Turquoise blue — bright clean tropical water.",
       "ace_history": "Turquoise blue pairs phthalo blue with green — the clean tropical mix that replaced ground turquoise gemstone in commercial art by the mid-20th century.",
       "toxicity": "low",
       "temp_role": "Cool blue · Cool phthalo blue (green shade)"
@@ -2872,7 +2872,7 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Warm-leaning blue with old-soul granulation — skies, cloth, and neutrals when it meets a warm earth. On paper: semi-transparent — glazes with a little presence; earns a ◈ as a cooperative mixer.",
+      "ace_note": "Warm-leaning blue with old-soul granulation — skies, cloth, and neutrals when it meets a warm earth.",
       "mix_star": true,
       "best_for": "Skies, shadows, mixing greys, and the cool backbone of nearly every landscape.",
       "ace_history": "Ultramarine (PB29) was once literally worth more than gold — ground lapis from Afghanistan — until synthetic chemistry made it every watercolorist's first blue.",
@@ -2922,7 +2922,7 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Cobalt turquoise — milky gem-tone sky accents. Temperature read: cool turquoise (blue-green water). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Cobalt turquoise — milky gem-tone sky accents.",
       "ace_history": "Cobalt turquoise (PB36) is a genuine cobalt compound — softer and milkier than phthalo, beloved for gem-tone skies in botanical miniatures.",
       "toxicity": "medium",
       "toxicity_habit": "Cobalt pigment — wash hands after painting; keep food and drink away from the palette.",
@@ -2948,7 +2948,7 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Dark blue shadows — granulating twilight corners. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Dark blue shadows — granulating twilight corners.",
       "ace_history": "Dark blue shadows blend ultramarine with black — a convenience dark for twilight corners that echoes how 19th-century painters premixed storm-cloud neutrals.",
       "toxicity": "low",
       "temp_role": "Warm blue · Warm granulating ultramarine blue · granulating"
@@ -2973,7 +2973,7 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Aquamarine Mist brings cool blue energy to the tin — worth knowing by temperature, not just by pretty swatch. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Aquamarine Mist brings cool blue energy to the tin — worth knowing by temperature, not just by pretty swatch.",
       "ace_history": "Phthalocyanine blue (PB15) arrived mid-20th century — transparent, staining, powerful; a whisper mixes oceans and deep greens.",
       "toxicity": "low",
       "temp_role": "Cool blue · Cool staining phthalo blue · granulating"
@@ -2998,7 +2998,7 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Misty turquoise rose — weird beautiful granulation. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Misty turquoise rose — weird beautiful granulation.",
       "ace_history": "Ultramarine (PB29) was the precious lapis blue of churches before 1828 synthesis — still the granulating, warm-leaning blue of skies and classical mixes.",
       "toxicity": "low",
       "temp_role": "Warm blue · Warm granulating ultramarine blue · granulating"
@@ -3023,7 +3023,7 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Blue dream — cheerful straightforward blue. Temperature read: cool blue (green-shade staining). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Blue dream — cheerful straightforward blue.",
       "ace_history": "Phthalocyanine blue (PB15) arrived mid-20th century — transparent, staining, powerful; a whisper mixes oceans and deep greens.",
       "toxicity": "low",
       "temp_role": "Cool blue · Cool staining phthalo blue"
@@ -3048,7 +3048,7 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Blue Mystery brings warm blue energy to the tin — worth knowing by temperature, not just by pretty swatch. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Blue Mystery brings warm blue energy to the tin — worth knowing by temperature, not just by pretty swatch.",
       "ace_history": "Blue mystery pairs cobalt and ultramarine — granulating galaxy blues from St. Petersburg for night skies and abstract pours.",
       "toxicity": "medium",
       "toxicity_habit": "Cobalt pigment — wash hands after painting; keep food and drink away from the palette.",
@@ -3074,7 +3074,7 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Sea Blue brings cool blue energy to the tin — worth knowing by temperature, not just by pretty swatch. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Sea Blue brings cool blue energy to the tin — worth knowing by temperature, not just by pretty swatch.",
       "ace_history": "Phthalocyanine blue (PB15) arrived mid-20th century — transparent, staining, powerful; a whisper mixes oceans and deep greens.",
       "toxicity": "low",
       "temp_role": "Cool blue · Cool staining phthalo blue · granulating"
@@ -3099,7 +3099,7 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Quinacridone Lilac brings cool rose energy to the tin — worth knowing by temperature, not just by pretty swatch. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Quinacridone Lilac brings cool rose energy to the tin — worth knowing by temperature, not just by pretty swatch.",
       "ace_history": "Quinacridone rose/violet (PV19) is a 20th-century transparent star — cool primary red for florals, glazes, and purples that stay clean.",
       "toxicity": "low",
       "temp_role": "Cool rose · Cool quinacridone rose / violet-red"
@@ -3124,7 +3124,7 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Hermit Mist brings warm earth energy to the tin — worth knowing by temperature, not just by pretty swatch. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Hermit Mist brings warm earth energy to the tin — worth knowing by temperature, not just by pretty swatch.",
       "ace_history": "PBr7 covers raw and burnt earths — iron-rich clays, sometimes with manganese in umbers. Roasting (calcining) swings the same family from cool espresso to warm red-brown.",
       "toxicity": "low",
       "temp_role": "Warm earth · Natural/synthetic iron earth brown · granulating"
@@ -3150,7 +3150,7 @@
         "russian",
         "st-petersburg"
       ],
-      "ace_note": "Muted purple with an orange-pink halo — wet washes look like purple hour skies splitting into blue and warm glow. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper; earns a ◈ as a cooperative mixer. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Muted purple with an orange-pink halo — wet washes look like purple hour skies splitting into blue and warm glow.",
       "mix_star": true,
       "best_for": "Sunset skies, purple hour cityscapes, granulating florals, and moody backgrounds.",
       "ace_history": "Ultramarine (PB29) was the precious lapis blue of churches before 1828 synthesis — still the granulating, warm-leaning blue of skies and classical mixes.",
@@ -3200,7 +3200,7 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "May green — spring leaves, mixing green. Temperature read: cool yellow (lemon / green-leaning primary). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "May green — spring leaves, mixing green.",
       "ace_history": "May green (PY3/PG7) is the European spring foliage mixture — named for May leaves, standard on French and Russian plein-air palettes since tube greens proliferated.",
       "toxicity": "low",
       "temp_role": "Cool yellow · Cool lemon primary yellow"
@@ -3225,7 +3225,7 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Green Shadows brings cool green energy to the tin — worth knowing by temperature, not just by pretty swatch. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Green Shadows brings cool green energy to the tin — worth knowing by temperature, not just by pretty swatch.",
       "ace_history": "Titanium white (PW6) is the modern opaque light — strong coverage for gouache-like passages; watercolor purists use it sparingly for body color.",
       "toxicity": "low",
       "temp_role": "Cool green · Titanium white / opaque light · granulating"
@@ -3250,7 +3250,7 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Taiga mist — Siberian pines in morning fog. Temperature read: cool blue (green-shade staining). On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Taiga mist — Siberian pines in morning fog.",
       "ace_history": "PBr7 covers raw and burnt earths — iron-rich clays, sometimes with manganese in umbers. Roasting (calcining) swings the same family from cool espresso to warm red-brown.",
       "toxicity": "low",
       "temp_role": "Cool blue · Natural/synthetic iron earth brown · granulating"
@@ -3275,7 +3275,7 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Rose dream — sediment pink cotton-candy clouds. Temperature read: warm red family (orange-leaning or mid red). On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Rose dream — sediment pink cotton-candy clouds.",
       "ace_history": "Quinacridone magenta (PR122) is a cool primary for modern mixing charts — pink-violet energy for florals and clean purples with blues.",
       "toxicity": "low",
       "temp_role": "Warm red family · Cool magenta / quin violet-red · granulating"
@@ -3300,7 +3300,7 @@
         "rosa",
         "ukrainian"
       ],
-      "ace_note": "Ukrainian magenta rose — bold Eastern European floral power. Temperature read: cool rose (magenta-violet primary). On paper: semi-transparent — glazes with a little presence; stains — commit lightly first.",
+      "ace_note": "Ukrainian magenta rose — bold Eastern European floral power.",
       "ace_history": "Quinacridone rose/violet (PV19) is a 20th-century transparent star — cool primary red for florals, glazes, and purples that stay clean.",
       "toxicity": "low",
       "temp_role": "Cool rose · Cool quinacridone rose / violet-red · staining"
@@ -3325,7 +3325,7 @@
         "rosa",
         "ukrainian"
       ],
-      "ace_note": "Screaming bright red — poppies and courage. Temperature read: warm red-orange (fire primary). On paper: semi-transparent — glazes with a little presence; stains — commit lightly first.",
+      "ace_note": "Screaming bright red — poppies and courage.",
       "ace_history": "Pyrrole red (PR254) is a modern lightfast fire-engine red — cleaner mixes than many earth reds, staining enough to commit with intention.",
       "toxicity": "low",
       "temp_role": "Warm red-orange · Warm modern organic red (pyrrol) · staining"
@@ -3350,7 +3350,7 @@
         "rosa",
         "ukrainian"
       ],
-      "ace_note": "Naples Yellow Light brings warm orange energy to the tin — worth knowing by temperature, not just by pretty swatch. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Naples Yellow Light brings warm orange energy to the tin — worth knowing by temperature, not just by pretty swatch.",
       "ace_history": "Pale Naples-style yellows echo portrait-studio flesh lights — low drama, high usefulness when you need cream without lemon sting.",
       "toxicity": "medium",
       "toxicity_habit": "Cobalt pigment — wash hands after painting; keep food and drink away from the palette.",
@@ -3376,7 +3376,7 @@
         "rosa",
         "ukrainian"
       ],
-      "ace_note": "Black Grape brings near-neutral dark energy to the tin — worth knowing by temperature, not just by pretty swatch. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Black Grape brings near-neutral dark energy to the tin — worth knowing by temperature, not just by pretty swatch.",
       "ace_history": "Carbon blacks (PBk6) are soot-descended darks — strong, often cool; in watercolor they can deaden mixes, so many painters prefer mixed chromatic blacks.",
       "toxicity": "low",
       "temp_role": "Near-neutral dark · Carbon / lamp black family"
@@ -3401,7 +3401,7 @@
         "rosa",
         "ukrainian"
       ],
-      "ace_note": "Naples rose — peachy warmth for skin and walls. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Naples rose — peachy warmth for skin and walls.",
       "ace_history": "Pale Naples-style yellows echo portrait-studio flesh lights — low drama, high usefulness when you need cream without lemon sting.",
       "toxicity": "medium",
       "toxicity_habit": "Cobalt pigment — wash hands after painting; keep food and drink away from the palette.",
@@ -3427,7 +3427,7 @@
         "rosa",
         "ukrainian"
       ],
-      "ace_note": "Grass Green brings cool yellow energy to the tin — worth knowing by temperature, not just by pretty swatch. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Grass Green brings cool yellow energy to the tin — worth knowing by temperature, not just by pretty swatch.",
       "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch.",
       "toxicity": "low",
       "temp_role": "Cool yellow · Cool lemon primary yellow"
@@ -3452,7 +3452,7 @@
         "rosa",
         "ukrainian"
       ],
-      "ace_note": "Golden Brown brings warm earth energy to the tin — worth knowing by temperature, not just by pretty swatch. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Golden Brown brings warm earth energy to the tin — worth knowing by temperature, not just by pretty swatch.",
       "ace_history": "PBr7 covers raw and burnt earths — iron-rich clays, sometimes with manganese in umbers. Roasting (calcining) swings the same family from cool espresso to warm red-brown.",
       "toxicity": "low",
       "temp_role": "Warm earth · Natural/synthetic iron earth brown"
@@ -3477,7 +3477,7 @@
         "rosa",
         "ukrainian"
       ],
-      "ace_note": "Azure green — teal-green gem, sky meets sea. You corrected me right! Temperature read: cool blue (green-shade staining). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Azure green — teal-green gem, sky meets sea. You corrected me right!",
       "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch.",
       "toxicity": "low",
       "temp_role": "Cool blue · Cool staining phthalo green"
@@ -3502,7 +3502,7 @@
         "rosa",
         "ukrainian"
       ],
-      "ace_note": "Royal blue — rich saturated Ukrainian blue. Temperature read: cool blue (green-shade staining). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Royal blue — rich saturated Ukrainian blue.",
       "ace_history": "Phthalocyanine blue (PB15) arrived mid-20th century — transparent, staining, powerful; a whisper mixes oceans and deep greens.",
       "toxicity": "low",
       "temp_role": "Cool blue · Cool staining phthalo blue"
@@ -3527,7 +3527,7 @@
         "roman-szmal",
         "polish"
       ],
-      "ace_note": "Polish mineral purple — granulating violet with different soul from Maimeri 479. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Polish mineral purple — granulating violet with different soul from Maimeri 479.",
       "mix_star": false,
       "best_for": "Polish landscape greens, muted natural tones, and regional palette character.",
       "ace_history": "Roman Szmal and Polish pigment traditions reflect Central European landscape painting — regional lines preserve colors local artists actually squeeze.",
@@ -3555,7 +3555,7 @@
         "roman-szmal",
         "polish"
       ],
-      "ace_note": "Aquarius green — muted olive, Polish landscape mist. Temperature read: cool green (blue-shade staining). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Aquarius green — muted olive, Polish landscape mist.",
       "ace_history": "Aquarius green is Roman Szmal's muted olive — Polish landscape tradition favors quiet greens that match Central European fields, not Mediterranean lime.",
       "toxicity": "low",
       "temp_role": "Cool green · Cool staining phthalo green"
@@ -3580,7 +3580,7 @@
         "roman-szmal",
         "polish"
       ],
-      "ace_note": "RS Potter's pink — compare with Maimeri 479 side by side for science. Temperature read: warm red family (orange-leaning or mid red). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "RS Potter's pink — compare with Maimeri 479 side by side for science.",
       "ace_history": "Mineral red-violets expand the cool-dark red range — architectural shadows and muted florals beyond pure magenta.",
       "toxicity": "low",
       "temp_role": "Warm red family · Deep mineral red-violet"
@@ -3605,7 +3605,7 @@
         "roman-szmal",
         "polish"
       ],
-      "ace_note": "Morning mist — granulating dawn fog over Polish fields. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Morning mist — granulating dawn fog over Polish fields.",
       "ace_history": "Carbon blacks (PBk6) are soot-descended darks — strong, often cool; in watercolor they can deaden mixes, so many painters prefer mixed chromatic blacks.",
       "toxicity": "low",
       "temp_role": "Neutral / low-chroma · Carbon / lamp black family · granulating"
@@ -3632,7 +3632,7 @@
         "honey-based",
         "2ml-sample"
       ],
-      "ace_note": "Honey-based Payne's gray — soft neutral, stays juicy on paper. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Honey-based Payne's gray — soft neutral, stays juicy on paper.",
       "ace_history": "Payne's gray was named for British watercolorist William Payne (circa 1800) — blue-black convenience mix for shadows; M. Graham's honey keeps it juicy.",
       "toxicity": "low",
       "temp_role": "Warm blue · Carbon / lamp black family"
@@ -3659,7 +3659,7 @@
         "honey-based",
         "2ml-sample"
       ],
-      "ace_note": "THE quin rose — honey base makes it bloom on wet paper. Temperature read: cool rose (magenta-violet primary). On paper: semi-transparent — glazes with a little presence; stains — commit lightly first. Pair with a warm red/orange when you need heat; rose alone stays on the cool side of the wheel.",
+      "ace_note": "THE quin rose — honey base makes it bloom on wet paper.",
       "ace_history": "Quinacridone rose in honey binder rewets like 19th-century recipes — the floral pink Graham & Co. aimed at when they revived honey watercolors in Oregon.",
       "toxicity": "low",
       "temp_role": "Cool rose · Cool rose primary · staining"
@@ -3686,7 +3686,7 @@
         "honey-based",
         "2ml-sample"
       ],
-      "ace_note": "Transparent red oxide — warm glazes with extended working time. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Transparent red oxide — warm glazes with extended working time.",
       "ace_history": "Mars/Venetian reds (PR101) are calcined iron oxides — brick, terracotta, and portrait underpainting since industrial iron pigments matured. Honey binder gives a distinctive slip and rewet.",
       "toxicity": "low",
       "temp_role": "Warm earth · Iron oxide red / Venetian earth red"
@@ -3713,7 +3713,7 @@
         "honey-based",
         "2ml-sample"
       ],
-      "ace_note": "Turquoise brings cool turquoise energy to the tin — worth knowing by temperature, not just by pretty swatch. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Turquoise brings cool turquoise energy to the tin — worth knowing by temperature, not just by pretty swatch.",
       "ace_history": "Phthalo turquoise (PB16) is a clean tropical blue-green of the phthalocyanine family — poster clarity without grinding gemstones. Honey binder gives a distinctive slip and rewet.",
       "toxicity": "low",
       "temp_role": "Cool turquoise · Phthalo turquoise / blue-green"
@@ -3740,7 +3740,7 @@
         "honey-based",
         "2ml-sample"
       ],
-      "ace_note": "Warm-leaning blue with old-soul granulation — skies, cloth, and neutrals when it meets a warm earth. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Warm-leaning blue with old-soul granulation — skies, cloth, and neutrals when it meets a warm earth.",
       "ace_history": "Ultramarine (PB29) was the precious lapis blue of churches before 1828 synthesis — still the granulating, warm-leaning blue of skies and classical mixes. Honey binder gives a distinctive slip and rewet.",
       "toxicity": "low",
       "temp_role": "Warm blue · Warm granulating sky/mixing blue"
@@ -3765,7 +3765,7 @@
         "professional",
         "sennelier"
       ],
-      "ace_note": "Primary cool blue with honey slip — staining as a bad habit and useful as a tool. Tiny touch for turquoise seas and jewel shadows; overdo it and it owns the wash. Dual advice: fantastic mixer — still dose staining power like hot sauce.",
+      "ace_note": "Primary cool blue with honey slip — staining as a bad habit and useful as a tool. Tiny touch for turquoise seas and jewel shadows; overdo it and it owns the wash.",
       "ace_history": "Phthalo blue green-shade (PB15:3) is the icy mixer behind countless teals — tiny doses; it will own the painting if you shout.",
       "toxicity": "low",
       "mix_star": true,
@@ -3801,7 +3801,7 @@
         "professional",
         "sennelier"
       ],
-      "ace_note": "Velvet violet-red — florals and wine shadows with Parisian flair. Temperature read: cool rose (magenta-violet primary). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Velvet violet-red — florals and wine shadows with Parisian flair.",
       "ace_history": "Quinacridone rose/violet (PV19) is a 20th-century transparent star — cool primary red for florals, glazes, and purples that stay clean.",
       "toxicity": "low",
       "temp_role": "Cool rose · Cool quinacridone rose / violet-red"
@@ -3826,7 +3826,7 @@
         "professional",
         "sennelier"
       ],
-      "ace_note": "Deeper than polite ultramarine — night skies with gravitas. Temperature read: warm blue (red-shade granulating). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Deeper than polite ultramarine — night skies with gravitas.",
       "ace_history": "Ultramarine (PB29) was the precious lapis blue of churches before 1828 synthesis — still the granulating, warm-leaning blue of skies and classical mixes.",
       "toxicity": "low",
       "temp_role": "Warm blue · Warm granulating sky/mixing blue"
@@ -3851,7 +3851,7 @@
         "professional",
         "sennelier"
       ],
-      "ace_note": "Third burnt sienna in the family — compare all three on one swatch card. Temperature read: warm earth (red-orange roast). On paper: semi-transparent — glazes with a little presence; earns a ◈ as a cooperative mixer. With Ultramarine it builds classic greys; it will not do Raw Umber's cool slate job — keep both roles if you can.",
+      "ace_note": "Third burnt sienna in the family — compare all three on one swatch card.",
       "mix_star": true,
       "best_for": "Warm earth lines, Sennelier's soft honey-bloom washes, and tertiary landscape mixes.",
       "ace_history": "Burnt sienna is iron earth roasted (calcined) until warm red-orange appears — a portrait and landscape staple. Same broad iron family as some umbers, opposite kitchen temperature from raw cool earths. DS often leans into granulation on wet paper.",
@@ -3901,7 +3901,7 @@
         "professional",
         "sennelier"
       ],
-      "ace_note": "Mortuary purple-brown — Renaissance drama in a 10ml tube. Temperature read: warm earth (red-orange roast). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Mortuary purple-brown — Renaissance drama in a 10ml tube.",
       "ace_history": "Mars/Venetian reds (PR101) are calcined iron oxides — brick, terracotta, and portrait underpainting since industrial iron pigments matured.",
       "toxicity": "low",
       "temp_role": "Warm earth · Iron oxide red / Venetian earth red"
@@ -3926,7 +3926,7 @@
         "professional",
         "sennelier"
       ],
-      "ace_note": "猩红漆 — lacquer-bright scarlet, bold and glossy-minded. Temperature read: warm red family (orange-leaning or mid red). On paper: semi-transparent — glazes with a little presence; stains — commit lightly first.",
+      "ace_note": "猩红漆 — lacquer-bright scarlet, bold and glossy-minded.",
       "ace_history": "Scarlet lacquer (PR188) chases Chinese lacquerware red — Sennelier's bold warm scarlet for decorative painting and East-meets-West floral work.",
       "toxicity": "low",
       "temp_role": "Warm red family · Red / warm accent · staining"
@@ -3951,7 +3951,7 @@
         "professional",
         "sennelier"
       ],
-      "ace_note": "Rouge Venise — earthy Venetian red, terracotta roofs and warm brick, not vermilion heat. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Rouge Venise — earthy Venetian red, terracotta roofs and warm brick, not vermilion heat.",
       "ace_history": "Venetian red is calcined iron oxide (PR101) — the brick-and-stucco red Venetian façades are named for, quite different from scarlet lacquer or bright helios red.",
       "toxicity": "low",
       "temp_role": "Warm red family · Iron oxide red / Venetian earth red"
@@ -3976,7 +3976,7 @@
         "professional",
         "sennelier"
       ],
-      "ace_note": "Rouge Hélios — semi-opaque bright red with honey bloom, punchy florals and accents. On paper: semi-transparent — glazes with a little presence; stains — commit lightly first.",
+      "ace_note": "Rouge Hélios — semi-opaque bright red with honey bloom, punchy florals and accents.",
       "ace_history": "Rouge Hélios (PR3 toluidine red) is Sennelier's serie 2 bright red — a modern organic scarlet, not cadmium; honey binder keeps washes lively on cold press.",
       "toxicity": "low",
       "temp_role": "Warm red family · Red / warm accent · staining"
@@ -4001,7 +4001,7 @@
         "professional",
         "sennelier"
       ],
-      "ace_note": "Bottle emerald — lush, straightforward foliage green. Temperature read: cool green (blue-shade staining). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Bottle emerald — lush, straightforward foliage green.",
       "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch.",
       "toxicity": "low",
       "temp_role": "Cool green · Cool staining phthalo green"
@@ -4026,7 +4026,7 @@
         "professional",
         "sennelier"
       ],
-      "ace_note": "House green — proprietary blend, try it against May Green. Temperature read: cool yellow (lemon / green-leaning primary). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "House green — proprietary blend, try it against May Green.",
       "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch.",
       "toxicity": "low",
       "temp_role": "Cool yellow · Cool lemon primary yellow"
@@ -4051,11 +4051,11 @@
         "professional",
         "sennelier"
       ],
-      "ace_note": "Gradient orange from deep burnt to bright gold — sunset in one pigment. Temperature read: warm yellow (gold / glaze yellow). On paper: semi-transparent — glazes with a little presence.",
-      "ace_history": "Nickel Azo Yellow (PY150) is a transparent warm yellow that underpins many quinacridone-gold blends — luminous glazes, not chalky coverage.",
+      "ace_note": "Gradient orange from deep burnt to bright gold — sunset in one pigment.\n\nBecause it's a blend (nickel azo yellow + quin red + brown), it already behaves like a tiny recipe: gold at the dilute end, burnt fruit in masstone. Lovely when you want hour of the day without mixing three pans on a windy street. The tradeoff: you can't always untangle which pigment is bossing a mix — if a green goes dead, it may be the brown note whispering.\n\nDual advice: great travel convenience; for learning orange, also keep a single-pigment warm (PO62 or PO73) so you know what pure orange does when the blend misbehaves. Honey binder will rewet hungry — give it a moment.",
+      "ace_history": "\"Chinese Orange\" is a commercial name for a modern multi-pigment convenience orange (here PY150 + PR209 + PBr23), not a single historical Chinese lacquer pigment. Sennelier's honey base continues their 19th-century habit of soft, rewettable color — sunset marketing with a French accent.",
       "toxicity": "medium",
       "toxicity_habit": "Nickel-containing pigment — wash hands after sessions; no eating at the desk.",
-      "temp_role": "Warm yellow · Warm transparent gold-yellow"
+      "temp_role": "Warm orange-brown · Convenience sunset blend · honey binder"
     },
     {
       "transparency": 2,
@@ -4078,7 +4078,7 @@
         "horadam",
         "cadmium-free"
       ],
-      "ace_note": "Schmincke Pure Yellow — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set. Temperature read: warm yellow (gold/orange edge). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Schmincke Pure Yellow — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
       "ace_history": "Pure yellow (PY138) is Schmincke's modern transparent primary — a clean mixing yellow for Horadam lines without cadmium's opaque push.",
       "toxicity": "low",
       "temp_role": "Warm yellow · Yellow for mixing and light"
@@ -4104,7 +4104,7 @@
         "horadam",
         "cadmium-free"
       ],
-      "ace_note": "Schmincke Chromium Yellow Hue Light — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set. Temperature read: warm yellow (gold/orange edge).",
+      "ace_note": "Schmincke Chromium Yellow Hue Light — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
       "ace_history": "Arylide mid yellows (PY74) are workhorse organics — strong chroma for design and illustration palettes that need punch without cadmium. Horadam milling aims for creamy rewet and control.",
       "toxicity": "low",
       "temp_role": "Warm yellow · Bright mid yellow"
@@ -4130,7 +4130,7 @@
         "horadam",
         "cadmium-free"
       ],
-      "ace_note": "Schmincke Chromium Yellow Hue Deep — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set. Temperature read: warm yellow (gold/orange edge).",
+      "ace_note": "Schmincke Chromium Yellow Hue Deep — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
       "ace_history": "Arylide mid yellows (PY74) are workhorse organics — strong chroma for design and illustration palettes that need punch without cadmium. Horadam milling aims for creamy rewet and control.",
       "toxicity": "low",
       "temp_role": "Warm yellow · Bright mid yellow"
@@ -4156,10 +4156,10 @@
         "horadam",
         "cadmium-free"
       ],
-      "ace_note": "Schmincke Chromium Orange Hue — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set. Temperature read: warm orange (yellow-red bridge).",
-      "ace_history": "Chromium orange hue (PO62) replaces forbidden lead oranges — warm sunset accent with old-master temperature and new chemistry. Horadam milling aims for creamy rewet and control.",
+      "ace_note": "Schmincke Chromium Orange Hue — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.\n\nSame fire, different faucet: the tube is for when sunset needs a passage, not a postage stamp. If half-pan and tube both live in the studio, treat them as one color in kit logic (don't fill two wells for ego). Use the tube when you're painting sky bands; keep the pan for travel tins.\n\nDual advice: one well of PO62 is enough. Spend the second orange slot on a transparent heat (quin gold / transparent orange) if you want glaze stories.",
+      "ace_history": "Same PO62 chromium-orange-hue story as the half-pan — modern stand-in for historic chrome orange temperature. Tube format is for volume and studio sessions; the chemistry's job doesn't change with the plastic.",
       "toxicity": "low",
-      "temp_role": "Warm orange · Orange accent / bridge color"
+      "temp_role": "Warm orange · Same soul as the half-pan · tube for bigger washes"
     },
     {
       "transparency": 2,
@@ -4182,7 +4182,7 @@
         "horadam",
         "cadmium-free"
       ],
-      "ace_note": "Schmincke Permanent Red — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set. Temperature read: warm red-orange (fire primary). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Schmincke Permanent Red — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
       "ace_history": "Pyrrole red (PR254) is a modern lightfast fire-engine red — cleaner mixes than many earth reds, staining enough to commit with intention. Horadam milling aims for creamy rewet and control.",
       "toxicity": "low",
       "temp_role": "Warm red-orange · Warm modern organic red (pyrrol)"
@@ -4207,7 +4207,7 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Quinacridone Red Light — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set. Temperature read: cool rose (magenta-violet primary).",
+      "ace_note": "Schmincke Quinacridone Red Light — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
       "ace_history": "Quin red light (PV19) is a cool transparent primary — the floral red that replaced alizarin on professional European palettes in the late 20th century.",
       "toxicity": "low",
       "temp_role": "Cool rose · Cool quinacridone rose / violet-red · staining"
@@ -4232,7 +4232,7 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Ultramarine — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set. Temperature read: warm blue (red-shade granulating).",
+      "ace_note": "Schmincke Ultramarine — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
       "mix_star": true,
       "best_for": "Tube ultramarine for large washes, mixing greys, and cool shadow bases.",
       "ace_history": "Synthetic ultramarine (1828) ended the lapis trade monopoly — Horadam's version is among the reference blues European ateliers test everything else against.",
@@ -4282,7 +4282,7 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Phthalo Green — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set. Temperature read: cool green (blue-shade staining). Dual advice: fantastic mixer — still dose staining power like hot sauce.",
+      "ace_note": "Schmincke Phthalo Green — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
       "mix_star": true,
       "best_for": "Tube phthalo for bold mixing — same staining power as the half-pan line.",
       "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch. Horadam milling aims for creamy rewet and control.",
@@ -4332,7 +4332,7 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Transparent Sienna — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set. On paper: transparent in washes.",
+      "ace_note": "Schmincke Transparent Sienna — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
       "ace_history": "PBr7 covers raw and burnt earths — iron-rich clays, sometimes with manganese in umbers. Roasting (calcining) swings the same family from cool espresso to warm red-brown. Horadam milling aims for creamy rewet and control.",
       "toxicity": "low",
       "temp_role": "Warm earth · Natural/synthetic iron earth brown · transparent"
@@ -4357,7 +4357,7 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Deep Sea Violet — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set. Temperature read: warm blue (red-shade granulating). Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Schmincke Deep Sea Violet — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
       "ace_history": "Manganese violet (PV16) is a mineral purple with body and often gentle granulation — quieter than quin fireworks, useful for shadows and florals. Horadam milling aims for creamy rewet and control.",
       "toxicity": "medium",
       "toxicity_habit": "Manganese pigment — wash hands well after painting.",
@@ -4383,7 +4383,7 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Deep Sea Indigo — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set. Temperature read: cool green (blue-shade staining). Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Schmincke Deep Sea Indigo — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
       "mix_star": true,
       "best_for": "5ml tube deep water — same abyss mood as the pan, bolder washes.",
       "ace_history": "Indanthrene/anthraquinone blues (PB60) are deep, staining darks — night water and structural shadows without pure black. Horadam milling aims for creamy rewet and control.",
@@ -4433,7 +4433,7 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Deep Sea Blue — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set. Temperature read: warm blue (red-shade granulating). Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Schmincke Deep Sea Blue — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
       "ace_history": "Ultramarine (PB29) was the precious lapis blue of churches before 1828 synthesis — still the granulating, warm-leaning blue of skies and classical mixes. Horadam milling aims for creamy rewet and control.",
       "toxicity": "low",
       "temp_role": "Warm blue · Warm granulating ultramarine blue · granulating"
@@ -4458,7 +4458,7 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Deep Sea Green — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set. Temperature read: warm blue (red-shade granulating). Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Schmincke Deep Sea Green — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
       "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch. Horadam milling aims for creamy rewet and control.",
       "toxicity": "low",
       "temp_role": "Warm blue · Cool staining phthalo green · granulating"
@@ -4483,7 +4483,7 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Deep Sea Black — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set. Temperature read: near-neutral dark (low chroma). Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Schmincke Deep Sea Black — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
       "ace_history": "Bone/ivory blacks (PBk7) are warmer historical darks from charred bone — still useful, still easy to muddy a sky if overused. Horadam milling aims for creamy rewet and control.",
       "toxicity": "medium",
       "toxicity_habit": "Manganese pigment — wash hands well after painting.",
@@ -4509,7 +4509,7 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Glacier Blue — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set. Temperature read: cool blue (green-shade staining). Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Schmincke Glacier Blue — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
       "ace_history": "Phthalocyanine blue (PB15) arrived mid-20th century — transparent, staining, powerful; a whisper mixes oceans and deep greens. Horadam milling aims for creamy rewet and control.",
       "toxicity": "low",
       "temp_role": "Cool blue · Cool staining phthalo blue · granulating"
@@ -4534,7 +4534,7 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Glacier Turquoise — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set. Temperature read: cool turquoise (blue-green water). Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Schmincke Glacier Turquoise — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
       "ace_history": "Phthalo turquoise (PB16) is a clean tropical blue-green of the phthalocyanine family — poster clarity without grinding gemstones. Horadam milling aims for creamy rewet and control.",
       "toxicity": "low",
       "temp_role": "Cool turquoise · Phthalo turquoise / blue-green · granulating"
@@ -4559,7 +4559,7 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Glacier Green — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set. Temperature read: cool green (blue-shade staining). Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Schmincke Glacier Green — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
       "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch. Horadam milling aims for creamy rewet and control.",
       "toxicity": "low",
       "temp_role": "Cool green · Cool staining phthalo green · granulating"
@@ -4584,7 +4584,7 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Glacier Brown — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set. Temperature read: warm earth (red-orange roast). On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Schmincke Glacier Brown — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
       "ace_history": "PBr7 covers raw and burnt earths — iron-rich clays, sometimes with manganese in umbers. Roasting (calcining) swings the same family from cool espresso to warm red-brown. Horadam milling aims for creamy rewet and control.",
       "toxicity": "low",
       "temp_role": "Warm earth · Natural/synthetic iron earth brown · granulating"
@@ -4609,7 +4609,7 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Glacier Black — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set. Temperature read: near-neutral dark (low chroma). On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Schmincke Glacier Black — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
       "ace_history": "Bone/ivory blacks (PBk7) are warmer historical darks from charred bone — still useful, still easy to muddy a sky if overused. Horadam milling aims for creamy rewet and control.",
       "toxicity": "low",
       "temp_role": "Near-neutral dark · Ivory / bone black character · granulating"
@@ -4634,7 +4634,7 @@
         "professional",
         "honey-based"
       ],
-      "ace_note": "M. Graham Indian Yellow — honey base, 2ml sample. Blooms on wet paper if you lean in. Temperature read: warm orange (yellow-red bridge). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "M. Graham Indian Yellow — honey base, 2ml sample. Blooms on wet paper if you lean in.",
       "ace_history": "Indian yellow legend says it came from mango-fed cows — the transparent warm yellow of 18th-century Company School painting, now synthetic PY83 in honey.",
       "toxicity": "low",
       "temp_role": "Warm orange · Yellow for mixing and light"
@@ -4659,7 +4659,7 @@
         "professional",
         "honey-based"
       ],
-      "ace_note": "M. Graham Ultramarine Blue — honey base, 2ml sample. Blooms on wet paper if you lean in. Temperature read: warm blue (red-shade granulating).",
+      "ace_note": "M. Graham Ultramarine Blue — honey base, 2ml sample. Blooms on wet paper if you lean in.",
       "mix_star": true,
       "best_for": "Honey-bloom ultramarine skies, soft-edged washes, and classic grey mixes.",
       "ace_history": "Ultramarine (PB29) was the precious lapis blue of churches before 1828 synthesis — still the granulating, warm-leaning blue of skies and classical mixes. Honey binder gives a distinctive slip and rewet.",
@@ -4709,7 +4709,7 @@
         "professional",
         "honey-based"
       ],
-      "ace_note": "M. Graham Cobalt Yellow — honey base, 2ml sample. Blooms on wet paper if you lean in. Temperature read: warm yellow (gold/orange edge). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "M. Graham Cobalt Yellow — honey base, 2ml sample. Blooms on wet paper if you lean in.",
       "ace_history": "Pale Naples-style yellows echo portrait-studio flesh lights — low drama, high usefulness when you need cream without lemon sting. Honey binder gives a distinctive slip and rewet.",
       "toxicity": "medium",
       "toxicity_habit": "Cobalt pigment — wash hands after painting; keep food and drink away from the palette.",
@@ -4735,7 +4735,7 @@
         "professional",
         "honey-based"
       ],
-      "ace_note": "M. Graham Olive Green — honey base, 2ml sample. Blooms on wet paper if you lean in. Temperature read: cool yellow (lemon / green-leaning primary).",
+      "ace_note": "M. Graham Olive Green — honey base, 2ml sample. Blooms on wet paper if you lean in.",
       "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch. Honey binder gives a distinctive slip and rewet.",
       "toxicity": "low",
       "temp_role": "Cool yellow · Cool lemon primary yellow"
@@ -4760,7 +4760,7 @@
         "professional",
         "honey-based"
       ],
-      "ace_note": "M. Graham Permanent Green Light — honey base, 2ml sample. Blooms on wet paper if you lean in. Temperature read: cool green (blue-shade staining).",
+      "ace_note": "M. Graham Permanent Green Light — honey base, 2ml sample. Blooms on wet paper if you lean in.",
       "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch. Honey binder gives a distinctive slip and rewet.",
       "toxicity": "low",
       "temp_role": "Cool green · Cool staining phthalo green"
@@ -4785,7 +4785,7 @@
         "professional",
         "honey-based"
       ],
-      "ace_note": "M. Graham Burnt Umber — honey base, 2ml sample. Blooms on wet paper if you lean in. Temperature read: warm earth (red-orange roast). On paper: transparent in washes.",
+      "ace_note": "M. Graham Burnt Umber — honey base, 2ml sample. Blooms on wet paper if you lean in.",
       "ace_history": "Burnt umber is roasted umber earth — warmer and often darker than raw. Classic with ultramarine for quick chromatic blacks and soft greys.",
       "toxicity": "low",
       "temp_role": "Warm earth · Warm dark earth for chromatic blacks · transparent"
@@ -4809,7 +4809,7 @@
         "professional",
         "st-petersburg"
       ],
-      "ace_note": "White Nights Mint Dream — full pan from St. Petersburg, Jul 7. Temperature read: cool green (blue-shade staining). On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "White Nights Mint Dream — full pan from St. Petersburg, Jul 7.",
       "mix_star": false,
       "best_for": "Soft pastel greens, sea-glass accents, minty florals, and cool calm backgrounds.",
       "ace_history": "Mint Dream sits in White Nights' pastel-leaning granulating range — a contemporary convenience shade for illustrators and botanical artists who want cool freshness.",
@@ -4851,7 +4851,7 @@
         "professional",
         "st-petersburg"
       ],
-      "ace_note": "White Nights Scarlet Mist — full pan from St. Petersburg, Jul 7. Temperature read: warm red family (orange-leaning or mid red). On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper; earns a ◈ as a cooperative mixer. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "White Nights Scarlet Mist — full pan from St. Petersburg, Jul 7.",
       "mix_star": true,
       "best_for": "Bold florals, granulating red washes, and warm accent passages that bloom on wet paper.",
       "ace_history": "Scarlet Mist is part of White Nights' granulating mist line — built for wet-on-wet florals where pigment separation does the rendering.",
@@ -4903,7 +4903,7 @@
         "russian",
         "st-petersburg"
       ],
-      "ace_note": "Burgundy-grey with a wandering quin pink — cobalt green granules settle like grey-green trails in wet florals. Temperature read: cool rose (magenta-violet primary). Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Burgundy-grey with a wandering quin pink — cobalt green granules settle like grey-green trails in wet florals.",
       "mix_star": true,
       "best_for": "Florals, abstract backgrounds, urban sketch shadows, and granulating burgundy-grey fills.",
       "ace_history": "Purple Mist pairs cobalt titanate green with quin violet — White Nights lets the green granulate out while pink quin rides the water, a very Russian specialty effect.",
@@ -4953,7 +4953,7 @@
         "professional",
         "premium"
       ],
-      "ace_note": "DS holiday Christmas Tree Green — festive 15ml, paint something ridiculous and beautiful. Temperature read: cool blue (green-shade staining).",
+      "ace_note": "DS holiday Christmas Tree Green — festive 15ml, paint something ridiculous and beautiful.",
       "ace_history": "PBr7 covers raw and burnt earths — iron-rich clays, sometimes with manganese in umbers. Roasting (calcining) swings the same family from cool espresso to warm red-brown.",
       "toxicity": "low",
       "temp_role": "Cool blue · Natural/synthetic iron earth brown"
@@ -4977,7 +4977,7 @@
         "professional",
         "premium"
       ],
-      "ace_note": "DS holiday Hot Mulled Cider Yellow — festive 15ml, paint something ridiculous and beautiful. Temperature read: warm yellow (gold / glaze yellow).",
+      "ace_note": "DS holiday Hot Mulled Cider Yellow — festive 15ml, paint something ridiculous and beautiful.",
       "ace_history": "Hot mulled cider yellow is a Daniel Smith holiday shade — warm spiced yellow for seasonal illustration, a studio fun tube rather than a classical pigment.",
       "toxicity": "medium",
       "toxicity_habit": "Nickel-containing pigment — wash hands after sessions; no eating at the desk.",
@@ -5002,7 +5002,7 @@
         "professional",
         "premium"
       ],
-      "ace_note": "DS holiday Candy Cane Red — festive 15ml, paint something ridiculous and beautiful. Temperature read: cool rose (magenta-violet primary). On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "DS holiday Candy Cane Red — festive 15ml, paint something ridiculous and beautiful.",
       "ace_history": "Quinacridone rose/violet (PV19) is a 20th-century transparent star — cool primary red for florals, glazes, and purples that stay clean.",
       "toxicity": "low",
       "temp_role": "Cool rose · Cool quinacridone rose / violet-red"
@@ -5026,10 +5026,10 @@
         "professional",
         "winsor-newton"
       ],
-      "ace_note": "W&N Professional Winsor Orange (Red Shade) — classic British workhorse in 5ml. Temperature read: warm red-orange (fire primary). On paper: semi-transparent — glazes with a little presence; stains — commit lightly first.",
-      "ace_history": "Winsor orange (red shade) is W&N's primary orange — the British colourman's answer to clean secondary mixing on the professional line since the 1830s firm.",
+      "ace_note": "W&N Professional Winsor Orange (Red Shade) — classic British workhorse in 5ml.\n\nPO73 is pyrrole territory: cleaner and more modern than earth oranges, with enough stain that a bold mark means it. Mix with a cool yellow for traffic-cone brightness; with a cool blue for near-neutrals that still feel designed, not muddy brown. Red shade means it leans toward coral-scarlet — excellent for poppies and signal lights, less pumpkin pie than a yellow-shade orange.\n\nDual advice: if you already keep Scarlet Pyrrol / other pyrroles for red, this orange is the bridge into yellow — you may not need a separate cadmium orange. Dose carefully; staining oranges forgive less than ochres.",
+      "ace_history": "Pyrrole orange (PO73) is a late-20th-century high-chroma organic — lightfast fire that finally gave watercolor a cadmium-like punch without the same opacity politics. Winsor & Newton's \"Winsor\" line brands it as a professional primary secondary: British colourman tradition, modern molecule.",
       "toxicity": "low",
-      "temp_role": "Warm red-orange · Warm transparent fire orange-red (pyrrol) · staining"
+      "temp_role": "Warm red-orange · Pyrrole fire · staining primary orange"
     },
     {
       "transparency": 1,
@@ -5050,7 +5050,7 @@
         "professional",
         "winsor-newton"
       ],
-      "ace_note": "W&N Professional Winsor Green (Blue Shade) — classic British workhorse in 5ml. Temperature read: cool green (blue-shade staining). On paper: transparent in washes; stains — commit lightly first.",
+      "ace_note": "W&N Professional Winsor Green (Blue Shade) — classic British workhorse in 5ml.",
       "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch.",
       "toxicity": "low",
       "temp_role": "Cool green · Cool staining phthalo green · staining · transparent"
@@ -5074,7 +5074,7 @@
         "professional",
         "winsor-newton"
       ],
-      "ace_note": "W&N Professional Quinacridone Red — classic British workhorse in 5ml. Temperature read: warm red family (orange-leaning or mid red). On paper: transparent in washes; earns a ◈ as a cooperative mixer.",
+      "ace_note": "W&N Professional Quinacridone Red — classic British workhorse in 5ml.",
       "mix_star": true,
       "best_for": "Florals, bold reds, mixing bright violets and oranges — a staining primary red.",
       "ace_history": "Quinacridone reds/corals (PR209) are transparent organics built for glow — modern glazing reds that keep florals luminous.",
@@ -5123,7 +5123,7 @@
         "professional",
         "winsor-newton"
       ],
-      "ace_note": "W&N Professional Green Gold — classic British workhorse in 5ml. Temperature read: cool-to-mid yellow (lemon or neutral primary). On paper: transparent in washes; earns a ◈ as a cooperative mixer.",
+      "ace_note": "W&N Professional Green Gold — classic British workhorse in 5ml.",
       "mix_star": true,
       "best_for": "W&N landscape greens, autumn gold accents, and warm natural mixing.",
       "ace_history": "Green gold in professional lines echoes Turner-era yellow-green lakes — W&N's version targets the British landscape tradition.",
@@ -5172,7 +5172,7 @@
         "professional",
         "winsor-newton"
       ],
-      "ace_note": "W&N Professional Phthalo Turquoise — classic British workhorse in 5ml. Temperature read: cool turquoise (blue-green water). On paper: transparent in washes; stains — commit lightly first. Dual advice: whisper in mixes; scream only when the subject is electric water or glass.",
+      "ace_note": "W&N Professional Phthalo Turquoise — classic British workhorse in 5ml.",
       "ace_history": "Phthalo turquoise (PB16) is a clean tropical blue-green of the phthalocyanine family — poster clarity without grinding gemstones.",
       "toxicity": "low",
       "temp_role": "Cool turquoise · Phthalo turquoise / blue-green · staining · transparent"
@@ -5196,7 +5196,7 @@
         "professional",
         "winsor-newton"
       ],
-      "ace_note": "W&N Professional Winsor Blue (Red Shade) — classic British workhorse in 5ml. Temperature read: cool blue (green-shade staining). On paper: transparent in washes; stains — commit lightly first.",
+      "ace_note": "W&N Professional Winsor Blue (Red Shade) — classic British workhorse in 5ml.",
       "ace_history": "Winsor blue (red shade) is phthalo blue biased warm — W&N's primary for mixing clean violets beside British quin reds.",
       "toxicity": "low",
       "temp_role": "Cool blue · Blue for sky, water, and mixes · staining · transparent"
@@ -5220,7 +5220,7 @@
         "professional",
         "winsor-newton"
       ],
-      "ace_note": "W&N Professional Winsor Blue (Green Shade) — classic British workhorse in 5ml. Temperature read: cool blue (green-shade staining). On paper: transparent in washes; stains — commit lightly first.",
+      "ace_note": "W&N Professional Winsor Blue (Green Shade) — classic British workhorse in 5ml.",
       "ace_history": "Phthalo blue green-shade (PB15:3) is the icy mixer behind countless teals — tiny doses; it will own the painting if you shout.",
       "toxicity": "low",
       "temp_role": "Cool blue · Cool phthalo blue (green shade) · staining · transparent"
@@ -5245,7 +5245,7 @@
       "format": "full pan",
       "family": "red",
       "notes": "Engl.-Venez. Rot. Color-check Jul 8 2026 — full pan photo.",
-      "ace_note": "Full-pan Venetian red — earthy brick warmth in the large format you actually paint from. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Full-pan Venetian red — earthy brick warmth in the large format you actually paint from.",
       "ace_history": "Mars/Venetian reds (PR101) are calcined iron oxides — brick, terracotta, and portrait underpainting since industrial iron pigments matured. Horadam milling aims for creamy rewet and control.",
       "temp_role": "Warm red family · Iron oxide red / Venetian earth red"
     },
@@ -5269,7 +5269,7 @@
       "format": "full pan",
       "family": "purple",
       "notes": "Perylenviolett PV29. Color-check Jul 8 2026 — full pan photo.",
-      "ace_note": "Deep transparent violet — glaze shadows and moody florals without going muddy. On paper: transparent in washes; stains — commit lightly first.",
+      "ace_note": "Deep transparent violet — glaze shadows and moody florals without going muddy.",
       "ace_history": "Perylene violet (PV29) is a modern transparent purple built for glazing — botanical illustrators reach for it when dioxazine feels too electric. Horadam milling aims for creamy rewet and control.",
       "temp_role": "Cool purple / magenta · Violet for shadow and florals · staining · transparent"
     },
@@ -5293,7 +5293,7 @@
       "format": "half-pan",
       "family": "yellow",
       "notes": "Neapelgelb rötlich. Color-check Jul 8 2026 — half pan.jpg (plastic case).",
-      "ace_note": "Warmer Naples in travel half-pan — skin tones and faded peach walls. On paper: more body/coverage than a pure stain.",
+      "ace_note": "Warmer Naples in travel half-pan — skin tones and faded peach walls.",
       "ace_history": "Modern Naples yellows (often PY216 blends) chase the soft chalky warmth of historic lead antimonate without the poison — skin, stucco, hazy walls. Horadam milling aims for creamy rewet and control.",
       "temp_role": "Warm orange · Soft chalky warm yellow (Naples family) · more opaque"
     },
@@ -5317,7 +5317,7 @@
       "format": "half-pan",
       "family": "red",
       "notes": "Krapprot tief. Color-check Jul 8 2026 — half pan.jpg.",
-      "ace_note": "Deep madder rose — wine-stain florals and old-master shadows. On paper: transparent in washes; stains — commit lightly first.",
+      "ace_note": "Deep madder rose — wine-stain florals and old-master shadows.",
       "ace_history": "Quinacridone reds/corals (PR209) are transparent organics built for glow — modern glazing reds that keep florals luminous. Horadam milling aims for creamy rewet and control.",
       "temp_role": "Warm red family · Warm quinacridone coral-red · staining · transparent"
     },
@@ -5341,7 +5341,7 @@
       "format": "half-pan",
       "family": "earth",
       "notes": "679 Umbra natur / raw umber. Half-pan 6 tin — label only, code from catalog.",
-      "ace_note": "Cool earth anchor — tree trunks, shadows, and mixing neutrals without going black. On paper: semi-transparent — glazes with a little presence. With Ultramarine it goes icy slate, not sienna's balanced grey — lovely for mood, risky for sunlit skin.",
+      "ace_note": "Cool earth anchor — tree trunks, shadows, and mixing neutrals without going black.",
       "ace_history": "Raw umber is unroasted iron earth, often with manganese that pulls a cool green-brown undertone — ancient shadow tool from classical drawings to landscape sketchbooks. Teammate to burnt sienna, not a twin.",
       "temp_role": "Cool earth · Cool green-brown earth dark"
     },
@@ -5365,7 +5365,7 @@
       "format": "half-pan",
       "family": "blue",
       "notes": "Ultramarin feinst. Color-check Jul 8 2026 — half-pan 3 photo.",
-      "ace_note": "Schmincke's finest-ground ultramarine in half-pan — granulating sky blue with dignity. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Schmincke's finest-ground ultramarine in half-pan — granulating sky blue with dignity.",
       "ace_history": "Ultramarine (PB29) was the precious lapis blue of churches before 1828 synthesis — still the granulating, warm-leaning blue of skies and classical mixes. Horadam milling aims for creamy rewet and control.",
       "temp_role": "Warm blue · Warm granulating sky/mixing blue · granulating"
     },
@@ -5389,7 +5389,7 @@
       "format": "half-pan",
       "family": "green",
       "notes": "Perylengrün. Color-check Jul 8 2026 — half-pan 4 photo.",
-      "ace_note": "Transparent dark green — forest depths and botanical shadows. On paper: transparent in washes; stains — commit lightly first.",
+      "ace_note": "Transparent dark green — forest depths and botanical shadows.",
       "ace_history": "Perylene green is a modern transparent dark green — the shadow color botanical painters wanted when indigo felt too blue. Horadam milling aims for creamy rewet and control.",
       "temp_role": "Cool green · Green — convenience or mixer · staining · transparent"
     },
@@ -5413,7 +5413,7 @@
       "format": "half-pan",
       "family": "neutral",
       "notes": "Neutraltinte. Color-check Jul 8 2026 — half-pan 4 photo.",
-      "ace_note": "Pre-mixed neutral — quick value shifts without muddy tri-color mixing. On paper: transparent in washes; stains — commit lightly first.",
+      "ace_note": "Pre-mixed neutral — quick value shifts without muddy tri-color mixing.",
       "ace_history": "Carbon blacks (PBk6) are soot-descended darks — strong, often cool; in watercolor they can deaden mixes, so many painters prefer mixed chromatic blacks. Horadam milling aims for creamy rewet and control.",
       "temp_role": "Cool rose · Carbon / lamp black family · staining · transparent"
     },
@@ -5437,7 +5437,7 @@
       "format": "half-pan",
       "family": "red",
       "notes": "Geranienrot. Color-check Jul 8 2026 — half-pan 4 photo.",
-      "ace_note": "Bright geranium red — garden flowers and bold accents. Temperature read: warm red family (orange-leaning or mid red). On paper: semi-transparent — glazes with a little presence; stains — commit lightly first.",
+      "ace_note": "Bright geranium red — garden flowers and bold accents.",
       "ace_history": "Geranium red (PR253) is a modern pyrrole red — clean floral scarlet for illustrators who want permanent pop. Horadam milling aims for creamy rewet and control.",
       "temp_role": "Warm red family · Red / warm accent · staining"
     },
@@ -5461,7 +5461,7 @@
       "format": "half-pan",
       "family": "blue",
       "notes": "Franz.Ultramarin. Color-check Jul 8 2026 — half-pan 4 photo.",
-      "ace_note": "Classic granulating ultramarine — skies that bloom on cold press. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Classic granulating ultramarine — skies that bloom on cold press.",
       "ace_history": "Ultramarine (PB29) was the precious lapis blue of churches before 1828 synthesis — still the granulating, warm-leaning blue of skies and classical mixes. Horadam milling aims for creamy rewet and control.",
       "temp_role": "Warm blue · Warm granulating sky/mixing blue · granulating"
     },
@@ -5485,9 +5485,9 @@
       "format": "half-pan",
       "family": "orange",
       "notes": "Chinacridongoldton. Color-check Jul 8 2026 — half-pan 4 photo.",
-      "ace_note": "Warm quin gold — autumn leaves and honey light in one stroke. On paper: transparent in washes.",
-      "ace_history": "Quinacridone gold hue (PO49) brings the quin family into warm territory — Turner sunset glazes without cadmium. Horadam milling aims for creamy rewet and control.",
-      "temp_role": "Warm orange · Orange accent / bridge color · transparent"
+      "ace_note": "Warm quin gold — autumn leaves and honey light in one stroke.\n\nLess traffic cone, more late sun in a glass of whiskey. Dilute for skin warmth and backlit foliage; masstone for amber windows. With ultramarine or indigo it makes gorgeous broken neutrals and stormy greens-browns; with pinks it goes apricot skin. This is a mixer's orange-gold, not a pure secondary orange for the color wheel exam.\n\nDual advice: if Transparent Orange is pure sunset heat, quin gold is autumn atmosphere. You can own both; you don't need a third gold ochre unless you want mineral grit. Horadam will feel polite — lean on wet-in-wet to let it bloom.",
+      "ace_history": "Quinacridone gold / PO49-type hues pull the quinacridone family into warm territory — modern transparent golds used where painters once reached for gamboge or dirty yellow ochre. \"Hue\" means Schmincke is matching a beloved gold effect with lightfast organics, not promising a single historic resin.",
+      "temp_role": "Warm gold-orange · Glaze autumn · transparent quin heat"
     },
     {
       "brand_traits": [
@@ -5510,7 +5510,7 @@
       "format": "half-pan",
       "family": "yellow",
       "notes": "Reingelb. Color-check Jul 8 2026 — half-pan 4 photo.",
-      "ace_note": "Clean transparent yellow half-pan — mixing primary without cadmium weight. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Clean transparent yellow half-pan — mixing primary without cadmium weight.",
       "ace_history": "Pure yellow (PY138) is Schmincke's modern transparent primary — cadmium-free mixing yellow. Horadam milling aims for creamy rewet and control.",
       "temp_role": "Warm yellow · Yellow for mixing and light"
     },
@@ -5534,7 +5534,7 @@
       "format": "half-pan",
       "family": "neutral",
       "notes": "Titan-Deckweiß. Color-check Jul 8 2026 — half-pan 4 photo.",
-      "ace_note": "Opaque body white — highlights, corrections, and gouache-style passages. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Opaque body white — highlights, corrections, and gouache-style passages.",
       "ace_history": "Titanium white (PW6) is the modern opaque light — strong coverage for gouache-like passages; watercolor purists use it sparingly for body color. Horadam milling aims for creamy rewet and control.",
       "temp_role": "Near-neutral light · Titanium white / opaque light"
     },
@@ -5558,7 +5558,7 @@
       "format": "half-pan",
       "family": "red",
       "notes": "Perylenrot tief. Color-check Jul 8 2026 — half-pan 4 photo.",
-      "ace_note": "Deep perylene wine-red — glazing shadows richer than black. Temperature read: warm red family (orange-leaning or mid red). On paper: transparent in washes; stains — commit lightly first.",
+      "ace_note": "Deep perylene wine-red — glazing shadows richer than black.",
       "ace_history": "Perylene maroon (PR179) is a modern glazing red-brown — botanical shadows and deep florals where old madder would fade. Horadam milling aims for creamy rewet and control.",
       "temp_role": "Warm red family · Deep transparent wine red · staining · transparent"
     },
@@ -5582,7 +5582,7 @@
       "format": "half-pan",
       "family": "earth",
       "notes": "665 Siena natur / raw sienna. Half-pan 6 tin — label only, code from catalog.",
-      "ace_note": "Warm raw sienna — sunlit earth and dusty paths. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Warm raw sienna — sunlit earth and dusty paths.",
       "ace_history": "PBr7 covers raw and burnt earths — iron-rich clays, sometimes with manganese in umbers. Roasting (calcining) swings the same family from cool espresso to warm red-brown. Horadam milling aims for creamy rewet and control.",
       "temp_role": "Warm earth · Natural/synthetic iron earth brown"
     },
@@ -5606,7 +5606,7 @@
       "format": "half-pan",
       "family": "earth",
       "notes": "672 Van Dyck Braun / Van Dyck brown. Half-pan 6 tin — label only, code from catalog.",
-      "ace_note": "Rich transparent brown — Old Master shadows and tree trunks. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Rich transparent brown — Old Master shadows and tree trunks.",
       "ace_history": "Bone/ivory blacks (PBk7) are warmer historical darks from charred bone — still useful, still easy to muddy a sky if overused. Horadam milling aims for creamy rewet and control.",
       "temp_role": "Warm earth · Ivory / bone black character"
     },
@@ -5631,7 +5631,7 @@
       "size": "5ml",
       "family": "pink",
       "notes": "rose galaxie. Color-check Jul 8 2026 — tube 2 photo.",
-      "ace_note": "Granulating galaxy rose — cosmic sediment on wet paper. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Granulating galaxy rose — cosmic sediment on wet paper.",
       "ace_history": "Quinacridone magenta (PR122) is a cool primary for modern mixing charts — pink-violet energy for florals and clean purples with blues. Horadam milling aims for creamy rewet and control.",
       "temp_role": "Cool rose / pink · Cool magenta / quin violet-red · granulating"
     },
@@ -5656,7 +5656,7 @@
       "size": "5ml",
       "family": "purple",
       "notes": "violet galaxie. Color-check Jul 8 2026 — tube 2 photo.",
-      "ace_note": "Galaxy violet granulation — nebula purples with sediment stars. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Galaxy violet granulation — nebula purples with sediment stars.",
       "ace_history": "Manganese violet (PV16) is a mineral purple with body and often gentle granulation — quieter than quin fireworks, useful for shadows and florals. Horadam milling aims for creamy rewet and control.",
       "toxicity_habit": "Manganese pigment — wash hands well after painting.",
       "temp_role": "Cool violet-blue · Manganese / mineral violet · granulating"
@@ -5682,7 +5682,7 @@
       "size": "5ml",
       "family": "blue",
       "notes": "bleu galaxie. Color-check Jul 8 2026 — tube 2 photo.",
-      "ace_note": "Deep granulating blue — night sky and cosmic washes. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Deep granulating blue — night sky and cosmic washes.",
       "ace_history": "Ultramarine (PB29) was the precious lapis blue of churches before 1828 synthesis — still the granulating, warm-leaning blue of skies and classical mixes. Horadam milling aims for creamy rewet and control.",
       "temp_role": "Warm blue · Warm granulating ultramarine blue · granulating"
     },
@@ -5707,7 +5707,7 @@
       "size": "5ml",
       "family": "earth",
       "notes": "brun galaxie. Color-check Jul 8 2026 — tube 2 photo.",
-      "ace_note": "Granulating brown — cosmic earth tones with sediment texture. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Granulating brown — cosmic earth tones with sediment texture.",
       "ace_history": "PBr7 covers raw and burnt earths — iron-rich clays, sometimes with manganese in umbers. Roasting (calcining) swings the same family from cool espresso to warm red-brown. Horadam milling aims for creamy rewet and control.",
       "temp_role": "Warm earth · Natural/synthetic iron earth brown · granulating"
     },
@@ -5732,7 +5732,7 @@
       "size": "5ml",
       "family": "neutral",
       "notes": "noir galaxie. Color-check Jul 8 2026 — tube 2 photo.",
-      "ace_note": "Galaxy black — granulating abyss dark, not flat carbon. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Galaxy black — granulating abyss dark, not flat carbon.",
       "ace_history": "Bone/ivory blacks (PBk7) are warmer historical darks from charred bone — still useful, still easy to muddy a sky if overused. Horadam milling aims for creamy rewet and control.",
       "toxicity_habit": "Manganese pigment — wash hands well after painting.",
       "temp_role": "Near-neutral dark · Ivory / bone black character · granulating"
@@ -5757,7 +5757,7 @@
       "format": "half-pan",
       "family": "purple",
       "notes": "Purpur Magenta. Color-check Jul 8 2026 — half-pan 4 photo. Catalog code 367.",
-      "ace_note": "Cool magenta-violet — florals and shadows when basic magenta feels too warm. On paper: semi-transparent — glazes with a little presence; stains — commit lightly first.",
+      "ace_note": "Cool magenta-violet — florals and shadows when basic magenta feels too warm.",
       "ace_history": "Quinacridone magenta (PR122) is a cool primary for modern mixing charts — pink-violet energy for florals and clean purples with blues. Horadam milling aims for creamy rewet and control.",
       "temp_role": "Cool purple / magenta · Cool magenta / quin violet-red · staining"
     },
@@ -5781,7 +5781,7 @@
       "format": "half-pan",
       "family": "red",
       "notes": "365 Zinnoberrot / vermilion. Color-check — half-pan 6 tin.",
-      "ace_note": "PR255 vermilion half-pan — bright warm scarlet, distinct from earthy English Venetian red beside it in the travel tin. On paper: more body/coverage than a pure stain.",
+      "ace_note": "PR255 vermilion half-pan — bright warm scarlet, distinct from earthy English Venetian red beside it in the travel tin.",
       "ace_history": "Vermilion (PR255 pyrrole) carries the name of mercury cinnabar into modern lightfast chemistry. Horadam milling aims for creamy rewet and control.",
       "temp_role": "Warm red family · Red / warm accent · more opaque"
     },
@@ -5806,7 +5806,7 @@
         "horadam",
         "cadmium-free"
       ],
-      "ace_note": "Dunkelrot in the tube — deep transparent wine-red for glazing shadows. On paper: semi-transparent — glazes with a little presence.",
+      "ace_note": "Dunkelrot in the tube — deep transparent wine-red for glazing shadows.",
       "ace_history": "Perylene maroon (PR179) is a modern glazing red-brown — botanical shadows and deep florals where old madder would fade. Horadam milling aims for creamy rewet and control.",
       "toxicity": "low",
       "temp_role": "Warm red family · Deep transparent wine red"
@@ -5832,7 +5832,7 @@
       "staining": false,
       "toxicity": "low",
       "notes": "Arylide Yellow (PY3). M. Graham chart: bold primary yellow, cooler than Azo Yellow. LF II, transparent. Series 2. Tube photo Jul 10 2026.",
-      "ace_note": "Cool lemon energy with honey slip — the clean yellow for spring greens and sunny glazes. Don't expect it to sit still; it mixes like it has somewhere to be. Hansa/Azo-type yellows often share one job — you rarely need two near-identical primaries unless you crave a micro temperature split.",
+      "ace_note": "Cool lemon energy with honey slip — the clean yellow for spring greens and sunny glazes. Don't expect it to sit still; it mixes like it has somewhere to be.",
       "mix_star": true,
       "best_for": "Spring foliage with blues, clean oranges with warm reds, and high-key florals.",
       "ace_history": "Hansa / arylide yellows (PY3) arrived in the early 20th century as bright, affordable alternatives to toxic chromes — modern primary yellow without the heavy-metal baggage.",
@@ -5875,7 +5875,7 @@
       "staining": false,
       "toxicity": "low",
       "notes": "Calcined natural iron oxide (PBr7). Classic earth. Series 1. Tube photo Jul 10 2026.",
-      "ace_note": "Honey-earth workhorse — bark, brick, and warm shadows that still breathe. Granulates just enough to feel alive on cold-press. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper; earns a ◈ as a cooperative mixer. With Ultramarine it builds classic greys; it will not do Raw Umber's cool slate job — keep both roles if you can.",
+      "ace_note": "Honey-earth workhorse — bark, brick, and warm shadows that still breathe. Granulates just enough to feel alive on cold-press.",
       "mix_star": true,
       "best_for": "Tree bark, warm skin undertones, earthy neutrals with ultramarine, and plein-air mid-tones.",
       "ace_history": "Burnt sienna is iron earth roasted (calcined) until warm red-orange appears — a portrait and landscape staple. Same broad iron family as some umbers, opposite kitchen temperature from raw cool earths. DS often leans into granulation on wet paper.",
@@ -5918,7 +5918,7 @@
       "staining": true,
       "toxicity": "low",
       "notes": "Chlorinated copper phthalocyanine (PG7). LF I, transparent, staining. Series 2. Blue-shade phthalo green. Tube/label photo Jul 10 2026.",
-      "ace_note": "Boss green — one molecule of this dyes the whole party. Whisper-light for jewel glazes; heavy-handed and it owns the mix. Honey keeps it friendly on the palette. Temperature read: cool green (blue-shade staining). Dual advice: fantastic mixer — still dose staining power like hot sauce.",
+      "ace_note": "Boss green — one molecule of this dyes the whole party. Whisper-light for jewel glazes; heavy-handed and it owns the mix. Honey keeps it friendly on the palette.",
       "mix_star": true,
       "best_for": "Tropical foliage, teal waters with yellow, and staining underlayers that won't lift.",
       "ace_history": "Phthalo green (PG7) is a mid-20th-century industrial pigment that watercolorists adopted for unmatched intensity — the modern stand-in for weaker historical greens.",
@@ -5961,7 +5961,7 @@
       "staining": false,
       "toxicity": "low",
       "notes": "Ultramarine pink (PV15). LF I, semi-opaque/soft, granulating. Series 3. Tube photo Jul 10 2026.",
-      "ace_note": "Dusty rose with mineral freckles — not a screaming pink, a thoughtful one. Gorgeous for florals that need texture and soft skies with a blush. Temperature read: warm blue (red-shade granulating). Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Dusty rose with mineral freckles — not a screaming pink, a thoughtful one. Gorgeous for florals that need texture and soft skies with a blush.",
       "mix_star": true,
       "best_for": "Muted florals, granulating rose skies, and gentle violets with ultramarine blue.",
       "ace_history": "Ultramarine pink (PV15) is a sulfur-silicate cousin of ultramarine blue — a modern mineral pink that granulates instead of staining the paper flat. Honey binder gives a distinctive slip and rewet.",
@@ -6004,7 +6004,7 @@
       "staining": true,
       "toxicity": "low",
       "notes": "Pyrrole orange/scarlet (PO73). LF I, transparent, staining. Series 3. Warm scarlet. Tube photo Jul 10 2026.",
-      "ace_note": "Fire-engine warmth without cadmium drama — clean oranges with yellow, bold florals, and accents that refuse to go muddy. On paper: transparent in washes; stains — commit lightly first; earns a ◈ as a cooperative mixer. Dual advice: fantastic mixer — still dose staining power like hot sauce.",
+      "ace_note": "Fire-engine warmth without cadmium drama — clean oranges with yellow, bold florals, and accents that refuse to go muddy.",
       "mix_star": true,
       "best_for": "Poppies, warm sunsets, fruit, and high-chroma accents in urban sketches.",
       "ace_history": "Pyrrole pigments (including PO73) are late-20th-century organics prized for lightfastness and chroma — modern scarlets that finally outlasted fugitive historical reds.",
@@ -6047,7 +6047,7 @@
       "staining": true,
       "toxicity": "low",
       "notes": "Copper phthalocyanine (PB15:3). LF I, transparent, staining. Series 2. Green-shade phthalo blue. Tube photo Jul 10 2026.",
-      "ace_note": "The staining sky-thief — one drop cools a whole wash. Honey makes it rewet nicely; your ego still needs a tiny brush. On paper: transparent in washes; stains — commit lightly first; earns a ◈ as a cooperative mixer. Dual advice: fantastic mixer — still dose staining power like hot sauce.",
+      "ace_note": "The staining sky-thief — one drop cools a whole wash. Honey makes it rewet nicely; your ego still needs a tiny brush.",
       "mix_star": true,
       "best_for": "Teal seas with yellow, cool shadows, and staining underpaintings that lock in.",
       "ace_history": "Phthalo blue (PB15) is the 20th-century workhorse that replaced weaker historical blues for pure chroma — green-shade PB15:3 leans turquoise when diluted.",
@@ -6090,7 +6090,7 @@
       "staining": false,
       "toxicity": "low",
       "notes": "Ultramarine violet deep (PV15). LF I, transparent, granulating. Series 3. Deeper than Ultramarine Violet 193. Tube photo Jul 10 2026.",
-      "ace_note": "Night-sky violet with mineral freckles — deeper than plain ultramarine violet. Perfect for dusk shadows and moody florals that granulate. On paper: transparent in washes; happy to freckle and separate on wet paper; earns a ◈ as a cooperative mixer. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Night-sky violet with mineral freckles — deeper than plain ultramarine violet. Perfect for dusk shadows and moody florals that granulate.",
       "mix_star": true,
       "best_for": "Deep floral shadows, granulating night skies, and cool darks without black.",
       "ace_history": "Ultramarine violet (PV15) is a sulfur-complex silicate in the ultramarine family — a granulating violet that watercolorists use when flat organic purples feel too plastic.",
@@ -6133,7 +6133,7 @@
       "staining": true,
       "toxicity": "low",
       "notes": "Vert Anglais Foncé / Phthalo Green Deep. PG7 + PB15:3 per Sennelier. Série 1. Transparent, strong tinting, staining. Tube photo Jul 10-2 2026 — 10ml l'Aquarelle.",
-      "ace_note": "Deep teal-leaning boss green — English green by name, phthalo by personality. One drop dyes foliage forever; honey keeps it creamy on the palette. Temperature read: cool blue (green-shade staining). Dual advice: fantastic mixer — still dose staining power like hot sauce.",
+      "ace_note": "Deep teal-leaning boss green — English green by name, phthalo by personality. One drop dyes foliage forever; honey keeps it creamy on the palette.",
       "mix_star": true,
       "best_for": "Deep foliage, tropical shadows, teal waters, and staining greens that won't lift.",
       "ace_history": "Sennelier's Phthalo Green Deep blends PG7 with a touch of phthalo blue for a cooler, deeper green than single-pigment phthalo green — a modern stand-in for historical verdigris energy without the toxicity.",
@@ -6175,7 +6175,7 @@
       "staining": true,
       "toxicity": "low",
       "notes": "Horadam 940 Brilliant Red Violet (PV55, fluorescent component per catalog). Semi-transparent. Added Jul 2026 from home kit card.",
-      "ace_note": "Electric cool violet-red — opera's quieter cousin. Stains with manners; florals and neon dusk love it. On paper: semi-transparent — glazes with a little presence; stains — commit lightly first; earns a ◈ as a cooperative mixer. Dual advice: fantastic mixer — still dose staining power like hot sauce.",
+      "ace_note": "Electric cool violet-red — opera's quieter cousin. Stains with manners; florals and neon dusk love it.",
       "mix_star": true,
       "best_for": "Cool pinks-to-violets, modern florals, and high-chroma accents.",
       "ace_history": "Brilliant Red Violet sits in Schmincke's modern high-chroma violet range — PV55 territory for painters who want punch without mixing from primaries every time.",
@@ -6201,7 +6201,7 @@
       "staining": false,
       "toxicity": "low",
       "notes": "Horadam 667 Raw Umber (PBr7). Confirmed studio pan code 667 (not 679). Added/corrected Jul 2026.",
-      "ace_note": "Quiet dirt-and-bark brown — cool enough to shadow greens, warm enough for tree trunks. Granulates like it remembers soil. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper; earns a ◈ as a cooperative mixer. With Ultramarine it goes icy slate, not sienna's balanced grey — lovely for mood, risky for sunlit skin.",
+      "ace_note": "Quiet dirt-and-bark brown — cool enough to shadow greens, warm enough for tree trunks. Granulates like it remembers soil.",
       "mix_star": true,
       "best_for": "Bark, cool earth neutrals with blue, and muted landscape mid-tones.",
       "ace_history": "Raw umber is unroasted iron earth, often with manganese that pulls a cool green-brown undertone — ancient shadow tool from classical drawings to landscape sketchbooks. Teammate to burnt sienna, not a twin.",
@@ -6228,7 +6228,7 @@
       "staining": true,
       "toxicity": "low",
       "notes": "DS French Ultramarine PB29. Warm reddish ultramarine, granulating. SKU 284600034. Added Jul 2026 from home kit card DS034.",
-      "ace_note": "The classic granulating sky-and-shadow blue — warmer than straight ultramarine, perfect with burnt sienna for instant storm greys. On paper: transparent in washes; happy to freckle and separate on wet paper; stains — commit lightly first; earns a ◈ as a cooperative mixer. Dual advice: fantastic mixer — still dose staining power like hot sauce.",
+      "ace_note": "The classic granulating sky-and-shadow blue — warmer than straight ultramarine, perfect with burnt sienna for instant storm greys.",
       "mix_star": true,
       "best_for": "Skies, atmospheric greys with earths, and clean violets with cool reds.",
       "ace_history": "Ultramarine (PB29) was the precious lapis blue of churches before 1828 synthesis — still the granulating, warm-leaning blue of skies and classical mixes. DS often leans into granulation and drama on wet paper.",
@@ -6269,7 +6269,7 @@
       "staining": true,
       "toxicity": "low",
       "notes": "W&N Professional Payne's Grey (typical blend blue/black/violet). Added Jul 2026 from home kit card WNP.",
-      "ace_note": "The polite dark — cool grey-blue for shadows without killing the wash. One squeeze replaces three muddy mixes. On paper: semi-transparent — glazes with a little presence; stains — commit lightly first; earns a ◈ as a cooperative mixer. Dual advice: fantastic mixer — still dose staining power like hot sauce.",
+      "ace_note": "The polite dark — cool grey-blue for shadows without killing the wash. One squeeze replaces three muddy mixes.",
       "mix_star": true,
       "best_for": "Cool shadows, storm skies, and quick value without pure black.",
       "temp_role": "Cool rose · Cool staining phthalo blue · ◈ mixer · staining",
@@ -6296,7 +6296,7 @@
       "staining": false,
       "toxicity": "low",
       "notes": "Studio home-kit label MG104 (warm yellow). Confirm official M.Graham product name if needed. Added Jul 2026. Superseded for home kit by MaimeriBlu 104 Naples Yellow (mb-naples-yellow).",
-      "ace_note": "Warm honey yellow from the home tin — primary sunshine until we pin the exact tube name. On paper: transparent in washes; earns a ◈ as a cooperative mixer.",
+      "ace_note": "Warm honey yellow from the home tin — primary sunshine until we pin the exact tube name.",
       "mix_star": true,
       "best_for": "Warm greens and oranges; home-kit yellow well.",
       "temp_role": "Warm orange · Yellow for mixing and light · ◈ mixer · transparent",
@@ -6320,7 +6320,7 @@
       "staining": true,
       "toxicity": "low",
       "notes": "W&N Professional Tyrian Purple (PV37/PR202). Intense deep purple, red-blue undertone. Permanence often rated B. Added Jul 2026 from home kit card.",
-      "ace_note": "Royal, botanical purple — deep red-violet for florals and dusk without mixing a muddy pile. Stains with purpose. On paper: transparent in washes; stains — commit lightly first; earns a ◈ as a cooperative mixer. Dual advice: fantastic mixer — still dose staining power like hot sauce.",
+      "ace_note": "Royal, botanical purple — deep red-violet for florals and dusk without mixing a muddy pile. Stains with purpose.",
       "mix_star": true,
       "best_for": "Botanical purples, deep florals, and rich cool shadows.",
       "ace_history": "Named for the legendary murex dye of antiquity — modern Tyrian Purple is a synthetic homage for painters who want that historic depth without the snails.",
@@ -6348,7 +6348,7 @@
       "staining": false,
       "toxicity": "low",
       "notes": "Horadam 486 Cobalt Blue Hue (Kobaltblauton). Metal-free cobalt alternative: zinc white (PW4) + ultramarine (PB29). Semi-transparent (zinc softens mass tone). Lightfastness excellent (blue wool ~7). Full pan. Studio Jul 2026.",
-      "ace_note": "Cobalt manners without the cobalt bill — milky sky blue that stays polite in mixes. Zinc keeps it soft; ultramarine keeps it honest. Temperature read: warm blue (red-shade granulating). Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Cobalt manners without the cobalt bill — milky sky blue that stays polite in mixes. Zinc keeps it soft; ultramarine keeps it honest.",
       "mix_star": true,
       "best_for": "Skies, distant hills, cool shadows, and cobalt-look washes without pure cobalt pigment.",
       "ace_history": "Cobalt blue hues rose as safer, cheaper stand-ins for true cobalt aluminate — Schmincke's 486 leans on ultramarine + white for that powdery sky personality.",
@@ -6376,7 +6376,7 @@
       "staining": true,
       "toxicity": "low",
       "notes": "M. Graham Artists' Watercolor Azo Yellow — official catalog code 018 (user list said 108; catalog is 018 between Hansa 107 and Indian Yellow 109 numbering is not sequential). Benzimidazolone Yellow PY151. More transparent than cadmium, more lightfast than many Hansa. Honey-bound. Studio 2ml sample Jul 2026.",
-      "ace_note": "Clean primary sunshine — mixes oranges and greens without the cadmium weight. Honey keeps it juicy on the palette. Temperature read: mid yellow (neutral-to-cool primary). Hansa/Azo-type yellows often share one job — you rarely need two near-identical primaries unless you crave a micro temperature split.",
+      "ace_note": "Clean primary sunshine — mixes oranges and greens without the cadmium weight. Honey keeps it juicy on the palette.",
       "mix_star": true,
       "best_for": "Clean greens and oranges, florals, and bright mid-yellow passages.",
       "ace_history": "Benzimidazolone Azo yellows (PY151) are modern transparent primaries — often a hair cooler than Hansa Medium, beloved for glazing stacks that stay clean. Honey binder gives a distinctive slip and rewet.",
@@ -6406,7 +6406,7 @@
       "staining": false,
       "toxicity": "low",
       "notes": "DANIEL SMITH PrimaTek 284600138 Lapis Lazuli Genuine. Series 5. Genuine lapis gem pigment (≈80%+ pure). Transparent, non-staining, granulating. Subtle blue-grey with light-reflective particles. Studio 2ml sample Jul 2026.",
-      "ace_note": "Not ultramarine's loud cousin — a quiet gem blue-grey that granulates like history. Use sparingly; it earns every millimetre. On paper: transparent in washes; happy to freckle and separate on wet paper; earns a ◈ as a cooperative mixer. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Not ultramarine's loud cousin — a quiet gem blue-grey that granulates like history. Use sparingly; it earns every millimetre.",
       "mix_star": true,
       "best_for": "Atmospheric skies, stone, historical drapery notes, and textured quiet blues.",
       "ace_history": "Lapis was the medieval luxury blue before synthetic ultramarine (1820s). DS PrimaTek returns the rock to the palette — irregular particles, reflective light, patience required.",
@@ -6434,7 +6434,7 @@
       "staining": false,
       "toxicity": "low",
       "notes": "DANIEL SMITH Extra Fine 284600231 Wisteria. Series 2. Quinacridone Violet PV19. Transparent, non-staining, non-granulating. Delicate red-leaning lavender; similar hue to Ultramarine Red with different handling. Studio 2ml sample Jul 2026.",
-      "ace_note": "Soft red-leaning lilac — florals, spring haze, and gentle cools without mineral grit. On paper: transparent in washes; earns a ◈ as a cooperative mixer.",
+      "ace_note": "Soft red-leaning lilac — florals, spring haze, and gentle cools without mineral grit.",
       "mix_star": true,
       "best_for": "Florals, wisteria-and-lilac passages, soft shadows, and clean cool pinks.",
       "ace_history": "Quinacridone rose/violet (PV19) is a 20th-century transparent star — cool primary red for florals, glazes, and purples that stay clean.",
@@ -6463,7 +6463,7 @@
       "staining": false,
       "toxicity": "low",
       "notes": "DANIEL SMITH Extra Fine 284600232 Lavender. Series 2. PW6 + PV15 + PB29. Semi-transparent, low staining, granulating, lifts easily. Periwinkle / faded-denim lavender-blue. Studio 2ml sample Jul 2026.",
-      "ace_note": "Periwinkle denim mood — white + ultramarine violet + ultramarine blue separating gently wet-on-wet. Florals and quiet jeans-blue skies. Temperature read: warm blue (red-shade granulating). Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Periwinkle denim mood — white + ultramarine violet + ultramarine blue separating gently wet-on-wet. Florals and quiet jeans-blue skies.",
       "mix_star": true,
       "best_for": "Florals, denim-soft shadows, atmospheric cools, and Burnt Sienna greys.",
       "ace_history": "Titanium white (PW6) is the modern opaque light — strong coverage for gouache-like passages; watercolor purists use it sparingly for body color. DS often leans into granulation and drama on wet paper.",
@@ -6491,7 +6491,7 @@
       "toxicity": "low",
       "series": "B",
       "notes": "Pinax Extra single-pigment half-pan. Label: Хинакридон розовый / Quinacridone rose · PV19 · series B · lightfast ★★★★ · transparent. Studio photo Jul 21 2026.",
-      "ace_note": "Hot pink with manners — the mixer that turns every blue into a story. Temperature read: cool rose (magenta-violet primary). On paper: transparent in washes; stains — commit lightly first; earns a ◈ as a cooperative mixer. Pair with a warm red/orange when you need heat; rose alone stays on the cool side of the wheel.",
+      "ace_note": "Hot pink with manners — the mixer that turns every blue into a story.",
       "mix_star": true,
       "best_for": "Florals, glowing pinks, and violet mixes with ultramarine.",
       "ace_history": "Quinacridone rose/violet (PV19) is a 20th-century transparent star — cool primary red for florals, glazes, and purples that stay clean.",
@@ -6520,11 +6520,11 @@
       "toxicity": "low",
       "series": "A",
       "notes": "Pinax Extra. Iron oxide light / Оксид железа светлый · PR101 · series A · ★★★★ · opaque (filled square). Studio photo Jul 21 2026.",
-      "ace_note": "Warm brick light — earth that covers. Good for opaque accents and autumn roofs. On paper: more body/coverage than a pure stain.",
+      "ace_note": "Warm brick light — earth that covers. Good for opaque accents and autumn roofs.\n\nPR101 here is lighter and more orange than deep Venetian reds: think sunlit clay tile, desert road, the warm side of a plaster wall. Because it covers, it can rescue a wash that went too cool — one careful drybrush roof and the village wakes up. Mix with ultramarine for dirt greys (depending on grind); don't expect quin-style glow.\n\nDual advice: this is not a substitute for Transparent Orange or pyrrole fire. It's mineral cover. Use it when the painting needs weight; use the organics when it needs light through the paper.",
       "mix_star": false,
       "best_for": "Warm earths, roofs, opaque mid-tones, and muted oranges.",
-      "ace_history": "Mars/Venetian reds (PR101) are calcined iron oxides — brick, terracotta, and portrait underpainting since industrial iron pigments matured.",
-      "temp_role": "Warm orange · Iron oxide red / Venetian earth red · more opaque"
+      "ace_history": "Iron oxide reds (PR101) are calcined iron — the brick and terracotta backbone of industrial and fine-art earths. \"Light\" variants aim at the orange side of Mars colors: roofs, pottery, and warm underpainting without going into deep maroon.",
+      "temp_role": "Warm iron orange-red · Brick / roof cover · opaque earth"
     },
     {
       "id": "pinax-pr255-pyrrol-scarlet",
@@ -6548,7 +6548,7 @@
       "toxicity": "low",
       "series": "B",
       "notes": "Pinax Extra. Pyrrol scarlet / Пиррол красный · PR255 · series B · ★★★ · semi-transparent. Studio photo Jul 21 2026.",
-      "ace_note": "Fire-engine clean scarlet — modern pyrrol punch without muddy undertones. Temperature read: warm red-orange (fire primary). On paper: semi-transparent — glazes with a little presence; stains — commit lightly first; earns a ◈ as a cooperative mixer. Dual advice: fantastic mixer — still dose staining power like hot sauce.",
+      "ace_note": "Fire-engine clean scarlet — modern pyrrol punch without muddy undertones.",
       "mix_star": true,
       "best_for": "Bright reds, warm oranges with yellow, and high-chroma accents.",
       "ace_history": "Pyrrol reds (PR255 family) are late-century organic pigments prized for lightfast fire.",
@@ -6577,7 +6577,7 @@
       "toxicity": "low",
       "series": "A",
       "notes": "Pinax Extra. Ultramarine blue / Ультрамарин · PB29 · series A · ★★★★ · transparent. Studio photo Jul 21 2026.",
-      "ace_note": "The classic mineral blue — granulates, lifts, and makes every violet honest. On paper: transparent in washes; happy to freckle and separate on wet paper; earns a ◈ as a cooperative mixer. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "The classic mineral blue — granulates, lifts, and makes every violet honest.",
       "mix_star": true,
       "best_for": "Skies, shadows, violets with rose, and granulating texture.",
       "ace_history": "Ultramarine (PB29) was the precious lapis blue of churches before 1828 synthesis — still the granulating, warm-leaning blue of skies and classical mixes.",
@@ -6607,7 +6607,7 @@
       "toxicity": "low",
       "series": "B",
       "notes": "Pinax Extra. Iron oxide transparent yellow / Оксид железа прозрачный желтый · PY42 · series B · ★★★★ · transparent · marked G (granulating). Studio photo Jul 21 2026.",
-      "ace_note": "Honey-gold earth yellow that granulates — transparent ochre energy without the mud. On paper: transparent in washes; happy to freckle and separate on wet paper; earns a ◈ as a cooperative mixer. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Honey-gold earth yellow that granulates — transparent ochre energy without the mud.",
       "mix_star": true,
       "best_for": "Warm glazes, golden hour, earthy greens, and textured yellows.",
       "ace_history": "Synthetic or natural iron yellow (PY42) continues ochre's ancient job — muted sunlight, underpainting warmth, and greens that look like land instead of neon.",
@@ -6636,7 +6636,7 @@
       "toxicity": "low",
       "series": "C",
       "notes": "Pinax Extra. Potter's pink deep / Гончарный розовый темный · PR233 · series C · ★★★★ · semi-opaque · marked G (granulating). Studio photo Jul 21 2026.",
-      "ace_note": "Dusty ceramic rose — granulating, quiet, botanical shadows and faded brick pink. On paper: semi-transparent — glazes with a little presence; happy to freckle and separate on wet paper; earns a ◈ as a cooperative mixer. Lean into texture for atmosphere; reach for a smoother neighbor when you need flat design color.",
+      "ace_note": "Dusty ceramic rose — granulating, quiet, botanical shadows and faded brick pink.",
       "mix_star": true,
       "best_for": "Muted florals, ceramic pinks, granulating rose-greys, and antique walls.",
       "ace_history": "Mineral red-violets expand the cool-dark red range — architectural shadows and muted florals beyond pure magenta.",
