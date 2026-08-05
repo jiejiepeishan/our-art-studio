@@ -402,7 +402,14 @@ function mapFormatForForm(format) {
   if (f === "half-pan" || f.includes("half-pan") || f.includes("half pan")) {
     return "half-pan";
   }
-  if (f === "full pan" || f.includes("full pan") || f.includes("full-pan")) {
+  if (
+    f === "full pan" ||
+    f.includes("full pan") ||
+    f.includes("full-pan") ||
+    f === "single pan" ||
+    f.includes("single pan") ||
+    f === "pan"
+  ) {
     return "full pan";
   }
   return "";
@@ -423,8 +430,18 @@ function formatCategories(c) {
     cats.add("other");
     return cats;
   }
-  if (f.includes("half-pan")) cats.add("half-pan");
-  if (f.includes("full pan") || /^pan\b/.test(f) || /,\s*pan\b/.test(f)) cats.add("pan");
+  if (f.includes("half-pan") || f.includes("half pan")) cats.add("half-pan");
+  // full pan, single pan (Rosa etc.), bare pan, or compound "pan, 5ml tube"
+  if (
+    f.includes("full pan") ||
+    f.includes("full-pan") ||
+    f.includes("single pan") ||
+    f === "pan" ||
+    /^pan\b/.test(f) ||
+    /,\s*pan\b/.test(f)
+  ) {
+    cats.add("pan");
+  }
   if (f.includes("tube")) cats.add("tube");
   if (f.includes("sample")) cats.add("sample");
   if (!cats.size) cats.add("other");
@@ -4227,6 +4244,8 @@ function renderMixPicker() {
 const FORMAT_PRIORITY = {
   "half-pan": 0,
   "full pan": 0,
+  "single pan": 0,
+  pan: 0,
   "2ml sample": 1,
   tube: 2,
   "tube-box": 3,
