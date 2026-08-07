@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-07-blue-pan-handwritten",
+  "updated": "2026-08-07-blue-tube-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow",
   "color_count": 225,
   "colors": [
@@ -1375,7 +1375,7 @@
       "hex": "#1E3D5C",
       "family": "blue",
       "format": "pan, 5ml tube",
-      "ace_note": "Deep diving blue-green — night water and whale shadows.\n\nNot classical plant indigo and not half-pan \"Indigo\" alone: PB60 + PG7 pushes abyss teal-navy. Granulating Deep Sea series manners — layer with Deep Sea Blue, rhyme with Undersea Green, storm with Sea Blue. This is structural night water, not a violet primary.\n\nDual advice: vs half-pan Indigo (PB60): deeper/greener here because PG7 is invited. Vs Prussian: different stain/teal personality — don't stack three deep cools in one tin. One abyss seat.",
+      "ace_note": "Deep diving blue-green — night water and whale shadows.\n\nNot classical plant indigo and not half-pan \"Indigo\" alone: PB60 + PG7 pushes abyss teal-navy. Granulating Deep Sea series manners — layer with Deep Sea Blue, rhyme with Undersea Green, storm with Sea Blue. This is structural night water, not a violet primary.\n\nPlay lab (granulation): Abyss particles love rough cold-press. Lay a mid Deep Sea Blue body, then charge Indigo into the still-glistening dark — let a bead of water cut a \"current.\" Salt optional for kelp freckles; too much brushwork = muddy harbor. PG7 in the blend means granulation can read slightly green-black in flocks — that's whale, not ultramarine sky.\n\nDual advice: vs half-pan Indigo (PB60): deeper/greener here because PG7 is invited. Vs Prussian: different stain/teal personality — don't stack three deep cools in one tin. One abyss seat.",
       "brand_traits": [
         "professional",
         "horadam"
@@ -3765,8 +3765,8 @@
         "professional",
         "sennelier"
       ],
-      "ace_note": "Primary cool blue with honey slip — staining as a bad habit and useful as a tool. Tiny touch for turquoise seas and jewel shadows; overdo it and it owns the wash.",
-      "ace_history": "Phthalo blue green-shade (PB15:3) is the icy mixer behind countless teals — tiny doses; it will own the painting if you shout.",
+      "ace_note": "Primary cool blue with honey slip — staining as a bad habit and useful as a tool. Tiny touch for turquoise seas and jewel shadows; overdo it and it owns the wash.\n\nSame GS phthalo seat as MG — honey French accent, excellent lightfastness, série 1 workhorse. Whisper with phthalo green deep for blue-greens (both stain). Educational fun here is control, not sediment: practice a graded wash with a rice-grain of paint.\n\nDual advice: MG vs Sennelier vs Winsor GS = binder/brand manners, one role. Pick your honey vs gum arabic politics; leave the duplicates.",
+      "ace_history": "\"Bleu de Phtalo Vert / primaire\" — French primary cool in l'Aquarelle honey. Modern primary systems replaced weaker historical cool blues with this molecule.",
       "toxicity": "low",
       "mix_star": true,
       "best_for": "Cool primaries, teal mixes with yellow, staining underlayers, and deep glazes.",
@@ -3779,7 +3779,7 @@
           "verified": false
         }
       ],
-      "temp_role": "Cool blue · Cool phthalo blue (green shade) · ◈ mixer · staining · transparent"
+      "temp_role": "Cool phthalo blue (GS) · Honey French primary cool · staining tool"
     },
     {
       "transparency": 2,
@@ -3826,10 +3826,10 @@
         "professional",
         "sennelier"
       ],
-      "ace_note": "Deeper than polite ultramarine — night skies with gravitas.",
-      "ace_history": "Ultramarine (PB29) was the precious lapis blue of churches before 1828 synthesis — still the granulating, warm-leaning blue of skies and classical mixes.",
+      "ace_note": "Deeper than polite ultramarine — night skies with gravitas.\n\nMasstone reads deeper/navy than sky-pastel ultramarines — good for evening cloth, deep water under a warm light, gravitas without reaching for black. Honey binder: soft rewet, hungry blooms. May granulate less than DS French; don't buy it only for sediment theater.\n\nDual advice: still the ultramarine seat, deeper costume. Vs Indigo/Prussian/Deep Sea: those are cooler or greener darks. One deep ultramarine is enough beside one sky ultramarine only if you paint night and day constantly — most kits need one PB29.",
+      "ace_history": "PB29 again — \"Deep\" is the colourman's darker cut. Sennelier honey continues 19th-century French rewet culture around a modern synthetic classic.",
       "toxicity": "low",
-      "temp_role": "Warm blue · Warm granulating sky/mixing blue"
+      "temp_role": "Warm deep ultramarine · Night-leaning PB29 · honey French manners"
     },
     {
       "transparency": 2,
@@ -4232,10 +4232,10 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Ultramarine — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
+      "ace_note": "Schmincke Ultramarine — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.\n\nTube twin of half-pan Ultramarine Finest: deep, dignified PB29 for violets (quin red light verified), forest greens with phthalo green, storm greys with burnt sienna (verified). \"Finest\" often means smoother particle story — more suit, less gravel — so if DS French is a rock concert, this can be chamber music. Still ultramarine warmth; still not phthalo's teal tyranny.\n\nDual advice: Finest tube + DS French = manners contest inside one seat. Keep both only if you deliberately want smooth mix blue and granulating sky blue. Otherwise one well.",
       "mix_star": true,
       "best_for": "Tube ultramarine for large washes, mixing greys, and cool shadow bases.",
-      "ace_history": "Synthetic ultramarine (1828) ended the lapis trade monopoly — Horadam's version is among the reference blues European ateliers test everything else against.",
+      "ace_history": "Synthetic ultramarine as European atelier reference blue — Horadam's feinst grade is what many mix charts quietly assume. Lapis romance, modern mill.",
       "mix_tips": [
         {
           "with": [
@@ -4260,7 +4260,7 @@
         }
       ],
       "toxicity": "low",
-      "temp_role": "Warm blue · Warm granulating sky/mixing blue · ◈ mixer"
+      "temp_role": "Warm blue · Fine-milled ultramarine tube · mixing reference · less grit drama"
     },
     {
       "transparency": 2,
@@ -4383,7 +4383,7 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Deep Sea Indigo — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.\n\nSame whale-shadow seat as sch-952-deep-sea-indigo — different faucet in the database. Use tube logic when night water needs a passage; keep pan for tin. Mix tips already point at Deep Sea Blue, Moonglow fantasy, ultramarine coast greys.\n\nDual advice: one well of Deep Sea Indigo in kit logic. Pan SKU + tube SKU + any 2ml twin = one color. Don't double-fill because the id string says \"tube.\"",
+      "ace_note": "Schmincke Deep Sea Indigo — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.\n\nSame whale-shadow seat as sch-952-deep-sea-indigo — different faucet in the database. Use tube logic when night water needs a passage; keep pan for tin. Mix tips already point at Deep Sea Blue, Moonglow fantasy, ultramarine coast greys.\n\nPlay lab (granulation): Abyss particles love rough cold-press. Lay a mid Deep Sea Blue body, then charge Indigo into the still-glistening dark — let a bead of water cut a \"current.\" Salt optional for kelp freckles; too much brushwork = muddy harbor. PG7 in the blend means granulation can read slightly green-black in flocks — that's whale, not ultramarine sky.\n\nDual advice: one well of Deep Sea Indigo in kit logic. Pan SKU + tube SKU + any 2ml twin = one color. Don't double-fill because the id string says \"tube.\"",
       "mix_star": true,
       "best_for": "5ml tube deep water — same abyss mood as the pan, bolder washes.",
       "ace_history": "Same PB60/PG7 Deep Sea story — format is logistics. Horadam creamy rewet still applies; the abyss doesn't change when the plastic does.",
@@ -4433,10 +4433,10 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Deep Sea Blue — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
-      "ace_history": "Ultramarine (PB29) was the precious lapis blue of churches before 1828 synthesis — still the granulating, warm-leaning blue of skies and classical mixes. Horadam milling aims for creamy rewet and control.",
+      "ace_note": "Schmincke Deep Sea Blue — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.\n\nPlay lab (granulation): Deep Sea line is built for abyss demos — pigment encouraged to settle like depth markers on cold-press. Try a two-stage sea: wet the paper, drop Deep Sea Blue for body, then touch Deep Sea Indigo into the still-wet darks (verified layering mood on indigo's card). Don't brush the life out of it; tickle edges. Granulation reads as current and particulate water, not flat poster navy.\n\nStill ultramarine-family soul (PB29) — warmer marine than phthalo ocean. Twin any 2ml sample as one color.\n\nDual advice: vs DS French: both granulating PB29 — Deep Sea is the marine marketing cut, French is the classical sky cut. One granulating ultramarine + one abyss indigo is a stronger pair than two mid ultramarines.",
+      "ace_history": "Deep Sea series (2020s Horadam) dresses classical ultramarine in submarine theater — same PB29 lineage as church blue, new sediment choreography for contemporary seascape workshops.",
       "toxicity": "low",
-      "temp_role": "Warm blue · Warm granulating ultramarine blue · granulating"
+      "temp_role": "Warm-deep marine ultramarine · Deep Sea granulating sky-water · PB29 special"
     },
     {
       "transparency": 2,
@@ -4509,10 +4509,10 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Glacier Blue — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
-      "ace_history": "Phthalocyanine blue (PB15) arrived mid-20th century — transparent, staining, powerful; a whisper mixes oceans and deep greens. Horadam milling aims for creamy rewet and control.",
+      "ace_note": "Schmincke Glacier Blue — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.\n\nPlay lab (granulation): Plot twist — phthalo (PB15) that granulates in this series. Most phthalos are smooth tyrants; Glacier wants ice with texture. On cold-press, cool blue can flocculate into glacial milk-streaks, especially with mist. Still dose carefully: phthalo tinting strength doesn't retire just because it's pretty. Mix a micro-dot into yellow for ice-mint greens; overdo it and the glacier owns July.\n\nVs half-pan cerulean: greener/modern stain lineage vs milky mineral. Vs MG/Sennelier/W&N phthalo tubes: those may be smoother — Glacier is the textured cool.\n\nDual advice: one cool phthalo-blue seat (Glacier or Winsor GS or MG or Sennelier). Keep Glacier when you specifically want cool + granulation; keep a smooth phthalo when you want glassy washes.",
+      "ace_history": "PB15 phthalocyanine — mid-century power blue. Glacier line applies Horadam's sedimentary specials thinking to cool blues: ice-name marketing, modern molecule, optional grit.",
       "toxicity": "low",
-      "temp_role": "Cool blue · Cool staining phthalo blue · granulating"
+      "temp_role": "Cool phthalo blue · Glacier-series granulating cool · icy water with grit"
     },
     {
       "transparency": 2,
@@ -4534,10 +4534,10 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Glacier Turquoise — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
-      "ace_history": "Phthalo turquoise (PB16) is a clean tropical blue-green of the phthalocyanine family — poster clarity without grinding gemstones. Horadam milling aims for creamy rewet and control.",
+      "ace_note": "Schmincke Glacier Turquoise — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.\n\nPlay lab (granulation): PB16 is already a blue-green jewel; Glacier adds settle-and-sparkle on texture. Try salt or light mist on a juicy turquoise wash for lagoon freckles — educational chaos. With a warm sand (raw sienna / desert brown) at the shoreline, granulation sells \"shallow water over grit.\" Avoid using it as your only \"blue\" for violets — it'll pull green and break hearts.\n\nDual advice: same turquoise seat as W&N Phthalo Turquoise (usually smoother/staining). One tropical well. Not a second Glacier Blue unless you paint nothing but reefs.",
+      "ace_history": "Phthalo turquoise (PB16) = clean tropical blue-green without gemstone grinding. Glacier branding = cold clarity + Horadam texture hobby.",
       "toxicity": "low",
-      "temp_role": "Cool turquoise · Phthalo turquoise / blue-green · granulating"
+      "temp_role": "Cool turquoise · Phthalo turquoise (PB16) · granulating tropical ice"
     },
     {
       "transparency": 2,
@@ -5172,10 +5172,10 @@
         "professional",
         "winsor-newton"
       ],
-      "ace_note": "W&N Professional Phthalo Turquoise — classic British workhorse in 5ml.",
-      "ace_history": "Phthalo turquoise (PB16) is a clean tropical blue-green of the phthalocyanine family — poster clarity without grinding gemstones.",
+      "ace_note": "W&N Professional Phthalo Turquoise — classic British workhorse in 5ml.\n\nClean tropical PB16 — poster lagoon, glass wave, jewelry shadow. Staining transparent; usually smooth, not Glacier's grit story. One touch in a warm grey cools it toward sea glass.\n\nDual advice: one turquoise seat vs Glacier Turquoise. Smooth W&N vs granulating Horadam — pick by whether you want ice freckles or pure stain clarity.",
+      "ace_history": "PB16 phthalo turquoise — tropical clarity without gemstone mining. W&N series 2 professional staple for designers and seascape painters who like control.",
       "toxicity": "low",
-      "temp_role": "Cool turquoise · Phthalo turquoise / blue-green · staining · transparent"
+      "temp_role": "Cool turquoise · Phthalo turquoise · staining tropical transparent"
     },
     {
       "transparency": 1,
@@ -5196,10 +5196,10 @@
         "professional",
         "winsor-newton"
       ],
-      "ace_note": "W&N Professional Winsor Blue (Red Shade) — classic British workhorse in 5ml.",
-      "ace_history": "Winsor blue (red shade) is phthalo blue biased warm — W&N's primary for mixing clean violets beside British quin reds.",
+      "ace_note": "W&N Professional Winsor Blue (Red Shade) — classic British workhorse in 5ml.\n\nRed shade (PB15:1) is the plot: still phthalo power, but biased toward cleaner violets with quin/cool reds — less automatic turquoise than GS. Educational pair: paint two swatches GS vs RS + the same magenta; watch which violet stays royal and which goes bruised teal.\n\nDual advice: if you only buy one Winsor Blue, choose by subject — water/teal → GS, florals/violets → RS. Owning both is legitimate for serious cool-blue nerds; still not a third brand's GS.",
+      "ace_history": "Phthalo blue red-shade is the warm-leaning twin in the Winsor primary pair — engineered for mixing clean purples beside British quin reds, not for granulating demos.",
       "toxicity": "low",
-      "temp_role": "Cool blue · Blue for sky, water, and mixes · staining · transparent"
+      "temp_role": "Cool-warm phthalo blue (RS) · Violet-friendly cool · staining transparent"
     },
     {
       "transparency": 1,
@@ -5220,10 +5220,10 @@
         "professional",
         "winsor-newton"
       ],
-      "ace_note": "W&N Professional Winsor Blue (Green Shade) — classic British workhorse in 5ml.",
-      "ace_history": "Phthalo blue green-shade (PB15:3) is the icy mixer behind countless teals — tiny doses; it will own the painting if you shout.",
+      "ace_note": "W&N Professional Winsor Blue (Green Shade) — classic British workhorse in 5ml.\n\nThe UK chart's cool primary: GS phthalo for seas, icy skies, and greens that go laser with cool yellow. Smooth professional pan/tube culture — granulation is not the product promise. Dose like gossip: a little goes everywhere.\n\nDual advice: GS seat shared with MG/Sennelier/Glacier. Winsor if you already live in W&N reds/quin for clean systems; Glacier if you want cool and grit.",
+      "ace_history": "Winsor \"primary\" branding over PB15:3 — British colourman tradition, modern phthalocyanine. Series 1 because they expect you to empty it.",
       "toxicity": "low",
-      "temp_role": "Cool blue · Cool phthalo blue (green shade) · staining · transparent"
+      "temp_role": "Cool phthalo blue (GS) · British primary cool · staining transparent"
     },
     {
       "brand_traits": [
@@ -5682,9 +5682,9 @@
       "size": "5ml",
       "family": "blue",
       "notes": "bleu galaxie. Color-check Jul 8 2026 — tube 2 photo.",
-      "ace_note": "Deep granulating blue — night sky and cosmic washes.",
-      "ace_history": "Ultramarine (PB29) was the precious lapis blue of churches before 1828 synthesis — still the granulating, warm-leaning blue of skies and classical mixes. Horadam milling aims for creamy rewet and control.",
-      "temp_role": "Warm blue · Warm granulating ultramarine blue · granulating"
+      "ace_note": "Deep granulating blue — night sky and cosmic washes.\n\nPlay lab (granulation): Black (PBk6) is invited to the ultramarine party — particles drop like cheap planetariums on rough paper. Wet-in-wet with a clean water bloom in the center can leave a \"nebula\" of lighter blue around darker flocks. Fun until it hits a clean portrait sky: chroma dies, mood goes sci-fi. Tilt once; resist the urge to scrub (you'll get grey soup).\n\nCousin to WN Dark Blue Shadows (also PB29+black) and Galaxy Brown logic: respect the black.\n\nDual advice: effect / night seat — not your violet primary. If Dark Blue Shadows pan already owns twilight, Galaxy tube is optional double. Don't mix Galaxy + Van Dyck + pure black as three \"make it darker\" habits.",
+      "ace_history": "\"Bleu galaxie\" = ultramarine plus carbon black with sedimentary marketing. Modern special-effect blue; the cosmos is optional, the pigment codes are not.",
+      "temp_role": "Deep granulating blue · Ultramarine + black · cosmic night wash"
     },
     {
       "brand_traits": [
@@ -6047,10 +6047,10 @@
       "staining": true,
       "toxicity": "low",
       "notes": "Copper phthalocyanine (PB15:3). LF I, transparent, staining. Series 2. Green-shade phthalo blue. Tube photo Jul 10 2026.",
-      "ace_note": "The staining sky-thief — one drop cools a whole wash. Honey makes it rewet nicely; your ego still needs a tiny brush.",
+      "ace_note": "The staining sky-thief — one drop cools a whole wash. Honey makes it rewet nicely; your ego still needs a tiny brush.\n\nGreen-shade PB15:3: turquoise lean when diluted, emerald crimes with yellow, violet fights with rose (test ratios — both may stain). Not a granulation toy — smooth power. Honey open time is lovely; the stain is the lesson.\n\nDual advice: one GS phthalo among MG / Sennelier / Winsor GS / Glacier Blue. Glacier if you want grit; MG if you want honey volume. Never three green-shade phthalos in one tin.",
       "mix_star": true,
       "best_for": "Teal seas with yellow, cool shadows, and staining underpaintings that lock in.",
-      "ace_history": "Phthalo blue (PB15) is the 20th-century workhorse that replaced weaker historical blues for pure chroma — green-shade PB15:3 leans turquoise when diluted.",
+      "ace_history": "Copper phthalocyanine blue — 20th-century chroma engine. PB15:3 green shade is the icy mixer behind countless teals; series 2 economics for a color that outlives its tube.",
       "mix_tips": [
         {
           "with": [
@@ -6067,7 +6067,7 @@
           "verified": false
         }
       ],
-      "temp_role": "Cool blue · Cool phthalo blue (green shade) · ◈ mixer · staining · transparent"
+      "temp_role": "Cool phthalo blue (GS) · Staining sky-thief · honey rewet · transparent"
     },
     {
       "id": "mg-194-ultramarine-violet-deep",
@@ -6228,10 +6228,10 @@
       "staining": true,
       "toxicity": "low",
       "notes": "DS French Ultramarine PB29. Warm reddish ultramarine, granulating. SKU 284600034. Added Jul 2026 from home kit card DS034.",
-      "ace_note": "The classic granulating sky-and-shadow blue — warmer than straight ultramarine, perfect with burnt sienna for instant storm greys.",
+      "ace_note": "The classic granulating sky-and-shadow blue — warmer than straight ultramarine, perfect with burnt sienna for instant storm greys.\n\nPlay lab (granulation): This is the poster child. Load a juicy wash on cold-press, tip the board a few degrees, leave it alone — blue flocks into the tooth like weather deciding where to rain. Pair with burnt sienna (you already know the romance): don't over-stir the grey on the palette or you smooth out the storm. Soft spray at the edge = cloud bloom. On hot-press you'll wonder why influencers lied; switch paper, not brand.\n\nSame PB29 warm seat as half-pan French / Finest / Pinax and WN full pan — DS 15ml is volume + famous grit. DS lists a staining lean: beautiful violets with rose madder, but lifting pure white may need planning.\n\nDual advice: one French/warm ultramarine tube or pan in active use. If Schmincke Ultramarine Finest tube also lives here, swatch granulation side by side — keep the bloom you love. Don't own four PB29 faucets \"for science.\"",
       "mix_star": true,
       "best_for": "Skies, atmospheric greys with earths, and clean violets with cool reds.",
-      "ace_history": "Ultramarine (PB29) was the precious lapis blue of churches before 1828 synthesis — still the granulating, warm-leaning blue of skies and classical mixes. DS often leans into granulation and drama on wet paper.",
+      "ace_history": "French ultramarine = trade name for warmer PB29 after synthetic ultramarine freed painters from lapis prices (1820s). Daniel Smith's reputation is letting the mineral show on textured paper — church blue with a Pacific Northwest weather hobby.",
       "mix_tips": [
         {
           "with": [
@@ -6248,7 +6248,7 @@
           "verified": false
         }
       ],
-      "temp_role": "Warm blue · Warm granulating sky/mixing blue · ◈ mixer · granulating · staining · transparent"
+      "temp_role": "Warm blue · French granulating ultramarine · sky/shadow ◈ · tube workhorse"
     },
     {
       "id": "wn-tube-paynes-gray",
