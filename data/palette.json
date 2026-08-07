@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-07-blue-2ml-handwritten",
+  "updated": "2026-08-07-blue-green-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow",
   "color_count": 225,
   "colors": [
@@ -199,10 +199,10 @@
       "hex": "#3EB8A8",
       "format": "half-pan",
       "family": "blue-green",
-      "ace_note": "Clean tropical water without the phthalo aggression. Bright but behaves — tropical seas, ceramic glazes, fresh spring foliage highlights.",
-      "ace_history": "Helio turquoise is Schmincke's phthalocyanine turquoise (PB16) — a 20th-century pigment that gave poster designers and watercolorists a clean tropical blue-green without grinding gemstones.",
+      "ace_note": "Clean tropical water without the phthalo aggression. Bright but behaves — tropical seas, ceramic glazes, fresh spring foliage highlights.\n\nPB16 is the dedicated turquoise molecule — not \"mix blue + green on the fly,\" not milky cobalt. Clean lagoon, tile glaze, jewelry shadow, that one stroke of Caribbean in an otherwise serious landscape. \"Without phthalo aggression\" is relative: still modern chroma, still dose with manners, but it often feels more finished turquoise than screaming pure PB15. Pairs with warm sand/earth at the shoreline; with rose it can go strange (test — turquoise + pink is fashion or bruise).\n\nDual advice: same pure-PB16 seat as MG Turquoise sample and cousin to W&N Phthalo Turquoise in blue family. One well. Vs Cobalt Turquoise: Helio is cleaner/poster-modern; cobalt is milkier gem. Vs Turquoise Blue / Azure Green blends: those have PG7 gossip and may lean greener/stainier.",
+      "ace_history": "Helio / Heliotürkis is Schmincke's phthalocyanine turquoise (PB16) — twentieth-century tropical clarity for posters and watercolour without grinding turquoise gemstone. Verified PB16 on the sleeve; the \"helio\" name is sunshine marketing for a modern dye-ish pigment family.",
       "toxicity": "low",
-      "temp_role": "Cool turquoise · Phthalo turquoise / blue-green"
+      "temp_role": "Cool turquoise · Clean phthalo turquoise (PB16) · tropical without full phthalo rage"
     },
     {
       "brand_traits": [
@@ -2847,10 +2847,10 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Turquoise blue — bright clean tropical water.",
-      "ace_history": "Turquoise blue pairs phthalo blue with green — the clean tropical mix that replaced ground turquoise gemstone in commercial art by the mid-20th century.",
+      "ace_note": "Turquoise blue — bright clean tropical water.\n\nTwo phthalos in a trench coat: PB15:3 + PG7. Instant tropical without squeezing two tubes — and instant stain + green pull if you treat it like innocent sky blue. Bright, clean, commercial \"pool water.\" Violets will suffer; greens with yellow will go loud. Great for holidays and designy flats; less great as your only \"learning blue.\"\n\nDual advice: same convenience teal seat as Rosa Azure Green (PG7/PB15, order flipped). One blend well. Vs pure PB16 Helio: blend may lean greener/more aggressive; swatch. Vs Cobalt Turquoise: totally different manners (stain vs milk).",
+      "ace_history": "Mid-century commercial art replaced ground turquoise with phthalo recipes. \"Turquoise Blue\" is honest convenience naming: blue + green phthalos married for tropical posters and student full pans.",
       "toxicity": "low",
-      "temp_role": "Cool blue · Cool phthalo blue (green shade)"
+      "temp_role": "Cool tropical blend · Phthalo blue GS + phthalo green · bright convenience water"
     },
     {
       "transparency": 2,
@@ -2922,11 +2922,11 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Cobalt turquoise — milky gem-tone sky accents.",
-      "ace_history": "Cobalt turquoise (PB36) is a genuine cobalt compound — softer and milkier than phthalo, beloved for gem-tone skies in botanical miniatures.",
+      "ace_note": "Cobalt turquoise — milky gem-tone sky accents.\n\nThis is the other religion: true cobalt turquoise (PB36), not phthalo. Softer, milkier, more \"enamel / botanical miniature sky\" than plastic lagoon. Less likely to stain your soul; more likely to sit as a polite gem accent. Won't mix like PB16 — expect gentler chroma and that cobalt opacity whisper.\n\nDual advice: if you love mineral skies and hate phthalo's grip, this is your blue-green seat — demote Helio/MG. If you paint bold tropical water weekly, cobalt may feel shy; keep phthalo turquoise instead. Don't need both unless swatches break your heart differently.",
+      "ace_history": "PB36 is a genuine cobalt chromite / cobalt turquoise compound — softer mineral family than phthalos, long used for gem-like teal in fine art and ceramics culture. St. Petersburg full pan = generous milky accent, not a Series-5 rare earth flex.",
       "toxicity": "medium",
       "toxicity_habit": "Cobalt pigment — wash hands after painting; keep food and drink away from the palette.",
-      "temp_role": "Cool turquoise · Studio accent"
+      "temp_role": "Cool milky turquoise · Genuine cobalt turquoise (PB36) · gem-tone sky accent"
     },
     {
       "transparency": 2,
@@ -3477,10 +3477,10 @@
         "rosa",
         "ukrainian"
       ],
-      "ace_note": "Azure green — teal-green gem, sky meets sea. You corrected me right!",
-      "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch.",
+      "ace_note": "Azure green — teal-green gem, sky meets sea. You corrected me right!\n\nThat last sentence stays — studio history, not marketing. Chemically a PG7-forward phthalo teal with PB15: more \"green meeting sky\" than pure Caribbean PB16. Saturated Ukrainian single-pan confidence for design, illustration, bold water. Respect PG7 ratios or it eats yellows alive (same lesson as any phthalo green).\n\nDual advice: Azure Green vs WN Turquoise Blue = one convenience teal seat (Rosa pocket vs WN full pan). Vs Helio PB16: keep Helio for cleaner turquoise primary; keep Azure when you want greener teal punch. Your correction is canon — temperature is cool blue-green, not \"just green.\"",
+      "ace_history": "Phthalo green (PG7) + phthalo blue is the twentieth-century teal engine. Rosa's single-pan Azure Green packages that sky-and-sea meeting for travel tins; the chemistry is global even when the pan is local.",
       "toxicity": "low",
-      "temp_role": "Cool blue · Cool staining phthalo green"
+      "temp_role": "Cool teal-green · Phthalo green + blue · sky-meets-sea gem"
     },
     {
       "transparency": 2,
@@ -3713,10 +3713,10 @@
         "honey-based",
         "2ml-sample"
       ],
-      "ace_note": "Turquoise brings cool turquoise energy to the tin — worth knowing by temperature, not just by pretty swatch.",
-      "ace_history": "Phthalo turquoise (PB16) is a clean tropical blue-green of the phthalocyanine family — poster clarity without grinding gemstones. Honey binder gives a distinctive slip and rewet.",
+      "ace_note": "Turquoise brings cool turquoise energy to the tin — worth knowing by temperature, not just by pretty swatch.\n\nSame pure PB16 seat as Helio — honey binder for slip, bloom, and that MG rewet hunger. 2ml is the honest format: compare to Helio half-pan and W&N Phthalo Turquoise (blue family) before promoting a second lagoon. Soft edges if you feed water; still modern chroma underneath the honey.\n\nDual advice: Helio vs MG = manners contest (Horadam cream vs honey), one role. Sample first; don't also buy a 15ml until the 2ml has taught you something.",
+      "ace_history": "PB16 again — phthalo turquoise as tropical primary. M. Graham's chapter is binder culture: same molecule, longer open time, sample-box courtship before marriage.",
       "toxicity": "low",
-      "temp_role": "Cool turquoise · Phthalo turquoise / blue-green"
+      "temp_role": "Cool turquoise · Honey PB16 sample · tropical try-on"
     },
     {
       "transparency": 2,
