@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-07-blue-tube-handwritten",
+  "updated": "2026-08-07-blue-2ml-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow",
   "color_count": 225,
   "colors": [
@@ -1466,14 +1466,14 @@
       "hex": "#A8D4E8",
       "family": "blue",
       "format": "2ml sample",
-      "ace_note": "Mist limited ice — ethereal winter light.",
+      "ace_note": "Mist limited ice — ethereal winter light.\n\nPale, high-key, winter window blue — more breath than ocean. PB15 family means a little can still cool a wash; the limited Mist presentation aims ethereal, not navy. Not a granulation playground (data doesn't flag grit) — educational fun is value control: can you keep it ice without going baby-boy poster?\n\nDual advice: atmosphere / high-key seat. Won't replace ultramarine, cerulean milk, or deep phthalo. If Aquamarine Mist or Glacier Blue already cover cool pale water, Ice Blue is optional climate dessert. Limited = enjoy, don't base a whole primary system on it.",
       "brand_traits": [
         "professional",
         "horadam"
       ],
-      "ace_history": "Phthalocyanine blue (PB15) arrived mid-20th century — transparent, staining, powerful; a whisper mixes oceans and deep greens. Horadam milling aims for creamy rewet and control.",
+      "ace_history": "Mist limited specials are Horadam mood colors — often light, atmospheric cuts of familiar chemistries. Ice Blue rides phthalo's cool gene at whisper value for winter sketches and frosty glass.",
       "toxicity": "low",
-      "temp_role": "Cool blue · Cool staining phthalo blue · transparent"
+      "temp_role": "Pale cool blue · Ethereal winter veil · dilute phthalo ice"
     },
     {
       "transparency": 2,
@@ -1704,14 +1704,14 @@
       "hex": "#1A4A6B",
       "family": "blue",
       "format": "2ml sample",
-      "ace_note": "Deep Sea Blue brings warm blue energy to the tin — worth knowing by temperature, not just by pretty swatch.",
+      "ace_note": "Deep Sea Blue brings warm blue energy to the tin — worth knowing by temperature, not just by pretty swatch.\n\nPlay lab (granulation): Sample twin of the 5ml Deep Sea Blue tube — same PB29 marine cut, try-before-you-commit. Wet paper → drop sample → charge Deep Sea Indigo into darks for trench layering (verified on cards). Shoreline greys with burnt sienna also verified. One faucet with the tube: don't fill two wells.\n\nDual advice: tube + 2ml = one color. Vs DS French: classical sky grit vs Deep Sea submarine marketing — one granulating ultramarine is enough for most tins.",
       "brand_traits": [
         "professional",
         "horadam"
       ],
       "mix_star": true,
       "best_for": "Deep water bodies, cool shadows, and marine horizons — not sky cerulean.",
-      "ace_history": "Ultramarine (PB29) was the precious lapis blue of churches before 1828 synthesis — still the granulating, warm-leaning blue of skies and classical mixes. Horadam milling aims for creamy rewet and control.",
+      "ace_history": "Same Deep Sea / PB29 story as the tube — church blue in a diving suit. Sample format is Horadam's honest \"see the sediment first.\"",
       "mix_tips": [
         {
           "with": [
@@ -1736,7 +1736,7 @@
         }
       ],
       "toxicity": "low",
-      "temp_role": "Warm blue · Warm granulating ultramarine blue · ◈ mixer · granulating"
+      "temp_role": "Warm-deep marine ultramarine · Deep Sea sample twin · granulating water"
     },
     {
       "transparency": 2,
@@ -2331,10 +2331,10 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Lunar blue — floats, granulates, night sky in a sample pan.",
+      "ace_note": "Lunar blue — floats, granulates, night sky in a sample pan.\n\nPlay lab (granulation): Two bosses in the well — PB15 (cool stain power) + PB29 (mineral flock). On wet cold-press it can float and separate: cooler veils, warmer flecks, that DS \"Lunar\" family drama. Verified with Moonglow → night sky violet granulation conversation; with burnt sienna → weathered slate. Try a clean water bloom into a still-wet lunar wash for crater-edge softens. Warning: staining lean means the moon remembers where it sat.\n\nDual advice: effect / night seat — not a second primary ultramarine and not a pure phthalo. If Galaxy Blue tube or Dark Blue Shadows already do twilight, Lunar is the DS specialty encore. Sample size is perfect: learn the separation, then decide on a bigger tube.",
       "mix_star": true,
       "best_for": "Moonlit water, nocturnal skies, and granulating blue washes that bloom without going flat.",
-      "ace_history": "Phthalocyanine blue (PB15) arrived mid-20th century — transparent, staining, powerful; a whisper mixes oceans and deep greens. DS often leans into granulation and drama on wet paper.",
+      "ace_history": "Lunar line = DS granulation theater using modern pigment pairs. Phthalo + ultramarine is a contemporary night-sky recipe, not a moon rock — the romance is in the settle.",
       "mix_tips": [
         {
           "with": [
@@ -2359,7 +2359,7 @@
         }
       ],
       "toxicity": "low",
-      "temp_role": "Warm blue · Cool staining phthalo blue · ◈ mixer · granulating · staining"
+      "temp_role": "Night-sky granulator · Phthalo + ultramarine duet · lunar sediment"
     },
     {
       "transparency": 2,
@@ -2489,10 +2489,10 @@
         "2ml-sample",
         "primatek"
       ],
-      "ace_note": "PrimaTek blue apatite — granulating cloudy gemstone skies.",
-      "ace_history": "Phthalocyanine blue (PB15) arrived mid-20th century — transparent, staining, powerful; a whisper mixes oceans and deep greens. DS often leans into granulation and drama on wet paper.",
+      "ace_note": "PrimaTek blue apatite — granulating cloudy gemstone skies.\n\nPlay lab (granulation): Label romance says gemstone; pigment line is PB15/PG7 — cool stain + green pull, encouraged to cloud and grit. Expect stormy teal-blue flocks, not pure ultramarine violet honesty. Wet-in-wet on rough paper → \"apatite sky\" with mineral gossip; mix a whisper into yellow for strange sea greens. Staining: plan lights first.\n\nDual advice: read it as a textured cool marine, cousin to Glacier Blue / turquoise seats — not true single-mineral jewelry pure enough to replace lapis storytelling. Keep when the cloudy granulation makes you grin; skip if you already own three granulating cools (Lunar, Glacier, Deep Sea).",
+      "ace_history": "Apatite is a real phosphate mineral family; PrimaTek branding sells gemstone mood. This SKU's listed pigments are phthalo blue + phthalo green — modern chemistry wearing a rock name. Trust the code for mixes; enjoy the name for poetry.",
       "toxicity": "low",
-      "temp_role": "Cool blue · Cool staining phthalo blue · granulating · staining"
+      "temp_role": "Cool cloudy gem blue · PrimaTek-named apatite mood · phthalo+green granulation"
     },
     {
       "transparency": 2,
@@ -4659,10 +4659,10 @@
         "professional",
         "honey-based"
       ],
-      "ace_note": "M. Graham Ultramarine Blue — honey base, 2ml sample. Blooms on wet paper if you lean in.",
+      "ace_note": "M. Graham Ultramarine Blue — honey base, 2ml sample. Blooms on wet paper if you lean in.\n\nSame classical PB29 seat as every other ultramarine in the studio — honey slip, open blooms, soft edges if you feed it water. Card invites comparing greys: MG umber vs DS sienna granulation in the same blue (verified tip energy). Data doesn't flag strong granulation on this SKU; the fun is binder manners, not flock theater.\n\nDual advice: one ultramarine honey sample to decide if MG joins DS French / Schmincke Finest. Don't promote every brand's PB29 into the travel tin — pick the grey and rewet you love.",
       "mix_star": true,
       "best_for": "Honey-bloom ultramarine skies, soft-edged washes, and classic grey mixes.",
-      "ace_history": "Ultramarine (PB29) was the precious lapis blue of churches before 1828 synthesis — still the granulating, warm-leaning blue of skies and classical mixes. Honey binder gives a distinctive slip and rewet.",
+      "ace_history": "Ultramarine's lapis-to-synthetic arc, M. Graham chapter: honey/glycerin culture for rewet and bloom. Series sample box logic — empty the 2ml before you marry the 15ml.",
       "mix_tips": [
         {
           "with": [
@@ -4687,7 +4687,7 @@
         }
       ],
       "toxicity": "low",
-      "temp_role": "Warm blue · Warm granulating sky/mixing blue · ◈ mixer"
+      "temp_role": "Warm ultramarine · Honey-binder sample · sky/mix primary try-on"
     },
     {
       "transparency": 2,
@@ -6406,11 +6406,11 @@
       "staining": false,
       "toxicity": "low",
       "notes": "DANIEL SMITH PrimaTek 284600138 Lapis Lazuli Genuine. Series 5. Genuine lapis gem pigment (≈80%+ pure). Transparent, non-staining, granulating. Subtle blue-grey with light-reflective particles. Studio 2ml sample Jul 2026.",
-      "ace_note": "Not ultramarine's loud cousin — a quiet gem blue-grey that granulates like history. Use sparingly; it earns every millimetre.",
+      "ace_note": "Not ultramarine's loud cousin — a quiet gem blue-grey that granulates like history. Use sparingly; it earns every millimetre.\n\nPlay lab (granulation): This is rock, not PB29 cosplay. Irregular particles + light-reflective flecks want cold-press, patient water, minimal scrubbing. Wet the paper, drop a dilute veil, let it find valleys — you'll get a soft blue-grey field with glittery hush, not French Ultramarine's warm sky punch. Overwork it and you grind jewelry into mud. Educational fun: swatch lapis next to DS French on the same strip; same \"blue family\" in the brain, completely different paper behavior.\n\nSeries 5 / tiny sample = treat like saffron. Beautiful in skies that should feel old, illuminated edges, quiet cloth — not your daily chromatic grey engine.\n\nDual advice: does not replace ultramarine in the kit. Own lapis for soul and demos; keep PB29 for violets and sienna storms. If the 2ml ever empties, mourn once, then ask if you paint enough \"museum blue\" to refill Series 5.",
       "mix_star": true,
       "best_for": "Atmospheric skies, stone, historical drapery notes, and textured quiet blues.",
-      "ace_history": "Lapis was the medieval luxury blue before synthetic ultramarine (1820s). DS PrimaTek returns the rock to the palette — irregular particles, reflective light, patience required.",
-      "temp_role": "Cool blue · Blue for sky, water, and mixes · ◈ mixer · granulating · transparent"
+      "ace_history": "Lapis lazuli was the medieval luxury blue (ground rock, often from Afghanistan) before 1820s synthetic ultramarine democratized the sky. DS PrimaTek puts the gem back in the pan — irregular, reflective, patient. The loud cousin won history; the quiet rock kept the legend.",
+      "temp_role": "Quiet gem blue-grey · Genuine lapis (PrimaTek) · history you can see settle"
     },
     {
       "id": "ds-231-wisteria",
