@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-07-coral-specialty-handwritten",
+  "updated": "2026-08-07-yellow-halfpan-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow",
   "color_count": 225,
   "colors": [
@@ -346,10 +346,10 @@
       "hex": "#F5E642",
       "format": "half-pan",
       "family": "yellow",
-      "ace_note": "Cool, transparent, lemon-bright — your mixing primary for clean greens. Cadmium who? This one plays nice with blues.",
-      "ace_history": "Hansa lemon (PY3) is a clean, cool yellow from the azo family — the transparent primary that replaced harsh chrome yellows in 20th-century mixing charts.",
+      "ace_note": "Cool, transparent, lemon-bright — your mixing primary for clean greens. Cadmium who? This one plays nice with blues.\n\nSister soul to 211: cool PY3, transparent manners for glazes and spring. Slightly different hex/grind personality possible — still one role. Plays nice with blues; cadmium can choke a delicate green mix with opacity.\n\nDual advice: one lemon. If 211 already has ◈ in the kit card logic, this is twin manners. Don't also stock a third cool yellow \"just in case.\"",
+      "ace_history": "Hansa lemon (PY3) — azo-family cool primary that retired harsh chrome yellows from thoughtful mixing charts. Zitronengelb is the German for \"stop buying a fourth lemon.\"",
       "toxicity": "low",
-      "temp_role": "Cool yellow · Cool lemon primary yellow · transparent"
+      "temp_role": "Cool lemon · Transparent mixing primary · clean greens with blue"
     },
     {
       "brand_traits": [
@@ -371,11 +371,11 @@
       "hex": "#F5D547",
       "format": "half-pan",
       "family": "yellow",
-      "ace_note": "Buttery and opaque — covers, pushes, asserts. Mix small amounts into earths for sunlit paths.",
-      "ace_history": "Cadmium yellow (PY35) arrived in the 1840s and shocked the Salon with opaque, buttery light — Monet, Matisse, and every sun-drenched still life owe debt to this heavy metal.",
+      "ace_note": "Buttery and opaque — covers, pushes, asserts. Mix small amounts into earths for sunlit paths.\n\nCadmium is the heavy sunlight: high chroma, covering, Salon shock in a half-pan. Rescues washed-out fields; muddies delicate glazes if you treat it like Hansa. Mix small into earths for path light; with blue, greens go solid and a bit chalky compared to transparent lemons.\n\nDual advice: one opaque warm yellow max. If Pure/Golden already mix clean light, Cad is optional muscle. Toxicity/habit: normal studio respect, not panic — still not a juice box.",
+      "ace_history": "Cadmium yellow (PY35 lineage) from the mid-19th century — Monet-to-Matisse opaque light. Heavy metal legend, buttery handling; watercolorists still argue cover vs transparency religions over it.",
       "toxicity": "high",
       "toxicity_habit": "Cadmium pigment — wash hands thoroughly, don't spray without ventilation, and keep tubes away from food prep areas.",
-      "temp_role": "Warm yellow · Opaque warm cadmium yellow · more opaque"
+      "temp_role": "Warm opaque yellow · Cadmium butter · cover & sunlit path"
     },
     {
       "id": "sch-211-chromium-yellow-lemon",
@@ -398,11 +398,11 @@
       "staining": false,
       "toxicity": "low",
       "notes": "Horadam 211 Chromium Yellow Hue Lemon (Chromgelbton Zitrone). Cool lemon yellow, cadmium-free. Added Jul 2026.",
-      "ace_note": "Zingy cool lemon — the bright edge of a citrus slice. Cooler than 212 Light, cleaner than warm Naples for spring greens.",
+      "ace_note": "Zingy cool lemon — the bright edge of a citrus slice. Cooler than 212 Light, cleaner than warm Naples for spring greens.\n\nHue means cadmium/chrome theater without the old poison plot — chemistry is PY3, the classic cool mixer. Push into ultramarine/phthalo for spring greens that stay sharp; with rose it goes peach-coral, not brick. High chroma, modern organic — dose if it stains your ego (less stain drama than some golds, still vivid).\n\nDual advice: same cool PY3 seat as Lemon Yellow half-pan below. Swatch 211 vs Zitronengelb once; keep one. Cadmium Light is the opaque opposite religion.",
       "mix_star": true,
       "best_for": "Spring greens, cool highlights, florals, and crisp warm-vs-cool yellow contrast.",
-      "ace_history": "Arylide Hansa yellow (PY3) is a 20th-century organic that replaced toxic chrome lemons — transparent, high-chroma, the classic cool mixer for spring greens. Horadam milling aims for creamy rewet and control.",
-      "temp_role": "Cool yellow · Cool lemon primary yellow · ◈ mixer"
+      "ace_history": "Arylide/Hansa yellow (PY3) replaced toxic chrome lemons in 20th-century charts — transparent-leaning high chroma for clean greens. \"Chromium Yellow Hue\" is Horadam temperature marketing; trust PY3 on the sleeve.",
+      "temp_role": "Cool lemon · Hansa/arylide primary · spring-green maker · ◈"
     },
     {
       "brand_traits": [
@@ -424,10 +424,10 @@
       "hex": "#E8C020",
       "format": "half-pan",
       "family": "yellow",
-      "ace_note": "Warm golden yellow with a vintage temperament. Less harsh than cadmium, lovely in autumn light.",
-      "ace_history": "Chromium yellow (PY34) is the Victorian warm yellow — less toxic than lead chrome, still opaque, still the color of gaslight and gilt frames in 19th-century watercolors.",
+      "ace_note": "Warm golden yellow with a vintage temperament. Less harsh than cadmium, lovely in autumn light.\n\nImportant label honesty: sleeve is Hue and pigment PY74 (arylide/Hansa warm mid) — not historic lead chromate PY34. You get warm golden body and \"gaslight\" mood without that Victorian toxicity story as literal chemistry. Good for sunlit paths mixed small into earths; can go mustard if overcooked with blue.\n\nDual advice: warm mid seat contested by Pure Yellow, Golden Yellow, Cad Light. Keep Deep when you want opaque-leaning warm gold without cadmium. Don't keep Deep + Cad + Golden as three \"just yellows.\"",
+      "ace_history": "True chrome yellow (PY34) painted the 19th century; modern \"Chromgelbton\" hues usually swap in safer organics (here PY74). Temperature of gilt frames, chemistry of now.",
       "toxicity": "low",
-      "temp_role": "Warm yellow · Bright mid yellow · more opaque"
+      "temp_role": "Warm golden mid-yellow · Arylide \"chrome hue\" deep · autumn light"
     },
     {
       "brand_traits": [
@@ -546,11 +546,11 @@
       "hex": "#F5E6C8",
       "format": "half-pan",
       "family": "yellow",
-      "ace_note": "Soft, chalky warmth — not a screaming yellow. Skin tones, faded walls, that hazy Mediterranean afternoon.",
-      "ace_history": "Naples yellow began as lead antimonate on Roman walls and Renaissance panels — today's PY216 blends chase that soft, chalky warmth without the poison.",
+      "ace_note": "Soft, chalky warmth — not a screaming yellow. Skin tones, faded walls, that hazy Mediterranean afternoon.\n\nNaples is a corrector and atmosphere, not a mixing primary. Low scream, high usefulness for flesh, marble shadow warmth, dusty plaster. With blue it dies into soft dirt faster than Hansa — that's the feature for quiet neutrals, the bug for neon spring.\n\nDual advice: one Naples seat among Schmincke standard / reddish / MaimeriBlu. Standard = classic pale; reddish = peach bias. Don't use Naples when you needed lemon for clean greens.",
+      "ace_history": "Historic Naples was lead antimonate on Roman and Renaissance walls; modern PY216 (and related) blends chase chalky warmth without the poison. Giallo di Napoli for flesh and soft light.",
       "toxicity": "medium",
       "toxicity_habit": "Cobalt pigment — wash hands after painting; keep food and drink away from the palette.",
-      "temp_role": "Warm orange · Soft chalky warm yellow (Naples family) · more opaque"
+      "temp_role": "Soft chalky warm yellow · Naples family · skin, stucco, haze"
     },
     {
       "brand_traits": [
@@ -1157,10 +1157,10 @@
       "family": "yellow",
       "series": 1,
       "notes": "Photo 483f6c53. 半块固形. Grade 1, transparent (□). ★★★. Verified: Jerry's Artarama — PY183, staining.",
-      "ace_note": "Italian sunshine without cadmium baggage. Transparent, staining — rewets like it remembers everything. Mixes clean greens with your blues.",
-      "ace_history": "PY183 benzimidazolone yellow is a modern transparent gold — Italian lines like MaimeriBlu favor it where cadmium opacity would choke a delicate wash.",
+      "ace_note": "Italian sunshine without cadmium baggage. Transparent, staining — rewets like it remembers everything. Mixes clean greens with your blues.\n\nPY183 gold that glazes and stains — educational fun is permanent sunbeams: lovely until you wanted a lift. Clean greens with blues; warm florals; honey light through paper. Italian grade manners, transparent box on the label.\n\nDual advice: staining gold vs Cad cover vs Pure mid — pick by whether you need memory on the paper (stain) or butter cover (cad) or polite primary (Pure). One warm transparent gold seat.",
+      "ace_history": "Benzimidazolone yellow (PY183) is modern transparent gold favored where cadmium opacity would choke a wash — MaimeriBlu's Italian sunshine chapter.",
       "toxicity": "low",
-      "temp_role": "Warm yellow · Yellow for mixing and light · staining · transparent"
+      "temp_role": "Warm transparent gold · Staining benzimidazolone · Italian sunshine"
     },
     {
       "id": "mb-rose-lake",
@@ -1256,11 +1256,11 @@
         "professional",
         "maimeri"
       ],
-      "ace_note": "Soft warm white-yellow — skin, walls, afternoon light. A gentle corrector, not a mixing primary.",
-      "ace_history": "Italian Naples is the portraitist's pale warmth — the same hue family Old Master workshops called giallo di Napoli for flesh and marble shadows.",
+      "ace_note": "Soft warm white-yellow — skin, walls, afternoon light. A gentle corrector, not a mixing primary.\n\nItalian Naples with PY53 (nickel titanate yellow family — pale, opaque-leaning, modern \"nickel titanium\" pale gold). Same soft job as Horadam Naples, different pigment passport. Clearance sample energy: still a real seat if it wins the swatch.\n\nDual advice: third Naples auditioner — one Naples wins. PY53 vs PY216 is manners/opacity poetry; pick by skin test, not by collecting Italy.",
+      "ace_history": "Naples as portrait pale warmth survives in modern nickel/titanium and complex yellows; Italian workshops kept the name giallo di Napoli for flesh and marble hush.",
       "toxicity": "medium",
       "toxicity_habit": "Nickel-containing pigment — wash hands after sessions; no eating at the desk.",
-      "temp_role": "Warm orange · Yellow for mixing and light · more opaque"
+      "temp_role": "Soft warm white-yellow · Naples corrector · skin, walls, afternoon"
     },
     {
       "transparency": 2,
@@ -1301,14 +1301,14 @@
       "hex": "#D4A82A",
       "family": "yellow",
       "format": "half-pan",
-      "ace_note": "Modern Schmincke yellow with city energy — warm and contemporary.",
+      "ace_note": "Modern Schmincke yellow with city energy — warm and contemporary.\n\nPlay lab (granulation): Built for concrete sun and boulevard spring — granulates into warm grit. Verified-ish energy with phthalo green → traffic-light spring greens; with indigo → smoggy distant trees. Not your quiet lemon primary; it's the yellow that knows streetlights.\n\nWet-in-wet on cold-press for haze over rooftops; pair with violet mists if you like sunset pollution romance.\n\nDual advice: specialty / contemporary seat. Don't fire Lemon + Pure to \"make room\" unless you only paint cities. One granulating warm gold (Urban vs Pinax earth-yellow) unless swatches disagree hard.",
       "brand_traits": [
         "professional",
         "horadam"
       ],
       "mix_star": true,
       "best_for": "City sunset glow, warm granulating highlights, and mixing muted urban greens.",
-      "ace_history": "Urban Yellow is a modern Schmincke granulating specialty — less about a historic pigment name than about contemporary warm light on concrete and glass.",
+      "ace_history": "Urban Yellow is Horadam modern naming more than a single ancient pigment myth — warm light on glass and pavement, granulating specialty for contemporary sketchbooks. PY154 benzimidazolone-type warm yellow in city clothes.",
       "mix_tips": [
         {
           "with": [
@@ -1333,7 +1333,7 @@
         }
       ],
       "toxicity": "low",
-      "temp_role": "Warm orange · Yellow for mixing and light · ◈ mixer · granulating"
+      "temp_role": "Warm contemporary gold · Granulating city yellow · specialty light"
     },
     {
       "transparency": 2,
@@ -5293,9 +5293,9 @@
       "format": "half-pan",
       "family": "yellow",
       "notes": "Neapelgelb rötlich. Color-check Jul 8 2026 — half pan.jpg (plastic case).",
-      "ace_note": "Warmer Naples in travel half-pan — skin tones and faded peach walls.",
-      "ace_history": "Modern Naples yellows (often PY216 blends) chase the soft chalky warmth of historic lead antimonate without the poison — skin, stucco, hazy walls. Horadam milling aims for creamy rewet and control.",
-      "temp_role": "Warm orange · Soft chalky warm yellow (Naples family) · more opaque"
+      "ace_note": "Warmer Naples in travel half-pan — skin tones and faded peach walls.\n\nSame Naples role, swung toward peach/salmon chalk. Portrait and Mediterranean wall specialty; even less \"primary yellow\" than standard Naples. Travel half-pan convenience for skin kits.\n\nDual advice: reddish vs standard Naples = one well. Swatch on a face study; keep the bias you actually paint. Vs Coral Reef (coral family): coral is quin+orange chroma; Naples is chalky soft — different jobs.",
+      "ace_history": "Modern Naples reddish (PY216 cuts) push the historic soft yellow toward flesh-peach without lead antimonate. Horadam travel form for portrait tins.",
+      "temp_role": "Soft peach Naples · Reddish chalky warm · skin & faded peach walls"
     },
     {
       "brand_traits": [
@@ -5510,9 +5510,9 @@
       "format": "half-pan",
       "family": "yellow",
       "notes": "Reingelb. Color-check Jul 8 2026 — half-pan 4 photo.",
-      "ace_note": "Clean transparent yellow half-pan — mixing primary without cadmium weight.",
-      "ace_history": "Pure yellow (PY138) is Schmincke's modern transparent primary — cadmium-free mixing yellow. Horadam milling aims for creamy rewet and control.",
-      "temp_role": "Warm yellow · Yellow for mixing and light"
+      "ace_note": "Clean transparent yellow half-pan — mixing primary without cadmium weight.\n\nSits between cool lemon and deep gold: PY138 (quinophthalone family territory) as Horadam's \"Reingelb\" — modern transparent primary for general light, florals, and greens that aren't ice-mint or mustard. Less citrus-edge than PY3; less honey-earth than PY42.\n\nDual advice: if you only keep two yellows, many kits do cool lemon + this mid (or golden). Vs Cad Light: Pure is glaze-friendly; Cad covers. Vs Golden Yellow PY183: different modern gold manners — swatch.",
+      "ace_history": "Pure Yellow / PY138 is Schmincke's contemporary cadmium-free primary yellow — engineered for clean mixes, not historical chrome nostalgia.",
+      "temp_role": "Warm-mid transparent yellow · Cadmium-free mixing primary · clean light"
     },
     {
       "brand_traits": [
@@ -6607,11 +6607,11 @@
       "toxicity": "low",
       "series": "B",
       "notes": "Pinax Extra. Iron oxide transparent yellow / Оксид железа прозрачный желтый · PY42 · series B · ★★★★ · transparent · marked G (granulating). Studio photo Jul 21 2026.",
-      "ace_note": "Honey-gold earth yellow that granulates — transparent ochre energy without the mud.",
+      "ace_note": "Honey-gold earth yellow that granulates — transparent ochre energy without the mud.\n\nPlay lab (granulation): PY42 iron yellow on cold-press can sediment into land light — fields, underpainting sun, greens that look like hills not neon. Tilt a juicy wash; don't over-stir. Cousin to earth-family ochres/Transparent Ochre: if those already own \"sensible sunlight,\" this is brand manners + grit, not a new planet.\n\nMixes: with blue → soft land greens; with rose → dusty skin/plaster. ◈ mixer energy without cadmium weight.\n\nDual advice: check earth half-pans/pans before promoting two ochre-yellows. One transparent iron-yellow/ochre seat for land. Vs Urban Yellow: earth mineral vs contemporary specialty gold.",
       "mix_star": true,
       "best_for": "Warm glazes, golden hour, earthy greens, and textured yellows.",
-      "ace_history": "Synthetic or natural iron yellow (PY42) continues ochre's ancient job — muted sunlight, underpainting warmth, and greens that look like land instead of neon.",
-      "temp_role": "Warm yellow · Earth yellow / ochre family · ◈ mixer · granulating · transparent"
+      "ace_history": "Iron yellow (PY42) continues ochre's ancient job — muted sunlight, underpainting, honest land greens. Pinax Extra marks the G for granulating; the dirt is modern synthetic iron oxide remembering caves.",
+      "temp_role": "Warm earth-yellow · Transparent iron yellow · granulating ochre energy"
     },
     {
       "id": "pinax-pr233-potters-pink-deep",
