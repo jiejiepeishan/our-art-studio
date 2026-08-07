@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-05-earth-2ml-handwritten",
+  "updated": "2026-08-07-blue-halfpan-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow",
   "color_count": 225,
   "colors": [
@@ -175,10 +175,10 @@
       "hex": "#6BA3C7",
       "format": "half-pan",
       "family": "blue",
-      "ace_note": "Milky, soft, a little stubborn — won't mix into screaming brights, but skies love it. Semi-opaque means it can rescue washed-out washes.",
-      "ace_history": "Cerulean blue (PB35) was synthesized in the 1860s as a safer stand-in for cobalt sky blues — Turner and the Impressionists chased this milky, non-staining hue for distant horizons.",
+      "ace_note": "Milky, soft, a little stubborn — won't mix into screaming brights, but skies love it. Semi-opaque means it can rescue washed-out washes.\n\nCerulean is the opposite job from ultramarine: cool, chalky-sky, good for distant air and that soft horizontal band under a warm cloud. It will not give you clean electric violets (opacity + temperature kill the jewel). It will sit on top of a failed cool wash and whisper \"horizon.\" Mixes go muted — that's the feature.\n\nDual advice: if ultramarine already does your sky and your violets, cerulean is the second sky seat for milk and distance — worth it for landscape, optional for pure floral kits. Don't expect it to replace PB29 in chromatic greys with sienna.",
+      "ace_history": "Cerulean (PB35, cobalt tin oxide type) arrived mid-19th century as a stable milky sky blue — the horizon colour Impressionists and sky specialists chased when pure cobalt felt too raw. Non-staining, a little lazy in mixes: built for air, not neon.",
       "toxicity": "low",
-      "temp_role": "Cool blue · Milky semi-opaque cerulean · more opaque"
+      "temp_role": "Cool sky blue · Milky semi-opaque cerulean · horizon / rescue cover"
     },
     {
       "brand_traits": [
@@ -764,10 +764,10 @@
       "hex": "#2C3E6B",
       "format": "half-pan",
       "family": "blue",
-      "ace_note": "Moody, granulating, nocturnal. Night skies, denim, deep water — lets the paper texture sing.",
+      "ace_note": "Moody, granulating, nocturnal. Night skies, denim, deep water — lets the paper texture sing.\n\nIgnore the plant-dye daydream for a second: the label chemistry is PB60 indanthrene — a modern deep blue that reads indigo in the well. It's your nocturnal cool dark: denim, deep water, storm bases. Verified with burnt sienna → moody blue-greys; also leans olive with urban yellow, soft mauve with pinks. Granulation gives the paper a voice; it's not Prussian's staining teal-push.\n\nDual advice: indigo/PB60 is not a second ultramarine and not Prussian. Keep it as the deep cool when night and denim matter; if Prussian already stains your kit green-teal, you may only need one deep cool. Don't mix recipes swapping indigo↔ultramarine and expect the same violet.",
       "mix_star": true,
       "best_for": "Night skies, denim blues, deep shadows, and granulating cool darks.",
-      "ace_history": "Indigo in watercolor is traditionally a mixed or synthetic substitute for plant indigo — Schmincke's granulating version chases that stormy, textile-blue romance.",
+      "ace_history": "Historical indigo was fermented plant dye — fugitive, legendary, textile-first. Many \"Indigo\" watercolours today use PB60 (indanthrene blue) or blends to chase that stormy denim without the fade. Schmincke's granulating indigo is modern deep-blue romance wearing an old trade name — trust the pigment code more than the farm story.",
       "mix_tips": [
         {
           "with": [
@@ -792,7 +792,7 @@
         }
       ],
       "toxicity": "low",
-      "temp_role": "Cool blue · Deep indanthrene blue · ◈ mixer · granulating"
+      "temp_role": "Cool deep blue · Indanthrene night / denim · ◈ dark mixer · granulating"
     },
     {
       "brand_traits": [
@@ -813,10 +813,10 @@
       "hex": "#1B3A5C",
       "format": "half-pan",
       "family": "blue",
-      "ace_note": "Intense, staining, slightly historic drama. Strong in mixes — a little pushes the whole wash toward teal or deep green.",
-      "ace_history": "Prussian blue (PB27) was discovered by accident in Berlin in 1704 — the first modern synthetic pigment, beloved by Hokusai's waves and Romantic storm clouds.",
+      "ace_note": "Intense, staining, slightly historic drama. Strong in mixes — a little pushes the whole wash toward teal or deep green.\n\nPrussian is the aggressive cool: high tinting, stains the paper, and yanks yellows into deep greens/teals before you notice. Great for Hokusai-wave energy, iron-ish night, and decisive darks; terrible when you wanted a polite violet or a liftable sky. Semi-opaque body means it can also sit heavier than a pure stain ultramarine.\n\nDual advice: dose like salt. If you already own phthalo blue/green in other formats, Prussian may duplicate the \"strong cool stain\" job — keep one tyrant. Never \"just swap\" for ultramarine in a skin or floral mix. Lift tests before commissions.",
+      "ace_history": "Prussian blue (PB27) was born in Berlin around 1704 — often called the first modern synthetic pigment. Hokusai's waves and Romantic storms made it famous; watercolorists still respect its stain and its talent for turning a mix teal. Historic drama, industrial iron-cyanide family chemistry (modern paints are the art-safe lineage of that discovery story).",
       "toxicity": "low",
-      "temp_role": "Cool blue · Blue for sky, water, and mixes · staining · more opaque"
+      "temp_role": "Cool staining blue · Historic teal-pusher · strong mixer · more body"
     },
     {
       "brand_traits": [
@@ -1277,14 +1277,14 @@
       "hex": "#3A6B9A",
       "family": "blue",
       "format": "half-pan",
-      "ace_note": "Dutch canal blue — calm, slightly muted, built for ceramic skies.",
+      "ace_note": "Dutch canal blue — calm, slightly muted, built for ceramic skies.\n\nDelft sits in cobalt country (PB30): cooler and more \"tile glaze\" than warm ultramarine bloom, less milky-cover than cerulean. Think canal reflection, porcelain shadow, polite architectural blue. Mixes stay civilized; granulation is not the headline (unlike PB29). If a wash needs drama sediment, you grabbed the wrong pan.\n\nDual advice: Delft vs cerulean vs ultramarine = three different seats. In a small tin, ultramarine + one cool is enough; pick Delft when you want cobalt calm, cerulean when you want milk cover. Don't keep Delft and a strong cobalt tube unless the swatches clearly disagree.",
       "brand_traits": [
         "professional",
         "horadam"
       ],
-      "ace_history": "Delft blue echoes Dutch tin-glazed pottery (PB30 cobalt) — a cultural color as much as a pigment, built for calm ceramic skies and canal reflections. Horadam milling aims for creamy rewet and control.",
+      "ace_history": "\"Delft blue\" borrows the fame of Dutch tin-glazed pottery — cultural colour as much as chemistry. PB30 is a cobalt blue family pigment; Horadam's name sells canal-and-ceramic mood while you paint modern lightfast cobalt manners.",
       "toxicity": "low",
-      "temp_role": "Cool blue · Blue for sky, water, and mixes"
+      "temp_role": "Cool cobalt blue · Canal / ceramic calm · muted sky mixer"
     },
     {
       "transparency": 2,
@@ -5365,9 +5365,9 @@
       "format": "half-pan",
       "family": "blue",
       "notes": "Ultramarin feinst. Color-check Jul 8 2026 — half-pan 3 photo.",
-      "ace_note": "Schmincke's finest-ground ultramarine in half-pan — granulating sky blue with dignity.",
-      "ace_history": "Ultramarine (PB29) was the precious lapis blue of churches before 1828 synthesis — still the granulating, warm-leaning blue of skies and classical mixes. Horadam milling aims for creamy rewet and control.",
-      "temp_role": "Warm blue · Warm granulating sky/mixing blue · granulating"
+      "ace_note": "Schmincke's finest-ground ultramarine in half-pan — granulating sky blue with dignity.\n\n\"Finest\" promises a finer particle story: often slightly smoother washes and a deeper masstone (#1E3A8A reads more night-navy in the well) while still belonging to the granulating PB29 club. Use it when you want ultramarine dignity without as much gritty drama as a coarse French; still not a staining phthalo.\n\nDual advice: Finest vs French is texture preference inside one seat. Swatch side by side wet-in-wet; keep one. If you paint tiny botanical washes and hate heavy sediment, Finest may win; if you paint rocky skies, French or Pinax grit may win.",
+      "ace_history": "Still PB29 ultramarine — the lapis-to-synthetic arc doesn't change with grind marketing. \"Ultramarin feinst\" is Horadam's fine-milled grade for controlled skies and mixing, not a different pigment fairy tale.",
+      "temp_role": "Warm blue · Finer-ground ultramarine · smoother sky, still mineral"
     },
     {
       "brand_traits": [
@@ -5461,9 +5461,9 @@
       "format": "half-pan",
       "family": "blue",
       "notes": "Franz.Ultramarin. Color-check Jul 8 2026 — half-pan 4 photo.",
-      "ace_note": "Classic granulating ultramarine — skies that bloom on cold press.",
-      "ace_history": "Ultramarine (PB29) was the precious lapis blue of churches before 1828 synthesis — still the granulating, warm-leaning blue of skies and classical mixes. Horadam milling aims for creamy rewet and control.",
-      "temp_role": "Warm blue · Warm granulating sky/mixing blue · granulating"
+      "ace_note": "Classic granulating ultramarine — skies that bloom on cold press.\n\n\"French\" in the name is colourman poetry for a warmer, often redder-leaning ultramarine grind — the one landscape demos mean when they say \"let it granulate into the cloud.\" Same PB29 family as Pinax and Finest: violets with magenta, storm greys with sienna, soft lifts if you don't stain the paper first. Horadam rewet is the cream you already trust in the earth half-pans.\n\nDual advice: if Pinax already owns ultramarine in the kit, this is a manners upgrade, not a new role. Keep French when the bloom and warmth beat your other PB29; demote duplicates to studio drawer. Pair with one cool blue (cerulean for milk sky, or indigo for night) — not three warm blues.",
+      "ace_history": "Synthetic ultramarine (PB29) replaced powdered lapis after 1828; \"French ultramarine\" became the trade nickname for the warmer studio grade painters preferred for skies. Horadam mills it for pocket tins and polite rewet — mineral romance, modern chemistry.",
+      "temp_role": "Warm blue · French-style granulating ultramarine · sky bloom on cold-press"
     },
     {
       "brand_traits": [
@@ -6577,11 +6577,11 @@
       "toxicity": "low",
       "series": "A",
       "notes": "Pinax Extra. Ultramarine blue / Ультрамарин · PB29 · series A · ★★★★ · transparent. Studio photo Jul 21 2026.",
-      "ace_note": "The classic mineral blue — granulates, lifts, and makes every violet honest.",
+      "ace_note": "The classic mineral blue — granulates, lifts, and makes every violet honest.\n\nThis is the warm blue seat of classical watercolor: skies that separate on cold-press, violets that stay violet with rose/quin, and the textbook greys with burnt sienna (you already live in that mix language from earth cards). Transparent enough to glaze; granulating enough to feel mineral. Pinax Extra is a budget-friendly PB29 with series-A manners — same job as Horadam French/Finest, different handshake.\n\nDual advice: one ultramarine well per travel tin. Swatch Pinax vs Schmincke French vs Finest under the same rose and the same burnt sienna; keep the granulation and violet you love. Don't fill three PB29 wells for ego — spend the second blue slot on cerulean or a cool deep (indigo/Prussian), not a twin ultramarine.",
       "mix_star": true,
       "best_for": "Skies, shadows, violets with rose, and granulating texture.",
-      "ace_history": "Ultramarine (PB29) was the precious lapis blue of churches before 1828 synthesis — still the granulating, warm-leaning blue of skies and classical mixes.",
-      "temp_role": "Warm blue · Warm granulating sky/mixing blue · ◈ mixer · granulating · transparent"
+      "ace_history": "Ultramarine (PB29) was lapis lazuli blue for sacred art until French synthetic ultramarine (1820s) made the sky affordable. Still the warm-leaning, granulating blue of classical mixes — churches first, sketchbooks forever. Pinax carries that mineral plot in a half-pan price.",
+      "temp_role": "Warm blue · Granulating sky / mixing primary · ◈ workhorse · transparent"
     },
     {
       "id": "pinax-py42-iron-oxide-transparent-yellow",
