@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-07-blue-green-handwritten",
+  "updated": "2026-08-07-coral-specialty-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow",
   "color_count": 225,
   "colors": [
@@ -862,10 +862,10 @@
       "hex": "#C0C0C0",
       "format": "half-pan",
       "family": "specialty",
-      "ace_note": "Not here to mix — here to sparkle. Treat it like jewelry on the paper: last layer, light touch, no apologies.",
-      "ace_history": "PW20 mica silver is a decorative watercolor tradition — Victorian scrapbooks and modern galaxy painters use it where pigment alone cannot fake metal light.",
+      "ace_note": "Not here to mix — here to sparkle. Treat it like jewelry on the paper: last layer, light touch, no apologies.\n\nMica silver sits on the painting, not inside the color logic. Dry-brush on dark washes for sword edges, fish scales, winter branches with frost; soft scumble for moon-glint. Stir with other pigments and you often get muddy glitter soup — the sparkle dies, the grey gets weird. Rewet politely; metallic pans can feel chalky if you dig like it's ultramarine.\n\nDual advice: one metallic silver seat is enough (you don't need three brands of \"moon\"). Never promote Silver into the neutral/primary row of a limited palette lesson. If a study needs honest grey, mix chromatic neutrals; save Silver for the moment you want the paper to catch light like metal.",
+      "ace_history": "PW20 mica / pearlescent silver is decorative watercolour tradition — Victorian scrap albums, illuminated accents, modern galaxy and fantasy painters faking metal light. Not historic lead silver point; modern effect pigment milled for Horadam sparkle.",
       "toxicity": "low",
-      "temp_role": "Neutral / low-chroma · Mica / interference specialty · more opaque"
+      "temp_role": "Neutral sparkle · Mica silver (PW20) · last-layer jewelry · not a mixer grey"
     },
     {
       "brand_traits": [
@@ -1777,16 +1777,16 @@
       "hex": "#8A9A4A",
       "family": "specialty",
       "format": "metallic powder 2ml",
-      "ace_note": "Metallic alchemist — mix into ultramarine and chase that vintage lapis lazuli glow.",
+      "ace_note": "Metallic alchemist — mix into ultramarine and chase that vintage lapis lazuli glow.\n\nPowder format = you control the dose. Tiny pinch into a wet ultramarine wash can throw old-manuscript green-gold flecks (your studio note is canon). Alone: cool chartreuse metal for beetle wings, icon halos with a green bias, fantasy map edges. PY3 brings cool lemon energy under the mica — it will not behave like a pure transparent Hansa primary once sparkle is invited.\n\nPlay lab (powder): Load binder/water first, then whisper powder — or dust dry onto a still-tacky wash and lock with a clear glaze if your practice allows. Overload = sandpaper glitter. Educational fun: two swatches of French Ultramarine, one with a micro Green Gold charge — \"church blue\" vs \"reliquary blue.\"\n\nDual advice: effect seat with Red Gold as warm twin — you don't need both in every tin; pick by whether your metallic story leans icon green-gold or sunset copper-gold. Never use Green Gold powder as your only yellow in a mixing curriculum.",
       "brand_traits": [
         "professional",
         "horadam",
         "specialty",
         "metallic"
       ],
-      "ace_history": "Green gold with mica riffs on medieval manuscript gold-green — Schmincke's metallic line lets you chase illuminated manuscript accents without leaf gilding.",
+      "ace_history": "Green-gold mica riffs on medieval manuscript accents (gold next to green-blue pages) without leaf gilding. PW20 + cool yellow (PY3) is modern effect chemistry; Schmincke's powder line is for alchemists who like control.",
       "toxicity": "low",
-      "temp_role": "Cool yellow · Cool lemon primary yellow · more opaque"
+      "temp_role": "Cool metallic gold-green · Mica + Hansa-ish yellow · manuscript / lapis experiment powder"
     },
     {
       "transparency": 3,
@@ -1803,16 +1803,16 @@
       "hex": "#9A6A3A",
       "family": "specialty",
       "format": "metallic powder 2ml",
-      "ace_note": "Warm metallic whisper — lapis experiment partner to Green Gold, but sunset gold flecks.",
+      "ace_note": "Warm metallic whisper — lapis experiment partner to Green Gold, but sunset gold flecks.\n\nSame powder manners as Green Gold, warmer blood: PR101 iron red under mica = copper-sunset, Byzantine warmth, autumn armor. Into ultramarine → different vintage than green-gold (more bronze dusk than reliquary chartreuse). Alone on dark earths: ember edges, warm manuscript corners.\n\nPlay lab (powder): Side-by-side with Green Gold in the same ultramarine puddle — cool flecks vs warm flecks. That's the whole specialty education in two fingerprints. Dust sparingly; metallic powder is a seasoning.\n\nDual advice: pair with Green Gold only if you tell metallic stories often. Otherwise one gold powder + Silver covers \"special.\" Don't confuse Red Gold with transparent iron oxide or coral — this is sparkle with warm bias, not a mixing red.",
       "brand_traits": [
         "professional",
         "horadam",
         "specialty",
         "metallic"
       ],
-      "ace_history": "Mica and pearlescent whites (PW20 family) are modern effect pigments — sparkle and shift more than traditional covering white. Horadam milling aims for creamy rewet and control.",
+      "ace_history": "Mica (PW20) plus iron oxide red (PR101) = warm pearlescent gold effect for contemporary decorative watercolour. Sister to Green Gold in the Schmincke metallic powder experiments; the \"lapis mix\" note is studio folklore worth keeping as a recipe, not a pigment definition.",
       "toxicity": "low",
-      "temp_role": "Warm orange · Mica / interference specialty · more opaque"
+      "temp_role": "Warm metallic gold · Mica + iron red · sunset flecks / lapis partner"
     },
     {
       "transparency": 2,
@@ -2621,10 +2621,10 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Living coral — tropical warmth on paper.",
-      "ace_history": "Coral reef blends warm quin reds with orange — a contemporary tropical convenience color for reef sketches and travel journals, not a historic pigment name.",
+      "ace_note": "Living coral — tropical warmth on paper.\n\nNot a single historic \"coral\" rock and not pure cadmium sunset. The line is a duet: PR209 (quinacridone red — clean, modern, often a bit pink-leaning warmth) + PO48 (perinone transparent orange — the same heat family as DS Transparent Orange). Together they read reef flesh: peach-to-salmon in dilute washes, livelier orange-red in masstone — fish, flowers, swimsuits, the warm edge of a cheek when pure rose feels too cool and pure orange feels too traffic-cone.\n\nBecause it's a blend, mixes have two bosses. With blue you may get soft mauves or slightly dirtied peach depending on which pigment wins the water; with yellow it goes tropical fruit fast. It will not replace a primary red or a dedicated transparent orange for color-wheel drills — it's a subject color that already decided to be pretty.\n\nDual advice: one coral/salmon convenience seat is enough. If you already keep Transparent Orange (PO48) + a quin red/rose, you can mix reef — this 2ml is speed and mood for travel journals. Don't promote it to \"my only warm red.\" Sample size is perfect: use it up on one vacation sketchbook, then decide if the reef earns a bigger tube.",
+      "ace_history": "\"Coral reef\" is contemporary convenience naming — warm quin reds married to modern transparent orange for tropical sketches, not a mineral pulled from a barrier reef. PR209 + PO48 is lightfast twentieth-century chemistry wearing snorkeling marketing. The legend is the holiday; the job is clean warm flesh-of-the-sea on paper.",
       "toxicity": "low",
-      "temp_role": "Warm red family · Warm quinacridone coral-red"
+      "temp_role": "Warm coral · Quin red + perinone orange · tropical reef accent · travel sample"
     },
     {
       "transparency": 2,
