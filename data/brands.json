@@ -1,5 +1,5 @@
 {
-  "version": 6,
+  "version": 7,
   "brands": [
     {
       "id": "daniel-smith",
@@ -506,6 +506,62 @@
       ]
     },
     {
+      "id": "qor",
+      "name": "QoR",
+      "origin": "New Berlin, NY, USA (Golden Artist Colors)",
+      "tagline": "Modern binder, old-soul earths",
+      "story": [
+        "QoR is Golden's watercolor line — same chemistry lab energy as the acrylics, but built for paper. Aquazol binder, high chroma, fast rewet.",
+        "The Earth Colors set is the quiet flex: Naples, umbers, Venetian red, transparent oxides that glaze without turning to mud.",
+        "Not granulation theater like PrimaTek; more 'clean modern handling with serious pigment load.'",
+        "If your palette needs contemporary earths that still feel painterly, QoR is the American answer that doesn't shout."
+      ],
+      "artists": [
+        {
+          "name": "Winslow Homer",
+          "note": "American values and outdoor light — QoR earths would feel at home in his blunt landscapes.",
+          "works": [
+            {
+              "title": "The Blue Boat",
+              "year": "1892",
+              "artist": "Winslow Homer",
+              "caption": "Spare washes, honest values. Modern earth tubes for that kind of clarity.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/The_Blue_Boat_1892_Winslow_Homer.jpg/330px-The_Blue_Boat_1892_Winslow_Homer.jpg",
+              "image_local": "images/brands/the-blue-boat-1892-winslow-homer.jpg"
+            }
+          ]
+        },
+        {
+          "name": "John Singer Sargent",
+          "note": "Bold wash swagger — transparent oxides for decisive strokes.",
+          "works": [
+            {
+              "title": "Muddy Alligators",
+              "year": "1917",
+              "artist": "John Singer Sargent",
+              "caption": "Public-domain cousin for bold American wash energy.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Sargent_-_Muddy_Alligators.jpg/960px-Sargent_-_Muddy_Alligators.jpg",
+              "image_local": "images/brands/sargent-muddy-alligators.jpg"
+            }
+          ]
+        },
+        {
+          "name": "J.M.W. Turner",
+          "note": "Atmosphere first — transparent browns and indigo for weather.",
+          "works": [
+            {
+              "title": "The Piazzetta, Venice",
+              "year": "1840",
+              "artist": "J.M.W. Turner",
+              "caption": "Wet light and value. Earth greys that still breathe.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/e/ee/J.M.W._Turner_-_The_Piazzetta%2C_Venice%2C_1840._Watercolour.jpg",
+              "image_local": "images/brands/j-m-w-turner-the-piazzetta-venice-1840-watercolour.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "roman-szmal",
       "name": "Roman Szmal",
       "origin": "Poland",
@@ -556,6 +612,62 @@
               "caption": "Transparency wins. Ego loses.",
               "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Albrecht_D%C3%BCrer_-_Das_gro%C3%9Fe_Rasenst%C3%BCck.jpg/330px-Albrecht_D%C3%BCrer_-_Das_gro%C3%9Fe_Rasenst%C3%BCck.jpg",
               "image_local": "images/brands/albrecht-d-c3-bcrer-das-gro-c3-9fe-rasenst-c3-bcck.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "holbein",
+      "name": "Holbein",
+      "origin": "Japan",
+      "tagline": "Buttery rewet, clear labels",
+      "story": [
+        "Holbein Artists' Water Color is the Japanese professional line that rewets like it remembers you — creamy, cooperative, quietly excellent.",
+        "Labels are honest, colors are clear, and convenience mixes (hello Lavender) save you from remixing three tubes for a periwinkle sky.",
+        "Not as loud as DS granulation theater, not as formal as Schmincke's German syllabus — more 'studio friend who always shows up.'",
+        "If your palette needs a soft cool or a reliable floral, Holbein often has the tube already mixed."
+      ],
+      "artists": [
+        {
+          "name": "Katsushika Hokusai",
+          "note": "Japanese line and weather — clear color blocks with discipline.",
+          "works": [
+            {
+              "title": "The Great Wave off Kanagawa",
+              "year": "c. 1831",
+              "artist": "Katsushika Hokusai",
+              "caption": "Public-domain cousin for Japanese graphic color energy (print, not watercolor — still the right weather).",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/The_Great_Wave_off_Kanagawa.jpg/960px-The_Great_Wave_off_Kanagawa.jpg",
+              "image_local": null
+            }
+          ]
+        },
+        {
+          "name": "Paul Klee",
+          "note": "Soft geometry and pastel temperature — lavender-adjacent moods.",
+          "works": [
+            {
+              "title": "Kleine Schweizerlandschaft",
+              "year": "1920",
+              "artist": "Paul Klee",
+              "caption": "Gentle color architecture — public-domain cousin for soft cools.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Paul_Klee_Kleine_Schweizerlandschaft_1920.jpg/640px-Paul_Klee_Kleine_Schweizerlandschaft_1920.jpg",
+              "image_local": "images/brands/paul-klee-kleine-schweizerlandschaft-1920.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Wassily Kandinsky",
+          "note": "Color as language — clean singles and soft mixes speaking clearly.",
+          "works": [
+            {
+              "title": "Color Study: Squares with Concentric Circles",
+              "year": "1913",
+              "artist": "Wassily Kandinsky",
+              "caption": "Single hues in conversation — the Extra-pan dream.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Vassily_Kandinsky%2C_1913_-_Color_Study%2C_Squares_with_Concentric_Circles.jpg/960px-Vassily_Kandinsky%2C_1913_-_Color_Study%2C_Squares_with_Concentric_Circles.jpg",
+              "image_local": "images/brands/vassily-kandinsky-2c-1913-color-study-2c-squares-with-concentric-circles.jpg"
             }
           ]
         }
