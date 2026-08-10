@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-10-yellow-tube-handwritten",
+  "updated": "2026-08-10-yellow-2ml-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein)",
   "color_count": 252,
   "colors": [
@@ -1514,14 +1514,14 @@
       "hex": "#E8C84A",
       "family": "yellow",
       "format": "2ml sample",
-      "ace_note": "Shire sunshine — warm pastoral yellow, Hobbit-core meadows.",
+      "ace_note": "Shire sunshine — warm pastoral yellow, Hobbit-core meadows.\n\nPlay lab (granulation): Built for storybook countryside — granulates into meadow grit on cold-press. Verified with phthalo green → vivid spring greens with texture; with Shire Olive → cohesive Hobbit-core harmony; with Desert Brown → dusty path edges. Tilt, don't over-stir. Not your color-wheel primary; it's landscape poetry with a useful mixer badge.\n\nDual advice: specialty granulating yellow — keep if you paint fields and fantasy maps. Don't replace lemon/mid primary with Shire alone. PY53 also appears in pale Naples territory (nickel titanate vibes) — here the granulating Shire cut is the point.",
       "brand_traits": [
         "professional",
         "horadam"
       ],
       "mix_star": true,
       "best_for": "Sunlit fields, warm highlights, and mixing clean landscape greens.",
-      "ace_history": "Shire Yellow is Schmincke's granulating PY53 specialty — part of their fantasy landscape series inspired by storybook countryside light. Horadam milling aims for creamy rewet and control.",
+      "ace_history": "Shire Yellow is Horadam fantasy-landscape marketing over PY53 specialty milling — countryside light with sediment, not a Tolkien mineral. Creamy rewet, storybook job.",
       "mix_tips": [
         {
           "with": [
@@ -1547,7 +1547,7 @@
       ],
       "toxicity": "medium",
       "toxicity_habit": "Nickel-containing pigment — wash hands after sessions; no eating at the desk.",
-      "temp_role": "Warm yellow · Yellow for mixing and light · ◈ mixer · granulating"
+      "temp_role": "Warm pastoral yellow · Granulating PY53 · storybook meadow light"
     },
     {
       "transparency": 2,
@@ -2126,11 +2126,11 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Warm golden rose — sunsets and honey light.",
-      "ace_history": "Nickel Azo Yellow (PY150) is a transparent warm yellow that underpins many quinacridone-gold blends — luminous glazes, not chalky coverage.",
+      "ace_note": "Warm golden rose — sunsets and honey light.\n\nPY150 again (same broad chemistry as Hot Mulled Cider tube): transparent warm gold, rose-honey bias in the name. Glaze sunsets, tea, skin warmth. Not chalk ochre; not cool lemon.\n\nDual advice: one PY150 gold seat with Cider holiday tube — sample vs 15ml is faucet, not two roles. Vs Indian Yellow / Quin Gold: pick the warm transparent gold you actually reach for.",
+      "ace_history": "Nickel azo yellow (PY150) underpins many luminous golds and \"quin gold\" neighboring recipes — transparent glazes, not chalk. Rose Deep Gold is DS's romantic naming for that glow.",
       "toxicity": "medium",
       "toxicity_habit": "Nickel-containing pigment — wash hands after sessions; no eating at the desk.",
-      "temp_role": "Warm yellow · Warm transparent gold-yellow"
+      "temp_role": "Warm transparent gold · Nickel azo (PY150) · honey-sunset glaze"
     },
     {
       "transparency": 2,
@@ -2647,10 +2647,10 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Bright yellow no.2 — clean sunshine without cadmium.",
-      "ace_history": "PY154 benzimidazolone yellow is a clean, transparent sunshine — a cadmium alternative born from 20th-century organic pigment research.",
+      "ace_note": "Bright yellow no.2 — clean sunshine without cadmium.\n\nPY154 clean bright mid-warm — design sun, flower punch, cadmium alternative. Sample size for \"do I need another mid yellow?\" Urban Yellow half-pan is also PY154-ish family energy with granulation; this sample is smoother sunshine try-on.\n\nDual advice: mid bright seat with Azo, Pure, Isoindoline. One winner. Vs Cad Light: transparent-leaning organic vs butter cover.",
+      "ace_history": "PY154 benzimidazolone yellow — 20th-century organic research for clean sunshine without cadmium weight. DS sample culture: test, then commit.",
       "toxicity": "low",
-      "temp_role": "Warm yellow · Yellow for mixing and light"
+      "temp_role": "Warm clean sunshine · Benzimidazolone (PY154) · cadmium-free bright"
     },
     {
       "transparency": 2,
@@ -4634,10 +4634,10 @@
         "professional",
         "honey-based"
       ],
-      "ace_note": "M. Graham Indian Yellow — honey base, 2ml sample. Blooms on wet paper if you lean in.",
-      "ace_history": "Indian yellow legend says it came from mango-fed cows — the transparent warm yellow of 18th-century Company School painting, now synthetic PY83 in honey.",
+      "ace_note": "M. Graham Indian Yellow — honey base, 2ml sample. Blooms on wet paper if you lean in.\n\nWarm transparent gold for autumn, skin warmth, and glowing underlayers — not the infamous historic cow-mango legend as literal chemistry. PY83 diarylide/modern organic gold-yellow does the transparent warm job. Honey blooms if you feed water. Cousin mood to quin gold / cider / rose deep gold — one warm transparent gold seat is enough for most kits.\n\nDual advice: vs W&N Quinacridone Gold and Hot Mulled Cider: manners and undertone contest, not three wells. Vs cool Hansa: different job entirely.",
+      "ace_history": "Indian yellow's legend (Company School, mango-fed cows) is half horror-story, half romance; modern tubes use lightfast organics like PY83. Keep the glow; leave the livestock myth in the museum label.",
       "toxicity": "low",
-      "temp_role": "Warm orange · Yellow for mixing and light"
+      "temp_role": "Warm transparent gold-yellow · Modern \"Indian yellow\" (PY83) · honey glaze"
     },
     {
       "transparency": 2,
@@ -4709,11 +4709,11 @@
         "professional",
         "honey-based"
       ],
-      "ace_note": "M. Graham Cobalt Yellow — honey base, 2ml sample. Blooms on wet paper if you lean in.",
-      "ace_history": "Pale Naples-style yellows echo portrait-studio flesh lights — low drama, high usefulness when you need cream without lemon sting. Honey binder gives a distinctive slip and rewet.",
+      "ace_note": "M. Graham Cobalt Yellow — honey base, 2ml sample. Blooms on wet paper if you lean in.\n\nPY40 is the classical aureolin / cobalt yellow family — pale, often delicate lightfastness reputation in some historical forms; modern honey sample still reads cream sun, not lemon primary. Soft corrector energy near Naples: flesh lights, quiet walls. Don't expect it to boss a neon green mix.\n\nDual advice: Naples / pale cream seat with QoR Naples, Rosa Light, Schmincke Naples. One soft pale yellow. Not a substitute for Azo/Hansa primaries.",
+      "ace_history": "Cobalt yellow / aureolin (PY40) was the 19th-century transparent yellow hope; lightfastness drama made modern painters cautious. Honey sample = try the temperature; trust your own fade tests for heirlooms.",
       "toxicity": "medium",
       "toxicity_habit": "Cobalt pigment — wash hands after painting; keep food and drink away from the palette.",
-      "temp_role": "Warm yellow · Pale creamy yellow"
+      "temp_role": "Pale creamy yellow · Aureolin/cobalt yellow family (PY40) · soft corrector"
     },
     {
       "transparency": 2,
@@ -6376,11 +6376,11 @@
       "staining": true,
       "toxicity": "low",
       "notes": "M. Graham Artists' Watercolor Azo Yellow — official catalog code 018 (user list said 108; catalog is 018 between Hansa 107 and Indian Yellow 109 numbering is not sequential). Benzimidazolone Yellow PY151. More transparent than cadmium, more lightfast than many Hansa. Honey-bound. Studio 2ml sample Jul 2026.",
-      "ace_note": "Clean primary sunshine — mixes oranges and greens without the cadmium weight. Honey keeps it juicy on the palette.",
+      "ace_note": "Clean primary sunshine — mixes oranges and greens without the cadmium weight. Honey keeps it juicy on the palette.\n\nPY151 mid primary: often a hair different from cool Hansa PY3 (MG107 tube) — many charts treat Azo as the \"middle sun\" for clean oranges and greens. Transparent, staining — permanent sunshine; lift carefully. Honey slip and rewet. Catalog code 018 (not 108) — numbering isn't sequential next to Hansa 107 / Indian 109.\n\nDual advice: mid primary seat with Pure Yellow / Isoindoline / Chrome Hues. Vs Hansa tube: cool lemon vs mid azo — you can own both; travel tin usually wants one cool + one mid max. Sample first before a 15ml.",
       "mix_star": true,
       "best_for": "Clean greens and oranges, florals, and bright mid-yellow passages.",
-      "ace_history": "Benzimidazolone Azo yellows (PY151) are modern transparent primaries — often a hair cooler than Hansa Medium, beloved for glazing stacks that stay clean. Honey binder gives a distinctive slip and rewet.",
-      "temp_role": "Mid yellow · Mid primary yellow (Hansa/Azo family) · ◈ mixer · staining · transparent"
+      "ace_history": "Benzimidazolone azo yellows (PY151) are modern transparent primaries for glazing stacks that stay clean. Honey-bound M. Graham is the juicy chapter.",
+      "temp_role": "Mid primary yellow · Benzimidazolone azo (PY151) · clean mixer · staining glaze"
     },
     {
       "id": "ds-138-lapis-lazuli-genuine",
