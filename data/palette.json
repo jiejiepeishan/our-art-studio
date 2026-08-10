@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-10-pink-halfpan-handwritten",
+  "updated": "2026-08-10-pink-pan-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein)",
   "color_count": 252,
   "colors": [
@@ -2722,10 +2722,10 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Rose mist granulation — soft pink fog, romantic texture.",
+      "ace_note": "Rose mist granulation — soft pink fog, romantic texture.\n\nPlay lab (granulation): PW6 milks PV19 into salon fog — wet cold-press, tip the board, let pink dust settle into lace. Soft portrait atmosphere, distant bouquets, \"I woke up like this\" skies. Less staining punch than pure PV19 half-pans (white retires the tyrant a little); more poetry. Verified-adjacent energy as a ◈ mixer for gentle violets with blue.\n\nDual advice: still the cool rose seat with MB Rose Lake / Pinax Quin Rose — Mist is the atmosphere cut, not a second primary for clean jewel purples. One pure PV19 + optional Mist if you paint foggy florals weekly.",
       "mix_star": true,
       "best_for": "Romantic florals, soft backgrounds, granulating pink fog, and gentle skin tones.",
-      "ace_history": "White Nights' granulating mist colors come from St. Petersburg's Nevskaya Palitra — a Soviet-era factory tradition now famous for sedimentary specialty blends.",
+      "ace_history": "White Nights granulating \"mist\" specials — St. Petersburg sedimentary blends with white for veil. PV19 does the rose; PW6 does the dream sequence.",
       "mix_tips": [
         {
           "with": [
@@ -2750,7 +2750,7 @@
         }
       ],
       "toxicity": "low",
-      "temp_role": "Cool rose · Cool quinacridone rose / violet-red · ◈ mixer · granulating"
+      "temp_role": "Cool misty rose · Quin rose + white · granulating fog / romantic texture"
     },
     {
       "transparency": 2,
@@ -3275,10 +3275,10 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Rose dream — sediment pink cotton-candy clouds.",
-      "ace_history": "Quinacridone magenta (PR122) is a cool primary for modern mixing charts — pink-violet energy for florals and clean purples with blues.",
+      "ace_note": "Rose dream — sediment pink cotton-candy clouds.\n\nPlay lab (granulation): PR122 cool magenta lean + white = cotton-candy flocks on texture — louder fashion than Potter's Pink, softer archive risk than pure fluorescent Opera. Wet-in-wet clouds of pink sediment; great for fantasy and confection, muddy if you wanted dusty ceramic PR233. Not a skin softener first.\n\nDual advice: drama/mist seat with Brilliant Opera Rose half-pan — Opera is fresh scream; Dream is milky granulating cloud. One loud magenta-pink story per tin unless you illustrate candy full-time.",
+      "ace_history": "PR122 quinacridone magenta as modern cool primary energy, cut with titanium white for Nevskaya Palitra \"dream\" marketing — cotton candy with a pigment code.",
       "toxicity": "low",
-      "temp_role": "Warm red family · Cool magenta / quin violet-red · granulating"
+      "temp_role": "Cool magenta-pink mist · Quin magenta + white · cotton-candy sediment"
     },
     {
       "transparency": 2,
@@ -3300,10 +3300,10 @@
         "rosa",
         "ukrainian"
       ],
-      "ace_note": "Ukrainian magenta rose — bold Eastern European floral power.",
-      "ace_history": "Quinacridone rose/violet (PV19) is a 20th-century transparent star — cool primary red for florals, glazes, and purples that stay clean.",
+      "ace_note": "Ukrainian magenta rose — bold Eastern European floral power.\n\nStraight PV19 confidence in a single pan: bold florals, clean purples with blue, staining petal memory. Pocket rococo — less milky than Mist, less Italian soft-wardrobe than Rose Lake, more \"I brought flowers and I meant it.\"\n\nDual advice: one PV19 primary among Magenta Rose, Rose Lake, Pinax Quin Rose. Rosa wins if you want saturated travel punch; MB/Pinax if you want softer chart manners.",
+      "ace_history": "Quinacridone rose PV19 — transparent twentieth-century star. Rosa Gallery packages Eastern European floral boldness in a single-pan passport.",
       "toxicity": "low",
-      "temp_role": "Cool rose · Cool quinacridone rose / violet-red · staining"
+      "temp_role": "Cool bold quin rose · PV19 pocket primary · staining floral power"
     },
     {
       "transparency": 2,
@@ -3401,11 +3401,11 @@
         "rosa",
         "ukrainian"
       ],
-      "ace_note": "Naples rose — peachy warmth for skin and walls.",
-      "ace_history": "Pale Naples-style yellows echo portrait-studio flesh lights — low drama, high usefulness when you need cream without lemon sting.",
+      "ace_note": "Naples rose — peachy warmth for skin and walls.\n\nNot a cool quin pink: PY40 pale cream yellow family + PR101 iron red kiss = peach flesh, faded stucco, \"rose\" only in the romantic name. Portrait corrector territory next to Naples Yellows — soft, low scream, human. Won't make clean violet with ultramarine the way PV19 does.\n\nDual advice: soft peach/skin seat with Naples yellows and pale creams — one well. Don't use when you needed Potter's Pink dust or quin rose petals. Filed in pink because the name and peach read blush; chemically it's warm corrector.",
+      "ace_history": "Naples-style pale warmth plus a touch of iron red — portrait-studio flesh light wearing a rose nickname. Low drama, high usefulness when lemon would sting and magenta would shout.",
       "toxicity": "medium",
       "toxicity_habit": "Cobalt pigment — wash hands after painting; keep food and drink away from the palette.",
-      "temp_role": "Warm orange · Pale creamy yellow"
+      "temp_role": "Warm peach rose · Naples cream + iron whisper · skin & wall corrector"
     },
     {
       "transparency": 2,
