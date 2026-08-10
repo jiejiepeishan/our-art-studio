@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-10-brown-grey-handwritten",
+  "updated": "2026-08-10-neutral-halfpan-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein)",
   "color_count": 252,
   "colors": [
@@ -668,10 +668,10 @@
       "hex": "#4A3728",
       "format": "half-pan",
       "family": "neutral",
-      "ace_note": "Instant vintage. Warm sepia lines and aged atmospheres. Stains, so sketch lightly first.",
-      "ace_history": "Sepia ink came from cuttlefish sacs before chemists cloned it with iron and carbon — Victorian album sketches and Turner atmospherics ran on this warm brown.",
+      "ace_note": "Instant vintage. Warm sepia lines and aged atmospheres. Stains, so sketch lightly first.\n\nNot a pure earth brown — black + iron red convenience for album sketches, old maps, monochrome studies, warm ink energy. Staining: commit or lift early. Gorgeous for \"found in a Victorian drawer\"; deadly if every landscape goes tea-stain brown.\n\nDual advice: monochrome / line seat — not a substitute for burnt umber structure or transparent brown glaze. One sepia. Vs Ivory Black: sepia is brown-story; ivory is neutral-dark.",
+      "ace_history": "Sepia once meant cuttlefish ink; modern chemistry clones the warm brown with iron and carbon. Victorian albums and atmospheric sketches ran on this mood — Sepiabraun keeps the romance and the stain.",
       "toxicity": "low",
-      "temp_role": "Near-neutral dark · Carbon / lamp black family · staining"
+      "temp_role": "Warm vintage dark · Sepia (black + iron) · ink line & aged atmosphere"
     },
     {
       "brand_traits": [
@@ -692,10 +692,10 @@
       "hex": "#2C2C2C",
       "format": "half-pan",
       "family": "neutral",
-      "ace_note": "Not pure evil black — slightly warm, slightly gentle. Mixes into neutrals better than lamp black ever did.",
-      "ace_history": "Ivory black was literally charred bone until substitutes arrived — slightly warm PBk9 still echoes the Old Master tradition of never using pure lamp black in skies.",
+      "ace_note": "Not pure evil black — slightly warm, slightly gentle. Mixes into neutrals better than lamp black ever did.\n\nPBk9 (bone/ivory black tradition): warmer, softer soot story than pure lamp PBk6. Good for ink-adjacent lines, soft charcoal mood, mixing quiet darks. Still deadens skies if it replaces all chromatic blacks — use with manners. Staining lean — sketch structure lightly first.\n\nDual advice: one black well max in a small tin (Ivory or Neutral Tint or rely on mixed darks). Vs Sepia: black is neutral-warm; sepia is brown-vintage. Vs Payne's Grey: Payne's is blue-cool convenience.",
+      "ace_history": "Ivory black was charred bone before modern substitutes; warm PBk9 still echoes Old Master \"never pure lamp black in the sky.\" Elfenbeinschwarz keeps the name and the gentler temperature.",
       "toxicity": "low",
-      "temp_role": "Near-neutral dark · Neutral / value tool · staining"
+      "temp_role": "Warm-lean bone black · PBk9 value dark · gentler than lamp soot"
     },
     {
       "brand_traits": [
@@ -3605,10 +3605,10 @@
         "roman-szmal",
         "polish"
       ],
-      "ace_note": "Morning mist — granulating dawn fog over Polish fields.",
-      "ace_history": "Carbon blacks (PBk6) are soot-descended darks — strong, often cool; in watercolor they can deaden mixes, so many painters prefer mixed chromatic blacks.",
+      "ace_note": "Morning mist — granulating dawn fog over Polish fields.\n\nPlay lab (granulation): PW6 lifts carbon into fog — wet cold-press, tip, let grey dust settle into dawn over fields. Soft atmosphere, distant trees, breath on glass. Not a mixing black; not Hematite's iron sparkle (different grit story). Closer to Hermit Mist / Glacier mist logic from earth, but cooler soot-white.\n\nDual advice: atmosphere grey seat with grey-family Neutrals and Mists. One fog pan. Don't use when you needed Ivory Black structure.",
+      "ace_history": "Carbon plus titanium white for sedimentary mist — Roman Szmal's field-fog poetry over Polish landscape marketing. Granulation is the point; pure black is not.",
       "toxicity": "low",
-      "temp_role": "Neutral / low-chroma · Carbon / lamp black family · granulating"
+      "temp_role": "Cool mist grey · Black + white · granulating dawn fog"
     },
     {
       "transparency": 2,
@@ -5413,9 +5413,9 @@
       "format": "half-pan",
       "family": "neutral",
       "notes": "Neutraltinte. Color-check Jul 8 2026 — half-pan 4 photo.",
-      "ace_note": "Pre-mixed neutral — quick value shifts without muddy tri-color mixing.",
-      "ace_history": "Carbon blacks (PBk6) are soot-descended darks — strong, often cool; in watercolor they can deaden mixes, so many painters prefer mixed chromatic blacks. Horadam milling aims for creamy rewet and control.",
-      "temp_role": "Cool rose · Carbon / lamp black family · staining · transparent"
+      "ace_note": "Pre-mixed neutral — quick value shifts without muddy tri-color mixing.\n\nPBk6 + PV19: carbon dark with a violet-rose whisper so it doesn't always go dead-green in mixes. Transparent enough for glazing value down; staining — the shadow remembers. Fast tool for lowering chroma and shifting value when you're tired of remixing three pans.\n\nDual advice: convenience dark seat with Ivory Black and Payne's. Neutral Tint is the glaze-down habit; Ivory is denser black; Payne's is blue-steel. One convenience dark + chromatic mixing is enough.",
+      "ace_history": "Carbon blacks are soot-descended and strong; adding a touch of quin keeps the neutral from killing every mix. Horadam Neutraltinte is speed for serious painters who still know how to mix.",
+      "temp_role": "Cool-lean convenience dark · Black + quin whisper · quick value without mud"
     },
     {
       "brand_traits": [
@@ -5534,9 +5534,9 @@
       "format": "half-pan",
       "family": "neutral",
       "notes": "Titan-Deckweiß. Color-check Jul 8 2026 — half-pan 4 photo.",
-      "ace_note": "Opaque body white — highlights, corrections, and gouache-style passages.",
-      "ace_history": "Titanium white (PW6) is the modern opaque light — strong coverage for gouache-like passages; watercolor purists use it sparingly for body color. Horadam milling aims for creamy rewet and control.",
-      "temp_role": "Near-neutral light · Titanium white / opaque light"
+      "ace_note": "Opaque body white — highlights, corrections, and gouache-style passages.\n\nPW6 covers: whiskers, catchlights, rescued edges, mixed pastel tints, gouache-adjacent body color. Watercolor purists use sparingly; illustrators live here. Not a glaze white (use paper); not Silver sparkle (specialty). Rewet politely — opaque whites can chalk if abused.\n\nDual advice: one body white. Don't confuse with mist pans that contain white (Morning Mist, Hermit Mist) — those are grey/earth atmospheres, not highlight tools. Last-layer highlights after darks dry.",
+      "ace_history": "Titanium white is the modern opaque light — strong coverage where zinc was gentler and lead was toxic history. Titan-Deckweiß is body color honesty in a half-pan.",
+      "temp_role": "Opaque body white · Titanium (PW6) · highlights, corrections, gouache passages"
     },
     {
       "brand_traits": [
