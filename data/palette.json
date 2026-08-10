@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-10-pink-tube-2ml-handwritten",
+  "updated": "2026-08-10-orange-blue-leftovers-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein)",
   "color_count": 252,
   "colors": [
@@ -6747,9 +6747,10 @@
       "toxicity": "low",
       "mix_star": true,
       "notes": "DANIEL SMITH Extra Fine 284610152 Quinacridone Burnt Orange 5ml. Smoldering orange-sienna. Studio batch 260808 photo.",
-      "ace_note": "Sienna energy with quin clarity — glows in thin wash, smokes in mass tone. Classic with French Ultramarine for storm skies.",
+      "ace_note": "Sienna energy with quin clarity — glows in thin wash, smokes in mass tone. Classic with French Ultramarine for storm skies.\n\nPO48 territory (same broad family as Transparent Orange): transparent heat that behaves like burnt sienna's glamorous cousin — less dirt, more stained-glass roast. Thin = sunset brick glow; mass = smoky orange-brown. Storm greys with French Ultramarine are textbook; florals and autumn canes love it. Staining — the fire remembers.\n\nDual advice: one transparent warm-orange/sienna-glow seat with DS Transparent Orange and earth burnt siennas. Keep Quin Burnt Orange when you want clarity in the roast; keep mineral sienna when you want granulating dirt. Don't fill three \"warm brown-orange\" wells.",
       "best_for": "Warm earth accents, sunset, and high-chroma browns without mud.",
-      "ace_history": "Quinacridone burnt orange is modern organic fire — the transparent answer to opaque earth oranges."
+      "ace_history": "Quinacridone / perinone burnt oranges are modern organic fire — transparent answer to opaque earth oranges. DS Extra Fine packaging; the storm-sky recipe is older than the molecule.",
+      "temp_role": "Warm transparent burnt-orange · Quin/perinone fire · glaze sienna · ◈"
     },
     {
       "id": "qor-indigo",
@@ -6774,9 +6775,10 @@
       "toxicity": "low",
       "mix_star": true,
       "notes": "QoR (Golden Artist Colors) Artist Watercolor 700305-3 Indigo 5ml. Earth Colors set family. Studio batch 260808 photo.",
-      "ace_note": "Cool near-black blue for night water and deep shadows.",
+      "ace_note": "Cool near-black blue for night water and deep shadows.\n\nPB60 indanthrene indigo soul plus PBk6 — deeper and more chroma-killing than Schmincke half-pan Indigo alone. QoR Aquazol slip (snappy, modern) vs Horadam cream. Night water, cloak shadows, near-black structures; respect the black in skies. Staining lean — plan lights.\n\nDual advice: deep cool seat with Schmincke Indigo, Prussian, Deep Sea Indigo, Galaxy Blue. QoR Indigo = indigo + black convenience dark. One near-black blue habit; don't stack with Van Dyck + Galaxy + this as four \"just make it dark\" wells.",
       "best_for": "Studio earth kit work and clean modern mixes.",
-      "ace_history": "QoR is Golden's watercolor line — Aquazol binder, high chroma, modern handling. Earth set colors are the quiet workhorses of the range."
+      "ace_history": "QoR (Golden) Aquazol indigo for contemporary night — PB60 tradition with carbon black for trench depth. Earth-set workhorse energy, not plant-vat folklore.",
+      "temp_role": "Cool near-black indigo · Indanthrene + black · night water / deep shadow"
     },
     {
       "id": "qor-sap-green",
@@ -6935,9 +6937,10 @@
       "toxicity": "low",
       "mix_star": true,
       "notes": "Horadam 479 Helio Cerulean (Heliocöelin) PB15:3. Studio owns half-pan tin + full pan box (batch 260808).",
-      "ace_note": "Clean phthalo-family sky blue — bright, staining, mixes sharp greens. Not granulating milky cerulean; modern 'helio' punch.",
+      "ace_note": "Clean phthalo-family sky blue — bright, staining, mixes sharp greens. Not granulating milky cerulean; modern 'helio' punch.\n\nRead the warning twice: this is not PB35/PB36 milky cerulean. PB15:3 green-shade phthalo wearing sky marketing — bright, staining, laser greens with yellow, jewel water. Studio owns half-pan + full pan = one color, two faucets. Vs half-pan Cerulean Blue (mineral milk): opposite manners. Vs Glacier Blue / Winsor Blue GS: same cool phthalo kingdom.\n\nDual advice: one cool phthalo-blue seat. Keep mineral cerulean for soft horizons; keep Helio for modern punch. Don't buy \"cerulean\" by name alone — check the code.",
       "best_for": "Skies, turquoise mixes, and high-chroma cools.",
-      "ace_history": "Helio/cerulean naming in Horadam points at 20th-century phthalocyanine sky blues — the loud cousin of soft cobalt skies."
+      "ace_history": "Horadam \"Helio / Heliocöelin\" points at 20th-century phthalocyanine sky blues — the loud cousin of soft cobalt and tin-oxide ceruleans. Name says sky; molecule says phthalo.",
+      "temp_role": "Cool phthalo sky · \"Helio cerulean\" (PB15:3) · staining bright · not milky mineral cerulean"
     },
     {
       "id": "sch-fp-495-ultramarine-violet",
@@ -7035,9 +7038,10 @@
       "toxicity": "low",
       "mix_star": true,
       "notes": "Horadam full pan 14 359 Saturn Red (Saturnrot) PO64. Batch 260808 photo.",
-      "ace_note": "Warm modern orange-red — high chroma accent without cadmium drama.",
+      "ace_note": "Warm modern orange-red — high chroma accent without cadmium drama.\n\nPO64 sits between traffic orange and brick red — poster-bright accent for design, fruit, warning light, fashion. Staining punch; not a quiet earth. Name \"Saturn\" is planetary marketing for industrial chroma in a Horadam full pan.\n\nDual advice: accent seat — not your only red, not your burnt sienna. Vs pyrrole/scarlet reds (red family later): different chemistry, similar \"loud warm\" job — one tyrant accent per tin. Vs Quin Burnt Orange: Saturn is more opaque-chroma orange-red; quin is glaze roast.",
       "best_for": "Warm accents, modern reds, and bold florals.",
-      "ace_history": "Saturn red (PO64) is a late-century organic orange-red — industrial pigment chemistry meeting the watercolor tin."
+      "ace_history": "Late-century organic orange-reds brought high chroma into the tin without cadmium's opacity politics. Saturnrot is Horadam's named cut of that industrial sunshine.",
+      "temp_role": "Warm high-chroma orange-red · Modern organic (PO64) · accent without cadmium"
     },
     {
       "id": "sch-hp-351-ruby-red",
