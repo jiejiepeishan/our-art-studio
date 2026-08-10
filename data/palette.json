@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-10-yellow-2ml-handwritten",
+  "updated": "2026-08-10-pink-halfpan-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein)",
   "color_count": 252,
   "colors": [
@@ -1054,10 +1054,10 @@
       "hex": "#F06A9A",
       "format": "half-pan",
       "family": "pink",
-      "ace_note": "Loud, fluorescent-leaning rose. Gorgeous fresh; may shift over time — paint the moment, not the archive.",
-      "ace_history": "Quinacridone magenta (PR122) is a cool primary for modern mixing charts — pink-violet energy for florals and clean purples with blues. Horadam milling aims for creamy rewet and control.",
+      "ace_note": "Loud, fluorescent-leaning rose. Gorgeous fresh; may shift over time — paint the moment, not the archive.\n\nThis is the box seat, not the powder room: high-key, brilliant, slightly fluorescent romance. PR122 (quin magenta family) plus PW6 milks the scream into \"brilliant opera.\" Perfect for fresh florals and fashion sketches; risky for heirlooms — light may dim the aria. Not a substitute for lightfast Potter's Pink or careful PV19 when permanence matters.\n\nDual advice: optional drama seat. Don't let Opera replace your lightfast cool rose primary. If you paint only for the week's joy, keep it; if you sell archives, swatch fade or leave it in the toy drawer.",
+      "ace_history": "Opera / brilliant rose marketing rides quin magenta energy and modern brighteners — salon spectacle, not ceramic mineral. Horadam creamy rewet; the caution about shift is the adult in the room.",
       "toxicity": "low",
-      "temp_role": "Cool rose / pink · Cool rose primary"
+      "temp_role": "Loud opera pink · Magenta-lean (PR122) + white whisper · fugitive-ish drama"
     },
     {
       "id": "mb-potters-pink",
@@ -1080,10 +1080,10 @@
       "family": "pink",
       "series": 3,
       "notes": "Photo 483f6c53. 半块固形. Grade 3. ★★★ lightfast. Verified: Maimeri/Jerry's (PR233 standard for Potter's Pink).",
-      "ace_note": "The quiet fixer-upper of your palette. Dusty rose that softens loud mixes and makes skin feel human instead of plastic. I would marry this color if it were legal.",
+      "ace_note": "The quiet fixer-upper of your palette. Dusty rose that softens loud mixes and makes skin feel human instead of plastic. I would marry this color if it were legal.\n\n(Marriage clause stands — this is the salon pink that fixes everything without raising its voice.)\n\nPR233 is not a screaming primary: it's porcelain dust and powdered cheek. Drop it into a loud red or yellow to humanize skin; with ultramarine (verified with WN) → Turner-adjacent blush skies; under Rose Lake → petal gradients; with May Green → greyed distant foliage. Transparent enough to glaze; polite enough for portraits that shouldn't look like vinyl.\n\nDual advice: one Potter's Pink among MB, Roman Szmal, and Pinax Deep. MB is the soft classic; Deep is granulating shadow sister; RS is manners science. Travel tin gets one dusty rose, not a ceramics factory.",
       "mix_star": true,
       "best_for": "Soft skin blush, dusty skies, faded florals, and gentle greys when mixed.",
-      "ace_history": "Potter's Pink (PR233) is named for ceramics glazing — a muted, lightfast rose that became a portrait painter's secret for softening everything it touches.",
+      "ace_history": "Potter's Pink is named for ceramic glaze tradition — muted lightfast rose that portrait painters adopted as the secret softener. Mineral calm in a rococo world of loud lakes.",
       "mix_tips": [
         {
           "with": [
@@ -1108,7 +1108,7 @@
         }
       ],
       "toxicity": "low",
-      "temp_role": "Warm red family · Deep mineral red-violet · ◈ mixer · transparent"
+      "temp_role": "Dusty ceramic rose · Mineral PR233 · softener / skin / quiet rococo · ◈"
     },
     {
       "id": "mb-dragons-blood",
@@ -1183,10 +1183,10 @@
       "family": "pink",
       "series": 3,
       "notes": "Photo 483f6c53. 半块固形. Grade 3, transparent (□). ★★★. Verified: Jerry's Artarama — PV19 quinacridone, staining.",
-      "ace_note": "PV19 with a softer wardrobe than screaming quin rose. Florals, blushes, and those 'almost red' moments. Pairs beautifully with Potter's Pink for gentle portraits.",
+      "ace_note": "PV19 with a softer wardrobe than screaming quin rose. Florals, blushes, and those 'almost red' moments. Pairs beautifully with Potter's Pink for gentle portraits.\n\nCool transparent quin rose: the mixer that makes blues into lilacs and violets without mud (when you dose). Staining — the petal remembers. Verified with Potter's Pink for cheeks/petals; with ultramarine for lilac-grey sunset clouds. Rococo florals without carnival fluorescent (save that for Opera).\n\nDual advice: same PV19 cool rose seat as Pinax Quinacridone Rose. One primary cool rose. Pair with one Potter's Pink for soft→bright gradients; don't also need three magentas.",
       "mix_star": true,
       "best_for": "Florals, lips, warm pinks, and layering over Potter's Pink for depth.",
-      "ace_history": "Rose lake pigments descend from madder lakes — synthetic PV19 quin rose is the modern workhorse replacing fugitive natural lakes in professional lines.",
+      "ace_history": "Rose lakes once meant madder romance and fugitive heartbreak; PV19 quinacridone is the modern workhorse that keeps the blush and dumps the fade. Italian soft wardrobe on a 20th-century molecule.",
       "mix_tips": [
         {
           "with": [
@@ -1211,7 +1211,7 @@
         }
       ],
       "toxicity": "low",
-      "temp_role": "Cool rose · Cool quinacridone rose / violet-red · ◈ mixer · staining · transparent"
+      "temp_role": "Cool quin rose · PV19 floral / blush primary · staining glaze · ◈"
     },
     {
       "transparency": 1,
@@ -3580,10 +3580,10 @@
         "roman-szmal",
         "polish"
       ],
-      "ace_note": "RS Potter's pink — compare with Maimeri 479 side by side for science.",
-      "ace_history": "Mineral red-violets expand the cool-dark red range — architectural shadows and muted florals beyond pure magenta.",
+      "ace_note": "RS Potter's pink — compare with Maimeri 479 side by side for science.\n\nSame PR233 seat as MaimeriBlu: dusty ceramic rose, different grind/binder handshake. The original note is the whole assignment — swatch RS vs MB under the same skin mix and the same ultramarine sky. Rococo lesson: nuance is the luxury.\n\nDual advice: not a second well. Winner stays; loser lives in the studio drawer for \"what if.\"",
+      "ace_history": "Still mineral PR233 potter's pink culture — European handmade lines competing on softness and rewet, not on inventing a new pink planet.",
       "toxicity": "low",
-      "temp_role": "Warm red family · Deep mineral red-violet"
+      "temp_role": "Dusty ceramic rose · PR233 manners twin · compare-for-science"
     },
     {
       "transparency": 2,
@@ -6491,11 +6491,11 @@
       "toxicity": "low",
       "series": "B",
       "notes": "Pinax Extra single-pigment half-pan. Label: Хинакридон розовый / Quinacridone rose · PV19 · series B · lightfast ★★★★ · transparent. Studio photo Jul 21 2026.",
-      "ace_note": "Hot pink with manners — the mixer that turns every blue into a story.",
+      "ace_note": "Hot pink with manners — the mixer that turns every blue into a story.\n\nSame cool PV19 job as Rose Lake, often a touch more \"hot pink with manners\" in the well. Primary for clean purples, floral glazes, portrait blush that still stains true. Series B transparent Pinax energy.\n\nDual advice: Rose Lake vs Pinax Quin Rose = manners contest. Swatch with the same ultramarine and the same Potter's Pink; keep one PV19.",
       "mix_star": true,
       "best_for": "Florals, glowing pinks, and violet mixes with ultramarine.",
-      "ace_history": "Quinacridone rose/violet (PV19) is a 20th-century transparent star — cool primary red for florals, glazes, and purples that stay clean.",
-      "temp_role": "Cool rose · Cool rose primary · ◈ mixer · staining · transparent"
+      "ace_history": "Quinacridone rose/violet (PV19) — transparent star of modern mixing charts for florals and clean purples. Pinax single-pigment honesty: the code is the plot.",
+      "temp_role": "Cool quin rose · PV19 storyteller · staining primary pink-violet"
     },
     {
       "id": "pinax-pr101-iron-oxide-light",
@@ -6636,11 +6636,11 @@
       "toxicity": "low",
       "series": "C",
       "notes": "Pinax Extra. Potter's pink deep / Гончарный розовый темный · PR233 · series C · ★★★★ · semi-opaque · marked G (granulating). Studio photo Jul 21 2026.",
-      "ace_note": "Dusty ceramic rose — granulating, quiet, botanical shadows and faded brick pink.",
+      "ace_note": "Dusty ceramic rose — granulating, quiet, botanical shadows and faded brick pink.\n\nPlay lab (granulation): Deeper, cooler, sediment in the salon curtains. On cold-press it flocks into botanical shadow pink and old masonry blush — less \"cheek powder,\" more \"rose that remembers dust.\" Tilt a juicy wash; don't scrub the porcelain grit away. Still PR233 family: softener logic, not opera scream.\n\nDual advice: if MB Potter's Pink already softens skin, Deep is the shadow twin — optional second only for botanical/architecture kits. One deep dusty rose max with RS/MB.",
       "mix_star": true,
       "best_for": "Muted florals, ceramic pinks, granulating rose-greys, and antique walls.",
-      "ace_history": "Mineral red-violets expand the cool-dark red range — architectural shadows and muted florals beyond pure magenta.",
-      "temp_role": "Cool rose / pink · Deep mineral red-violet · ◈ mixer · granulating"
+      "ace_history": "Mineral red-violet PR233 pushed deeper and granulating for architectural and floral mute — Pinax Extra's G-mark is the texture promise.",
+      "temp_role": "Deep dusty rose · Granulating PR233 · botanical shadow / faded brick pink"
     },
     {
       "id": "ds-203-amethyst-genuine",
