@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-10-neutral-pan-handwritten",
+  "updated": "2026-08-10-neutral-tube-2ml-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein)",
   "color_count": 252,
   "colors": [
@@ -3632,10 +3632,10 @@
         "honey-based",
         "2ml-sample"
       ],
-      "ace_note": "Honey-based Payne's gray — soft neutral, stays juicy on paper.",
-      "ace_history": "Payne's gray was named for British watercolorist William Payne (circa 1800) — blue-black convenience mix for shadows; M. Graham's honey keeps it juicy.",
+      "ace_note": "Honey-based Payne's gray — soft neutral, stays juicy on paper.\n\nPBk6 + PB29: more ultramarine cool-warm than phthalo-steel W&N — softer, honey bloom, sample-size try-on. Juicy shadows; less laser-teal risk than heavy phthalo Payne's. Still convenience grey — can dull a painting if it's the only dark.\n\nDual advice: Payne's manners contest with W&N and Schmincke Bluish. MG if honey + ultramarine bias wins the swatch. One well.",
+      "ace_history": "Payne's grey ~1800 British watercolour convenience; M. Graham's honey keeps the mix open and rewettable. Ultramarine in the blend is a classical blue-black path.",
       "toxicity": "low",
-      "temp_role": "Warm blue · Carbon / lamp black family"
+      "temp_role": "Cool-warm convenience grey · Ultramarine + black · honey Payne's sample"
     },
     {
       "transparency": 2,
@@ -4483,11 +4483,11 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Deep Sea Black — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
-      "ace_history": "Bone/ivory blacks (PBk7) are warmer historical darks from charred bone — still useful, still easy to muddy a sky if overused. Horadam milling aims for creamy rewet and control.",
+      "ace_note": "Schmincke Deep Sea Black — granulating trench dark. Check 5ml tube vs any 2ml sample twin in your set.\n\nPlay lab (granulation): Deep Sea line wants abyss with texture — PBk7 bone/ivory character plus PV16 manganese violet hush so the black isn't dead flat carbon. Night water under Deep Sea Blue/Indigo, rocky coast shadows. Tilt, don't scrub. Still: one squeeze kills a sky if you're careless.\n\nDual advice: Deep Sea / Galaxy / Glacier blacks share one specialty granulating black seat with Black Mystery pan. Pick the series mood you paint (marine / cosmic / ice); don't own three abyss tubes \"for science.\"",
+      "ace_history": "Bone/ivory blacks (PBk7) are warmer historical darks; Deep Sea dresses them for submarine demos with a violet mineral whisper. Not plant ink — modern trench theater.",
       "toxicity": "medium",
       "toxicity_habit": "Manganese pigment — wash hands well after painting.",
-      "temp_role": "Near-neutral dark · Ivory / bone black character · granulating"
+      "temp_role": "Near-black abyss · Bone black + manganese violet whisper · Deep Sea sediment"
     },
     {
       "transparency": 2,
@@ -4609,10 +4609,10 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Glacier Black — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
-      "ace_history": "Bone/ivory blacks (PBk7) are warmer historical darks from charred bone — still useful, still easy to muddy a sky if overused. Horadam milling aims for creamy rewet and control.",
+      "ace_note": "Schmincke Glacier Black — granulating ice-dark. Check 5ml tube vs any 2ml sample twin in your set.\n\nPlay lab (granulation): Cleaner PBk7 story (no PV16 in the line) — cold charcoal sediment for ice shadows, stone, winter trees. Glacier series manners: texture without the violet hush of Deep Sea/Galaxy. Still not a free black for every mix.\n\nDual advice: third costume of the same specialty-black seat. Vs Ivory Black half-pan: Ivory is denser travel black; Glacier is tube grit for demos. One bone-black habit.",
+      "ace_history": "Bone/ivory black in Glacier specialty milling — ice-name marketing, warm-historical black chemistry, granulating hobby.",
       "toxicity": "low",
-      "temp_role": "Near-neutral dark · Ivory / bone black character · granulating"
+      "temp_role": "Near-black ice · Straight bone black · granulating cold dark"
     },
     {
       "transparency": 2,
@@ -5732,10 +5732,10 @@
       "size": "5ml",
       "family": "neutral",
       "notes": "noir galaxie. Color-check Jul 8 2026 — tube 2 photo.",
-      "ace_note": "Galaxy black — granulating abyss dark, not flat carbon.",
-      "ace_history": "Bone/ivory blacks (PBk7) are warmer historical darks from charred bone — still useful, still easy to muddy a sky if overused. Horadam milling aims for creamy rewet and control.",
+      "ace_note": "Galaxy black — granulating abyss dark, not flat carbon.\n\nPlay lab (granulation): Same PBk7/PV16 neighborhood as Deep Sea Black — noir galaxie marketing for star-dust sediment. Night florals under Galaxy Rose, abstract pours, anything that wants black with a constellation habit. Cousin to Galaxy Blue/Brown/Rose: respect the drama.\n\nDual advice: twin chemistry to Deep Sea Black — series costume, one role. Swatch side by side; keep the grit you love.",
+      "ace_history": "Horadam Galaxy line: sedimentary specials with cosmic names. Bone black + manganese violet energy for textured darks, not pure lamp cruelty.",
       "toxicity_habit": "Manganese pigment — wash hands well after painting.",
-      "temp_role": "Near-neutral dark · Ivory / bone black character · granulating"
+      "temp_role": "Near-black cosmos · Bone black + violet · granulating star-dust dark"
     },
     {
       "brand_traits": [
@@ -6269,11 +6269,11 @@
       "staining": true,
       "toxicity": "low",
       "notes": "W&N Professional Payne's Grey (typical blend blue/black/violet). Added Jul 2026 from home kit card WNP.",
-      "ace_note": "The polite dark — cool grey-blue for shadows without killing the wash. One squeeze replaces three muddy mixes.",
+      "ace_note": "The polite dark — cool grey-blue for shadows without killing the wash. One squeeze replaces three muddy mixes.\n\nClassic Payne's job with a modern British blend: phthalo cool, carbon body, violet whisper. Polite compared to pure black; still staining — dose. Storm shadows, mountain cools, quick value. Home-kit workhorse energy.\n\nDual advice: one Payne's across W&N tube, MG sample, Schmincke Bluish pan. W&N if you already live in Professional tubes; don't stack three Payne's. Prefer chromatic greys when learning temperature.",
       "mix_star": true,
       "best_for": "Cool shadows, storm skies, and quick value without pure black.",
-      "temp_role": "Cool rose · Cool staining phthalo blue · ◈ mixer · staining",
-      "ace_history": "Phthalocyanine blue (PB15) arrived mid-20th century — transparent, staining, powerful; a whisper mixes oceans and deep greens."
+      "temp_role": "Cool convenience grey · Phthalo + black + quin · polite shadow · ◈",
+      "ace_history": "Named for William Payne's shadow habit; modern tubes use blue/black/violet conveniences. W&N Professional keeps the polite dark on the British chart."
     },
     {
       "id": "mg-104",
