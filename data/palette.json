@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-10-neutral-halfpan-handwritten",
+  "updated": "2026-08-10-neutral-pan-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein)",
   "color_count": 252,
   "colors": [
@@ -2797,10 +2797,10 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Mountain mist — cloudy granulating gray-blue atmosphere.",
-      "ace_history": "Carbon blacks (PBk6) are soot-descended darks — strong, often cool; in watercolor they can deaden mixes, so many painters prefer mixed chromatic blacks.",
+      "ace_note": "Mountain mist — cloudy granulating gray-blue atmosphere.\n\nPlay lab (granulation): Same fog job as Morning Mist half-pan: PW6 lifts soot into cloud. Full pan = big atmospheric passages — ridges dissolving, breath over water, soft value without Payne's blue-steel punch. Wet cold-press, tip once, leave the flocks. Cloudy gray-blue read comes from dilute carbon + paper, not from a named phthalo.\n\nDual advice: one mist-grey seat (Mountain Mist or Morning Mist or grey-family mists). Full pan vs half-pan = faucet. Don't use as structural black.",
+      "ace_history": "St. Petersburg granulating mist specials — carbon and white for sedimentary weather. Landscape atmosphere in a full pan, not a moral dark.",
       "toxicity": "low",
-      "temp_role": "Neutral / low-chroma · Carbon / lamp black family · granulating"
+      "temp_role": "Cool mist grey · Carbon + white · granulating mountain fog / atmosphere"
     },
     {
       "transparency": 2,
@@ -2822,10 +2822,10 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Black mystery — granulating dark with secrets.",
-      "ace_history": "Carbon blacks (PBk6) are soot-descended darks — strong, often cool; in watercolor they can deaden mixes, so many painters prefer mixed chromatic blacks.",
+      "ace_note": "Black mystery — granulating dark with secrets.\n\nPlay lab (granulation): Pure PBk6 that refuses to be a flat poster black — sediment secrets on rough paper, night water with grit, charcoal that still breathes. Thick washes sparkle-dark; dilute goes soft charcoal grey. Still deadens if it replaces every chromatic shadow — mystery isn't a free pass to kill color.\n\nDual advice: granulating black seat vs Ivory Black (warmer, less grit theater) vs Deep Sea/Galaxy/Glacier blacks (tubes later). One textured black for the tin if you love demos; otherwise mix darks.",
+      "ace_history": "Carbon/lamp black with Nevskaya \"mystery\" marketing for granulating specialty darks — strong, often cool, easy to overuse in skies. The secret is texture, not cruelty.",
       "toxicity": "low",
-      "temp_role": "Near-neutral dark · Carbon / lamp black family · granulating"
+      "temp_role": "Near-black carbon · Granulating lamp black · textured abyss · not flat ink"
     },
     {
       "transparency": 2,
@@ -3376,10 +3376,10 @@
         "rosa",
         "ukrainian"
       ],
-      "ace_note": "Black Grape brings near-neutral dark energy to the tin — worth knowing by temperature, not just by pretty swatch.",
-      "ace_history": "Carbon blacks (PBk6) are soot-descended darks — strong, often cool; in watercolor they can deaden mixes, so many painters prefer mixed chromatic blacks.",
+      "ace_note": "Black Grape brings near-neutral dark energy to the tin — worth knowing by temperature, not just by pretty swatch.\n\nRead past the generic line: PR101 kisses carbon toward warm grape-skin / dried blood-brown black — closer to Sepia than to cool Payne's. Pocket monochrome, vintage album, warm ink line without naming sepia. Not a pure value black; not Ivory's bone warmth exactly — iron-sweetened soot.\n\nDual advice: warm convenience dark with Sepia half-pan — one vintage/warm black story. Vs Black Mystery: Mystery is cooler granulating carbon; Grape is warmer iron-black. Travel tin: pick one.",
+      "ace_history": "Carbon black plus iron oxide is an old recipe for warm darks (sepia cousins). Rosa's \"Black Grape\" sells the fruit; the paper shows iron and soot.",
       "toxicity": "low",
-      "temp_role": "Near-neutral dark · Carbon / lamp black family"
+      "temp_role": "Warm near-black · Carbon + iron · grape-skin / sepia-adjacent pocket dark"
     },
     {
       "transparency": 2,
