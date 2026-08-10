@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-10-pink-pan-handwritten",
+  "updated": "2026-08-10-pink-tube-2ml-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein)",
   "color_count": 252,
   "colors": [
@@ -2021,10 +2021,10 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Peachy rose — delicate skin, petals, sunrise.",
-      "ace_history": "Rose peach blends modern quin reds with violet — a portrait and botanical convenience shade for sunrise skin and soft petals, not a single historic mineral.",
+      "ace_note": "Peachy rose — delicate skin, petals, sunrise.\n\nSame broad PR209/PV19 neighborhood as Rose Madder Permanent, swung peachier and higher-key — sunrise skin, soft petals, less \"classical cool pink.\" Portrait convenience; not Potter's Pink mineral dust, not Naples Rose iron-cream (different pigments).\n\nDual advice: peach-rose seat with Naples Rose pan — swatch which peach you mean (quin glow vs Naples chalk). One soft peach-pink in a small tin.",
+      "ace_history": "Modern quin reds with violet for portrait/botanical convenience — sunrise naming, not a single historic mineral.",
       "toxicity": "low",
-      "temp_role": "Cool rose · Warm quinacridone coral-red"
+      "temp_role": "Soft peach-rose · Quin blend · skin, petals, sunrise"
     },
     {
       "transparency": 2,
@@ -2253,10 +2253,10 @@
         "2ml-sample",
         "primatek"
       ],
-      "ace_note": "PrimaTek rhodonite — dusty rose mineral, tender and geological.",
-      "ace_history": "Mars/Venetian reds (PR101) are calcined iron oxides — brick, terracotta, and portrait underpainting since industrial iron pigments matured.",
+      "ace_note": "PrimaTek rhodonite — dusty rose mineral, tender and geological.\n\nLabel romance is gemstone; listed chemistry PR101 iron oxide — brick/terracotta family swung pink-dusty. Tender geological blush for rocks, muted florals, \"stone rose\" not candy. Not PV19 clean violet-maker; not Opera.\n\nDual advice: mineral dusty seat near Potter's Pink PR233 — different codes, similar soft mission. Keep Rhodonite when the swatch is clearly earthier/iron; keep PR233 when ceramic glaze softness wins. PrimaTek dessert, not a second primary pink.",
+      "ace_history": "Rhodonite is a real manganese-pink mineral; PrimaTek sells place-mood. This SKU's PR101 listing means trust iron-oxide behavior for mixes — poetry on the label, oxide on the paper.",
       "toxicity": "low",
-      "temp_role": "Warm red family · Iron oxide red / Venetian earth red"
+      "temp_role": "Dusty mineral rose · PrimaTek rhodonite mood · geological blush"
     },
     {
       "transparency": 2,
@@ -2595,10 +2595,10 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Permanent rose madder — classic cool pink.",
-      "ace_history": "Quinacridone reds/corals (PR209) are transparent organics built for glow — modern glazing reds that keep florals luminous.",
+      "ace_note": "Permanent rose madder — classic cool pink.\n\nName says madder; chemistry is modern blend (PR209 + PV19) — permanent stand-in for fugitive rose madder legends. Cool-to-warm pink for florals and classical glaze stacks. Staining lean possible; sample to learn the bias vs pure PV19.\n\nDual advice: convenience rose seat near PV19 primaries — if you already own THE quin rose, this is optional \"madder mood.\" Don't collect three permanent madders.",
+      "ace_history": "Historic rose madder was beautiful and heartbreaking (fugitive). \"Permanent\" modern recipes use quin/organic blends so the romance survives light. DS sample: test the glow, trust the codes.",
       "toxicity": "low",
-      "temp_role": "Cool rose · Warm quinacridone coral-red · staining"
+      "temp_role": "Cool-warm rose blend · \"Permanent madder\" convenience · staining glaze"
     },
     {
       "transparency": 2,
@@ -3659,10 +3659,10 @@
         "honey-based",
         "2ml-sample"
       ],
-      "ace_note": "THE quin rose — honey base makes it bloom on wet paper.",
-      "ace_history": "Quinacridone rose in honey binder rewets like 19th-century recipes — the floral pink Graham & Co. aimed at when they revived honey watercolors in Oregon.",
+      "ace_note": "THE quin rose — honey base makes it bloom on wet paper.\n\nSame cool PV19 seat as Rose Lake, Pinax Quin Rose, Magenta Rose — honey open time and 15ml volume for people who live in florals. Staining petal memory; clean purples with blue; portrait blush that means it. \"THE\" is deserved only until you swatch and pick one PV19 for the tin.\n\nDual advice: one PV19 across all formats. MG if honey is your religion; half-pan/pan if travel wins. Don't stock MG + Rosa + MB as three primaries.",
+      "ace_history": "Quinacridone rose PV19 with honey binder — Graham's Oregon revival of honey watercolour manners on a modern molecule. Floral pink with rewet romance.",
       "toxicity": "low",
-      "temp_role": "Cool rose · Cool rose primary · staining"
+      "temp_role": "Cool quin rose · PV19 primary · honey bloom · staining floral workhorse"
     },
     {
       "transparency": 2,
@@ -5631,9 +5631,9 @@
       "size": "5ml",
       "family": "pink",
       "notes": "rose galaxie. Color-check Jul 8 2026 — tube 2 photo.",
-      "ace_note": "Granulating galaxy rose — cosmic sediment on wet paper.",
-      "ace_history": "Quinacridone magenta (PR122) is a cool primary for modern mixing charts — pink-violet energy for florals and clean purples with blues. Horadam milling aims for creamy rewet and control.",
-      "temp_role": "Cool rose / pink · Cool magenta / quin violet-red · granulating"
+      "ace_note": "Granulating galaxy rose — cosmic sediment on wet paper.\n\nPlay lab (granulation): PBk6 is invited — darker, chroma-killing, star-dust rose for night florals and moody underpainting. Wet-in-wet planetarium pink; dangerous in a clean skin mix. Cousin to Galaxy Blue / Galaxy Brown logic: respect the black. Louder dark than Potter's Pink Deep; less pure than PV19.\n\nDual advice: effect / night seat with Rose Dream (milky PR122) and Opera (bright PR122). Galaxy = dark + grit. One black-kissed rose max.",
+      "ace_history": "\"Rose galaxie\" — PR122 magenta plus carbon black with sedimentary marketing. Cosmic optional; pigment codes required.",
+      "temp_role": "Deep granulating rose · Magenta + black · cosmic night pink"
     },
     {
       "brand_traits": [
@@ -5961,10 +5961,10 @@
       "staining": false,
       "toxicity": "low",
       "notes": "Ultramarine pink (PV15). LF I, semi-opaque/soft, granulating. Series 3. Tube photo Jul 10 2026.",
-      "ace_note": "Dusty rose with mineral freckles — not a screaming pink, a thoughtful one. Gorgeous for florals that need texture and soft skies with a blush.",
+      "ace_note": "Dusty rose with mineral freckles — not a screaming pink, a thoughtful one. Gorgeous for florals that need texture and soft skies with a blush.\n\nPlay lab (granulation): PV15 is a sulfur-silicate cousin of ultramarine blue — mineral freckles, soft lift, not flat stain. Wet cold-press for dusty rose sediment; with ultramarine blue → soft granulating lavenders; with ultramarine violet deep → layered mineral violets. Closer in mood to Potter's Pink (thoughtful dust) than to Opera (scream), but chemistry is its own family.\n\nDual advice: unique seat — not a PV19 substitute. Keep if you love mineral texture; skip if PR233 Potter's Pink already does soft dust and you need space. One ultramarine pink is enough.",
       "mix_star": true,
       "best_for": "Muted florals, granulating rose skies, and gentle violets with ultramarine blue.",
-      "ace_history": "Ultramarine pink (PV15) is a sulfur-silicate cousin of ultramarine blue — a modern mineral pink that granulates instead of staining the paper flat. Honey binder gives a distinctive slip and rewet.",
+      "ace_history": "Ultramarine pink (PV15) — modern mineral pink that granulates instead of staining flat. Honey slip; the freckles are the point.",
       "mix_tips": [
         {
           "with": [
@@ -5981,7 +5981,7 @@
           "verified": false
         }
       ],
-      "temp_role": "Warm blue · Warm granulating sky/mixing blue · ◈ mixer · granulating"
+      "temp_role": "Dusty mineral pink · Ultramarine pink (PV15) · granulating softener · ◈"
     },
     {
       "id": "mg-176-scarlet-pyrrol",
