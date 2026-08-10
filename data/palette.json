@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-10-orange-blue-leftovers-handwritten",
+  "updated": "2026-08-10-brown-grey-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein)",
   "color_count": 252,
   "colors": [
@@ -6721,9 +6721,10 @@
       "toxicity": "low",
       "mix_star": true,
       "notes": "DANIEL SMITH Extra Fine PrimaTek 284610191 Hematite Genuine 5ml. Iron-rich mineral grey. Distinct from Hematite Violet sample. Studio batch 260808 photo.",
-      "ace_note": "Silvery iron dust — bold granulation in thick wash, soft dove grey when diluted. Stone texture without drawing stones.",
+      "ace_note": "Silvery iron dust — bold granulation in thick wash, soft dove grey when diluted. Stone texture without drawing stones.\n\nPlay lab (granulation): The star of this grey slice. Thick = silvery iron sediment; dilute = soft dove. Cold-press rocks, fortress walls, feathered metal without Payne's blue cast. Distinct from Hematite Violet samples if you own those — this is grey-iron, not violet drama.\n\nDual advice: effect / mineral grey seat — not a replacement for mixing ultramarine + burnt sienna (livelier chromatic greys). Keep for stone stories; don't let it be your only dark.",
       "best_for": "Rocks, metal, granulating greys, and textured neutrals.",
-      "ace_history": "Hematite (bloodstone iron oxide) has pigmented humans for tens of thousands of years. PrimaTek keeps the mineral grit modern painters chase."
+      "ace_history": "Hematite (bloodstone iron oxide) pigmented humans for tens of millennia. PrimaTek keeps the mineral grit modern painters chase — genuine rock manners in a 5ml.",
+      "temp_role": "Mineral iron grey · PrimaTek hematite · stone texture / dove-to-iron"
     },
     {
       "id": "ds-152-quin-burnt-orange",
@@ -6858,9 +6859,10 @@
       "toxicity": "low",
       "mix_star": true,
       "notes": "QoR (Golden Artist Colors) Artist Watercolor 700455-3 Raw Umber (Natural) 5ml. Earth Colors set family. Studio batch 260808 photo.",
-      "ace_note": "Natural earth umber — dark, granulating, landscape backbone.",
+      "ace_note": "Natural earth umber — dark, granulating, landscape backbone.\n\nSame raw umber seat as Schmincke half-pan raw umbers: cool-leaning dirt for trunks, soil, quiet darks without pure black. Natural + granulating = sediment on cold-press; Aquazol = snappy QoR handling vs Horadam cream. ◈ mixer for chromatic greys with blue.\n\nPlay lab (granulation): Juicy wash on rough paper — umber flocks into bark and path grit. Don't over-stir. Compare once to Schmincke 679/667: keep one raw umber manners for the tin.\n\nDual advice: one raw umber across earth + brown families. QoR if you live in Aquazol Earth set; Schmincke if the travel tin is already Horadam.",
       "best_for": "Studio earth kit work and clean modern mixes.",
-      "ace_history": "QoR is Golden's watercolor line — Aquazol binder, high chroma, modern handling. Earth set colors are the quiet workhorses of the range."
+      "ace_history": "Raw umber is unroasted iron earth (often manganese-cool). QoR packages it for contemporary landscape kits — workhorse, not mythology.",
+      "temp_role": "Cool-warm natural umber · PBr7 landscape dark · granulating Aquazol backbone"
     },
     {
       "id": "qor-venetian-red",
@@ -6912,9 +6914,10 @@
       "toxicity": "low",
       "mix_star": true,
       "notes": "QoR (Golden Artist Colors) Artist Watercolor 700475-3 Transparent Brown Oxide 5ml. Earth Colors set family. Studio batch 260808 photo.",
-      "ace_note": "Transparent rust-brown glaze — modern earth without the mud.",
+      "ace_note": "Transparent rust-brown glaze — modern earth without the mud.\n\nSame glaze iron job as DS/MG transparent red oxides and Schmincke Transparent Brown: brick glow, wood, dusk, autumn through paper. Staining transparent; Aquazol slip. Less opaque Venetian cover, more stained-glass rust.\n\nDual advice: one transparent iron-brown/red-oxide seat across earth + brown. QoR vs Schmincke Lasurbraun vs DS TRO — manners contest (Aquazol vs cream vs DS), not three wells.",
       "best_for": "Studio earth kit work and clean modern mixes.",
-      "ace_history": "QoR is Golden's watercolor line — Aquazol binder, high chroma, modern handling. Earth set colors are the quiet workhorses of the range."
+      "ace_history": "PR101 calcined iron oxide as modern brick/terracotta blood. QoR Earth set workhorse — glaze brown for people who hate muddy convenience mixes.",
+      "temp_role": "Warm transparent iron brown · PR101 glaze rust · modern earth without mud"
     },
     {
       "id": "sch-479-helio-cerulean",
@@ -6988,9 +6991,10 @@
       "toxicity": "low",
       "mix_star": true,
       "notes": "Horadam full pan 14 787 Payne's Grey bluish (Paynesgrau bläulich). Batch 260808 photo.",
-      "ace_note": "Cool ready-made grey — quicker than mixing every shadow from ultramarine + earth.",
+      "ace_note": "Cool ready-made grey — quicker than mixing every shadow from ultramarine + earth.\n\nClassic Payne's convenience: black + phthalo blues for sky-and-steel cool. Faster than mixing every cloud; riskier if it becomes your only dark (paintings go dead-blue-grey). Staining phthalo whisper — dose like salt in florals.\n\nDual advice: one Payne's seat. Prefer mixing chromatic greys for learning; keep bluish Payne's for speed and storm demos. Vs Neutral Grey: this one has a blue cast on purpose.",
       "best_for": "Values, storm skies, and cool neutrals.",
-      "ace_history": "Payne's grey is a 19th-century convenience neutral; Schmincke's bluish cut leans sky and steel."
+      "ace_history": "Payne's grey is a 19th-century convenience neutral; Schmincke's bluish cut leans sky and steel with modern phthalo components under carbon black.",
+      "temp_role": "Cool convenience grey · Bluish Payne's · sky/steel ready-mix"
     },
     {
       "id": "sch-fp-534-permanent-green-olive",
@@ -7115,9 +7119,10 @@
       "toxicity": "low",
       "mix_star": true,
       "notes": "Horadam 668 Green Umber (Umbra grünlich). Half-pan tin batch 260808.",
-      "ace_note": "Olive-brown earth — bark, wet soil, and muted landscape mid-tones.",
+      "ace_note": "Olive-brown earth — bark, wet soil, and muted landscape mid-tones.\n\nPG7 is invited: raw-umber coolness pushed olive — wet soil under trees, bark with leaf memory, muted mid-tones that aren't pure burnt sienna roast. Granulates; mixes deep piney darks. Not a second \"just brown.\"\n\nPlay lab (granulation): Side-by-side with plain raw umber — green umber's flocks read botanical. With yellow → dull olive ground; with blue → deep forest sludge (useful).\n\nDual advice: specialty earth-brown seat. If raw umber + a green already mix your olive dirt, optional. Don't stack Green Umber + Undersea Green + three more \"moody dirt\" pans.",
       "best_for": "Earth greens, tree trunks, and quiet neutrals.",
-      "ace_history": "Green umber is the cooler sibling of raw umber — earth with a botanical lean."
+      "ace_history": "Green umber = cooler sibling of raw umber with a botanical lean — here earth plus phthalo green for Horadam \"Umbra grünlich\" mood.",
+      "temp_role": "Olive-brown earth · Umber + phthalo green · botanical bark / wet soil"
     },
     {
       "id": "sch-hp-675-transparent-brown",
@@ -7141,9 +7146,10 @@
       "toxicity": "low",
       "mix_star": true,
       "notes": "Horadam 675 Transparent Brown (Lasurbraun). Half-pan tin batch 260808. Code from Horadam catalog.",
-      "ace_note": "Glazing brown — transparent iron warmth for wood and dusk.",
+      "ace_note": "Glazing brown — transparent iron warmth for wood and dusk.\n\nGerman Lasurbraun = built for layers, not coverage. Twin seat to QoR Transparent Brown Oxide: wood grain glazes, warm dusk, portrait warmth under cooler shadows. Staining — plan lights.\n\nDual advice: half-pan twin of QoR tube — one transparent brown. Vs burnt sienna: more pure iron-red-brown glaze, less orange-roast PBr7 story (check your swatches).",
       "best_for": "Transparent earth glazes and warm shadows.",
-      "ace_history": "Lasurbraun is glaze-brown in German — built for layers, not coverage."
+      "ace_history": "Lasurbraun names the job: glaze-brown. PR101 chemistry; Horadam creamy rewet for pocket tins.",
+      "temp_role": "Warm glaze brown · Lasurbraun PR101 · wood & dusk layers"
     },
     {
       "id": "sch-hp-782-neutral-grey",
@@ -7166,9 +7172,10 @@
       "toxicity": "low",
       "mix_star": false,
       "notes": "Horadam 782 Neutral Grey (Neutralgrau). Half-pan tin batch 260808.",
-      "ace_note": "Straight value grey — when you don't want Payne's blue cast.",
+      "ace_note": "Straight value grey — when you don't want Payne's blue cast.\n\nPBk6 + PW6 = honest middle value without sky bias. Design, value studies, quiet shadows on warm subjects. Can look chalky or dead if it replaces all chromatic neutrals — use as a tool, not a personality.\n\nDual advice: value-study seat. Don't stack Neutral + Payne's + Hematite + Van Dyck as four greys in a six-color tin. One convenience grey + mix the rest is enough.",
       "best_for": "Value studies and neutral mid-tones.",
-      "ace_history": "Neutral greys are modern conveniences — skip mixing every time you need a quiet middle."
+      "ace_history": "Modern convenience neutral — skip mixing when you need a quiet middle. No romance required; the job is straight value.",
+      "temp_role": "Straight value grey · Black + white · no Payne's blue cast"
     },
     {
       "id": "wn-tube-lemon-yellow-deep",
