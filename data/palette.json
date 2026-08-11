@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-11-purple-tube-handwritten",
+  "updated": "2026-08-11-dedupe-mix-from-ace-notes",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein)",
   "color_count": 252,
   "colors": [
@@ -126,7 +126,7 @@
       "format": "tube",
       "size": "5ml",
       "family": "purple",
-      "ace_note": "The drama queen. Three pigments having a party on wet paper — violet, blue-green halos, granulation everywhere. Skies, snow shadows, anything that needs magic hour.\n\nPlay lab (granulation): Don't fight the party — wet paper, drop, walk away. Anthraquinoid red + ultramarine + viridian separate into violet cores and blue-green halos. With burnt sienna → warm-violet storm (verified); with WN ultramarine → cooler galaxies (verified); with Undersea Green → kelpy twilight (verified). Over-stir = muddy divorce. Not a primary; a weather spell.\n\nDual advice: one Moonglow-class effect well. Don't also need Purple Mist + Sunset Mist + Moonglow unless you only paint magic hour. Never use as \"my only purple.\"",
+      "ace_note": "The drama queen. Three pigments having a party on wet paper — violet, blue-green halos, granulation everywhere. Skies, snow shadows, anything that needs magic hour.\n\nPlay lab (granulation): Don't fight the party — wet paper, drop, walk away. Anthraquinoid red + ultramarine + viridian separate into violet cores and blue-green halos on their own. Over-stir = muddy divorce. Not a primary; a weather spell.\n\nDual advice: one Moonglow-class effect well. Don't also need Purple Mist + Sunset Mist + Moonglow unless you only paint magic hour. Never use as \"my only purple.\"",
       "mix_star": true,
       "best_for": "Night skies, snow shadows, magical granulating washes, and moody backgrounds where one pigment does the choreography.",
       "ace_history": "Modern DS hero — deliberate three-pigment dance for granulation on the paper, not a single historic tube. Named for the hour, engineered for cold-press.",
@@ -1080,7 +1080,7 @@
       "family": "pink",
       "series": 3,
       "notes": "Photo 483f6c53. 半块固形. Grade 3. ★★★ lightfast. Verified: Maimeri/Jerry's (PR233 standard for Potter's Pink).",
-      "ace_note": "The quiet fixer-upper of your palette. Dusty rose that softens loud mixes and makes skin feel human instead of plastic. I would marry this color if it were legal.\n\n(Marriage clause stands — this is the salon pink that fixes everything without raising its voice.)\n\nPR233 is not a screaming primary: it's porcelain dust and powdered cheek. Drop it into a loud red or yellow to humanize skin; with ultramarine (verified with WN) → Turner-adjacent blush skies; under Rose Lake → petal gradients; with May Green → greyed distant foliage. Transparent enough to glaze; polite enough for portraits that shouldn't look like vinyl.\n\nDual advice: one Potter's Pink among MB, Roman Szmal, and Pinax Deep. MB is the soft classic; Deep is granulating shadow sister; RS is manners science. Travel tin gets one dusty rose, not a ceramics factory.",
+      "ace_note": "The quiet fixer-upper of your palette. Dusty rose that softens loud mixes and makes skin feel human instead of plastic. I would marry this color if it were legal.\n\n(Marriage clause stands — this is the salon pink that fixes everything without raising its voice.)\n\nPR233 is not a screaming primary: it's porcelain dust and powdered cheek. Drop it into a loud red or yellow to humanize skin. Transparent enough to glaze; polite enough for portraits that shouldn't look like vinyl.\n\nDual advice: one Potter's Pink among MB, Roman Szmal, and Pinax Deep. MB is the soft classic; Deep is granulating shadow sister; RS is manners science. Travel tin gets one dusty rose, not a ceramics factory.",
       "mix_star": true,
       "best_for": "Soft skin blush, dusty skies, faded florals, and gentle greys when mixed.",
       "ace_history": "Potter's Pink is named for ceramic glaze tradition — muted lightfast rose that portrait painters adopted as the secret softener. Mineral calm in a rococo world of loud lakes.",
@@ -1704,7 +1704,7 @@
       "hex": "#1A4A6B",
       "family": "blue",
       "format": "2ml sample",
-      "ace_note": "Deep Sea Blue brings warm blue energy to the tin — worth knowing by temperature, not just by pretty swatch.\n\nPlay lab (granulation): Sample twin of the 5ml Deep Sea Blue tube — same PB29 marine cut, try-before-you-commit. Wet paper → drop sample → charge Deep Sea Indigo into darks for trench layering (verified on cards). Shoreline greys with burnt sienna also verified. One faucet with the tube: don't fill two wells.\n\nDual advice: tube + 2ml = one color. Vs DS French: classical sky grit vs Deep Sea submarine marketing — one granulating ultramarine is enough for most tins.",
+      "ace_note": "Deep Sea Blue brings warm blue energy to the tin — worth knowing by temperature, not just by pretty swatch.\n\nPlay lab (granulation): Sample twin of the 5ml Deep Sea Blue tube — same PB29 marine cut, try-before-you-commit. Wet paper, drop, tip once; let sediment read as current, not flat poster navy. One faucet with the tube: don't fill two wells.\n\nDual advice: tube + 2ml = one color. Vs DS French: classical sky grit vs Deep Sea submarine marketing — one granulating ultramarine is enough for most tins.",
       "brand_traits": [
         "professional",
         "horadam"
@@ -2872,7 +2872,7 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Warm-leaning blue with old-soul granulation — skies, cloth, and neutrals when it meets a warm earth.\n\nSame classical ultramarine seat as your Schmincke/Pinax half-pans: violets with rose, greys with burnt sienna (verified with DS sienna on the card), cooler greens with yellow. Full pan = stop rationing the sky. White Nights may granulate less loudly than some Horadam grinds — manners, not a different fairy tale. You've already verified soft skies with Potter's Pink and spring greens with WN yellow.\n\nDual advice: one PB29 well across the whole studio kit story. If French/Finest/Pinax half-pan already lives in the travel tin, this full pan is desk stockpile — not a second role. Don't also promote every WN \"mystery blue\" as another primary.",
+      "ace_note": "Warm-leaning blue with old-soul granulation — skies, cloth, and neutrals when it meets a warm earth.\n\nSame classical ultramarine seat as your Schmincke/Pinax half-pans: the warm blue job for skies, cloth, and chromatic greys. Full pan = stop rationing the sky. White Nights may granulate less loudly than some Horadam grinds — manners, not a different fairy tale.\n\nDual advice: one PB29 well across the whole studio kit story. If French/Finest/Pinax half-pan already lives in the travel tin, this full pan is desk stockpile — not a second role. Don't also promote every WN \"mystery blue\" as another primary.",
       "mix_star": true,
       "best_for": "Skies, shadows, mixing greys, and the cool backbone of nearly every landscape.",
       "ace_history": "PB29 ultramarine: lapis legend → 1820s synthesis → every watercolorist's first serious blue. St. Petersburg full pans made it cheap and generous; the job is still warm mineral sky and honest violets.",
@@ -3150,7 +3150,7 @@
         "russian",
         "st-petersburg"
       ],
-      "ace_note": "Muted purple with an orange-pink halo — wet washes look like purple hour skies splitting into blue and warm glow.\n\nPlay lab (granulation): PB29 flocks cool while PO73 (pyrrole orange family) throws warm halo — purple-hour skies that literally split. Pair with Rose Mist for full sunset bouquet mood; with Urban Yellow for city golden hour; push blue side with WN Ultramarine (verified tips). Effect pan, not violet primary.\n\nDual advice: weather / sunset seat with Purple Mist — different split (blue+orange vs green+quin). One or two mists if you paint skies; zero if you only need primaries.",
+      "ace_note": "Muted purple with an orange-pink halo — wet washes look like purple hour skies splitting into blue and warm glow.\n\nPlay lab (granulation): PB29 flocks cool while PO73 (pyrrole orange family) throws a warm halo — purple-hour skies that literally split if you leave them alone. Effect pan, not violet primary.\n\nDual advice: weather / sunset seat with Purple Mist — different split (blue+orange vs green+quin). One or two mists if you paint skies; zero if you only need primaries.",
       "mix_star": true,
       "best_for": "Sunset skies, purple hour cityscapes, granulating florals, and moody backgrounds.",
       "ace_history": "Ultramarine + modern warm orange for sedimentary sunset romance — St. Petersburg \"mist\" culture. Lapis-blue history meets contemporary orange in one well.",
@@ -3851,7 +3851,7 @@
         "professional",
         "sennelier"
       ],
-      "ace_note": "Third burnt sienna in the family — compare all three on one swatch card.\n\nThat's the whole plot of the original note: you already own the role. Sennelier's honey base often blooms soft and French-polite — lovely greys with Ultramarine Deep (verified on card), Provence walls with May Green, warm contrast next to something granulating like Moonglow. It may granulate less loudly than DS; treat that as manners, not failure.\n\nDual advice: one burnt sienna seat per kit. Swatch DS / MG / Sennelier / Schmincke half-pan on one card under the same ultramarine. Keep the grey and rewet you love; demote the rest to \"studio backup tube,\" not four wells. Shopping tip: you are not missing a pigment — you are sampling binders.",
+      "ace_note": "Third burnt sienna in the family — compare all three on one swatch card.\n\nThat's the whole plot of the original note: you already own the role. Sennelier's honey base often blooms soft and French-polite. It may granulate less loudly than DS; treat that as manners, not failure.\n\nDual advice: one burnt sienna seat per kit. Swatch DS / MG / Sennelier / Schmincke half-pan on one card under the same ultramarine. Keep the grey and rewet you love; demote the rest to \"studio backup tube,\" not four wells. Shopping tip: you are not missing a pigment — you are sampling binders.",
       "mix_star": true,
       "best_for": "Warm earth lines, Sennelier's soft honey-bloom washes, and tertiary landscape mixes.",
       "ace_history": "Burnt sienna again — roasted iron earth, the warm dark that still breathes. Sennelier's 19th-century honey watercolor habit is the brand accent: same roast family, softer French rewet culture. Serie 1 means they expect you to empty it.",
@@ -4232,7 +4232,7 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Ultramarine — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.\n\nTube twin of half-pan Ultramarine Finest: deep, dignified PB29 for violets (quin red light verified), forest greens with phthalo green, storm greys with burnt sienna (verified). \"Finest\" often means smoother particle story — more suit, less gravel — so if DS French is a rock concert, this can be chamber music. Still ultramarine warmth; still not phthalo's teal tyranny.\n\nDual advice: Finest tube + DS French = manners contest inside one seat. Keep both only if you deliberately want smooth mix blue and granulating sky blue. Otherwise one well.",
+      "ace_note": "Schmincke Ultramarine — fine-milled PB29 tube. Check 5ml tube vs any 2ml sample twin in your set.\n\nTube twin of half-pan Ultramarine Finest: deep, dignified PB29. \"Finest\" often means smoother particle story — more suit, less gravel — so if DS French is a rock concert, this can be chamber music. Still ultramarine warmth; still not phthalo's teal tyranny.\n\nDual advice: Finest tube + DS French = manners contest inside one seat. Keep both only if you deliberately want smooth mix blue and granulating sky blue. Otherwise one well.",
       "mix_star": true,
       "best_for": "Tube ultramarine for large washes, mixing greys, and cool shadow bases.",
       "ace_history": "Synthetic ultramarine as European atelier reference blue — Horadam's feinst grade is what many mix charts quietly assume. Lapis romance, modern mill.",
@@ -4433,7 +4433,7 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Deep Sea Blue — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.\n\nPlay lab (granulation): Deep Sea line is built for abyss demos — pigment encouraged to settle like depth markers on cold-press. Try a two-stage sea: wet the paper, drop Deep Sea Blue for body, then touch Deep Sea Indigo into the still-wet darks (verified layering mood on indigo's card). Don't brush the life out of it; tickle edges. Granulation reads as current and particulate water, not flat poster navy.\n\nStill ultramarine-family soul (PB29) — warmer marine than phthalo ocean. Twin any 2ml sample as one color.\n\nDual advice: vs DS French: both granulating PB29 — Deep Sea is the marine marketing cut, French is the classical sky cut. One granulating ultramarine + one abyss indigo is a stronger pair than two mid ultramarines.",
+      "ace_note": "Schmincke Deep Sea Blue — granulating marine ultramarine. Check 5ml tube vs any 2ml sample twin in your set.\n\nPlay lab (granulation): Deep Sea line wants abyss demos — pigment settling like depth markers on cold-press. Wet the paper, drop for body, leave edges alone; tickle, don't scrub. Granulation reads as current and particulate water, not flat poster navy.\n\nDual advice: vs DS French: both granulating PB29 — Deep Sea is the marine marketing cut, French is the classical sky cut. One granulating ultramarine + one abyss indigo is a stronger pair than two mid ultramarines.",
       "ace_history": "Deep Sea series (2020s Horadam) dresses classical ultramarine in submarine theater — same PB29 lineage as church blue, new sediment choreography for contemporary seascape workshops.",
       "toxicity": "low",
       "temp_role": "Warm-deep marine ultramarine · Deep Sea granulating sky-water · PB29 special"
@@ -4659,7 +4659,7 @@
         "professional",
         "honey-based"
       ],
-      "ace_note": "M. Graham Ultramarine Blue — honey base, 2ml sample. Blooms on wet paper if you lean in.\n\nSame classical PB29 seat as every other ultramarine in the studio — honey slip, open blooms, soft edges if you feed it water. Card invites comparing greys: MG umber vs DS sienna granulation in the same blue (verified tip energy). Data doesn't flag strong granulation on this SKU; the fun is binder manners, not flock theater.\n\nDual advice: one ultramarine honey sample to decide if MG joins DS French / Schmincke Finest. Don't promote every brand's PB29 into the travel tin — pick the grey and rewet you love.",
+      "ace_note": "M. Graham Ultramarine Blue — honey base, 2ml sample. Blooms on wet paper if you lean in.\n\nSame classical PB29 seat as every other ultramarine in the studio — honey slip, open blooms, soft edges if you feed it water. Data doesn't flag strong granulation on this SKU; the fun is binder manners, not flock theater.\n\nDual advice: one ultramarine honey sample to decide if MG joins DS French / Schmincke Finest. Don't promote every brand's PB29 into the travel tin — pick the grey and rewet you love.",
       "mix_star": true,
       "best_for": "Honey-bloom ultramarine skies, soft-edged washes, and classic grey mixes.",
       "ace_history": "Ultramarine's lapis-to-synthetic arc, M. Graham chapter: honey/glycerin culture for rewet and bloom. Series sample box logic — empty the 2ml before you marry the 15ml.",
@@ -4903,7 +4903,7 @@
         "russian",
         "st-petersburg"
       ],
-      "ace_note": "Burgundy-grey with a wandering quin pink — cobalt green granules settle like grey-green trails in wet florals.\n\nPlay lab (granulation): Two bosses — PG50 granulates grey-green trails while PV19 rides the water pink-violet. Wet florals, layered with Rose Mist (verified-adjacent mood), storm greys with ultramarine (verified on card). Not a clean primary purple — an atmosphere pan. Don't over-stir or you lose the split personality.\n\nDual advice: effect seat only. If you already own Rose Mist + a green, optional. One multi-pigment purple weather pan max with Sunset Mist.",
+      "ace_note": "Burgundy-grey with a wandering quin pink — cobalt green granules settle like grey-green trails in wet florals.\n\nPlay lab (granulation): Two bosses — PG50 granulates grey-green trails while PV19 rides the water pink-violet. Don't over-stir or you lose the split personality. Atmosphere pan, not a clean primary purple.\n\nDual advice: effect seat only. If you already own Rose Mist + a green, optional. One multi-pigment purple weather pan max with Sunset Mist.",
       "mix_star": true,
       "best_for": "Florals, abstract backgrounds, urban sketch shadows, and granulating burgundy-grey fills.",
       "ace_history": "White Nights specialty: cobalt titanate green + quin violet so green granulates out while pink quin travels — very Russian sedimentary theater.",
@@ -6090,7 +6090,7 @@
       "staining": false,
       "toxicity": "low",
       "notes": "Ultramarine violet deep (PV15). LF I, transparent, granulating. Series 3. Deeper than Ultramarine Violet 193. Tube photo Jul 10 2026.",
-      "ace_note": "Night-sky violet with mineral freckles — deeper than plain ultramarine violet. Perfect for dusk shadows and moody florals that granulate.\n\nPlay lab (granulation): Honey + PV15 freckles — deeper than half-pan/pan Ultramarine Violet cuts. Dusk shadows, mineral florals; gradient with Ultramarine Pink (card tip energy). Shared grit with ultramarine blue washes.\n\nDual advice: mineral violet seat with Schmincke Ultramarine Violet pan and Deep Sea Violet — one deep PV15. Honey volume for big washes; half-pan for travel.",
+      "ace_note": "Night-sky violet with mineral freckles — deeper than plain ultramarine violet. Perfect for dusk shadows and moody florals that granulate.\n\nPlay lab (granulation): Honey + PV15 freckles — deeper and grittier than lighter ultramarine-violet cuts. Wet cold-press, tip once, leave the mineral. Big-tube volume for dusk passages.\n\nDual advice: mineral violet seat with Schmincke Ultramarine Violet pan and Deep Sea Violet — one deep PV15. Honey volume for big washes; half-pan for travel.",
       "mix_star": true,
       "best_for": "Deep floral shadows, granulating night skies, and cool darks without black.",
       "ace_history": "Ultramarine violet (PV15) — sulfur-complex silicate in the ultramarine family; granulating when flat organics feel plastic. Series 3 deep cut; honey rewet.",
@@ -6967,7 +6967,7 @@
       "toxicity": "low",
       "mix_star": true,
       "notes": "Horadam full pan 14 495 Ultramarine Violet (Ultramarinviolett). PV15/PB29. Batch 260808 photo.",
-      "ace_note": "Mineral violet with ultramarine grit — florals, dusk, and soft cool shadows.\n\nPlay lab (granulation): PV15 + PB29 — purple sibling of ultramarine blue with flock and soft lift. Wet cold-press for mineral dusk; with burnt sienna → soft cool greys; florals that want texture not stain-tyranny. Less staining drama than quin violets.\n\nDual advice: mineral violet seat with RS Mineral Purple and Tundra (PV16). One granulating mineral purple in a small tin. Vs quin PV19: mineral grit vs organic stain.",
+      "ace_note": "Mineral violet with ultramarine grit — florals, dusk, and soft cool shadows.\n\nPlay lab (granulation): PV15 + PB29 — purple sibling of ultramarine blue with flock and soft lift. Wet cold-press for mineral dusk; florals that want texture not stain-tyranny. Less staining drama than quin violets.\n\nDual advice: mineral violet seat with RS Mineral Purple and Tundra (PV16). One granulating mineral purple in a small tin. Vs quin PV19: mineral grit vs organic stain.",
       "best_for": "Cool violets, atmospheric shadows, and granulating purple washes.",
       "ace_history": "Ultramarine violet = synthetic ultramarine chemistry tuned redward — purple brother of church blue. Horadam full pan for dusk and cool shadows.",
       "temp_role": "Cool mineral violet · Ultramarine violet grit · florals, dusk, soft cool shadows · ◈"
