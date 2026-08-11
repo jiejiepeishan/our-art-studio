@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-11-purple-halfpan-handwritten",
+  "updated": "2026-08-11-purple-pan-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein)",
   "color_count": 252,
   "colors": [
@@ -1350,15 +1350,15 @@
       "hex": "#6B5B7A",
       "family": "purple",
       "format": "pan",
-      "ace_note": "Arctic violet — muted, botanical, like heather on cold ground.",
+      "ace_note": "Arctic violet — muted, botanical, like heather on cold ground.\n\nStraight PV16 landscape fantasy cut — muted cool purple for heather moors and cold-ground botanicals. Not Brilliant Purple's designer scream; not Perylene's deep glaze hole. Quiet mineral.\n\nDual advice: same manganese family as Mineral Purple — Tundra is often cleaner/muted without black. One PV16 seat. Specialty landscape, not a primary.",
       "brand_traits": [
         "professional",
         "horadam"
       ],
-      "ace_history": "Tundra violet (PV16) sits in Schmincke's landscape fantasy range — muted cool purple for heather moors and botanical illustrators painting near the Arctic circle.",
+      "ace_history": "Tundra violet in Schmincke's landscape fantasy range — muted cool purple for near-Arctic botanicals. PV16 chemistry; marketing does the frost.",
       "toxicity": "medium",
       "toxicity_habit": "Manganese pigment — wash hands well after painting.",
-      "temp_role": "Cool violet-blue · Manganese / mineral violet"
+      "temp_role": "Cool muted mineral violet · PV16 heather / Arctic botanical · low scream"
     },
     {
       "transparency": 2,
@@ -3099,10 +3099,10 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Quinacridone Lilac brings cool rose energy to the tin — worth knowing by temperature, not just by pretty swatch.",
-      "ace_history": "Quinacridone rose/violet (PV19) is a 20th-century transparent star — cool primary red for florals, glazes, and purples that stay clean.",
+      "ace_note": "Quinacridone Lilac brings cool rose energy to the tin — worth knowing by temperature, not just by pretty swatch.\n\nRead past the generic line: PV19 lilac-violet full pan — cool floral primary, clean purples with blue, less \"scream\" than PR122 brilliants. Same broad seat as half-pan Quin Violet and pink PV19 roses: one molecule, different costume (lilac vs rose vs Italian violet). Full pan = stop rationing dusk washes.\n\nDual advice: one PV19 well across pink + purple formats if the tin is tiny. Keep Lilac when the swatch is clearly more purple-lilac than Rose Lake; demote twins to drawer.",
+      "ace_history": "Quinacridone rose/violet (PV19) — twentieth-century transparent star for florals and clean purples. St. Petersburg full pan is volume logistics on a modern classic.",
       "toxicity": "low",
-      "temp_role": "Cool rose · Cool quinacridone rose / violet-red"
+      "temp_role": "Cool quin lilac · PV19 full-pan primary · floral / clean purple"
     },
     {
       "transparency": 2,
@@ -3150,10 +3150,10 @@
         "russian",
         "st-petersburg"
       ],
-      "ace_note": "Muted purple with an orange-pink halo — wet washes look like purple hour skies splitting into blue and warm glow.",
+      "ace_note": "Muted purple with an orange-pink halo — wet washes look like purple hour skies splitting into blue and warm glow.\n\nPlay lab (granulation): PB29 flocks cool while PO73 (pyrrole orange family) throws warm halo — purple-hour skies that literally split. Pair with Rose Mist for full sunset bouquet mood; with Urban Yellow for city golden hour; push blue side with WN Ultramarine (verified tips). Effect pan, not violet primary.\n\nDual advice: weather / sunset seat with Purple Mist — different split (blue+orange vs green+quin). One or two mists if you paint skies; zero if you only need primaries.",
       "mix_star": true,
       "best_for": "Sunset skies, purple hour cityscapes, granulating florals, and moody backgrounds.",
-      "ace_history": "Ultramarine (PB29) was the precious lapis blue of churches before 1828 synthesis — still the granulating, warm-leaning blue of skies and classical mixes.",
+      "ace_history": "Ultramarine + modern warm orange for sedimentary sunset romance — St. Petersburg \"mist\" culture. Lapis-blue history meets contemporary orange in one well.",
       "mix_tips": [
         {
           "with": [
@@ -3178,7 +3178,7 @@
         }
       ],
       "toxicity": "low",
-      "temp_role": "Warm red-orange · Warm granulating ultramarine blue · ◈ mixer · granulating"
+      "temp_role": "Warm-cool sunset purple · Ultramarine + orange · granulating purple hour · ◈"
     },
     {
       "transparency": 2,
@@ -3527,13 +3527,13 @@
         "roman-szmal",
         "polish"
       ],
-      "ace_note": "Polish mineral purple — granulating violet with different soul from Maimeri 479.",
+      "ace_note": "Polish mineral purple — granulating violet with different soul from Maimeri 479.\n\nPlay lab (granulation): PV16 manganese violet with PBk6 hush — darker, more \"mineral dusk\" than pure bright violet. Flocks on rough paper; different soul from Italian quin manners (the original note is right). Landscape heather, cool stone shadows.\n\nDual advice: mineral seat with Ultramarine Violet and Tundra — swatch grit and value; one manganese/mineral purple. Black whisper means respect chroma-kill in clean florals.",
       "mix_star": false,
       "best_for": "Polish landscape greens, muted natural tones, and regional palette character.",
-      "ace_history": "Roman Szmal and Polish pigment traditions reflect Central European landscape painting — regional lines preserve colors local artists actually squeeze.",
+      "ace_history": "Roman Szmal Central European mineral traditions — regional lines for painters who want rock manners, not only organic punch. PV16 + carbon for granulating depth.",
       "toxicity": "medium",
       "toxicity_habit": "Manganese pigment — wash hands well after painting.",
-      "temp_role": "Cool violet-blue · Manganese / mineral violet · granulating"
+      "temp_role": "Cool mineral purple · Manganese violet + black whisper · granulating Polish soul"
     },
     {
       "transparency": 2,
@@ -4903,10 +4903,10 @@
         "russian",
         "st-petersburg"
       ],
-      "ace_note": "Burgundy-grey with a wandering quin pink — cobalt green granules settle like grey-green trails in wet florals.",
+      "ace_note": "Burgundy-grey with a wandering quin pink — cobalt green granules settle like grey-green trails in wet florals.\n\nPlay lab (granulation): Two bosses — PG50 granulates grey-green trails while PV19 rides the water pink-violet. Wet florals, layered with Rose Mist (verified-adjacent mood), storm greys with ultramarine (verified on card). Not a clean primary purple — an atmosphere pan. Don't over-stir or you lose the split personality.\n\nDual advice: effect seat only. If you already own Rose Mist + a green, optional. One multi-pigment purple weather pan max with Sunset Mist.",
       "mix_star": true,
       "best_for": "Florals, abstract backgrounds, urban sketch shadows, and granulating burgundy-grey fills.",
-      "ace_history": "Purple Mist pairs cobalt titanate green with quin violet — White Nights lets the green granulate out while pink quin rides the water, a very Russian specialty effect.",
+      "ace_history": "White Nights specialty: cobalt titanate green + quin violet so green granulates out while pink quin travels — very Russian sedimentary theater.",
       "mix_tips": [
         {
           "with": [
@@ -4932,7 +4932,7 @@
       ],
       "toxicity": "medium",
       "toxicity_habit": "Cobalt pigment — wash hands after painting; keep food and drink away from the palette.",
-      "temp_role": "Cool rose · Violet for shadow and florals · ◈ mixer · granulating"
+      "temp_role": "Cool burgundy-grey mist · Cobalt green + quin · granulating floral weather · ◈"
     },
     {
       "transparency": 2,
@@ -5269,9 +5269,9 @@
       "format": "full pan",
       "family": "purple",
       "notes": "Perylenviolett PV29. Color-check Jul 8 2026 — full pan photo.",
-      "ace_note": "Deep transparent violet — glaze shadows and moody florals without going muddy.",
-      "ace_history": "Perylene violet (PV29) is a modern transparent purple built for glazing — botanical illustrators reach for it when dioxazine feels too electric. Horadam milling aims for creamy rewet and control.",
-      "temp_role": "Cool purple / magenta · Violet for shadow and florals · staining · transparent"
+      "ace_note": "Deep transparent violet — glaze shadows and moody florals without going muddy.\n\nPV29 is the quiet power purple: deep, transparent, staining glaze for botanical shadows and dusk underpainting — less electric than dioxazine legends, less magenta than PR122. Layers stay clear if you respect water. Not a high-key floral solo; it's the shadow that makes florals serious.\n\nDual advice: specialist glaze seat — not a second PV19. Keep when you paint moody botanicals; skip if ultramarine + rose already make your shadows. One deep transparent violet.",
+      "ace_history": "Perylene violet (PV29) is modern transparent purple for glazing — botanicals reach for it when dioxazine feels too electric. Perylenviolett; Horadam cream rewet.",
+      "temp_role": "Cool deep violet · Perylene (PV29) · transparent shadow glaze"
     },
     {
       "brand_traits": [
@@ -6966,9 +6966,10 @@
       "toxicity": "low",
       "mix_star": true,
       "notes": "Horadam full pan 14 495 Ultramarine Violet (Ultramarinviolett). PV15/PB29. Batch 260808 photo.",
-      "ace_note": "Mineral violet with ultramarine grit — florals, dusk, and soft cool shadows.",
+      "ace_note": "Mineral violet with ultramarine grit — florals, dusk, and soft cool shadows.\n\nPlay lab (granulation): PV15 + PB29 — purple sibling of ultramarine blue with flock and soft lift. Wet cold-press for mineral dusk; with burnt sienna → soft cool greys; florals that want texture not stain-tyranny. Less staining drama than quin violets.\n\nDual advice: mineral violet seat with RS Mineral Purple and Tundra (PV16). One granulating mineral purple in a small tin. Vs quin PV19: mineral grit vs organic stain.",
       "best_for": "Cool violets, atmospheric shadows, and granulating purple washes.",
-      "ace_history": "Ultramarine violet is the purple sibling of ultramarine blue — synthetic ultramarine chemistry tuned redward."
+      "ace_history": "Ultramarine violet = synthetic ultramarine chemistry tuned redward — purple brother of church blue. Horadam full pan for dusk and cool shadows.",
+      "temp_role": "Cool mineral violet · Ultramarine violet grit · florals, dusk, soft cool shadows · ◈"
     },
     {
       "id": "sch-fp-787-paynes-grey-bluish",
