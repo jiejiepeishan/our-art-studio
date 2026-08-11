@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-11-red-halfpan-batch2-handwritten",
+  "updated": "2026-08-11-red-pan+scrub-cadmium-lang",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein)",
   "color_count": 250,
   "colors": [
@@ -346,7 +346,7 @@
       "hex": "#F5E642",
       "format": "half-pan · full pan",
       "family": "yellow",
-      "ace_note": "Cool, transparent, lemon-bright — your mixing primary for clean greens. Cadmium who? This one plays nice with blues.\n\nSister soul to 211: cool PY3, transparent manners for glazes and spring. Slightly different hex/grind personality possible — still one role. Plays nice with blues; cadmium can choke a delicate green mix with opacity.\n\nDual advice: one lemon. If 211 already has ◈ in the kit card logic, this is twin manners. Don't also stock a third cool yellow \"just in case.\"",
+      "ace_note": "Cool, transparent, lemon-bright — your mixing primary for clean greens. This one plays nice with blues.\n\nSister soul to 211: cool PY3, transparent manners for glazes and spring. Slightly different hex/grind personality possible — still one role. Plays nice with blues; heavy opaque yellows can choke a delicate green mix.\n\nDual advice: one lemon. If 211 already has ◈ in the kit card logic, this is twin manners. Don't also stock a third cool yellow \"just in case.\"",
       "ace_history": "Hansa lemon (PY3) — azo-family cool primary that retired harsh chrome yellows from thoughtful mixing charts. Zitronengelb is the German for \"stop buying a fourth lemon.\"",
       "toxicity": "low",
       "temp_role": "Cool lemon · Transparent mixing primary · clean greens with blue"
@@ -372,7 +372,7 @@
       "staining": false,
       "toxicity": "low",
       "notes": "Horadam 211 Chromium Yellow Hue Lemon (Chromgelbton Zitrone). Cool lemon yellow, cadmium-free. Added Jul 2026.",
-      "ace_note": "Zingy cool lemon — the bright edge of a citrus slice. Cooler than 212 Light, cleaner than warm Naples for spring greens.\n\nHue means cadmium/chrome theater without the old poison plot — chemistry is PY3, the classic cool mixer. Push into ultramarine/phthalo for spring greens that stay sharp; with rose it goes peach-coral, not brick. High chroma, modern organic — dose if it stains your ego (less stain drama than some golds, still vivid).\n\nDual advice: same cool PY3 seat as Lemon Yellow half-pan below. Swatch 211 vs Zitronengelb once; keep one. Cadmium Light is the opaque opposite religion.",
+      "ace_note": "Zingy cool lemon — the bright edge of a citrus slice. Cooler than 212 Light, cleaner than warm Naples for spring greens.\n\nHue means chrome-temperature theater without the old poison plot — chemistry is PY3, the classic cool mixer. Push into ultramarine/phthalo for spring greens that stay sharp; with rose it goes peach-coral, not brick. High chroma, modern organic — dose if it stains your ego (less stain drama than some golds, still vivid).\n\nDual advice: same cool PY3 seat as Lemon Yellow half-pan below. Swatch 211 vs Zitronengelb once; keep one.",
       "mix_star": true,
       "best_for": "Spring greens, cool highlights, florals, and crisp warm-vs-cool yellow contrast.",
       "ace_history": "Arylide/Hansa yellow (PY3) replaced toxic chrome lemons in 20th-century charts — transparent-leaning high chroma for clean greens. \"Chromium Yellow Hue\" is Horadam temperature marketing; trust PY3 on the sleeve.",
@@ -398,7 +398,7 @@
       "hex": "#E8C020",
       "format": "half-pan",
       "family": "yellow",
-      "ace_note": "Warm golden yellow with a vintage temperament. Less harsh than cadmium, lovely in autumn light.\n\nImportant label honesty: sleeve is Hue and pigment PY74 (arylide/Hansa warm mid) — not historic lead chromate PY34. You get warm golden body and \"gaslight\" mood without that Victorian toxicity story as literal chemistry. Good for sunlit paths mixed small into earths; can go mustard if overcooked with blue.\n\nDual advice: warm mid seat contested by Pure Yellow, Golden Yellow, Cad Light. Keep Deep when you want opaque-leaning warm gold without cadmium. Don't keep Deep + Cad + Golden as three \"just yellows.\"",
+      "ace_note": "Warm golden yellow with a vintage temperament. Warm golden mid, lovely in autumn light.\n\nImportant label honesty: sleeve is Hue and pigment PY74 (arylide/Hansa warm mid) — not historic lead chromate PY34. You get warm golden body and \"gaslight\" mood without that Victorian toxicity story as literal chemistry. Good for sunlit paths mixed small into earths; can go mustard if overcooked with blue.\n\nDual advice: warm mid seat contested by Pure Yellow, Golden Yellow Keep Deep when you want opaque-leaning warm gold. Don't stack Deep + Golden as two mid-golds without a reason.",
       "ace_history": "True chrome yellow (PY34) painted the 19th century; modern \"Chromgelbton\" hues usually swap in safer organics (here PY74). Temperature of gilt frames, chemistry of now.",
       "toxicity": "low",
       "temp_role": "Warm golden mid-yellow · Arylide \"chrome hue\" deep · autumn light"
@@ -519,7 +519,7 @@
       "hex": "#C9A227",
       "format": "half-pan · full pan",
       "family": "earth",
-      "ace_note": "The earth tone you reach for without thinking. Reliable, humble, mixes into a hundred natural greens.\n\nOchre is the tin's sensible sunlight: not lemon, not cadmium, just \"the day is warm.\" Where it gets interesting is next to blue — many ochres push a soft green-grey, which is perfect for distant hills and wrong for a clean violet shadow. With phthalo green it steadies neon into olive; with rose it makes dusty skin and old plaster.\n\nDual advice: if your greys with ultramarine keep going olive when you wanted stone, try Raw Sienna for the warm note instead. Keep ochre when you want body in fields and paths that sit on the paper, not only glow through it.",
+      "ace_note": "The earth tone you reach for without thinking. Reliable, humble, mixes into a hundred natural greens.\n\nOchre is the tin's sensible sunlight: not lemon, not opaque poster yellow, just \"the day is warm.\" Where it gets interesting is next to blue — many ochres push a soft green-grey, which is perfect for distant hills and wrong for a clean violet shadow. With phthalo green it steadies neon into olive; with rose it makes dusty skin and old plaster.\n\nDual advice: if your greys with ultramarine keep going olive when you wanted stone, try Raw Sienna for the warm note instead. Keep ochre when you want body in fields and paths that sit on the paper, not only glow through it.",
       "ace_history": "Ochre is iron-stained clay — among the oldest paints humans ever used (caves, tombs, underpainting). Modern PY42/PY43 is the industrial echo of that dirt: muted gold for land, not jewelry-store yellow. Horadam keeps it creamy so the \"humble\" pan doesn't fight you on rewet.",
       "toxicity": "low",
       "temp_role": "Warm earth-yellow · Field & underpainting · the \"boring\" pan that does everything"
@@ -930,10 +930,10 @@
       "hex": "#E32636",
       "format": "full pan",
       "family": "red",
-      "ace_note": "Modern screaming scarlet (PR254). High impact florals, signage, anything that needs to be noticed from across the room.",
-      "ace_history": "Pyrrole red (PR254) is a modern lightfast fire-engine red — cleaner mixes than many earth reds, staining enough to commit with intention. Horadam milling aims for creamy rewet and control.",
+      "ace_note": "Modern screaming scarlet (PR254). High impact florals, signage, anything that needs to be noticed from across the room.\n\nPR254 is modern lightfast fire-engine red — cleaner than many earth reds, staining enough to commit. Full pan = stop rationing poppies. Same molecule family as Rosa Bright Red — one seat.\n\nDual advice: one PR254 with Rosa Bright Red. Vs half-pan PR255 Pyrrol/Vermilion: close warm scarlets — swatch, don't stack three fire engines.",
+      "ace_history": "Pyrrole red (PR254) — late-century lightfast fire for florals and design. Horadam full pan; creamy rewet.",
       "toxicity": "low",
-      "temp_role": "Warm red-orange · Warm modern organic red (pyrrol) · staining"
+      "temp_role": "Warm high-chroma scarlet · Pyrrole (PR254) · full-pan fire · staining"
     },
     {
       "brand_traits": [
@@ -978,7 +978,7 @@
       "hex": "#C9A227",
       "format": "full pan · half-pan",
       "family": "earth",
-      "ace_note": "Box twin of your ochre half-pan. Stockpile energy — you will use this forever.\n\nSame sensible sunlight as the half-pan Yellow Ochre: not lemon, not cadmium — \"the day is warm.\" Full pan just means you stop rationing it. With blue it still pushes those soft land greens and distant hills; with phthalo it steadies neon into olive; with rose it makes dusty skin and old plaster. It is the pan you empty first if you paint outdoors often.\n\nDual advice: kit logic = one ochre seat. Half-pan for travel tin, full pan for desk — not two wells in the same box. If Transparent Ochre is also in the studio, swatch them once: keep Transparent for glaze stories, keep Yellow Raw for body and paths. Most limited kits only need one of the two.",
+      "ace_note": "Box twin of your ochre half-pan. Stockpile energy — you will use this forever.\n\nSame sensible sunlight as the half-pan Yellow Ochre: not lemon, not opaque poster yellow — \"the day is warm.\" Full pan just means you stop rationing it. With blue it still pushes those soft land greens and distant hills; with phthalo it steadies neon into olive; with rose it makes dusty skin and old plaster. It is the pan you empty first if you paint outdoors often.\n\nDual advice: kit logic = one ochre seat. Half-pan for travel tin, full pan for desk — not two wells in the same box. If Transparent Ochre is also in the studio, swatch them once: keep Transparent for glaze stories, keep Yellow Raw for body and paths. Most limited kits only need one of the two.",
       "ace_history": "Still iron ochre — PY42/PY43 as the industrial memory of clay gold. Raw ochre names signal \"not roasted red,\" not a different fairy tale from half-pan ochre. Full pan is logistics: the color that earns bulk because landscape and underpainting never retire.",
       "toxicity": "low",
       "temp_role": "Warm earth-yellow · Field & underpainting · the big-well twin of half-pan ochre"
@@ -1105,7 +1105,7 @@
       "family": "yellow",
       "series": 1,
       "notes": "Photo 483f6c53. 半块固形. Grade 1, transparent (□). ★★★. Verified: Jerry's Artarama — PY183, staining.",
-      "ace_note": "Italian sunshine without cadmium baggage. Transparent, staining — rewets like it remembers everything. Mixes clean greens with your blues.\n\nPY183 gold that glazes and stains — educational fun is permanent sunbeams: lovely until you wanted a lift. Clean greens with blues; warm florals; honey light through paper. Italian grade manners, transparent box on the label.\n\nDual advice: staining gold vs Cad cover vs Pure mid — pick by whether you need memory on the paper (stain) or butter cover (cad) or polite primary (Pure). One warm transparent gold seat.",
+      "ace_note": "Italian sunshine — transparent and staining. Transparent, staining — rewets like it remembers everything. Mixes clean greens with your blues.\n\nPY183 gold that glazes and stains — educational fun is permanent sunbeams: lovely until you wanted a lift. Clean greens with blues; warm florals; honey light through paper. Italian grade manners, transparent box on the label.\n\nDual advice: staining gold vs Cad cover vs Pure mid — pick by whether you need memory on the paper (stain) or butter cover (cad) or polite primary (Pure). One warm transparent gold seat.",
       "ace_history": "Benzimidazolone yellow (PY183) is modern transparent gold favored where cadmium opacity would choke a wash — MaimeriBlu's Italian sunshine chapter.",
       "toxicity": "low",
       "temp_role": "Warm transparent gold · Staining benzimidazolone · Italian sunshine"
@@ -1944,7 +1944,7 @@
         "2ml-sample"
       ],
       "ace_note": "Transparent warm oxide — glazes like autumn light.\n\nThis is the glass side of iron red: layered brick glow, autumn canopy, portrait warmth that still shows paper. Not Caput Mortuum's mortuary deep, not opaque Venetian cover. With blue it makes smoky violets and soft brick greys; alone it is sun through terracotta. Staining/body vary by grind — DS's TRO is famous for clean warm glazes in landscape kits.\n\nDual advice: same role as MG Transparent Red Iron Oxide — manners contest (DS vs honey), not two wells. Also distinct from burnt sienna (PBr7 roast) and Caput (deep maroon). One transparent iron-red glaze seat is enough for most tins.",
-      "ace_history": "PR101 calcined iron oxide — industrial Mars/Venetian family that replaced many fugitive earth reds. \"Transparent\" red oxide is the glaze milling of that brick chemistry: modern landscape staple for warm light without cadmium.",
+      "ace_history": "PR101 calcined iron oxide — industrial Mars/Venetian family that replaced many fugitive earth reds. \"Transparent\" red oxide is the glaze milling of that brick chemistry: modern landscape staple for warm light.",
       "toxicity": "low",
       "temp_role": "Warm iron red · Glaze brick / autumn light · transparent PR101"
     },
@@ -2331,7 +2331,7 @@
         "2ml-sample"
       ],
       "ace_note": "Transparent orange heat — sunsets without opacity.\n\nThis is the opposite of brick on top of the paper. PO48 (perinone family) wants light through the wash: late sky, silk scarves, fruit skin that still looks juicy. Drop it into a wet blue and you get soft bruised violets and storm edges; drop it into yellow and the sun gets louder without turning into poster paint.\n\nDual advice: if Chromium Orange Hue is already your opaque hammer, this is the glass. Don't buy a third warm orange just in case — learn when you need cover vs when you need glow. Cadmium orange fans: this is how you get heat without the heavy blanket.",
-      "ace_history": "Transparent Orange (PO48) is a modern perinone pigment — built for clean, luminous orange that cadmium's opacity can't do. Contemporary landscape and floral painters glaze with it where old opaque oranges would sit like shutters on the paper. DS markets that glow hard; the legend is chemistry, not a medieval name.",
+      "ace_history": "Transparent Orange (PO48) is a modern perinone pigment — built for clean, luminous orange that heavy opaque oranges can't do. Contemporary landscape and floral painters glaze with it where old opaque oranges would sit like shutters on the paper. DS markets that glow hard; the legend is chemistry, not a medieval name.",
       "toxicity": "low",
       "temp_role": "Warm orange · Glaze heat · transparent sunset"
     },
@@ -2569,7 +2569,7 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Living coral — tropical warmth on paper.\n\nNot a single historic \"coral\" rock and not pure cadmium sunset. The line is a duet: PR209 (quinacridone red — clean, modern, often a bit pink-leaning warmth) + PO48 (perinone transparent orange — the same heat family as DS Transparent Orange). Together they read reef flesh: peach-to-salmon in dilute washes, livelier orange-red in masstone — fish, flowers, swimsuits, the warm edge of a cheek when pure rose feels too cool and pure orange feels too traffic-cone.\n\nBecause it's a blend, mixes have two bosses. With blue you may get soft mauves or slightly dirtied peach depending on which pigment wins the water; with yellow it goes tropical fruit fast. It will not replace a primary red or a dedicated transparent orange for color-wheel drills — it's a subject color that already decided to be pretty.\n\nDual advice: one coral/salmon convenience seat is enough. If you already keep Transparent Orange (PO48) + a quin red/rose, you can mix reef — this 2ml is speed and mood for travel journals. Don't promote it to \"my only warm red.\" Sample size is perfect: use it up on one vacation sketchbook, then decide if the reef earns a bigger tube.",
+      "ace_note": "Living coral — tropical warmth on paper.\n\nNot a single historic \"coral\" rock and not pure opaque sunset. The line is a duet: PR209 (quinacridone red — clean, modern, often a bit pink-leaning warmth) + PO48 (perinone transparent orange — the same heat family as DS Transparent Orange). Together they read reef flesh: peach-to-salmon in dilute washes, livelier orange-red in masstone — fish, flowers, swimsuits, the warm edge of a cheek when pure rose feels too cool and pure orange feels too traffic-cone.\n\nBecause it's a blend, mixes have two bosses. With blue you may get soft mauves or slightly dirtied peach depending on which pigment wins the water; with yellow it goes tropical fruit fast. It will not replace a primary red or a dedicated transparent orange for color-wheel drills — it's a subject color that already decided to be pretty.\n\nDual advice: one coral/salmon convenience seat is enough. If you already keep Transparent Orange (PO48) + a quin red/rose, you can mix reef — this 2ml is speed and mood for travel journals. Don't promote it to \"my only warm red.\" Sample size is perfect: use it up on one vacation sketchbook, then decide if the reef earns a bigger tube.",
       "ace_history": "\"Coral reef\" is contemporary convenience naming — warm quin reds married to modern transparent orange for tropical sketches, not a mineral pulled from a barrier reef. PR209 + PO48 is lightfast twentieth-century chemistry wearing snorkeling marketing. The legend is the holiday; the job is clean warm flesh-of-the-sea on paper.",
       "toxicity": "low",
       "temp_role": "Warm coral · Quin red + perinone orange · tropical reef accent · travel sample"
@@ -2595,10 +2595,10 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Bright yellow no.2 — clean sunshine without cadmium.\n\nPY154 clean bright mid-warm — design sun, flower punch, cadmium alternative. Sample size for \"do I need another mid yellow?\" Urban Yellow half-pan is also PY154-ish family energy with granulation; this sample is smoother sunshine try-on.\n\nDual advice: mid bright seat with Azo, Pure, Isoindoline. One winner. Vs Cad Light: transparent-leaning organic vs butter cover.",
-      "ace_history": "PY154 benzimidazolone yellow — 20th-century organic research for clean sunshine without cadmium weight. DS sample culture: test, then commit.",
+      "ace_note": "Bright yellow no.2 — clean sunshine.\n\nPY154 clean bright mid-warm — design sun, flower punch, high-chroma alternative to opaque organics. Sample size for \"do I need another mid yellow?\" Urban Yellow half-pan is also PY154-ish family energy with granulation; this sample is smoother sunshine try-on.\n\nDual advice: mid bright seat with Azo, Pure, Isoindoline. One winner.",
+      "ace_history": "PY154 benzimidazolone yellow — 20th-century organic research for clean sunshine with clean transparent manners. DS sample culture: test, then commit.",
       "toxicity": "low",
-      "temp_role": "Warm clean sunshine · Benzimidazolone (PY154) · cadmium-free bright"
+      "temp_role": "Warm clean sunshine · Benzimidazolone (PY154) · bright"
     },
     {
       "transparency": 2,
@@ -2620,10 +2620,10 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Clean isoindoline yellow — bright without cadmium.\n\nPY139 is a contemporary organic yellow with serious chroma and usually good lightfast manners in student-to-pro ranges — bright mid-warm light without cadmium's butter cover. Full pan means you stop rationing sun for big washes and classroom demos. Mixes: with cool blue → lively greens (less ice than pure PY3 lemon, less dirt than ochre); with rose → warm peach/coral; alone → clean flower and signage yellow. Not chalky Naples; not staining Italian gold drama unless your grind surprises you — treat it as a mixing primary, not a corrector.\n\nDual advice: mid/warm transparent-leaning primary seat contested by half-pan Pure Yellow (PY138), Golden Yellow (PY183), Chrome Hue Deep, etc. One well for \"bright modern yellow.\" If Pure already lives in the travel tin, this full pan is desk volume — not a second role. Cad Light remains the opaque religion if you need cover.",
-      "ace_history": "Isoindoline yellow (PY139) is late-20th-century clean color for artists who want punch without cadmium weight. White Nights full pans made it a St. Petersburg workhorse: bright, practical, unromantic name, honest job.",
+      "ace_note": "Clean isoindoline yellow — bright.\n\nPY139 is a contemporary organic yellow with serious chroma and usually good lightfast manners in student-to-pro ranges — bright mid-warm light.'s butter cover. Full pan means you stop rationing sun for big washes and classroom demos. Mixes: with cool blue → lively greens (less ice than pure PY3 lemon, less dirt than ochre); with rose → warm peach/coral; alone → clean flower and signage yellow. Not chalky Naples; not staining Italian gold drama unless your grind surprises you — treat it as a mixing primary, not a corrector.\n\nDual advice: mid/warm transparent-leaning primary seat contested by half-pan Pure Yellow (PY138), Golden Yellow (PY183), Chrome Hue Deep, etc. One well for \"bright modern yellow.\" If Pure already lives in the travel tin, this full pan is desk volume — not a second role.",
+      "ace_history": "Isoindoline yellow (PY139) is late-20th-century clean color for artists who want punch with clean transparent manners. White Nights full pans made it a St. Petersburg workhorse: bright, practical, unromantic name, honest job.",
       "toxicity": "low",
-      "temp_role": "Warm modern yellow · Isoindoline (PY139) · cadmium-free bright mid · full-pan stockpile"
+      "temp_role": "Warm modern yellow · Isoindoline (PY139) · bright mid · full-pan stockpile"
     },
     {
       "transparency": 2,
@@ -2645,10 +2645,10 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Bordeaux claret — wine-stain red for velvet shadows.",
-      "ace_history": "Claret echoes Bordeaux wine stains — a mixed red-violet convenience shade from Nevskaya Palitra for velvet shadows and Eastern European still-life tradition.",
+      "ace_note": "Bordeaux claret — wine-stain red for velvet shadows.\n\nConvenience wine red (PR83 + PR170 family listing) — Bordeaux velvet shadows and Eastern European still-life mood. Not clean pyrrole scarlet; not pure perylene glaze. Can be less lightfast than modern quins depending on PR83 content — lovely for work; check if archives need A-rated wine (perylene/PR209).\n\nDual advice: wine-shadow seat with Perylene Maroon/Dark and Madder Red Dark. One deep wine. Claret is the romantic blend; perylene is the modern glaze workhorse.",
+      "ace_history": "Claret echoes Bordeaux wine stains — Nevskaya Palitra convenience for velvet shadows and still-life tradition.",
       "toxicity": "low",
-      "temp_role": "Warm red family · Red / warm accent"
+      "temp_role": "Cool-warm wine red · Claret blend · velvet shadows / Bordeaux mood"
     },
     {
       "transparency": 2,
@@ -3273,10 +3273,10 @@
         "rosa",
         "ukrainian"
       ],
-      "ace_note": "Screaming bright red — poppies and courage.",
-      "ace_history": "Pyrrole red (PR254) is a modern lightfast fire-engine red — cleaner mixes than many earth reds, staining enough to commit with intention.",
+      "ace_note": "Screaming bright red — poppies and courage.\n\nSame PR254 job as Scarlet Red full pan — Ukrainian single-pan pocket fire. Staining poppies; courage in a small well.\n\nDual advice: Scarlet Red full pan or Bright Red single pan — one PR254. Travel vs desk faucet.",
+      "ace_history": "Pyrrole red (PR254) modern lightfast fire-engine — cleaner mixes than many earth reds; staining intention.",
       "toxicity": "low",
-      "temp_role": "Warm red-orange · Warm modern organic red (pyrrol) · staining"
+      "temp_role": "Warm screaming scarlet · PR254 pocket · poppies & courage"
     },
     {
       "transparency": 2,
@@ -3925,7 +3925,7 @@
         "sennelier"
       ],
       "ace_note": "Rouge Hélios — semi-opaque bright red with honey bloom, punchy florals and accents.",
-      "ace_history": "Rouge Hélios (PR3 toluidine red) is Sennelier's serie 2 bright red — a modern organic scarlet, not cadmium; honey binder keeps washes lively on cold press.",
+      "ace_history": "Rouge Hélios (PR3 toluidine red) is Sennelier's serie 2 bright red — a modern organic scarlet; honey binder keeps washes lively on cold press.",
       "toxicity": "low",
       "temp_role": "Warm red family · Red / warm accent · staining"
     },
@@ -4026,8 +4026,8 @@
         "horadam",
         "cadmium-free"
       ],
-      "ace_note": "Schmincke Pure Yellow — clean cadmium-free mid primary. Check 5ml tube vs any 2ml sample twin in your set.\n\nTube twin of half-pan Pure Yellow: cadmium-free mixing primary between lemon ice and deep gold. Florals, general light, greens that aren't mint or mustard.\n\nDual advice: one Pure Yellow faucet. Vs WN Isoindoline full pan (PY139): both modern mids — swatch, keep one bright primary mid.",
-      "ace_history": "PY138 Horadam pure primary — clean mixes without cadmium push. Tube is volume logistics.",
+      "ace_note": "Schmincke Pure Yellow — clean mid primary. Check 5ml tube vs any 2ml sample twin in your set.\n\nTube twin of half-pan Pure Yellow: mixing primary between lemon ice and deep gold. Florals, general light, greens that aren't mint or mustard.\n\nDual advice: one Pure Yellow faucet. Vs WN Isoindoline full pan (PY139): both modern mids — swatch, keep one bright primary mid.",
+      "ace_history": "PY138 Horadam pure primary — clean mixes. push. Tube is volume logistics.",
       "toxicity": "low",
       "temp_role": "Warm-mid transparent primary · PY138 Reingelb · tube twin of half-pan"
     },
@@ -4052,10 +4052,10 @@
         "horadam",
         "cadmium-free"
       ],
-      "ace_note": "Schmincke Chromium Yellow Hue Light — cadmium-free warm-light mid. Check 5ml tube vs any 2ml sample twin in your set.\n\nHue + PY74 — not historic toxic chrome. Lighter cut of the arylide mid-yellow pair (vs Deep). Design punch, clean mid light, tube twin of any sample. Cooler/lighter than Deep; warmer than pure PY3 lemon.\n\nDual advice: Light + Deep = one PY74 seat unless you paint both high-key signs and autumn gold weekly. Cadmium-free set logic: pick Light or Deep + Pure, not all three mid-golds.",
+      "ace_note": "Schmincke Chromium Yellow Hue Light — warm-light mid. Check 5ml tube vs any 2ml sample twin in your set.\n\nHue + PY74 — not historic toxic chrome. Lighter cut of the arylide mid-yellow pair (vs Deep). Design punch, clean mid light, tube twin of any sample. Cooler/lighter than Deep; warmer than pure PY3 lemon.\n\nDual advice: Light + Deep = one PY74 seat unless you paint both high-key signs and autumn gold weekly. Kit logic: pick Light or Deep + Pure, not all three mid-golds.",
       "ace_history": "Arylide PY74 as workhorse organic mid yellow — Horadam \"Chromgelbton\" sells vintage chrome temperature with modern safer chemistry.",
       "toxicity": "low",
-      "temp_role": "Warm-light mid yellow · Arylide PY74 Hue · cadmium-free bright"
+      "temp_role": "Warm-light mid yellow · Arylide PY74 Hue · bright"
     },
     {
       "transparency": 2,
@@ -4799,10 +4799,10 @@
         "professional",
         "st-petersburg"
       ],
-      "ace_note": "White Nights Scarlet Mist — full pan from St. Petersburg, Jul 7.",
+      "ace_note": "White Nights Scarlet Mist — full pan from St. Petersburg.\n\nPlay lab (granulation): Mist-line separation — scarlet sparks and cooler mineral trails on wet paper. Don't over-stir; let florals render themselves. Effect pan, not your only warm red primary.\n\nDual advice: weather/floral effect seat with Purple Mist / Rose Mist cousins. One scarlet mist. Keep PR254 or PR255 for clean fire without multi-pigment gossip.",
       "mix_star": true,
       "best_for": "Bold florals, granulating red washes, and warm accent passages that bloom on wet paper.",
-      "ace_history": "Scarlet Mist is part of White Nights' granulating mist line — built for wet-on-wet florals where pigment separation does the rendering.",
+      "ace_history": "Scarlet Mist is White Nights' granulating mist line — wet-on-wet florals where pigment separation does the rendering. Multi-pigment convenience, Russian sedimentary theater.",
       "mix_tips": [
         {
           "with": [
@@ -4828,7 +4828,7 @@
       ],
       "toxicity": "medium",
       "toxicity_habit": "Cobalt pigment — wash hands after painting; keep food and drink away from the palette.",
-      "temp_role": "Warm red family · Red / warm accent · ◈ mixer · granulating"
+      "temp_role": "Warm scarlet mist · Multi-pigment granulating · wet-on-wet florals"
     },
     {
       "transparency": 2,
@@ -4974,8 +4974,8 @@
         "professional",
         "winsor-newton"
       ],
-      "ace_note": "W&N Professional Winsor Orange (Red Shade) — classic British workhorse in 5ml.\n\nPO73 is pyrrole territory: cleaner and more modern than earth oranges, with enough stain that a bold mark means it. Mix with a cool yellow for traffic-cone brightness; with a cool blue for near-neutrals that still feel designed, not muddy brown. Red shade means it leans toward coral-scarlet — excellent for poppies and signal lights, less pumpkin pie than a yellow-shade orange.\n\nDual advice: if you already keep Scarlet Pyrrol / other pyrroles for red, this orange is the bridge into yellow — you may not need a separate cadmium orange. Dose carefully; staining oranges forgive less than ochres.",
-      "ace_history": "Pyrrole orange (PO73) is a late-20th-century high-chroma organic — lightfast fire that finally gave watercolor a cadmium-like punch without the same opacity politics. Winsor & Newton's \"Winsor\" line brands it as a professional primary secondary: British colourman tradition, modern molecule.",
+      "ace_note": "W&N Professional Winsor Orange (Red Shade) — classic British workhorse in 5ml.\n\nPO73 is pyrrole territory: cleaner and more modern than earth oranges, with enough stain that a bold mark means it. Mix with a cool yellow for traffic-cone brightness; with a cool blue for near-neutrals that still feel designed, not muddy brown. Red shade means it leans toward coral-scarlet — excellent for poppies and signal lights, less pumpkin pie than a yellow-shade orange.\n\nDual advice: if you already keep Scarlet Pyrrol / other pyrroles for red, this orange is the bridge into yellow — you may not need a third warm orange. Dose carefully; staining oranges forgive less than ochres.",
+      "ace_history": "Pyrrole orange (PO73) is a late-20th-century high-chroma organic — lightfast fire that finally gave watercolor a cadmium-like punch with transparent-leaning fire. Winsor & Newton's \"Winsor\" line brands it as a professional primary secondary: British colourman tradition, modern molecule.",
       "toxicity": "low",
       "temp_role": "Warm red-orange · Pyrrole fire · staining primary orange"
     },
@@ -5193,9 +5193,9 @@
       "format": "full pan",
       "family": "red",
       "notes": "Engl.-Venez. Rot. Color-check Jul 8 2026 — full pan photo.",
-      "ace_note": "Full-pan Venetian red — earthy brick warmth in the large format you actually paint from.",
-      "ace_history": "Mars/Venetian reds (PR101) are calcined iron oxides — brick, terracotta, and portrait underpainting since industrial iron pigments matured. Horadam milling aims for creamy rewet and control.",
-      "temp_role": "Warm red family · Iron oxide red / Venetian earth red"
+      "ace_note": "Full-pan Venetian red — earthy brick warmth in the large format you actually paint from.\n\nSame English Venetian / PR101 seat as half-pan English Red — brick, terracotta, structure, not vermilion heat. Full pan = architecture sessions without scraping the half-pan bare. One color, two faucets.\n\nDual advice: half-pan + full pan = one well. Not a second scarlet.",
+      "ace_history": "Mars/Venetian reds (PR101) — calcined iron oxide for brick, terracotta, and portrait underpainting. Horadam full-pan stockpile.",
+      "temp_role": "Warm earth brick red · PR101 full-pan twin · terracotta structure"
     },
     {
       "brand_traits": [
@@ -5458,9 +5458,9 @@
       "format": "half-pan",
       "family": "yellow",
       "notes": "Reingelb. Color-check Jul 8 2026 — half-pan 4 photo.",
-      "ace_note": "Clean transparent yellow half-pan — mixing primary without cadmium weight.\n\nSits between cool lemon and deep gold: PY138 (quinophthalone family territory) as Horadam's \"Reingelb\" — modern transparent primary for general light, florals, and greens that aren't ice-mint or mustard. Less citrus-edge than PY3; less honey-earth than PY42.\n\nDual advice: if you only keep two yellows, many kits do cool lemon + this mid (or golden). Vs Cad Light: Pure is glaze-friendly; Cad covers. Vs Golden Yellow PY183: different modern gold manners — swatch.",
-      "ace_history": "Pure Yellow / PY138 is Schmincke's contemporary cadmium-free primary yellow — engineered for clean mixes, not historical chrome nostalgia.",
-      "temp_role": "Warm-mid transparent yellow · Cadmium-free mixing primary · clean light"
+      "ace_note": "Clean transparent yellow half-pan — mixing primary with clean transparent manners.\n\nSits between cool lemon and deep gold: PY138 (quinophthalone family territory) as Horadam's \"Reingelb\" — modern transparent primary for general light, florals, and greens that aren't ice-mint or mustard. Less citrus-edge than PY3; less honey-earth than PY42.\n\nDual advice: if you only keep two yellows, many kits do cool lemon + this mid (or golden). Vs Golden Yellow PY183: different modern gold manners — swatch.",
+      "ace_history": "Pure Yellow / PY138 is Schmincke's contemporary primary yellow — engineered for clean mixes, not historical chrome nostalgia.",
+      "temp_role": "Warm-mid transparent yellow · mixing primary · clean light"
     },
     {
       "brand_traits": [
@@ -5952,7 +5952,7 @@
       "staining": true,
       "toxicity": "low",
       "notes": "Pyrrole orange/scarlet (PO73). LF I, transparent, staining. Series 3. Warm scarlet. Tube photo Jul 10 2026.",
-      "ace_note": "Fire-engine warmth without cadmium drama — clean oranges with yellow, bold florals, and accents that refuse to go muddy.",
+      "ace_note": "Fire-engine warmth — clean modern punch. — clean oranges with yellow, bold florals, and accents that refuse to go muddy.",
       "mix_star": true,
       "best_for": "Poppies, warm sunsets, fruit, and high-chroma accents in urban sketches.",
       "ace_history": "Pyrrole pigments (including PO73) are late-20th-century organics prized for lightfastness and chroma — modern scarlets that finally outlasted fugitive historical reds.",
@@ -6324,7 +6324,7 @@
       "staining": true,
       "toxicity": "low",
       "notes": "M. Graham Artists' Watercolor Azo Yellow — official catalog code 018 (user list said 108; catalog is 018 between Hansa 107 and Indian Yellow 109 numbering is not sequential). Benzimidazolone Yellow PY151. More transparent than cadmium, more lightfast than many Hansa. Honey-bound. Studio 2ml sample Jul 2026.",
-      "ace_note": "Clean primary sunshine — mixes oranges and greens without the cadmium weight. Honey keeps it juicy on the palette.\n\nPY151 mid primary: often a hair different from cool Hansa PY3 (MG107 tube) — many charts treat Azo as the \"middle sun\" for clean oranges and greens. Transparent, staining — permanent sunshine; lift carefully. Honey slip and rewet. Catalog code 018 (not 108) — numbering isn't sequential next to Hansa 107 / Indian 109.\n\nDual advice: mid primary seat with Pure Yellow / Isoindoline / Chrome Hues. Vs Hansa tube: cool lemon vs mid azo — you can own both; travel tin usually wants one cool + one mid max. Sample first before a 15ml.",
+      "ace_note": "Clean primary sunshine — mixes oranges and greens with transparent manners. Honey keeps it juicy on the palette.\n\nPY151 mid primary: often a hair different from cool Hansa PY3 (MG107 tube) — many charts treat Azo as the \"middle sun\" for clean oranges and greens. Transparent, staining — permanent sunshine; lift carefully. Honey slip and rewet. Catalog code 018 (not 108) — numbering isn't sequential next to Hansa 107 / Indian 109.\n\nDual advice: mid primary seat with Pure Yellow / Isoindoline / Chrome Hues. Vs Hansa tube: cool lemon vs mid azo — you can own both; travel tin usually wants one cool + one mid max. Sample first before a 15ml.",
       "mix_star": true,
       "best_for": "Clean greens and oranges, florals, and bright mid-yellow passages.",
       "ace_history": "Benzimidazolone azo yellows (PY151) are modern transparent primaries for glazing stacks that stay clean. Honey-bound M. Graham is the juicy chapter.",
@@ -6555,7 +6555,7 @@
       "toxicity": "low",
       "series": "B",
       "notes": "Pinax Extra. Iron oxide transparent yellow / Оксид железа прозрачный желтый · PY42 · series B · ★★★★ · transparent · marked G (granulating). Studio photo Jul 21 2026.",
-      "ace_note": "Honey-gold earth yellow that granulates — transparent ochre energy without the mud.\n\nPlay lab (granulation): PY42 iron yellow on cold-press can sediment into land light — fields, underpainting sun, greens that look like hills not neon. Tilt a juicy wash; don't over-stir. Cousin to earth-family ochres/Transparent Ochre: if those already own \"sensible sunlight,\" this is brand manners + grit, not a new planet.\n\nMixes: with blue → soft land greens; with rose → dusty skin/plaster. ◈ mixer energy without cadmium weight.\n\nDual advice: check earth half-pans/pans before promoting two ochre-yellows. One transparent iron-yellow/ochre seat for land. Vs Urban Yellow: earth mineral vs contemporary specialty gold.",
+      "ace_note": "Honey-gold earth yellow that granulates — transparent ochre energy without the mud.\n\nPlay lab (granulation): PY42 iron yellow on cold-press can sediment into land light — fields, underpainting sun, greens that look like hills not neon. Tilt a juicy wash; don't over-stir. Cousin to earth-family ochres/Transparent Ochre: if those already own \"sensible sunlight,\" this is brand manners + grit, not a new planet.\n\nMixes: with blue → soft land greens; with rose → dusty skin/plaster. ◈ mixer energy with clean transparent manners.\n\nDual advice: check earth half-pans/pans before promoting two ochre-yellows. One transparent iron-yellow/ochre seat for land. Vs Urban Yellow: earth mineral vs contemporary specialty gold.",
       "mix_star": true,
       "best_for": "Warm glazes, golden hour, earthy greens, and textured yellows.",
       "ace_history": "Iron yellow (PY42) continues ochre's ancient job — muted sunlight, underpainting, honest land greens. Pinax Extra marks the G for granulating; the dirt is modern synthetic iron oxide remembering caves.",
@@ -6992,10 +6992,10 @@
       "toxicity": "low",
       "mix_star": true,
       "notes": "Horadam full pan 14 359 Saturn Red (Saturnrot) PO64. Batch 260808 photo.",
-      "ace_note": "Warm modern orange-red — high chroma accent without cadmium drama.\n\nPO64 sits between traffic orange and brick red — poster-bright accent for design, fruit, warning light, fashion. Staining punch; not a quiet earth. Name \"Saturn\" is planetary marketing for industrial chroma in a Horadam full pan.\n\nDual advice: accent seat — not your only red, not your burnt sienna. Vs pyrrole/scarlet reds (red family later): different chemistry, similar \"loud warm\" job — one tyrant accent per tin. Vs Quin Burnt Orange: Saturn is more opaque-chroma orange-red; quin is glaze roast.",
+      "ace_note": "Warm modern orange-red — high chroma accent — clean modern punch.\n\nPO64 sits between traffic orange and brick red — poster-bright accent for design, fruit, warning light, fashion. Staining punch; not a quiet earth. Name \"Saturn\" is planetary marketing for industrial chroma in a Horadam full pan.\n\nDual advice: accent seat — not your only red, not your burnt sienna. Vs pyrrole/scarlet reds (red family later): different chemistry, similar \"loud warm\" job — one tyrant accent per tin. Vs Quin Burnt Orange: Saturn is more opaque-chroma orange-red; quin is glaze roast.",
       "best_for": "Warm accents, modern reds, and bold florals.",
-      "ace_history": "Late-century organic orange-reds brought high chroma into the tin without cadmium's opacity politics. Saturnrot is Horadam's named cut of that industrial sunshine.",
-      "temp_role": "Warm high-chroma orange-red · Modern organic (PO64) · accent without cadmium"
+      "ace_history": "Late-century organic orange-reds brought high chroma into the tin.'s opacity politics. Saturnrot is Horadam's named cut of that industrial sunshine.",
+      "temp_role": "Warm high-chroma orange-red · Modern organic (PO64) · accent."
     },
     {
       "id": "sch-hp-351-ruby-red",
