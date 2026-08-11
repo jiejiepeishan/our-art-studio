@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-11-dedupe-mix-from-ace-notes",
+  "updated": "2026-08-11-purple-2ml-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein)",
   "color_count": 252,
   "colors": [
@@ -1661,14 +1661,14 @@
       "hex": "#4A3A6B",
       "family": "purple",
       "format": "2ml sample",
-      "ace_note": "Galaxy purple — granulating sediment, constellation freckles.",
+      "ace_note": "Galaxy purple — granulating sediment, constellation freckles.\n\nPlay lab (granulation): Sample twin of Galaxy Violet tube — PV16 + black star-dust. Tube + 2ml = one color.\n\nDual advice: one Galaxy/Starry violet seat. Don't double-fill.",
       "brand_traits": [
         "professional",
         "horadam"
       ],
       "mix_star": false,
       "best_for": "Galaxy washes, constellation textures, and granulating night-sky accents.",
-      "ace_history": "Manganese violet (PV16) is a mineral purple with body and often gentle granulation — quieter than quin fireworks, useful for shadows and florals. Horadam milling aims for creamy rewet and control.",
+      "ace_history": "Horadam Galaxy/Starry sedimentary line — manganese violet plus carbon for constellation freckles. Sample = low-risk cosmos.",
       "mix_tips": [
         {
           "with": [
@@ -1687,7 +1687,7 @@
       ],
       "toxicity": "medium",
       "toxicity_habit": "Manganese pigment — wash hands well after painting.",
-      "temp_role": "Cool violet-blue · Manganese / mineral violet · granulating"
+      "temp_role": "Cool starry violet · Manganese + black · sample twin of Galaxy Violet"
     },
     {
       "transparency": 2,
@@ -1888,10 +1888,10 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Cool violet rose — purple when red feels too warm.",
-      "ace_history": "Rose violet (PV19) bridges red and purple on the quinacridone tree — a cool floral hue that botanical painters adopted once madder violet proved unreliable.",
+      "ace_note": "Cool violet rose — purple when red feels too warm.\n\nStraight PV19 bridge between rose and violet — cool floral when red is too warm. Same primary seat as Lilac / Quin Violet / Sennelier Red Violet / pink roses. Sample for DS manners.\n\nDual advice: one PV19. Vs Wisteria (also PV19): Rose Violet often deeper/stainier; Wisteria softer pale lilac.",
+      "ace_history": "Rose violet on the quin tree — cool floral after madder violets proved unreliable. Modern lightfast bridge hue.",
       "toxicity": "low",
-      "temp_role": "Cool rose · Cool quinacridone rose / violet-red · staining"
+      "temp_role": "Cool violet-rose · PV19 bridge · floral purple when red is too warm"
     },
     {
       "transparency": 1,
@@ -1915,12 +1915,12 @@
         "2ml-sample",
         "granulating"
       ],
-      "ace_note": "Blue settles, rose floats — dimensional purple that paints its own shadows. The wet-on-wet drama queen of the violet corner.",
-      "ace_history": "A modern convenience blend: ultramarine's mineral granulation meeting quinacridone rose's stain — built for skies and florals that refuse flat purple.",
+      "ace_note": "Blue settles, rose floats — dimensional purple that paints its own shadows. The wet-on-wet drama queen of the violet corner.\n\nPlay lab (granulation): Two-layer party in one scoop — PB29 flocks down, PV19 stains/floats up. Drop on wet cold-press; don't stir the divorce. Skies and florals that refuse flat purple.\n\nDual advice: effect / dimensional purple — not a second primary. Vs pure PV19 or pure ultramarine: this is the convenience marriage. One drama well with Moonglow max.",
+      "ace_history": "Modern convenience: ultramarine mineral grit meeting quin rose stain — built for skies and florals that refuse flat purple. Series 1 Extra Fine; name corrected to Rose of Ultramarine (not \"Ultramarine Rose\" folklore).",
       "toxicity": "low",
       "mix_star": true,
       "best_for": "Granulating purples, florals, atmospheric skies, and wet-on-wet separation effects.",
-      "temp_role": "Cool rose · Warm granulating sky/mixing blue · ◈ mixer · granulating · staining · transparent"
+      "temp_role": "Cool dimensional purple · Ultramarine + quin rose · wet-on-wet drama · ◈"
     },
     {
       "transparency": 2,
@@ -2208,10 +2208,10 @@
         "2ml-sample",
         "primatek"
       ],
-      "ace_note": "PrimaTek hematite violet — moody granulating purple-gray drama.",
+      "ace_note": "PrimaTek hematite violet — moody granulating purple-gray drama.\n\nPlay lab (granulation): PBk11 iron black + PV19 — purple-grey sediment, iron-rich shadows. Thick vs dilute for drama control; leave grit alone. Not Hematite Genuine grey (different card); this is violet-leaning iron drama.\n\nDual advice: mineral shadow seat — vs plain Hematite grey and vs clean PV19. Specialty; one iron-violet. Staining + grit = plan lights.",
       "mix_star": false,
       "best_for": "Moody granulating violets, geological texture, and dramatic shadow accents.",
-      "ace_history": "Hematite is iron oxide — Daniel Smith's PrimaTek line grinds real mineral pigments for granulation patterns no synthetic can fake. DS often leans into granulation and drama on wet paper.",
+      "ace_history": "Hematite iron oxide + quin for PrimaTek-style drama DS loves on wet paper — mineral patterns synthetics can't fully fake.",
       "mix_tips": [
         {
           "with": [
@@ -2229,7 +2229,7 @@
         }
       ],
       "toxicity": "low",
-      "temp_role": "Cool rose · Violet for shadow and florals · granulating · staining"
+      "temp_role": "Cool moody purple-grey · Iron black + quin · mineral shadow drama"
     },
     {
       "transparency": 2,
@@ -2279,10 +2279,10 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Regal staining purple — wears a crown in florals.",
-      "ace_history": "Royal purple (PV23) echoes Tyrian dye mythology — synthetic dioxazine gives staining, regal violets that ancient Phoenician traders would have sold their sandals for.",
+      "ace_note": "Regal staining purple — wears a crown in florals.\n\nPV23 dioxazine-family regal violet — staining, high chroma, crown in florals and deep shadows. Electric vs mineral grit; can dominate mixes (dose like phthalo). Different from Tyrian's PV37/PR202 blend and from PV19 manners.\n\nDual advice: one dioxazine/royal deep violet. Powerful; not a beginner's only purple. Vs Tyrian: different codes, similar \"royal deep\" ambition — swatch, keep one.",
+      "ace_history": "Royal purple (PV23) echoes Tyrian myth with synthetic dioxazine punch — staining violets Phoenician traders would have sold sandals for, without the snails.",
       "toxicity": "low",
-      "temp_role": "Cool violet-blue · Violet for shadow and florals · staining"
+      "temp_role": "Cool regal violet · Dioxazine (PV23) · staining floral crown"
     },
     {
       "transparency": 2,
@@ -3740,10 +3740,10 @@
         "honey-based",
         "2ml-sample"
       ],
-      "ace_note": "Warm-leaning blue with old-soul granulation — skies, cloth, and neutrals when it meets a warm earth.",
-      "ace_history": "Ultramarine (PB29) was the precious lapis blue of churches before 1828 synthesis — still the granulating, warm-leaning blue of skies and classical mixes. Honey binder gives a distinctive slip and rewet.",
+      "ace_note": "Warm-leaning blue with old-soul granulation — skies, cloth, and neutrals when it meets a warm earth.\n\nRe-read the drift: this sample is honey ultramarine violet (PV15/PB29 neighborhood), not plain ultramarine blue. Dusk and moody florals; compare to Ultramarine Violet Deep 15ml and Schmincke pan. Sample first; promote if freckles win.\n\nDual advice: one PV15 mineral violet faucet (sample / deep tube / pan). Honey manners contest with Horadam cream.",
+      "ace_history": "Ultramarine violet mineral family with honey slip — sample-box courtship before series 3 marriage. Lapis-blue relative tuned purple.",
       "toxicity": "low",
-      "temp_role": "Warm blue · Warm granulating sky/mixing blue"
+      "temp_role": "Cool mineral violet · Ultramarine violet sample · honey try-on"
     },
     {
       "transparency": 1,
@@ -6434,11 +6434,11 @@
       "staining": false,
       "toxicity": "low",
       "notes": "DANIEL SMITH Extra Fine 284600231 Wisteria. Series 2. Quinacridone Violet PV19. Transparent, non-staining, non-granulating. Delicate red-leaning lavender; similar hue to Ultramarine Red with different handling. Studio 2ml sample Jul 2026.",
-      "ace_note": "Soft red-leaning lilac — florals, spring haze, and gentle cools without mineral grit.",
+      "ace_note": "Soft red-leaning lilac — florals, spring haze, and gentle cools without mineral grit.\n\nHigh-key PV19 — delicate red-leaning lavender, transparent, non-staining, non-granulating. Spring wisteria clusters and soft cools; different handling from Ultramarine Red cousins. Gentle vs Royal Purple's crown.\n\nDual advice: pale PV19 seat — one soft lilac (Wisteria or milky Lavender mixes). Not for deep wine shadows (use Red Violet / Tyrian / Perylene).",
       "mix_star": true,
       "best_for": "Florals, wisteria-and-lilac passages, soft shadows, and clean cool pinks.",
-      "ace_history": "Quinacridone rose/violet (PV19) is a 20th-century transparent star — cool primary red for florals, glazes, and purples that stay clean.",
-      "temp_role": "Cool rose · Cool quinacridone rose / violet-red · ◈ mixer · transparent"
+      "ace_history": "Quinacridone PV19 milled delicate — series 2 Extra Fine for spring florals without grit theater.",
+      "temp_role": "Cool soft lilac · PV19 high-key · spring haze / gentle florals · ◈"
     },
     {
       "id": "ds-232-lavender",
@@ -6463,11 +6463,11 @@
       "staining": false,
       "toxicity": "low",
       "notes": "DANIEL SMITH Extra Fine 284600232 Lavender. Series 2. PW6 + PV15 + PB29. Semi-transparent, low staining, granulating, lifts easily. Periwinkle / faded-denim lavender-blue. Studio 2ml sample Jul 2026.",
-      "ace_note": "Periwinkle denim mood — white + ultramarine violet + ultramarine blue separating gently wet-on-wet. Florals and quiet jeans-blue skies.",
+      "ace_note": "Periwinkle denim mood — white + ultramarine violet + ultramarine blue separating gently wet-on-wet. Florals and quiet jeans-blue skies.\n\nPlay lab (granulation): Same convenience family as Holbein Lavender tube — milky periwinkle with gentle mineral split. Low staining, lifts; good for florals and denim cools. Sample try-on before another 5ml.\n\nDual advice: one lavender/periwinkle seat (DS sample or Holbein tube). Not a night violet primary.",
       "mix_star": true,
       "best_for": "Florals, denim-soft shadows, atmospheric cools, and Burnt Sienna greys.",
-      "ace_history": "Titanium white (PW6) is the modern opaque light — strong coverage for gouache-like passages; watercolor purists use it sparingly for body color. DS often leans into granulation and drama on wet paper.",
-      "temp_role": "Warm blue · Titanium white / opaque light · ◈ mixer · granulating"
+      "ace_history": "DS Extra Fine convenience pastel: titanium white + ultramarine violet + blue — denim and spring haze chemistry, series 2.",
+      "temp_role": "Cool soft lavender · White + UV + ultramarine · periwinkle denim · ◈"
     },
     {
       "id": "pinax-pv19-quinacridone-rose",
