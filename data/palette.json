@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-11-purple-pan-handwritten",
+  "updated": "2026-08-11-purple-tube-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein)",
   "color_count": 252,
   "colors": [
@@ -126,10 +126,10 @@
       "format": "tube",
       "size": "5ml",
       "family": "purple",
-      "ace_note": "The drama queen. Three pigments having a party on wet paper — violet, blue-green halos, granulation everywhere. Skies, snow shadows, anything that needs magic hour.",
+      "ace_note": "The drama queen. Three pigments having a party on wet paper — violet, blue-green halos, granulation everywhere. Skies, snow shadows, anything that needs magic hour.\n\nPlay lab (granulation): Don't fight the party — wet paper, drop, walk away. Anthraquinoid red + ultramarine + viridian separate into violet cores and blue-green halos. With burnt sienna → warm-violet storm (verified); with WN ultramarine → cooler galaxies (verified); with Undersea Green → kelpy twilight (verified). Over-stir = muddy divorce. Not a primary; a weather spell.\n\nDual advice: one Moonglow-class effect well. Don't also need Purple Mist + Sunset Mist + Moonglow unless you only paint magic hour. Never use as \"my only purple.\"",
       "mix_star": true,
       "best_for": "Night skies, snow shadows, magical granulating washes, and moody backgrounds where one pigment does the choreography.",
-      "ace_history": "Moonglow is a modern Daniel Smith hero — a deliberate three-pigment dance (anthraquinoid red, ultramarine, viridian) built for granulation on the paper, not for copying a single historic tube.",
+      "ace_history": "Modern DS hero — deliberate three-pigment dance for granulation on the paper, not a single historic tube. Named for the hour, engineered for cold-press.",
       "mix_tips": [
         {
           "with": [
@@ -154,7 +154,7 @@
         }
       ],
       "toxicity": "low",
-      "temp_role": "Warm blue · Violet for shadow and florals · ◈ mixer · granulating · transparent"
+      "temp_role": "Cool multi-pigment violet · Moonglow party · magic-hour sky / snow shadow · ◈"
     },
     {
       "brand_traits": [
@@ -3801,10 +3801,10 @@
         "professional",
         "sennelier"
       ],
-      "ace_note": "Velvet violet-red — florals and wine shadows with Parisian flair.",
-      "ace_history": "Quinacridone rose/violet (PV19) is a 20th-century transparent star — cool primary red for florals, glazes, and purples that stay clean.",
+      "ace_note": "Velvet violet-red — florals and wine shadows with Parisian flair.\n\nPV19 again — honey French manners, velvet wine-red violet for florals and shadows. Same cool-quin seat as Lilac / Quin Violet / pink roses; Sennelier flair and 10ml volume. Not PR122 brilliant; not PV55 electric.\n\nDual advice: one PV19 across brands. Honey if you love bloom; keep one well.",
+      "ace_history": "Quinacridone PV19 with l'Aquarelle honey — Parisian floral primary. Serie 3; modern molecule, old-city romance.",
       "toxicity": "low",
-      "temp_role": "Cool rose · Cool quinacridone rose / violet-red"
+      "temp_role": "Cool-warm red-violet · PV19 honey · florals / wine shadows"
     },
     {
       "transparency": 2,
@@ -4357,11 +4357,11 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Deep Sea Violet — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
-      "ace_history": "Manganese violet (PV16) is a mineral purple with body and often gentle granulation — quieter than quin fireworks, useful for shadows and florals. Horadam milling aims for creamy rewet and control.",
+      "ace_note": "Schmincke Deep Sea Violet — granulating trench purple. Check 5ml tube vs any 2ml sample twin in your set.\n\nPlay lab (granulation): Deep Sea line — PV16 + PB29 for abyssal violet sediment. Layer with Deep Sea Blue/Indigo; coast night water. Tilt; don't scrub the trench flat.\n\nDual advice: marine mineral seat with Galaxy Violet and Ultramarine Violet. One Deep Sea violet faucet (tube + sample = one color).",
+      "ace_history": "Manganese violet + ultramarine for Horadam submarine fantasy — quieter than quin fireworks, built for depth demos.",
       "toxicity": "medium",
       "toxicity_habit": "Manganese pigment — wash hands well after painting.",
-      "temp_role": "Warm blue · Manganese / mineral violet · granulating"
+      "temp_role": "Cool deep marine violet · Manganese + ultramarine · Deep Sea trench purple"
     },
     {
       "transparency": 2,
@@ -5656,10 +5656,10 @@
       "size": "5ml",
       "family": "purple",
       "notes": "violet galaxie. Color-check Jul 8 2026 — tube 2 photo.",
-      "ace_note": "Galaxy violet granulation — nebula purples with sediment stars.",
-      "ace_history": "Manganese violet (PV16) is a mineral purple with body and often gentle granulation — quieter than quin fireworks, useful for shadows and florals. Horadam milling aims for creamy rewet and control.",
+      "ace_note": "Galaxy violet granulation — nebula purples with sediment stars.\n\nPlay lab (granulation): PV16 + PBk6 — darker, chroma-killing cousin of mineral purple (same black whisper as RS Mineral Purple / Galaxy Rose logic). Nebula pours, night florals; respect the black in clean skin or lemon mixes.\n\nDual advice: effect/mineral dark with Deep Sea Violet — Deep Sea is marine blue-violet; Galaxy is blacker cosmic. One specialty dark violet.",
+      "ace_history": "Violet galaxie — manganese violet plus carbon for sedimentary cosmos. Marketing optional; codes required.",
       "toxicity_habit": "Manganese pigment — wash hands well after painting.",
-      "temp_role": "Cool violet-blue · Manganese / mineral violet · granulating"
+      "temp_role": "Cool nebula violet · Manganese + black · granulating star-dust purple"
     },
     {
       "brand_traits": [
@@ -6090,10 +6090,10 @@
       "staining": false,
       "toxicity": "low",
       "notes": "Ultramarine violet deep (PV15). LF I, transparent, granulating. Series 3. Deeper than Ultramarine Violet 193. Tube photo Jul 10 2026.",
-      "ace_note": "Night-sky violet with mineral freckles — deeper than plain ultramarine violet. Perfect for dusk shadows and moody florals that granulate.",
+      "ace_note": "Night-sky violet with mineral freckles — deeper than plain ultramarine violet. Perfect for dusk shadows and moody florals that granulate.\n\nPlay lab (granulation): Honey + PV15 freckles — deeper than half-pan/pan Ultramarine Violet cuts. Dusk shadows, mineral florals; gradient with Ultramarine Pink (card tip energy). Shared grit with ultramarine blue washes.\n\nDual advice: mineral violet seat with Schmincke Ultramarine Violet pan and Deep Sea Violet — one deep PV15. Honey volume for big washes; half-pan for travel.",
       "mix_star": true,
       "best_for": "Deep floral shadows, granulating night skies, and cool darks without black.",
-      "ace_history": "Ultramarine violet (PV15) is a sulfur-complex silicate in the ultramarine family — a granulating violet that watercolorists use when flat organic purples feel too plastic.",
+      "ace_history": "Ultramarine violet (PV15) — sulfur-complex silicate in the ultramarine family; granulating when flat organics feel plastic. Series 3 deep cut; honey rewet.",
       "mix_tips": [
         {
           "with": [
@@ -6110,7 +6110,7 @@
           "verified": false
         }
       ],
-      "temp_role": "Warm blue · Warm granulating sky/mixing blue · ◈ mixer · granulating · transparent"
+      "temp_role": "Cool deep mineral violet · PV15 deep · honey dusk / moody florals · ◈"
     },
     {
       "id": "sen-807-phthalo-green-deep",
@@ -6320,11 +6320,11 @@
       "staining": true,
       "toxicity": "low",
       "notes": "W&N Professional Tyrian Purple (PV37/PR202). Intense deep purple, red-blue undertone. Permanence often rated B. Added Jul 2026 from home kit card.",
-      "ace_note": "Royal, botanical purple — deep red-violet for florals and dusk without mixing a muddy pile. Stains with purpose.",
+      "ace_note": "Royal, botanical purple — deep red-violet for florals and dusk without mixing a muddy pile. Stains with purpose.\n\nPV37/PR202 modern homage to legendary murex dye — deep red-violet, royal botanical, staining with purpose. Permanence often only \"good/B\" on charts — gorgeous for work, check if heirs need lightfast A. Not a mixed muddy pile when you dose right.\n\nDual advice: specialist deep purple — vs Perylene (glaze shadow) and PV19 (cleaner cool). One royal deep. Don't buy for the snail story alone; buy for the swatch.",
       "mix_star": true,
       "best_for": "Botanical purples, deep florals, and rich cool shadows.",
-      "ace_history": "Named for the legendary murex dye of antiquity — modern Tyrian Purple is a synthetic homage for painters who want that historic depth without the snails.",
-      "temp_role": "Cool purple / magenta · Violet for shadow and florals · ◈ mixer · staining · transparent"
+      "ace_history": "Named for antiquity's murex purple — modern synthetic homage without the snails. W&N Professional; historic depth, contemporary codes.",
+      "temp_role": "Cool deep royal purple · Modern \"Tyrian\" blend · botanical dusk · ◈ · staining"
     },
     {
       "id": "sch-fp-486-cobalt-blue-hue",
@@ -6666,9 +6666,10 @@
       "toxicity": "low",
       "mix_star": true,
       "notes": "DANIEL SMITH Extra Fine PrimaTek 284610203 Amethyst Genuine 5ml. Studio batch 260808 photo.",
-      "ace_note": "Rich purple that granulates like crushed gem — almost black in mass tone, soft lilac in wash. Primatek sparkle if the light hits right.",
+      "ace_note": "Rich purple that granulates like crushed gem — almost black in mass tone, soft lilac in wash. Primatek sparkle if the light hits right.\n\nPlay lab (granulation): Rock, not quin — heavy particles settle, lighter float. Thick = almost black jewel; dilute = soft lilac veil. Sparkle in raking light. Patience; scrubbing kills the gem story.\n\nDual advice: PrimaTek specialty — not PV19 primary. Keep for gem/mineral demos; don't replace Ultramarine Violet or Quin Lilac. Series cost = treat like saffron.",
       "best_for": "Gemstone purples, granulating shadows, and night florals.",
-      "ace_history": "Amethyst has been ground for ornament and pigment since antiquity. DS PrimaTek returns the stone to the pan — heavier particles settle, lighter ones float."
+      "ace_history": "Amethyst ground since antiquity for ornament; DS PrimaTek returns the stone to the pan. Heavier settle, lighter float — geology as watercolor.",
+      "temp_role": "Cool gem violet · PrimaTek amethyst · near-black mass / soft lilac wash"
     },
     {
       "id": "ds-142-cascade-green",
@@ -7353,9 +7354,10 @@
       "toxicity": "low",
       "mix_star": true,
       "notes": "Holbein Artists' Water Color Lavender 5ml. Studio batch 260808 photo (with W&N tubes). Pigment listing typical for Holbein Lavender (white + ultramarine violet + blue).",
-      "ace_note": "Soft periwinkle convenience — florals and denim cools without mixing three tubes every time.",
+      "ace_note": "Soft periwinkle convenience — florals and denim cools without mixing three tubes every time.\n\nPlay lab (granulation): PW6 milks mineral violet/blue into soft periwinkle with gentle grit — florals, denim, quiet sky cools. Not a staining primary; a pastel convenience. Overuse can chalk; underuse and you'll mix it from three pans anyway (the point of the tube).\n\nDual advice: convenience light-violet seat — one lavender/periwinkle. Vs pure PV15 deep: this is high-key milky; deep is night. One well.",
       "best_for": "Florals, soft cools, and gentle atmospheric notes.",
-      "ace_history": "Holbein (Japan) is known for buttery rewet and clear labeling — Lavender is a modern convenience pastel mineral mix."
+      "ace_history": "Holbein Japanese buttery rewet and clear labeling — modern pastel mineral mix (white + ultramarine violet + blue), not Victorian garden dirt.",
+      "temp_role": "Cool soft lavender · White + mineral violet + blue · convenience periwinkle · ◈"
     }
   ],
   "caveats": [
