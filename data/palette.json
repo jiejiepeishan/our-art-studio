@@ -1,9 +1,9 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-11-purple-2ml-handwritten",
+  "updated": "2026-08-11-red-hp-b1-no-cadmium",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein)",
-  "color_count": 252,
+  "color_count": 250,
   "colors": [
     {
       "brand_traits": [
@@ -352,32 +352,6 @@
       "temp_role": "Cool lemon · Transparent mixing primary · clean greens with blue"
     },
     {
-      "brand_traits": [
-        "professional",
-        "horadam",
-        "cadmium"
-      ],
-      "transparency": 3,
-      "lightfastness": 1,
-      "granulating": false,
-      "staining": false,
-      "notes": "Kadmiumgelb hell. Semi-opaque cadmium. Color-check Jul 8 2026 — half-pan photo.",
-      "id": "sch-hp-cadmium-yellow-light",
-      "brand": "Schmincke",
-      "name_en": "Cadmium Yellow Light",
-      "name_zh": "浅镉黄",
-      "code": "226",
-      "pigment": "PY35",
-      "hex": "#F5D547",
-      "format": "half-pan",
-      "family": "yellow",
-      "ace_note": "Buttery and opaque — covers, pushes, asserts. Mix small amounts into earths for sunlit paths.\n\nCadmium is the heavy sunlight: high chroma, covering, Salon shock in a half-pan. Rescues washed-out fields; muddies delicate glazes if you treat it like Hansa. Mix small into earths for path light; with blue, greens go solid and a bit chalky compared to transparent lemons.\n\nDual advice: one opaque warm yellow max. If Pure/Golden already mix clean light, Cad is optional muscle. Toxicity/habit: normal studio respect, not panic — still not a juice box.",
-      "ace_history": "Cadmium yellow (PY35 lineage) from the mid-19th century — Monet-to-Matisse opaque light. Heavy metal legend, buttery handling; watercolorists still argue cover vs transparency religions over it.",
-      "toxicity": "high",
-      "toxicity_habit": "Cadmium pigment — wash hands thoroughly, don't spray without ventilation, and keep tubes away from food prep areas.",
-      "temp_role": "Warm opaque yellow · Cadmium butter · cover & sunlit path"
-    },
-    {
       "id": "sch-211-chromium-yellow-lemon",
       "brand": "Schmincke",
       "brand_traits": [
@@ -452,32 +426,6 @@
       "ace_history": "Chromium / benzimidazolone oranges (PO62) stand in for the old lead-chrome \"chrome orange\" of industrial color — the forbidden bright that posters and sign painters loved. Horadam's \"Hue\" keeps the temperature of that tradition with modern lightfast organics, milled for Schmincke's creamy rewet rather than chalky house-paint drama.",
       "toxicity": "low",
       "temp_role": "Warm orange · Sunset / heat accent · more body than a pure stain"
-    },
-    {
-      "brand_traits": [
-        "professional",
-        "horadam",
-        "cadmium"
-      ],
-      "transparency": 3,
-      "lightfastness": 1,
-      "granulating": false,
-      "staining": false,
-      "notes": "Kadmiumrot hell. Color-check Jul 8 2026 — half-pan photo.",
-      "id": "sch-hp-cadmium-red-light",
-      "brand": "Schmincke",
-      "name_en": "Cadmium Red Light",
-      "name_zh": "浅镉红",
-      "code": "358",
-      "pigment": "PR108",
-      "hex": "#E04E3A",
-      "format": "half-pan",
-      "family": "red",
-      "ace_note": "Classic warm red. Bold florals, ripe fruit, lips on portraits. Opaque enough to correct mistakes.",
-      "ace_history": "Cadmium red (PR108) replaced fugitive vermilion in commercial and fine art — opaque warmth for florals, flesh accents, and corrections. Horadam milling aims for creamy rewet and control.",
-      "toxicity": "high",
-      "toxicity_habit": "Cadmium pigment — wash hands thoroughly, don't spray without ventilation, and keep tubes away from food prep areas.",
-      "temp_role": "Warm red family · Warm opaque cadmium red · more opaque"
     },
     {
       "brand_traits": [
@@ -644,10 +592,10 @@
       "hex": "#A84B3A",
       "format": "half-pan",
       "family": "red",
-      "ace_note": "Earthy PR101 Venetian red — terracotta brick warmth, not vermilion heat. Opaque and color-intense.",
-      "ace_history": "English Venetian red (PR101) is calcined iron oxide — the brick-and-terracotta tone British watercolourists used beside raw sienna on muddy Thames sketches.",
+      "ace_note": "Earthy PR101 Venetian red — terracotta brick warmth, not vermilion heat. Opaque and color-intense.\n\nIron oxide brick: architecture, tile, quiet warm structure. Won't give clean scarlet florals; will give walls and earth that feel solid. Cousin to transparent iron oxides in earth/brown families — here the opaque English/Venetian cut.\n\nDual advice: earth-red seat — not a second pyrrol scarlet. One brick red. Vs Madder Red Dark: earth opaque vs transparent wine-rose.",
+      "ace_history": "English Venetian red (PR101) is calcined iron oxide — brick-and-terracotta tone British watercolourists used beside raw sienna on muddy Thames sketches.",
       "toxicity": "low",
-      "temp_role": "Warm red family · Iron oxide red / Venetian earth red · more opaque"
+      "temp_role": "Warm earth red · Iron oxide (PR101) · terracotta / brick · not vermilion"
     },
     {
       "brand_traits": [
@@ -5317,9 +5265,9 @@
       "format": "half-pan",
       "family": "red",
       "notes": "Krapprot tief. Color-check Jul 8 2026 — half pan.jpg.",
-      "ace_note": "Deep madder rose — wine-stain florals and old-master shadows.",
-      "ace_history": "Quinacridone reds/corals (PR209) are transparent organics built for glow — modern glazing reds that keep florals luminous. Horadam milling aims for creamy rewet and control.",
-      "temp_role": "Warm red family · Warm quinacridone coral-red · staining · transparent"
+      "ace_note": "Deep madder rose — wine-stain florals and old-master shadows.\n\nPR209 transparent quin red-rose — deep wine stain for florals and glaze shadows, not brick cover. \"Madder\" is mood; permanence is modern organic. Bridges toward cool carmine/ruby in batch 2 without being PV19.\n\nDual advice: transparent deep rose-red seat. Vs English Red: glow vs brick. Vs batch 2 Permanent Carmine / Ruby (PV19): different codes — swatch if you only keep one dark rose-red.",
+      "ace_history": "Quinacridone reds (PR209) are transparent organics built for glow — modern glazing reds that keep florals luminous after true madder's fade.",
+      "temp_role": "Cool-warm deep rose-red · Quin (PR209) · wine-stain glaze · transparent"
     },
     {
       "brand_traits": [
@@ -5437,9 +5385,9 @@
       "format": "half-pan",
       "family": "red",
       "notes": "Geranienrot. Color-check Jul 8 2026 — half-pan 4 photo.",
-      "ace_note": "Bright geranium red — garden flowers and bold accents.",
-      "ace_history": "Geranium red (PR253) is a modern pyrrole red — clean floral scarlet for illustrators who want permanent pop. Horadam milling aims for creamy rewet and control.",
-      "temp_role": "Warm red family · Red / warm accent · staining"
+      "ace_note": "Bright geranium red — garden flowers and bold accents.\n\nPR253 pyrrole scarlet aimed at garden florals and illustration pop — permanent clean red with a slight pink lean vs pure fire-engine PR255. Staining; great petals, loud in shadows if overdone.\n\nDual advice: modern warm scarlet seat with PR255 — one high-chroma warm red max in a tiny tin unless you paint only flowers.",
+      "ace_history": "Geranium red (PR253) is modern pyrrole floral scarlet — permanent pop for illustrators. Horadam creamy rewet.",
+      "temp_role": "Warm floral scarlet · Pyrrole geranium (PR253) · garden accent · staining"
     },
     {
       "brand_traits": [
@@ -5781,9 +5729,9 @@
       "format": "half-pan",
       "family": "red",
       "notes": "365 Zinnoberrot / vermilion. Color-check — half-pan 6 tin.",
-      "ace_note": "PR255 vermilion half-pan — bright warm scarlet, distinct from earthy English Venetian red beside it in the travel tin.",
-      "ace_history": "Vermilion (PR255 pyrrole) carries the name of mercury cinnabar into modern lightfast chemistry. Horadam milling aims for creamy rewet and control.",
-      "temp_role": "Warm red family · Red / warm accent · more opaque"
+      "ace_note": "PR255 vermilion half-pan — bright warm scarlet, distinct from earthy English Venetian red beside it in the travel tin.\n\nName says vermilion; chemistry is modern PR255, not cinnabar. Bright warm scarlet that sits next to English Red as heat vs brick — the original note's travel-tin lesson is the whole dual. More body than a pure stain wash.\n\nDual advice: same PR255 seat as Pinax Pyrrol Scarlet. Keep one. English Red is the earth opposite, not a twin.",
+      "ace_history": "Vermilion once meant mercury sulfide; Horadam keeps the name on lightfast pyrrole chemistry. Creamy rewet for pocket tins.",
+      "temp_role": "Warm bright scarlet · PR255 \"vermilion\" · travel-tin heat · more body"
     },
     {
       "transparency": 2,
@@ -6548,11 +6496,11 @@
       "toxicity": "low",
       "series": "B",
       "notes": "Pinax Extra. Pyrrol scarlet / Пиррол красный · PR255 · series B · ★★★ · semi-transparent. Studio photo Jul 21 2026.",
-      "ace_note": "Fire-engine clean scarlet — modern pyrrol punch without muddy undertones.",
+      "ace_note": "Fire-engine clean scarlet — modern pyrrol punch without muddy undertones.\n\nPR255 is late-century organic fire: high chroma, clean warm scarlet, stains with purpose. Florals, warning accents, design punch without earth dirt. Same molecule family as Schmincke Vermilion half-pan — manners contest, one seat.\n\nDual advice: one PR255 scarlet (Pinax or Vermilion). Vs Geranium (PR253): both modern scarlets — swatch, don't stack three fires. Opaque cover reds are a different religion if you keep any.",
       "mix_star": true,
       "best_for": "Bright reds, warm oranges with yellow, and high-chroma accents.",
-      "ace_history": "Pyrrol reds (PR255 family) are late-century organic pigments prized for lightfast fire.",
-      "temp_role": "Warm red-orange · Warm fire red/orange primary · ◈ mixer · staining"
+      "ace_history": "Pyrrol reds (PR255 family) are late-century organics prized for lightfast fire — the modern answer to mercury vermilion romance without the poison.",
+      "temp_role": "Warm clean scarlet · Pyrrol (PR255) · fire-engine primary · staining · ◈"
     },
     {
       "id": "pinax-pb29-ultramarine-blue",
