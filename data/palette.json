@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-11-red-pan+scrub-cadmium-lang+cad-scrub2",
+  "updated": "2026-08-12-red-tube-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein)",
   "color_count": 250,
   "colors": [
@@ -3874,10 +3874,10 @@
         "professional",
         "sennelier"
       ],
-      "ace_note": "猩红漆 — lacquer-bright scarlet, bold and glossy-minded.",
-      "ace_history": "Scarlet lacquer (PR188) chases Chinese lacquerware red — Sennelier's bold warm scarlet for decorative painting and East-meets-West floral work.",
+      "ace_note": "猩红漆 — lacquer-bright scarlet, bold and glossy-minded.\n\nPR188 chases lacquerware heat — decorative scarlet, East-meets-West floral and design energy. Staining; bold. Different code from Hélios and pyrroles.\n\nDual advice: one decorative scarlet max (Lacquer or Hélios or Permanent Red). Travel tin: pick the swatch that screams least muddy with your yellow.",
+      "ace_history": "Scarlet lacquer (PR188) — Chinese lacquerware romance in a honey tube; Laque Écarlate for decorative and floral punch.",
       "toxicity": "low",
-      "temp_role": "Warm red family · Red / warm accent · staining"
+      "temp_role": "Warm lacquer scarlet · PR188 · bold decorative red · staining"
     },
     {
       "transparency": 2,
@@ -3899,10 +3899,10 @@
         "professional",
         "sennelier"
       ],
-      "ace_note": "Rouge Venise — earthy Venetian red, terracotta roofs and warm brick, not vermilion heat.",
-      "ace_history": "Venetian red is calcined iron oxide (PR101) — the brick-and-stucco red Venetian façades are named for, quite different from scarlet lacquer or bright helios red.",
+      "ace_note": "Rouge Venise — earthy Venetian red, terracotta roofs and warm brick, not vermilion heat.\n\nClassic PR101 brick with honey slip — façades, not scarlet florals. Serie 1 workhorse.\n\nDual advice: third Venetian auditioner — one well. Heat vs scarlet is the whole dual (original note).",
+      "ace_history": "Venetian red = calcined iron oxide named for brick façades — different job from scarlet lacquer or Hélios.",
       "toxicity": "low",
-      "temp_role": "Warm red family · Iron oxide red / Venetian earth red"
+      "temp_role": "Warm terracotta · PR101 honey · brick & stucco · not vermilion"
     },
     {
       "transparency": 2,
@@ -3924,10 +3924,10 @@
         "professional",
         "sennelier"
       ],
-      "ace_note": "Rouge Hélios — semi-opaque bright red with honey bloom, punchy florals and accents.",
-      "ace_history": "Rouge Hélios (PR3 toluidine red) is Sennelier's serie 2 bright red — a modern organic scarlet; honey binder keeps washes lively on cold press.",
+      "ace_note": "Rouge Hélios — semi-opaque bright red with honey bloom, punchy florals and accents.\n\nPR3 (toluidine) is a different scarlet lane than pyrrole — often punchy, less \"modern lightfast chart hero,\" still useful for bold florals and accents. Honey bloom. Check lightfastness for heirlooms; joy for weekly work.\n\nDual advice: accent scarlet seat — don't stack with PR254 + PO73 + PR188 as four fires. One loud warm red + one earth is enough for most tins.",
+      "ace_history": "Rouge Hélios (PR3) — Sennelier serie 2 bright red with honey; lively on cold press, French decorative energy.",
       "toxicity": "low",
-      "temp_role": "Warm red family · Red / warm accent · staining"
+      "temp_role": "Warm bright red · Toluidine (PR3) · honey punch · semi-opaque lean"
     },
     {
       "transparency": 2,
@@ -4130,10 +4130,10 @@
         "horadam",
         "cadmium-free"
       ],
-      "ace_note": "Schmincke Permanent Red — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
-      "ace_history": "Pyrrole red (PR254) is a modern lightfast fire-engine red — cleaner mixes than many earth reds, staining enough to commit with intention. Horadam milling aims for creamy rewet and control.",
+      "ace_note": "Schmincke Permanent Red — modern lightfast fire-engine red. Check 5ml tube vs any sample twin in your set.\n\nSame PR254 soul as full-pan Scarlet Red and Rosa Bright Red — tube faucet for bigger washes. Cleaner mixes than earth reds; commit with intention if it stains on your paper.\n\nDual advice: one PR254 across pan/tube/Rosa. Not a second Scarlet Pyrrol unless PO73 vs PR254 swatches fight.",
+      "ace_history": "Pyrrole red (PR254) — modern lightfast fire for florals and design. Horadam tube logistics.",
       "toxicity": "low",
-      "temp_role": "Warm red-orange · Warm modern organic red (pyrrol)"
+      "temp_role": "Warm fire-engine red · Pyrrole PR254 · tube twin of Scarlet Red pan"
     },
     {
       "transparency": 2,
@@ -4950,10 +4950,10 @@
         "professional",
         "premium"
       ],
-      "ace_note": "DS holiday Candy Cane Red — festive 15ml, paint something ridiculous and beautiful.",
-      "ace_history": "Quinacridone rose/violet (PV19) is a 20th-century transparent star — cool primary red for florals, glazes, and purples that stay clean.",
+      "ace_note": "DS holiday Candy Cane Red — festive 15ml, paint something ridiculous and beautiful.\n\nPV19 under candy marketing — cool-leaning quin red for holidays and fun. Same broad cool-red family as Carmine / Quin Red Light / Ruby, but subject/seasonal seat — not a reason to own four PV19 reds.\n\nDual advice: dessert. Keep for festive work; don't fire Permanent Carmine for this. One holiday red.",
+      "ace_history": "Quinacridone PV19 wearing candy-cane clothes — modern lightfast cool red, seasonal DS packaging.",
       "toxicity": "low",
-      "temp_role": "Cool rose · Cool quinacridone rose / violet-red"
+      "temp_role": "Cool-warm holiday red · PV19 festive · subject color · not a serious primary"
     },
     {
       "transparency": 2,
@@ -5022,10 +5022,10 @@
         "professional",
         "winsor-newton"
       ],
-      "ace_note": "W&N Professional Quinacridone Red — classic British workhorse in 5ml.",
+      "ace_note": "W&N Professional Quinacridone Red — classic British workhorse in 5ml.\n\nPR209 transparent glow — florals, coral-leaning clean red, lightfast glazing. Same molecule family as half-pan Madder Red Dark — tube vs pan manners. Clean with blue toward violet; softens toward portrait rose without losing lightfastness.\n\nDual advice: one PR209 seat (W&N tube or Madder Red Dark half-pan). Vs PV19 cool reds: PR209 often warmer/coral; PV19 cooler carmine.",
       "mix_star": true,
       "best_for": "Florals, bold reds, mixing bright violets and oranges — a staining primary red.",
-      "ace_history": "Quinacridone reds/corals (PR209) are transparent organics built for glow — modern glazing reds that keep florals luminous.",
+      "ace_history": "Quinacridone reds (PR209) — transparent organics for luminous florals after fugitive madder. W&N Professional series 3 workhorse.",
       "mix_tips": [
         {
           "with": [
@@ -5050,7 +5050,7 @@
         }
       ],
       "toxicity": "low",
-      "temp_role": "Warm red family · Warm quinacridone coral-red · ◈ mixer · transparent"
+      "temp_role": "Warm-cool transparent red · Quin PR209 · British floral glaze · ◈"
     },
     {
       "transparency": 1,
@@ -5754,10 +5754,10 @@
         "horadam",
         "cadmium-free"
       ],
-      "ace_note": "Dunkelrot in the tube — deep transparent wine-red for glazing shadows.",
-      "ace_history": "Perylene maroon (PR179) is a modern glazing red-brown — botanical shadows and deep florals where old madder would fade. Horadam milling aims for creamy rewet and control.",
+      "ace_note": "Dunkelrot in the tube — deep transparent wine-red for glazing shadows.\n\nTube twin of half-pan Perylene Maroon / Dark Red — one PR179 seat, bigger faucet. Botanical shadows richer than black; staining commit.\n\nDual advice: one perylene maroon across half-pans + Sch tube + W&N tube. Swatch brand manners; keep one well.",
+      "ace_history": "Perylene maroon (PR179) — modern glazing wine for botanicals. Horadam Dunkelrot tube.",
       "toxicity": "low",
-      "temp_role": "Warm red family · Deep transparent wine red"
+      "temp_role": "Deep wine glaze · PR179 tube twin · botanical shadows"
     },
     {
       "id": "mg-107-hansa-yellow",
@@ -5952,10 +5952,10 @@
       "staining": true,
       "toxicity": "low",
       "notes": "Pyrrole orange/scarlet (PO73). LF I, transparent, staining. Series 3. Warm scarlet. Tube photo Jul 10 2026.",
-      "ace_note": "Fire-engine warmth — clean modern punch. — clean oranges with yellow, bold florals, and accents that refuse to go muddy.",
+      "ace_note": "Fire-engine warmth — clean modern punch. Clean oranges with yellow, bold florals, and accents that refuse to go muddy.\n\nPO73 sits on the scarlet–orange border: warmer/oranger than pure PR254 fire-engine, still high chroma and staining. Honey open time. Bold florals and late sun; tiny amounts with cool blue for near-neutrals (easy to dull — dose).\n\nDual advice: one warm pyrrole scarlet seat with Permanent Red (PR254) and half-pan PR255s — manners and temperature contest, not three wells. Honey if you love bloom.",
       "mix_star": true,
       "best_for": "Poppies, warm sunsets, fruit, and high-chroma accents in urban sketches.",
-      "ace_history": "Pyrrole pigments (including PO73) are late-20th-century organics prized for lightfastness and chroma — modern scarlets that finally outlasted fugitive historical reds.",
+      "ace_history": "Pyrrole organics (PO73) — late-20th-century lightfast chroma that outlasted fugitive historical reds. Series 3 honey fire.",
       "mix_tips": [
         {
           "with": [
@@ -5972,7 +5972,7 @@
           "verified": false
         }
       ],
-      "temp_role": "Warm red-orange · Warm fire red/orange primary · ◈ mixer · staining · transparent"
+      "temp_role": "Warm scarlet-orange · Pyrrole (PO73) · honey fire · staining · ◈"
     },
     {
       "id": "mg-140-phthalo-blue",
@@ -6836,9 +6836,10 @@
       "toxicity": "low",
       "mix_star": false,
       "notes": "QoR (Golden Artist Colors) Artist Watercolor 700465-3 Venetian Red 5ml. Earth Colors set family. Studio batch 260808 photo.",
-      "ace_note": "Opaque iron-red earth for roofs, clay, and warm accents.",
+      "ace_note": "Opaque iron-red earth for roofs, clay, and warm accents.\n\nPR101 Venetian/Mars brick — Earth set workhorse, Aquazol snap. Same seat as half-pan/full-pan English Venetian and other brand Venetians.\n\nDual advice: one Venetian/PR101 brick across QoR / Sennelier / W&N / Schmincke pans. Aquazol if you live in QoR Earth set.",
       "best_for": "Studio earth kit work and clean modern mixes.",
-      "ace_history": "QoR is Golden's watercolor line — Aquazol binder, high chroma, modern handling. Earth set colors are the quiet workhorses of the range."
+      "ace_history": "QoR (Golden) Aquazol Venetian red — modern handling, ancient brick job.",
+      "temp_role": "Warm iron brick · PR101 Aquazol · roofs, clay, warm accents"
     },
     {
       "id": "qor-transparent-brown-oxide",
@@ -7201,9 +7202,10 @@
       "toxicity": "low",
       "mix_star": true,
       "notes": "W&N Professional Water Colour 5ml Venetian Red (series ~1). Studio batch 260808 photo. Code from W&N catalog.",
-      "ace_note": "Classic iron red — roofs, clay, permanence AA energy.",
+      "ace_note": "Classic iron red — roofs, clay, permanence AA energy.\n\nSame PR101 brick seat — British Professional permanence culture. Roofs and clay, not poppy scarlet.\n\nDual advice: one Venetian. W&N if you already live in Professional earths.",
       "best_for": "Professional tube work and classic British palette accents.",
-      "ace_history": "Winsor & Newton Professional Venetian Red — studio staple chemistry refined across generations of British watercolor."
+      "ace_history": "W&N Professional Venetian Red — iron oxide staple across generations of British watercolour.",
+      "temp_role": "Warm iron red · PR101 British · roofs, clay, permanence workhorse · ◈"
     },
     {
       "id": "wn-tube-quinacridone-gold",
@@ -7252,9 +7254,10 @@
       "toxicity": "low",
       "mix_star": true,
       "notes": "W&N Professional Water Colour 5ml Perylene Maroon (series ~3). Studio batch 260808 photo. Code from W&N catalog.",
-      "ace_note": "Deep cool maroon for wine shadows and dark florals.",
+      "ace_note": "Deep cool maroon for wine shadows and dark florals.\n\nSame PR179 job as Schmincke perylenes — British Professional manners, cool wine depth. Staining glaze; rich not dead.\n\nDual advice: Sch vs W&N perylene = manners contest. One PR179. Vs Claret blend: pure perylene is cleaner modern glaze; Claret is romantic mix.",
       "best_for": "Professional tube work and classic British palette accents.",
-      "ace_history": "Winsor & Newton Professional Perylene Maroon — studio staple chemistry refined across generations of British watercolor."
+      "ace_history": "W&N Professional Perylene Maroon — studio staple refined across British watercolour generations.",
+      "temp_role": "Deep cool maroon · PR179 British · wine shadows · ◈ · staining"
     },
     {
       "id": "wn-tube-terre-verte",
