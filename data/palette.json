@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-12-red-tube-handwritten",
+  "updated": "2026-08-13-red-2ml-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein)",
   "color_count": 250,
   "colors": [
@@ -1810,10 +1810,10 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Staining rose-red — bold florals, one brushload goes far.",
-      "ace_history": "Quinacridone reds/corals (PR209) are transparent organics built for glow — modern glazing reds that keep florals luminous.",
+      "ace_note": "Staining rose-red — bold florals, one brushload goes far.\n\nStudio label 玫瑰红 / Rose Red; DS SKU 091 is Quinacridone Red — same PR209 as W&N Quinacridone Red tube and Schmincke Madder Red Dark half-pan. Transparent modern glow, staining enough to commit: florals, coral-leaning clean red, glazing that stays luminous. Cooler than fire-engine pyrroles; warmer/coral than the PV19 carmine/ruby corner. One brushload does go far — dose it.\n\nDual advice: one PR209 seat. This 2ml is DS manners try-on next to the British tube and the Horadam \"madder\" pan — not a fourth quin red. Vs Rose Madder Permanent (PR209+PV19, pink family): that one is madder-mood blend; this is the single-pigment workhorse. Vs Candy Cane (PV19 dessert): different molecule, don't fire a primary for a holiday.",
+      "ace_history": "Quinacridone reds (PR209) are the late-century answer to fugitive rose madders: transparent, lightfast, built for glow. Chinese sample cards often say 玫瑰红; the factory name is Quinacridone Red. Trust the code.",
       "toxicity": "low",
-      "temp_role": "Cool rose / pink · Warm quinacridone coral-red · staining"
+      "temp_role": "Warm-cool transparent quin red · PR209 · DS sample twin of Quin Red / Madder Red Dark · staining"
     },
     {
       "transparency": 2,
@@ -2338,7 +2338,7 @@
     {
       "transparency": 2,
       "lightfastness": 1,
-      "granulating": false,
+      "granulating": true,
       "staining": false,
       "pigment": "PR101/PW20",
       "notes": "PrimaTek mineral color. 2ml sample.",
@@ -2357,10 +2357,10 @@
         "2ml-sample",
         "primatek"
       ],
-      "ace_note": "PrimaTek mica red — shimmer meets earth.",
-      "ace_history": "Mars/Venetian reds (PR101) are calcined iron oxides — brick, terracotta, and portrait underpainting since industrial iron pigments matured.",
+      "ace_note": "PrimaTek mica red — shimmer meets earth.\n\nCorrection, not a Venetian: DS SKU 189 is Red Fuchsite Genuine. Fuchsite is chromium muscovite — chrome mica — so 纯铬红云母 is a decent rock-hound name, not a chrome-oxide paint. Catalog PR101/PW20 is an enrich guess (iron + mica). Official line is genuine red fuchsite: dusty rose, transparent, non-staining, granulating, a little sparkle when the wash dries. Soft reddish stone, not brick cover, not fire-engine.\n\nIf the swatch sparkles and flocks, believe the mineral. If it just sits there like cheap iron red, the sample may have been shy — still don't promote it to \"my Venetian.\"\n\nDual advice: specialty mica-rose seat — one. Vs Minnesota Pipestone (earth family): pink stone story without the chrome-mica flash. Vs English Venetian / QoR-Sen-WN PR101: those are brick jobs; this is jewelry dust. Vs Scarlet Mist: both can granulate, different romance. Sample is the honest format. Don't buy a 15ml unless the sparkle makes you stupid-happy.",
+      "ace_history": "Red fuchsite comes from chromium-bearing mica (Brazil in DS's telling) — a gemstone cousin of green fuchsite, ground for PrimaTek. The old card history called it Mars/Venetian PR101. That was the catalog talking. Mica plates catch light; iron earth does not.",
       "toxicity": "low",
-      "temp_role": "Warm red family · Iron oxide red / Venetian earth red"
+      "temp_role": "Cool-warm dusty rose · Red Fuchsite / chrome mica · sparkle + sediment · not a mixing red"
     },
     {
       "transparency": 2,
@@ -2472,7 +2472,7 @@
     {
       "transparency": 2,
       "lightfastness": 1,
-      "granulating": false,
+      "granulating": true,
       "staining": false,
       "pigment": "PR101",
       "notes": "PrimaTek mineral color. 2ml sample.",
@@ -2491,17 +2491,17 @@
         "2ml-sample",
         "primatek"
       ],
-      "ace_note": "PrimaTek garnet — deep jewel-tone passages.",
-      "ace_history": "Mars/Venetian reds (PR101) are calcined iron oxides — brick, terracotta, and portrait underpainting since industrial iron pigments matured.",
+      "ace_note": "PrimaTek garnet — deep jewel-tone passages.\n\nStudio Almandite (almandine is the iron-aluminum garnet); DS SKU 205 is Garnet Genuine. Official mood is warm reddish-orange/brown — January-birthstone warmth, kin to quin burnt-scarlet hue but with mineral texture. Catalog PR101 is convenience chemistry; the point of the well is genuine garnet grit, not another Mars red. If your swatch sediments, trust the paper over the old flag.\n\nDeep jewel passages, bark that isn't burnt sienna, warm shadows that refuse to go dead-black. Weak as a primary mixing red. Strong as a place.\n\nDual advice: character mineral — not a third Venetian, not a perylene wine. Vs English Venetian / tube PR101s: brick vs jewel. Vs Perylene Maroon: clean modern glaze vs gritty birthstone. Vs Fuchsite: dusty mica-rose vs warmer orange-garnet. One PrimaTek red-stone well is plenty unless both swatches clearly do different jobs.",
+      "ace_history": "Almandine garnet is iron-rich silicate, historically a jewelry stone, not a kiln-roast earth. PrimaTek mills the mineral so the wash can keep a little of the rock. \"Almandite\" on the sample card and \"Garnet Genuine\" on the tube are the same seat.",
       "toxicity": "low",
-      "temp_role": "Warm red family · Iron oxide red / Venetian earth red"
+      "temp_role": "Warm mineral red-orange · Garnet Genuine · jewel grit · not Venetian brick"
     },
     {
       "transparency": 2,
-      "lightfastness": 1,
-      "granulating": false,
+      "lightfastness": 2,
+      "granulating": true,
       "staining": false,
-      "pigment": "PR188",
+      "pigment": "PR287",
       "notes": "2ml sample. Jun 28 batch.",
       "id": "ds-217-carnelian",
       "brand": "Daniel Smith",
@@ -2517,10 +2517,10 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Carnelian brings warm red family energy to the tin — worth knowing by temperature, not just by pretty swatch.",
-      "ace_history": "Carnelian is banded chalcedony — the semiprecious orange-red that Roman signet rings were carved from, now staining boldly on paper.",
+      "ace_note": "Carnelian brings warm red family energy to the tin — worth knowing by temperature, not just by pretty swatch.\n\nThe name is the trap. Studio 玛瑙红 / Carnelian; DS SKU 217 is Mayan Red. 玛雅 vs 玛瑙 — easy mix-up on a Chinese card. Not banded chalcedony, not Roman signet-ring poetry (that was the old history talking). Official: PR287, transparent, low staining, granulating, lightfastness II (very good) — not the usual I.\n\nMayan Red runs a wide temperature: strong natural red in masstone, clean rose, then dusty pinks. Jane's dot-card read was \"a bit like Indian Red with a dusty rose undertone and fascinating granulation.\" Eco-process, metal-free, DS's \"ancient mural that survived the humidity\" story. Treat LF II honestly for heirlooms; joy for weekly work.\n\nCatalog PR188 was an enrich guess. Do not dual this as Sennelier Scarlet Lacquer unless your own swatch is clearly naphthol-lacquer, not dusty Mayan rose.\n\nDual advice: one dusty-rose granulating red seat. Not a gemstone carnelian, not a PR188 decorative fire, not a Venetian. Vs Indian Red / English Venetian: similar \"old wall\" mood, different code and granulation gossip. Vs Rose Red / PR209: this is sedimentary character; that is clean quin glow. Sample first. Promote only if the dusty split is a color you keep reaching for.",
+      "ace_history": "Mayan red (PR287) is a modern revival of a pre-Columbian organic red — murals and sculpture, then an eco-process in a Seattle tube. The sample card said Carnelian. Trust SKU 217 and the swatch; leave the agate in the jewelry box.",
       "toxicity": "low",
-      "temp_role": "Warm red family · Red / warm accent"
+      "temp_role": "Warm dusty-rose red · Mayan Red (PR287) · granulating · LF II · not a gemstone"
     },
     {
       "transparency": 2,
