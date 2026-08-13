@@ -1,9 +1,9 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-13-green-halfpan-handwritten",
+  "updated": "2026-08-13-green-pan-granulating-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein)",
-  "color_count": 249,
+  "color_count": 248,
   "colors": [
     {
       "brand_traits": [
@@ -1338,8 +1338,8 @@
       "lightfastness": 1,
       "granulating": true,
       "staining": false,
-      "pigment": "PG7/PW6",
-      "notes": "Granulating. Studio formats: pan, 5ml tube.",
+      "pigment": "PG50/PR233",
+      "notes": "Horadam Supergranulating 963 Gletschergrün. Official PG50 + PR233 (not PG7/PW6). Pan + 5ml tube merged; deleted twin id sch-tube-963-glacier-green.",
       "id": "sch-963-glacier-green",
       "brand": "Schmincke",
       "name_en": "Glacier Green",
@@ -1347,15 +1347,15 @@
       "code": "963",
       "hex": "#8FB8B0",
       "family": "green",
-      "format": "pan, 5ml tube",
-      "ace_note": "Pale icy green — glaciers, sea foam in winter.",
+      "format": "pan · 5ml tube",
+      "ace_note": "Pale icy green — glaciers, sea foam in winter.\n\nThis is not PG7 + titanium white. Supergranulating Horadam needs two granulating pigments. Official 963 is PG50 (cobalt turquoise / cobalt titanate — mineral teal) + PR233 (Potter's Pink — chrome-tin pink, the dusty rose you already know from MaimeriBlu). Ice-blue-green flocks one way; rose dust the other. That's why it looks like winter water and not like a highlighter.\n\nCatalog PG7/PW6 was the \"Glacier = phthalo + milk\" guess. White does not supergranulate. Trust the split.\n\nBehavior: non-staining, lightfast, the drama is in the dry. Don't stir. Thick vs dilute changes how loud the pink/teal divorce is. This will not mix clean spring greens like Phthalo — the pink is already in the marriage.\n\nYou already own Potter's Pink. Glacier is that pink invited into cobalt teal, bottled as weather.\n\nPlay lab (supergranulation): Wet cold-press. Drop, tilt once, walk away. If you stir, you paid Supergranulating prices for a grey-green soup.\n\nDual advice: one Glacier-green seat. Pan + 5ml tube = one well. vs Mint Dream: same \"pale cool\" glance, different soul — mineral split vs PW6+PG7 milk. vs Amazonite / Jadeite 2ml (also tagged PG7/PW6): gemstone marketing, later slice; don't promote three milky-green samples next to this. vs Glacier Brown / Blue: same climate line, different seats.",
       "brand_traits": [
         "professional",
         "horadam"
       ],
       "mix_star": false,
       "best_for": "Icy shallows, winter sea foam, and pale granulating cool greens.",
-      "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch. Horadam milling aims for creamy rewet and control.",
+      "ace_history": "Schmincke's Supergranulating sets (Glacier, Tundra, Galaxy, Deep Sea…) are 21st-century climate poetry: at least two granulating Horadam pigments, sold as landscape weather. Glacier Green is cobalt teal plus the 19th-century ceramic stain Potter's Pink (PR233) — tin glaze chemistry wearing a mountain label. Not a 1935 phthalo. Not milk.",
       "mix_tips": [
         {
           "with": [
@@ -1372,8 +1372,9 @@
           "verified": false
         }
       ],
-      "toxicity": "low",
-      "temp_role": "Cool green · Cool staining phthalo green · granulating"
+      "toxicity": "medium",
+      "temp_role": "Cool icy mineral green · Cobalt turquoise + Potter's Pink · supergranulating climate · not milky phthalo",
+      "toxicity_habit": "Cobalt pigment (PG50) — wash hands after painting; keep food and drink away from the palette."
     },
     {
       "transparency": 1,
@@ -3149,10 +3150,10 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Green Shadows brings cool green energy to the tin — worth knowing by temperature, not just by pretty swatch.",
-      "ace_history": "Titanium white (PW6) is the modern opaque light — strong coverage for gouache-like passages; watercolor purists use it sparingly for body color.",
+      "ace_note": "Green Shadows brings cool green energy to the tin — worth knowing by temperature, not just by pretty swatch.\n\nNevskaya Palitra's granulating line: pigments of different size and weight that laminate as they dry. This one is the dusk well — phthalo green stained down with PBk9 (Mars/ivory-adjacent black; Nevskaya talks Mars black granulation) and lifted/veiled with PW6. Masstone can go velvety dark green; water pulls bluish and grey-green flocks.\n\nNot Perylene. Perylene (PBk31) is a staining near-black with no white — botanical ink. This is a misty dark: black + green + milk. Faster than mixing Phthalo + black + a whisper of white; lazier if it becomes your only foliage shadow (paintings go one-note dusk).\n\nBehavior: granulating, not a staining monster like pure PG7. The white makes tints a little chalky if you pile it. Paper tooth matters — Fin/Torchon shows off; hot-press will disappoint you.\n\nPlay lab: One fat bead, lots of water, don't touch. Look for the black grit vs the green stain. That's the recipe showing.\n\nDual advice: one ready-made shadowed-green seat. vs Perylene: ink vs mist. vs mixing Phthalo + earth/black yourself: this is speed; homework is livelier. vs Taiga Mist: Shadows is green+black dusk; Taiga is earth+blue pine. Two climates.",
+      "ace_history": "White Nights' granulating series (Metamorphoses / \"mist\" and \"shadow\" names) is St. Petersburg selling particle physics as landscape: two–three pigments, different specific gravity, they un-mix on purpose. Green Shadows is the forest-at-evening convenience, not a single historic mineral.",
       "toxicity": "low",
-      "temp_role": "Cool green · Titanium white / opaque light · granulating"
+      "temp_role": "Cool shadowed green · Phthalo + white + Mars black · ready dusk foliage · granulating"
     },
     {
       "transparency": 2,
@@ -3174,10 +3175,10 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "Taiga mist — Siberian pines in morning fog.",
-      "ace_history": "PBr7 covers raw and burnt earths — iron-rich clays, sometimes with manganese in umbers. Roasting (calcining) swings the same family from cool espresso to warm red-brown.",
+      "ace_note": "Taiga mist — Siberian pines in morning fog.\n\nRead the recipe. There is no green pigment in this pan. PBr7 (iron earth — raw/burnt family, the same class as your siennas and umbers) + PB15 (phthalo blue). Green is what happens when dirt meets staining blue. That's why it feels grounded, organic, a little khaki-pine, and why it granulates (earth grit vs dye).\n\nSame idea as studio Christmas Tree Green (also PBr7/PB15, holiday tube) and cousin to Cascade Green (PB15/PBr7, DS, granulating). Three labels, one pine-from-earth-and-blue seat.\n\nBehavior: granulating, low stain compared with a PG7 engine. Fog in dilute; forest floor in masstone. Will not give May's first-leaf. Will not give Glacier's ice-rose.\n\nPlay lab: Wet wash. Let the brown sediment and the blue wander. If they stay married, you used too little water.\n\nDual advice: one earth+phthalo-blue pine seat. Taiga Mist or Christmas Tree or Cascade — manners contest, not three wells. Holiday tube is dessert naming; Taiga is the climate name; Cascade is DS's granulating cut. vs Green Shadows: no black, no white — this is dirt+blue, not dusk-milk. vs 534 olive (PO62+PG7): that's phthalo green + orange. Hedge vs taiga.",
+      "ace_history": "The taiga is the boreal pine belt across Russia. Nevskaya didn't grind Siberian needles; they married iron earth to phthalocyanine blue (1930s dye, again) and let the particles reenact fog in a forest. Christmas-tree marketing is the same chemistry in a Santa hat.",
       "toxicity": "low",
-      "temp_role": "Cool blue · Natural/synthetic iron earth brown · granulating"
+      "temp_role": "Cool pine-earth green · Iron earth + phthalo blue · taiga fog · not a PG7 leaf"
     },
     {
       "transparency": 2,
@@ -4468,31 +4469,6 @@
       "lightfastness": 1,
       "granulating": true,
       "staining": false,
-      "pigment": "PG7/PW6",
-      "notes": "Glacier series 5ml tube. Jul 7 batch. Studio formats: pan, 5ml tube.",
-      "id": "sch-tube-963-glacier-green",
-      "brand": "Schmincke",
-      "code": "963",
-      "name_en": "Glacier Green",
-      "name_zh": "冰川绿",
-      "hex": "#8FB8B0",
-      "family": "green",
-      "format": "pan, 5ml tube",
-      "size": "5ml",
-      "brand_traits": [
-        "professional",
-        "horadam"
-      ],
-      "ace_note": "Schmincke Glacier Green — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
-      "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch. Horadam milling aims for creamy rewet and control.",
-      "toxicity": "low",
-      "temp_role": "Cool green · Cool staining phthalo green · granulating"
-    },
-    {
-      "transparency": 2,
-      "lightfastness": 1,
-      "granulating": true,
-      "staining": false,
       "pigment": "PBr7/PW6",
       "notes": "Glacier series 5ml tube. Jul 7 batch.",
       "id": "sch-tube-964-glacier-brown",
@@ -4733,10 +4709,10 @@
         "professional",
         "st-petersburg"
       ],
-      "ace_note": "White Nights Mint Dream — full pan from St. Petersburg, Jul 7.",
+      "ace_note": "White Nights Mint Dream — full pan from St. Petersburg, Jul 7.\n\nPW6 is in the room. Titanium white + PG7 = menthol, sea-glass, illustration mint. Granulation is the phthalo staining away from the white body — a gentler divorce than Glacier's two minerals. Nevskaya pitches cool mint that, with water, can flash emerald/turquoise notes.\n\nThis is a subject / pastel well, not an engine. It will chalk if you glaze like a transparent. It will look cute on hot-press and more mineral on rough.\n\nYou already have the PG7 engine. Mint is what happens when someone is afraid of that engine and adds milk. Valid for glass, sweets, mint leaves, calm backgrounds. Not valid as a third phthalo hat next to Helio + May + this.\n\nPlay lab: Dilute until it almost disappears. If a green halo walks away from a milky puddle, that's PG7 leaving PW6. Don't stir them back together if you wanted the dream.\n\nDual advice: one milky-phthalo-green seat. vs Glacier: not the same — Glacier is PG50+PR233 ice-rose; Mint is candy milk. Keep Glacier for weather, Mint for illustration, or pick one pale-cool. vs Amazonite/Jadeite 2ml: later, same \"white+green\" suspicion. Don't own four sea-glasses.",
       "mix_star": false,
       "best_for": "Soft pastel greens, sea-glass accents, minty florals, and cool calm backgrounds.",
-      "ace_history": "Mint Dream sits in White Nights' pastel-leaning granulating range — a contemporary convenience shade for illustrators and botanical artists who want cool freshness.",
+      "ace_history": "Mint Dream sits in White Nights' newer granulating / Metamorphoses storytelling — menthol as a mood, not a plant. Titanium white (20th-century opaque light) plus the 1935 mixing monster, domesticated into a pastel. The \"dream\" is the milk.",
       "mix_tips": [
         {
           "with": [
@@ -4754,7 +4730,7 @@
         }
       ],
       "toxicity": "low",
-      "temp_role": "Cool green · Titanium white / opaque light · granulating"
+      "temp_role": "Cool pastel mint · Titanium white + phthalo green · sea-glass / menthol · granulating milk"
     },
     {
       "transparency": 2,
