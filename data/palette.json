@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-14-green-2ml-rest-handwritten",
+  "updated": "2026-08-14-catalog-audit",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein)",
   "color_count": 248,
   "colors": [
@@ -1289,8 +1289,8 @@
       "lightfastness": 1,
       "granulating": true,
       "staining": false,
-      "pigment": "PB60/PG7",
-      "notes": "Granulating. Studio formats: pan, 5ml tube.",
+      "pigment": "PV62/PG18",
+      "notes": "Horadam Supergranulating 952 Deep Sea Indigo. Official PV62 + PG18 (not PB60/PG7). Pan + tube records.",
       "id": "sch-952-deep-sea-indigo",
       "brand": "Schmincke",
       "name_en": "Deep Sea Indigo",
@@ -1299,14 +1299,14 @@
       "hex": "#1E3D5C",
       "family": "blue",
       "format": "pan, 5ml tube",
-      "ace_note": "Deep diving blue-green — night water and whale shadows.\n\nNot classical plant indigo and not half-pan \"Indigo\" alone: PB60 + PG7 pushes abyss teal-navy. Granulating Deep Sea series manners — layer with Deep Sea Blue, rhyme with Undersea Green, storm with Sea Blue. This is structural night water, not a violet primary.\n\nPlay lab (granulation): Abyss particles love rough cold-press. Lay a mid Deep Sea Blue body, then charge Indigo into the still-glistening dark — let a bead of water cut a \"current.\" Salt optional for kelp freckles; too much brushwork = muddy harbor. PG7 in the blend means granulation can read slightly green-black in flocks — that's whale, not ultramarine sky.\n\nDual advice: vs half-pan Indigo (PB60): deeper/greener here because PG7 is invited. Vs Prussian: different stain/teal personality — don't stack three deep cools in one tin. One abyss seat.",
+      "ace_note": "Deep diving blue-green — night water and whale shadows.\n\nCatalog PB60/PG7 was the enrich lie (phthalo cannot supergranulate). Official 952 is PV62 + PG18 — cobalt-violet hue plus viridian. Green-black flocks are chromium grit, not PG7 stain.\n\nPlay lab: rough cold-press, charge into still-wet Deep Sea Blue. Don't stir the abyss into soup.\n\nDual advice: one Deep Sea Indigo (pan + tube = one well). vs half-pan Indigo (PB60): different molecule. vs Prussian Green: iron-blue + hansa, not viridian weather.",
       "brand_traits": [
         "professional",
         "horadam"
       ],
       "mix_star": true,
       "best_for": "Deep ocean, night water, whale-shadow blues, and granulating marine darks.",
-      "ace_history": "Schmincke's Deep Sea line (2020s) builds granulating marine blends for abyssal light demos. Indigo here is indanthrene + green chemistry, not vat dye — trust the pigment codes.",
+      "ace_history": "Deep Sea Supergranulating: viridian + a cobalt-violet hue, not indanthrene + phthalo. Jane and artist-pigment charts agree PV62/PG18.",
       "mix_tips": [
         {
           "with": [
@@ -1330,8 +1330,9 @@
           "verified": false
         }
       ],
-      "toxicity": "low",
-      "temp_role": "Cool deep blue-green · Abyssal indigo (indanthrene + phthalo green) · granulating marine"
+      "toxicity": "medium",
+      "temp_role": "Cool abyss teal-navy · Cobalt violet hue + viridian · Deep Sea climate · not phthalo",
+      "toxicity_habit": "Contains cobalt — wash hands after painting; keep food and drink off the palette."
     },
     {
       "transparency": 2,
@@ -1421,16 +1422,17 @@
         "horadam"
       ],
       "ace_history": "Desert is Schmincke climate poetry for scrub and dust. PG26 is the 19th-century cobalt-chromite green we already taught. PR108 is the granulating red half — index, not a fire-engine seat we keep. Catalog heard \"olive\" and typed PG7/PBr7.",
-      "toxicity": "low",
-      "temp_role": "Warm-dust olive · Granulating red + cobalt chromite · Desert climate · not phthalo-earth"
+      "toxicity": "medium",
+      "temp_role": "Warm-dust olive · Granulating red + cobalt chromite · Desert climate · not phthalo-earth",
+      "toxicity_habit": "Contains cobalt (and a cadmium red grain in the Supergranulating mix) — wash hands; keep food and drink off the palette."
     },
     {
       "transparency": 2,
       "lightfastness": 1,
       "granulating": true,
       "staining": false,
-      "pigment": "PY53",
-      "notes": "2ml sample. Granulating.",
+      "pigment": "PY159/PV62",
+      "notes": "Horadam Supergranulating 931 Shire Yellow. Official PY159 + PV62 (not PY53).",
       "id": "sch-931-shire-yellow",
       "brand": "Schmincke",
       "name_en": "Shire Yellow",
@@ -1439,14 +1441,14 @@
       "hex": "#E8C84A",
       "family": "yellow",
       "format": "2ml sample",
-      "ace_note": "Shire sunshine — warm pastoral yellow, Hobbit-core meadows.\n\nPlay lab (granulation): Built for storybook countryside — granulates into meadow grit on cold-press. Verified with phthalo green → vivid spring greens with texture; with Shire Olive → cohesive Hobbit-core harmony; with Desert Brown → dusty path edges. Tilt, don't over-stir. Not your color-wheel primary; it's landscape poetry with a useful mixer badge.\n\nDual advice: specialty granulating yellow — keep if you paint fields and fantasy maps. Don't replace lemon/mid primary with Shire alone. PY53 also appears in pale Naples territory (nickel titanate vibes) — here the granulating Shire cut is the point.",
+      "ace_note": "Shire sunshine — warm pastoral yellow, Hobbit-core meadows.\n\nNot PY53. Official Supergranulating 931 is PY159 (zirconium-praseodymium yellow) + PV62. Tube readers and Jackson's Shire notes agree. Blue-violet grit in a yellow well — that's why it granulates and leans green.\n\nPlay lab: tilt, don't over-stir. With phthalo green it still makes spring; the point is the sediment.\n\nDual advice: specialty granulating yellow — not a lemon/mid primary replacement. Same Shire family as Shire Olive (PY159+PB35).",
       "brand_traits": [
         "professional",
         "horadam"
       ],
       "mix_star": true,
       "best_for": "Sunlit fields, warm highlights, and mixing clean landscape greens.",
-      "ace_history": "Shire Yellow is Horadam fantasy-landscape marketing over PY53 specialty milling — countryside light with sediment, not a Tolkien mineral. Creamy rewet, storybook job.",
+      "ace_history": "Every Shire color is built on PY159. Yellow + a cobalt-violet hue is the meadow light, not nickel-titanate Naples.",
       "mix_tips": [
         {
           "with": [
@@ -1471,16 +1473,16 @@
         }
       ],
       "toxicity": "medium",
-      "toxicity_habit": "Nickel-containing pigment — wash hands after sessions; no eating at the desk.",
-      "temp_role": "Warm pastoral yellow · Granulating PY53 · storybook meadow light"
+      "toxicity_habit": "Contains cobalt — wash hands after painting; keep food and drink off the palette.",
+      "temp_role": "Cool pastoral yellow-green · PY159 + cobalt-violet hue · Shire climate · not nickel titanate"
     },
     {
       "transparency": 2,
       "lightfastness": 1,
-      "granulating": false,
+      "granulating": true,
       "staining": false,
-      "pigment": "PBr7",
-      "notes": "2ml sample.",
+      "pigment": "PY150/PR108/PBk11",
+      "notes": "Horadam Supergranulating 923 Desert Brown. Official PY150 + PR108 + PBk11 (not PBr7).",
       "id": "sch-923-desert-brown",
       "brand": "Schmincke",
       "name_en": "Desert Brown",
@@ -1495,8 +1497,9 @@
         "horadam"
       ],
       "ace_history": "PBr7 iron earth again — source and roast shift sand-gold to brick to espresso. \"Desert\" is Horadam climate poetry for a warm mid brown, not a single Sahara mine. Sample size is the honest format: learn the temperature, then decide on a pan.",
-      "toxicity": "low",
-      "temp_role": "Warm mid earth · Sand, path, dry hill · polite PBr7"
+      "toxicity": "medium",
+      "temp_role": "Warm mid earth · Sand, path, dry hill · polite PBr7",
+      "toxicity_habit": "Contains nickel (azo/titanate) — wash hands after painting; keep food and drink off the palette."
     },
     {
       "transparency": 2,
@@ -1544,8 +1547,9 @@
           "verified": true
         }
       ],
-      "toxicity": "low",
-      "temp_role": "Neutral meadow olive · Zirconium-Pr yellow + cerulean-family blue · supergranulating · not May"
+      "toxicity": "medium",
+      "temp_role": "Neutral meadow olive · Zirconium-Pr yellow + cerulean-family blue · supergranulating · not May",
+      "toxicity_habit": "Contains cobalt — wash hands after painting; keep food and drink off the palette."
     },
     {
       "transparency": 2,
@@ -1619,8 +1623,8 @@
       "lightfastness": 1,
       "granulating": true,
       "staining": false,
-      "pigment": "PB29",
-      "notes": "2ml sample. Granulating.",
+      "pigment": "PB29/PG50/PV16",
+      "notes": "Horadam Supergranulating 953 Deep Sea Blue. Official-style listing PB29 + PG50 + PV16 (not PB29 alone).",
       "id": "sch-953-deep-sea-blue",
       "brand": "Schmincke",
       "name_en": "Deep Sea Blue",
@@ -1660,16 +1664,17 @@
           "verified": true
         }
       ],
-      "toxicity": "low",
-      "temp_role": "Warm-deep marine ultramarine · Deep Sea sample twin · granulating water"
+      "toxicity": "medium",
+      "temp_role": "Warm-deep marine ultramarine · Deep Sea sample twin · granulating water",
+      "toxicity_habit": "Contains cobalt — wash hands after painting; keep food and drink off the palette."
     },
     {
       "transparency": 2,
       "lightfastness": 1,
       "granulating": true,
       "staining": false,
-      "pigment": "PBr7/PW6",
-      "notes": "2ml sample. Granulating.",
+      "pigment": "PBr6/PG26",
+      "notes": "Horadam Supergranulating 964 Glacier Brown. Official PBr6 + PG26 (not PBr7/PW6).",
       "id": "sch-964-glacier-brown",
       "brand": "Schmincke",
       "name_en": "Glacier Brown",
@@ -1678,14 +1683,15 @@
       "hex": "#A89888",
       "family": "earth",
       "format": "2ml sample",
-      "ace_note": "Cool taupe brown — glacial moraine stone.\n\nSame chemistry story as the 5ml Glacier Brown tube and cousin to Hermit Mist: PW6 is in the room. Fog over dirt, wet stone, distant path, granulating warm grey that can veil a layer. Masstone still brown; dilute washes go milky-mist. Chroma is half-retired on purpose.\n\nDual advice: tube + 2ml + Hermit Mist = one mist seat, not three wells. Swatch sample against tube if you own both; keep one faucet. Don't use where you wanted burnt sienna depth or raw umber pine.",
+      "ace_note": "Cool taupe brown — glacial moraine stone.\n\nCorrection: this is not PBr7 + titanium white. Supergranulating 964 is PBr6 (Mars brown) + PG26 (cobalt chromite) — two granulating minerals. Catalog PBr7/PW6 was the \"Glacier = dirt + milk\" guess we already killed on Glacier Green. No white in the official line. The mist is sediment, not PW6.\n\nDual advice: tube + 2ml = one Glacier-brown seat. vs Hermit Mist (if that one is actually white+earth): different recipe. vs burnt sienna / raw umber: those are mixing browns; this is climate weather. Cobalt: wash hands.",
       "brand_traits": [
         "professional",
         "horadam"
       ],
-      "ace_history": "PBr7 + titanium white (PW6) = modern atmosphere recipe. \"Glacier\" sells cold-mist neutrals; the pigment job is lift and soft opacity, not polar romance. Sample is the low-risk way to see if you love the sediment.",
-      "toxicity": "low",
-      "temp_role": "Warm mist-earth · Soft granulating taupe · earth + white (sample)"
+      "ace_history": "Schmincke Glacier line: two granulating Horadam pigments. Brown is roasted iron (PBr6) plus the same PG26 as Cobalt Deep. Not milk.",
+      "toxicity": "medium",
+      "temp_role": "Warm mineral brown · Mars brown + cobalt chromite · Glacier climate · not milky earth",
+      "toxicity_habit": "Contains cobalt — wash hands after painting; keep food and drink off the palette."
     },
     {
       "transparency": 3,
@@ -1878,8 +1884,8 @@
       "lightfastness": 1,
       "granulating": false,
       "staining": false,
-      "pigment": "PG7/PB27",
-      "notes": "DANIEL SMITH Prussian Green SKU 128. Catalog PG7/PB27; DS story starts PB27 + a yellow. Historical Prussian-green memory.",
+      "pigment": "PB27/PY97",
+      "notes": "DANIEL SMITH Prussian Green SKU 128. Official color story PB27 + PY97 (Hansa). Not PG7.",
       "id": "ds-128-prussian-green",
       "brand": "Daniel Smith",
       "name_en": "Prussian Green",
@@ -1894,10 +1900,10 @@
         "premium",
         "2ml-sample"
       ],
-      "ace_note": "Deep teal-green — dark foliage and ink-like greens.\n\nThis is the 528 story we already told when 514 turned out to be Helio. \"Prussian green\" is a memory: 1704 iron-blue (PB27) mixed with a yellow until it goes spruce. Catalog wrote PG7/PB27. DS's own line starts PB27 and a yellow (listings disagree which yellow). Either way the idea is iron-blue night, not Helio sun (PG36).\n\nYou already have dusk-teal as Sen Deep (two phthalos) and Deep Sea (viridian+ultramarine). This sample is the iron-blue version — more ink, more 18th-century, less climate theatre.\n\nPlay lab: Beside Helio 514 and Sen 807. Prussian should go duskier, more blue-black. If it matches Helio, you have the wrong pan in the hole.\n\nDual advice: one Prussian-green / iron-blue-teal seat. Helio stays the yellow-shade engine. Sen Deep stays dye-teal. Deep Sea stays mineral weather. This is the Berlin convenience.",
-      "ace_history": "Diesbach, 1704, Berlin: Prussian blue. Painters stirred in gamboge or ochre and called it Prussian green. Every factory that prints the name is selling that memory. Trust the swatch and PB27, not the word green alone.",
+      "ace_note": "Deep teal-green — dark foliage and ink-like greens.\n\nDS official color story: PB27 + PY97 (Prussian blue + Hansa yellow medium). Catalog PG7/PB27 was the enrich guess. Historical Prussian green is iron-blue plus a yellow until it goes spruce — not Helio sun (PG36).\n\nYou already have dusk-teal as Sen Deep (two phthalos) and Deep Sea (viridian+ultramarine). This sample is the iron-blue version.\n\nPlay lab: Beside Helio 514 and Sen 807. Prussian should go duskier, more blue-black.\n\nDual advice: one Prussian-green / iron-blue-teal seat. Helio stays the yellow-shade engine. Sen Deep stays dye-teal. Deep Sea stays mineral weather.",
+      "ace_history": "Diesbach, 1704, Berlin: Prussian blue. Painters stirred in a yellow and called it Prussian green. DS's current yellow is Hansa PY97.",
       "toxicity": "low",
-      "temp_role": "Cool teal-night · Prussian blue + yellow · historical convenience · not Helio"
+      "temp_role": "Cool teal-night · Prussian blue + Hansa (PB27/PY97) · historical convenience · not Helio"
     },
     {
       "transparency": 2,
@@ -2008,8 +2014,8 @@
       "lightfastness": 1,
       "granulating": false,
       "staining": false,
-      "pigment": "PR101",
-      "notes": "PrimaTek mineral color. 2ml sample.",
+      "pigment": "Genuine Minnesota Pipestone",
+      "notes": "PrimaTek Minnesota Pipestone Genuine. Official: genuine pipestone (not a Mars-red PR101 seat).",
       "id": "ds-143-minnesota-pipestone",
       "brand": "Daniel Smith",
       "name_en": "Minnesota Pipestone",
@@ -2062,8 +2068,8 @@
       "lightfastness": 1,
       "granulating": true,
       "staining": false,
-      "pigment": "PBr7",
-      "notes": "PrimaTek mineral color. 2ml sample.",
+      "pigment": "Genuine Tiger's Eye",
+      "notes": "PrimaTek Tiger's Eye Genuine SKU 162. Official: genuine tiger's-eye mineral (not PBr7 earth).",
       "id": "ds-162-tigers-eye",
       "brand": "Daniel Smith",
       "name_en": "Tiger's Eye Brown",
@@ -2116,8 +2122,8 @@
       "lightfastness": 1,
       "granulating": true,
       "staining": true,
-      "pigment": "PBk11/PV19",
-      "notes": "PrimaTek mineral color. 2ml sample.",
+      "pigment": "Genuine Hematite",
+      "notes": "PrimaTek Hematite Violet Genuine SKU 164. Official: milled hematite (not PBk11/PV19 soup).",
       "id": "ds-164-hematite-violet",
       "brand": "Daniel Smith",
       "name_en": "Hematite Violet",
@@ -2161,8 +2167,8 @@
       "lightfastness": 1,
       "granulating": false,
       "staining": false,
-      "pigment": "PR101",
-      "notes": "PrimaTek mineral color. 2ml sample.",
+      "pigment": "Genuine Rhodonite",
+      "notes": "PrimaTek Rhodonite Genuine SKU 167. Official: genuine rhodonite (not PR101).",
       "id": "ds-167-rhodonite",
       "brand": "Daniel Smith",
       "name_en": "Rhodonite",
@@ -2317,8 +2323,8 @@
       "lightfastness": 1,
       "granulating": true,
       "staining": false,
-      "pigment": "PR101/PW20",
-      "notes": "PrimaTek mineral color. 2ml sample.",
+      "pigment": "Genuine Red Fuchsite",
+      "notes": "PrimaTek Red Fuchsite Genuine SKU 189 (studio Chromium Red Mica). Official genuine chrome mica, not PR101/PW20.",
       "id": "ds-189-chromium-red-mica",
       "brand": "Daniel Smith",
       "name_en": "Chromium Red Mica",
@@ -2397,8 +2403,8 @@
       "lightfastness": 1,
       "granulating": true,
       "staining": true,
-      "pigment": "PB15/PG7",
-      "notes": "PrimaTek mineral color. 2ml sample.",
+      "pigment": "Genuine Blue Apatite",
+      "notes": "PrimaTek Blue Apatite Genuine SKU 196. Official genuine apatite (catalog PB15/PG7 was an enrich guess).",
       "id": "ds-196-blue-apatite",
       "brand": "Daniel Smith",
       "name_en": "Blue Apatite",
@@ -2451,8 +2457,8 @@
       "lightfastness": 1,
       "granulating": true,
       "staining": false,
-      "pigment": "PR101",
-      "notes": "PrimaTek mineral color. 2ml sample.",
+      "pigment": "Genuine Garnet",
+      "notes": "PrimaTek Garnet Genuine SKU 205 (studio Almandite). Official genuine garnet, not PR101.",
       "id": "ds-205-almandite",
       "brand": "Daniel Smith",
       "name_en": "Almandite Garnet",
@@ -4293,8 +4299,8 @@
       "lightfastness": 1,
       "granulating": true,
       "staining": false,
-      "pigment": "PB60/PG7",
-      "notes": "Deep Sea series 5ml tube. Jul 7 batch. Studio formats: pan, 5ml tube.",
+      "pigment": "PV62/PG18",
+      "notes": "Horadam Supergranulating 952 Deep Sea Indigo. Official PV62 + PG18 (not PB60/PG7).",
       "id": "sch-tube-952-deep-sea-indigo",
       "brand": "Schmincke",
       "code": "952",
@@ -4308,10 +4314,10 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Deep Sea Indigo — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.\n\nSame whale-shadow seat as sch-952-deep-sea-indigo — different faucet in the database. Use tube logic when night water needs a passage; keep pan for tin. Mix tips already point at Deep Sea Blue, Moonglow fantasy, ultramarine coast greys.\n\nPlay lab (granulation): Abyss particles love rough cold-press. Lay a mid Deep Sea Blue body, then charge Indigo into the still-glistening dark — let a bead of water cut a \"current.\" Salt optional for kelp freckles; too much brushwork = muddy harbor. PG7 in the blend means granulation can read slightly green-black in flocks — that's whale, not ultramarine sky.\n\nDual advice: one well of Deep Sea Indigo in kit logic. Pan SKU + tube SKU + any 2ml twin = one color. Don't double-fill because the id string says \"tube.\"",
+      "ace_note": "Schmincke Deep Sea Indigo — Jul 7 batch. Same well as the pan.\n\nOfficial PV62 + PG18, not PB60/PG7. One abyss seat.\n\nDual advice: pan SKU + tube SKU = one color.",
       "mix_star": true,
       "best_for": "5ml tube deep water — same abyss mood as the pan, bolder washes.",
-      "ace_history": "Same PB60/PG7 Deep Sea story — format is logistics. Horadam creamy rewet still applies; the abyss doesn't change when the plastic does.",
+      "ace_history": "Same 952 Supergranulating story — viridian + cobalt-violet hue.",
       "mix_tips": [
         {
           "with": [
@@ -4335,16 +4341,17 @@
           "verified": true
         }
       ],
-      "toxicity": "low",
-      "temp_role": "Cool deep blue-green · Same abyss soul as pan SKU · tube for bigger washes"
+      "toxicity": "medium",
+      "temp_role": "Cool deep blue-green · Same abyss soul as pan SKU · tube for bigger washes",
+      "toxicity_habit": "Contains cobalt — wash hands after painting; keep food and drink off the palette."
     },
     {
       "transparency": 2,
       "lightfastness": 1,
       "granulating": true,
       "staining": false,
-      "pigment": "PB29",
-      "notes": "Deep Sea series 5ml tube. Jul 7 batch.",
+      "pigment": "PB29/PG50/PV16",
+      "notes": "Horadam Supergranulating 953 Deep Sea Blue. PB29 + PG50 + PV16.",
       "id": "sch-tube-953-deep-sea-blue",
       "brand": "Schmincke",
       "code": "953",
@@ -4360,8 +4367,9 @@
       ],
       "ace_note": "Schmincke Deep Sea Blue — granulating marine ultramarine. Check 5ml tube vs any 2ml sample twin in your set.\n\nPlay lab (granulation): Deep Sea line wants abyss demos — pigment settling like depth markers on cold-press. Wet the paper, drop for body, leave edges alone; tickle, don't scrub. Granulation reads as current and particulate water, not flat poster navy.\n\nDual advice: vs DS French: both granulating PB29 — Deep Sea is the marine marketing cut, French is the classical sky cut. One granulating ultramarine + one abyss indigo is a stronger pair than two mid ultramarines.",
       "ace_history": "Deep Sea series (2020s Horadam) dresses classical ultramarine in submarine theater — same PB29 lineage as church blue, new sediment choreography for contemporary seascape workshops.",
-      "toxicity": "low",
-      "temp_role": "Warm-deep marine ultramarine · Deep Sea granulating sky-water · PB29 special"
+      "toxicity": "medium",
+      "temp_role": "Warm-deep marine ultramarine · Deep Sea granulating sky-water · PB29 special",
+      "toxicity_habit": "Contains cobalt — wash hands after painting; keep food and drink off the palette."
     },
     {
       "transparency": 2,
@@ -4369,7 +4377,7 @@
       "granulating": true,
       "staining": false,
       "pigment": "PG18/PB29",
-      "notes": "Horadam Supergranulating 954 Deep Sea Green. Official PG18 + PB29 (not PG7/PB29). Viridian + French ultramarine.",
+      "notes": "Horadam Supergranulating 954 Deep Sea Green. Official PG18 + PB29. Chromium hydrate + ultramarine.",
       "id": "sch-tube-954-deep-sea-green",
       "brand": "Schmincke",
       "code": "954",
@@ -4419,8 +4427,8 @@
       "lightfastness": 1,
       "granulating": true,
       "staining": false,
-      "pigment": "PB15",
-      "notes": "Glacier series 5ml tube. Jul 7 batch.",
+      "pigment": "PB29/PG50",
+      "notes": "Horadam Supergranulating 961 Glacier Blue. Official PB29 + PG50 (not PB15).",
       "id": "sch-tube-961-glacier-blue",
       "brand": "Schmincke",
       "code": "961",
@@ -4436,16 +4444,17 @@
       ],
       "ace_note": "Schmincke Glacier Blue — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.\n\nPlay lab (granulation): Plot twist — phthalo (PB15) that granulates in this series. Most phthalos are smooth tyrants; Glacier wants ice with texture. On cold-press, cool blue can flocculate into glacial milk-streaks, especially with mist. Still dose carefully: phthalo tinting strength doesn't retire just because it's pretty. Mix a micro-dot into yellow for ice-mint greens; overdo it and the glacier owns July.\n\nVs half-pan cerulean: greener/modern stain lineage vs milky mineral. Vs MG/Sennelier/W&N phthalo tubes: those may be smoother — Glacier is the textured cool.\n\nDual advice: one cool phthalo-blue seat (Glacier or Winsor GS or MG or Sennelier). Keep Glacier when you specifically want cool + granulation; keep a smooth phthalo when you want glassy washes.",
       "ace_history": "PB15 phthalocyanine — mid-century power blue. Glacier line applies Horadam's sedimentary specials thinking to cool blues: ice-name marketing, modern molecule, optional grit.",
-      "toxicity": "low",
-      "temp_role": "Cool phthalo blue · Glacier-series granulating cool · icy water with grit"
+      "toxicity": "medium",
+      "temp_role": "Cool phthalo blue · Glacier-series granulating cool · icy water with grit",
+      "toxicity_habit": "Contains cobalt — wash hands after painting; keep food and drink off the palette."
     },
     {
       "transparency": 2,
       "lightfastness": 1,
       "granulating": true,
       "staining": false,
-      "pigment": "PB16",
-      "notes": "Glacier series 5ml tube. Jul 7 batch.",
+      "pigment": "PG50/PV16",
+      "notes": "Horadam Supergranulating 962 Glacier Turquoise. Official PG50 + PV16 (not PB16).",
       "id": "sch-tube-962-glacier-turquoise",
       "brand": "Schmincke",
       "code": "962",
@@ -4461,16 +4470,17 @@
       ],
       "ace_note": "Schmincke Glacier Turquoise — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.\n\nPlay lab (granulation): PB16 is already a blue-green jewel; Glacier adds settle-and-sparkle on texture. Try salt or light mist on a juicy turquoise wash for lagoon freckles — educational chaos. With a warm sand (raw sienna / desert brown) at the shoreline, granulation sells \"shallow water over grit.\" Avoid using it as your only \"blue\" for violets — it'll pull green and break hearts.\n\nDual advice: same turquoise seat as W&N Phthalo Turquoise (usually smoother/staining). One tropical well. Not a second Glacier Blue unless you paint nothing but reefs.",
       "ace_history": "Phthalo turquoise (PB16) = clean tropical blue-green without gemstone grinding. Glacier branding = cold clarity + Horadam texture hobby.",
-      "toxicity": "low",
-      "temp_role": "Cool turquoise · Phthalo turquoise (PB16) · granulating tropical ice"
+      "toxicity": "medium",
+      "temp_role": "Cool turquoise · Phthalo turquoise (PB16) · granulating tropical ice",
+      "toxicity_habit": "Contains cobalt — wash hands after painting; keep food and drink off the palette."
     },
     {
       "transparency": 2,
       "lightfastness": 1,
       "granulating": true,
       "staining": false,
-      "pigment": "PBr7/PW6",
-      "notes": "Glacier series 5ml tube. Jul 7 batch.",
+      "pigment": "PBr6/PG26",
+      "notes": "Horadam Supergranulating 964 Glacier Brown. Official PBr6 + PG26 (not PBr7/PW6).",
       "id": "sch-tube-964-glacier-brown",
       "brand": "Schmincke",
       "code": "964",
@@ -4484,18 +4494,19 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Glacier Brown — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.\n\nSame plot as White Nights Hermit Mist: PW6 is in the room. Earth cut with white → fog over dirt, stone in drizzle, distant path, granulating warm grey that can veil a layer. Masstone still brown; dilute washes go milky-mist. It refuses to be your only mixing brown — chroma is already half-retired. Tube vs 2ml sample = one color, two faucets.\n\nDual advice: don't use Glacier Brown where you wanted burnt sienna depth or raw umber pine. Kit logic: one mist-earth seat (Glacier tube or Hermit Mist pan or 2ml) — not all three wells. Keep the grind whose granulation makes you grin.",
-      "ace_history": "PBr7 + PW6 is a modern atmosphere recipe: iron earth plus titanium white for lift and opacity. \"Glacier\" is Horadam mood-marketing for cold-mist neutrals, not a polar mineral. Think weather pan, not geology textbook.",
-      "toxicity": "low",
-      "temp_role": "Warm mist-earth · Soft granulating brown-grey · earth + white (tube)"
+      "ace_note": "Schmincke Glacier Brown — Jul 7 batch. Same well as the 2ml.\n\nNot PW6. Official PBr6 + PG26. Fog is mineral split, not titanium milk. One seat with the sample.\n\nDual advice: one mist-mineral brown. Don't use it where you wanted burnt sienna depth or raw umber pine.",
+      "ace_history": "Same Glacier Brown sermon as the sample: Mars brown + cobalt chromite, Supergranulating 964.",
+      "toxicity": "medium",
+      "temp_role": "Warm mineral brown · Mars brown + cobalt chromite · Glacier climate · not milky earth",
+      "toxicity_habit": "Contains cobalt — wash hands after painting; keep food and drink off the palette."
     },
     {
       "transparency": 2,
       "lightfastness": 1,
       "granulating": true,
       "staining": false,
-      "pigment": "PBk7",
-      "notes": "Glacier series 5ml tube. Jul 7 batch.",
+      "pigment": "PBk11/PB35",
+      "notes": "Horadam Supergranulating 965 Glacier Black. Official PBk11 + PB35 (not PBk7).",
       "id": "sch-tube-965-glacier-black",
       "brand": "Schmincke",
       "code": "965",
@@ -4511,8 +4522,9 @@
       ],
       "ace_note": "Schmincke Glacier Black — granulating ice-dark. Check 5ml tube vs any 2ml sample twin in your set.\n\nPlay lab (granulation): Cleaner PBk7 story (no PV16 in the line) — cold charcoal sediment for ice shadows, stone, winter trees. Glacier series manners: texture without the violet hush of Deep Sea/Galaxy. Still not a free black for every mix.\n\nDual advice: third costume of the same specialty-black seat. Vs Ivory Black half-pan: Ivory is denser travel black; Glacier is tube grit for demos. One bone-black habit.",
       "ace_history": "Bone/ivory black in Glacier specialty milling — ice-name marketing, warm-historical black chemistry, granulating hobby.",
-      "toxicity": "low",
-      "temp_role": "Near-black ice · Straight bone black · granulating cold dark"
+      "toxicity": "medium",
+      "temp_role": "Near-black ice · Straight bone black · granulating cold dark",
+      "toxicity_habit": "Contains cobalt — wash hands after painting; keep food and drink off the palette."
     },
     {
       "transparency": 2,
@@ -6694,7 +6706,7 @@
       "name_en": "Sap Green",
       "name_zh": "树汁绿",
       "code": "700444-3",
-      "pigment": "PG7/PY150",
+      "pigment": "PR101/PY150/PG36",
       "hex": "#3D6B3A",
       "format": "5ml tube",
       "size": "5ml",
@@ -6703,14 +6715,14 @@
       "lightfastness": 1,
       "granulating": false,
       "staining": true,
-      "toxicity": "low",
+      "toxicity": "medium",
       "mix_star": true,
-      "notes": "QoR (Golden Artist Colors) Artist Watercolor 700444-3 Sap Green 5ml. Earth Colors set family. Studio batch 260808 photo.",
-      "ace_note": "Foliage convenience green — lively mid leaves.\n\nYour Q1 was: Phthalo + turquoise = icy trap; sap is the ready warm leaf so you don't remix every time. This tube is that answer. May Green is not that answer — May is first-leaf, lemon, April. Sap is tree-juice: warmer, a little dirtier, mid-summer hedge.\n\nThe yellow inside is the whole lesson. May uses PY3 (cool arylide lemon) → lime/spring. This sap uses PY150 (nickel azo) → quin-gold glow, olive, moss. Same \"phthalo + yellow\" shape, opposite seasons. That is the Hansa/Azo lesson applied to greens: same role family, not substitutes.\n\nRead the tube. Catalog says PG7/PY150. Golden's QoR page now lists PY150 + PG36 (yellow-shade phthalo — Helio's family). If you see PG36, this sap already leans sun-leaf; if PG7, it leans the engine. Either way the gold is nickel. Wash hands. Same metal family as Undersea's yellow half.\n\nAquazol (QoR) is not gum: high chroma, can dry a bit hard-edged. Brand mouthfeel, not a new pigment.\n\nPlay lab (May vs Sap): Same water, this beside any May pan. Sap should go gold-moss; May should go lime. If they match, you don't need both convenience greens — and your Q1 is already solved by the one that looks like your trees.\n\nDual advice: one gold-sap seat. Not a fourth May (Sch / WN / Rosa / Sen 817). vs 534 olive: factory hedge is orange + phthalo; sap is gold + phthalo. vs Undersea: Sap should stay married; Undersea is supposed to divorce.",
+      "notes": "QoR Sap Green. Golden official: PR101 + PY150 + PG36 (not catalog PG7/PY150). Nickel in PY150.",
+      "ace_note": "Foliage convenience green — lively mid leaves.\n\nYour Q1 was: Phthalo + turquoise = icy trap; sap is the ready warm leaf so you don't remix every time. This tube is that answer. May Green is not that answer — May is first-leaf, lemon, April. Sap is tree-juice: warmer, a little dirtier, mid-summer hedge.\n\nGolden's official QoR listing is PR101 + PY150 + PG36 (iron oxide + nickel azo + yellow-shade phthalo). Catalog PG7/PY150 was incomplete. The gold is nickel — wash hands. Aquazol is not gum: high chroma, can dry a bit hard-edged.\n\nPlay lab (May vs Sap): Same water, this beside any May pan. Sap should go gold-moss; May should go lime. If they match, you don't need both convenience greens.\n\nDual advice: one gold-sap seat. Not a fourth May. vs 534 olive: factory hedge is orange + phthalo; sap is gold + phthalo + a little iron. vs Undersea: Sap should stay married; Undersea is supposed to divorce.",
       "best_for": "Studio earth kit work and clean modern mixes.",
-      "ace_history": "Medieval sap green was buckthorn-berry lake — the juice of the plant, gorgeous and fugitive. Every \"permanent sap\" since the mid-20th century is a confession: we cannot sell you that lake, so we fake the warmth with phthalo and a modern gold-yellow. Nickel azo (PY150) is that gold. QoR is Golden putting it in Aquazol instead of gum arabic.",
-      "toxicity_habit": "Nickel azo (PY150) — wash hands after painting; keep food and drink off the palette.",
-      "temp_role": "Warm gold-leaf sap · Nickel azo + phthalo · the Q1 convenience · not May lemon"
+      "ace_history": "Medieval sap green was buckthorn-berry lake — gorgeous and fugitive. QoR's modern sap is Golden's Aquazol cut: nickel azo gold, yellow-shade phthalo, and a red iron oxide. Not a single historic juice.",
+      "toxicity_habit": "Contains nickel (azo/titanate) — wash hands after painting; keep food and drink off the palette.",
+      "temp_role": "Warm gold-leaf sap · Nickel azo + yellow-shade phthalo + iron oxide · not May lemon"
     },
     {
       "id": "qor-naples-yellow",
@@ -7225,7 +7237,7 @@
       "name_en": "Terre Verte",
       "name_zh": "绿土",
       "code": "637",
-      "pigment": "PG23",
+      "pigment": "PG23/PB28",
       "hex": "#6B8A6A",
       "format": "5ml tube",
       "size": "5ml",
@@ -7234,13 +7246,14 @@
       "lightfastness": 1,
       "granulating": true,
       "staining": false,
-      "toxicity": "low",
+      "toxicity": "medium",
       "mix_star": true,
-      "notes": "W&N Professional Water Colour 5ml Terre Verte (series ~1). Studio batch 260808 photo. Code from W&N catalog.",
-      "ace_note": "Soft mineral green — underpainting and quiet foliage.\n\nThis is the opposite of Phthalo. PG23 is green earth — celadonite and glauconite, iron in a clay silicate, dug since Rome (Verona, Cyprus). It barely tints. That is not a defect. Renaissance workshops (Cennini) laid a green-earth veil under faces — verdaccio — so warm flesh glazed on top would look like blood under skin, not a pink cutout. Medieval red lakes faded; the green earth stayed; that's why some old faces look seasick now.\n\nW&N still sell it as \"perfect for mixing flesh tones.\" In watercolor that means: a whisper under a cheek, a cool in a shadow that should not go blue, an olive drab that will not fight ochre. It will lose every fight with PG7. Don't ask it to.\n\nCheck the tube. Pure PG23 is so weak modern W&N often boosts with PG18 + PB28 (viridian + cobalt). If you see three indices, you have a polite mix, not peasant clay. Catalog single PG23 may be optimistic.\n\nvs Cobalt Deep (PG26): manufactured mutter, more body. vs Viridian (513): cooler, stronger, chromium glass. Terre verte is the dirt that was already green.\n\nPlay lab: A wash that looks like nothing. Glaze a warm flesh, ochre, or Potter's Pink over it. If the passage goes dusty-alive, you understood verdaccio. If you wanted a leaf, you opened Phthalo's opposite by mistake.\n\nDual advice: one green-earth seat. Not a foliage mixer. Not sap. If a later genuine single PG23 looks dirtier/weaker than this W&N, that is the historical one — then this tube is the boosted cousin.",
+      "notes": "W&N Professional Terre Verte 637. Official pigment code PB28 + PG23. WN states PG18 will be removed; older tubes may still list PG18.",
+      "ace_note": "Soft mineral green — underpainting and quiet foliage.\n\nThis is the opposite of Phthalo. W&N official code is PG23 + PB28 (green earth + cobalt blue). They state PG18 (viridian) will be removed; older tubes may still list it. So this is a boosted earth, not peasant clay alone. Still weak on purpose. Renaissance verdaccio: a green veil under flesh. It will lose every fight with PG7.\n\nPlay lab: A wash that looks like nothing. Glaze a warm flesh, ochre, or Potter's Pink over it. If the passage goes dusty-alive, you understood verdaccio.\n\nDual advice: one green-earth seat. Not a foliage mixer. Not sap. Cobalt in PB28: wash hands. Rare Green Earth (DS 181) is the iron-oxide cousin.",
       "best_for": "Professional tube work and classic British palette accents.",
-      "ace_history": "Among the oldest greens still sold. Fresco-safe, lime-safe, Pompeii-to-Giotto. Cennini wanted the green to show a little under the pink. The \"sickly medieval complexion\" is often just the lakes gone and the earth remaining. Weakness is the point.",
-      "temp_role": "Muted clay-green · Green earth (celadonite / glauconite) · verdaccio mixer · weak on purpose"
+      "ace_history": "Among the oldest greens still sold. W&N's current Professional tube is green earth plus cobalt (and, for now, maybe a last of viridian). Weakness is still the point.",
+      "temp_role": "Muted clay-green · Green earth + cobalt (PG23/PB28) · verdaccio mixer · weak on purpose",
+      "toxicity_habit": "Contains cobalt — wash hands after painting; keep food and drink off the palette."
     },
     {
       "id": "hb-lavender",
