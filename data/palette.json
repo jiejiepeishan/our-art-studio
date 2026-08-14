@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-13-green-pan-granulating-handwritten",
+  "updated": "2026-08-14-green-pan-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein)",
   "color_count": 248,
   "colors": [
@@ -870,9 +870,9 @@
       ],
       "transparency": 2,
       "lightfastness": 2,
-      "granulating": false,
+      "granulating": true,
       "staining": false,
-      "notes": "Smaragdgrün. PG18 on label, code 513. Color-check Jul 8 2026 — full-pan sleeve photo.",
+      "notes": "Smaragdgrün / Viridian. PG18 single pigment, code 513. Modern hydrated chromium oxide — not Victorian arsenic emerald.",
       "id": "sch-fp-513-emerald-green",
       "brand": "Schmincke",
       "name_en": "Emerald Green",
@@ -882,10 +882,10 @@
       "hex": "#2E8B57",
       "format": "full pan",
       "family": "green",
-      "ace_note": "Classic emerald — cooler than phthalo, calmer than viridian. Foliage with good manners.",
-      "ace_history": "Emerald green (PG18) echoes the toxic Victorian copper arsenite name — modern versions give safe, cool emerald passages for botanical illustrators. Horadam milling aims for creamy rewet and control.",
+      "ace_note": "Classic emerald — cooler than phthalo, calmer than viridian. Foliage with good manners.\n\nThat line mixed \"emerald\" and \"viridian\" as if they differed. On this pan they are the same soul: German Smaragdgrün, English often Viridian or Emerald Green, pigment PG18.\n\nNot the Victorian poison. Old \"emerald green\" meant copper arsenite (Scheele / Paris green) — beautiful and deadly. Modern PG18 is hydrated chromium oxide, invented mid-19th century as a safer transparent cool green. Chromium compound still: wash hands; not a snack. Not Scheele.\n\nWhy it exists next to Phthalo: PG7 is a 1935 mixing monster — staining, smooth, eats the sketch. PG18 is the older landscape manners: weaker tinting strength, often granulating, non-staining / liftable, blue-green and polite. Sargent's parasol green lived here, not in phthalocyanine.\n\nBehavior: can need a little more pre-wet than organics when the pan is bone dry. Rewards patience. Will not replace Phthalo as an engine; will not stain a white blossom the same way.\n\nPlay lab (lift / sediment): Wet wash, let it sit, try a clean damp lift. If it lifts cleaner than Phthalo, that's why botanical painters kept viridian. If it granulates, that is the pigment talking.\n\nDual advice: one PG18 well. Not a second Phthalo. Not Helio. Cobalt Deep (PG26) is a different quiet — mineral spinel mutter vs chromium glass-green. Travel: Phthalo or Viridian for cool green, not both unless you paint both \"mix loud\" and \"atmosphere soft.\"",
+      "ace_history": "Viridian (PG18) is 19th-century hydrated chromium oxide — the answer to \"we need a permanent transparent green that isn't arsenic.\" The name Emerald / Smaragdgrün is poetry stolen from a poison. Phthalo (1935) later stole the job for mixing power; viridian kept the job for texture and lift. Horadam 513 is the real single-pigment seat, not a \"viridian hue\" (often secret PG7).",
       "toxicity": "low",
-      "temp_role": "Cool green · Green — convenience or mixer"
+      "temp_role": "Cool historical green · Hydrated chromium oxide (PG18 / viridian) · quiet foliage · not phthalo"
     },
     {
       "brand_traits": [
@@ -3125,10 +3125,10 @@
         "white-nights",
         "russian"
       ],
-      "ace_note": "May green — spring leaves, mixing green.",
-      "ace_history": "May green (PY3/PG7) is the European spring foliage mixture — named for May leaves, standard on French and Russian plein-air palettes since tube greens proliferated.",
+      "ace_note": "May green — spring leaves, mixing green.\n\nSame homework as Schmincke May Green half-pan. Cool yellow (PY3) already married to PG7. First-leaf, lawn, beech in May — not olive, not pine night, not teal. It is a green with a lemon inside.\n\nYou already own this seat in German. White Nights is the Russian faucet — often a bit more \"pan paint\" body, sometimes a touch yellower or softer depending on the batch. Not a new primary. Same role as Sch May; small behavior differences (body, rewet, how loud the phthalo is).\n\nBehavior: convenience; gentler than pure PG7. Don't flood white petals. Will not do 534's orange-olive hedge.\n\nDual advice: one PG7+cool-yellow leaf seat among Sch May HP · this WN pan · Rosa Grass · Sennelier Green · Shire Olive 2ml. Three pans of May is a museum of spring, not a palette. Keep the one whose rewet you like.",
+      "ace_history": "\"May green\" is European convenience naming for first-leaves, not a mineral. PY3 is 20th-century arylide lemon; PG7 is the 1935 engine. St. Petersburg bottles the same modern shortcut under a plein-air romance.",
       "toxicity": "low",
-      "temp_role": "Cool yellow · Cool lemon primary yellow"
+      "temp_role": "Warm-leaning spring leaf · Arylide lemon + phthalo (PY3/PG7) · convenience sap · same seat as Sch May"
     },
     {
       "transparency": 2,
@@ -3352,10 +3352,10 @@
         "rosa",
         "ukrainian"
       ],
-      "ace_note": "Grass Green brings cool yellow energy to the tin — worth knowing by temperature, not just by pretty swatch.",
-      "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch.",
+      "ace_note": "Grass Green brings cool yellow energy to the tin — worth knowing by temperature, not just by pretty swatch.\n\nSame molecules, different passport. Rosa's grass is the leaf seat again — PG7 + PY3, often a bit more yellow-chartreuse in the well than \"May\" marketing. The \"cool yellow energy\" is the lemon talking; the family is still green.\n\nIf Sch May + WN May + Rosa Grass all stay, you have three answers to \"I need spring.\" That is the opposite of ruthless. Swatch them in a row: the one that matches the grass outside your window wins; the others are spares or trade bait.\n\nBehavior: single-pan Rosa — check rewet vs Horadam. Same dual logic as White Nights May.\n\nDual advice: folds into the one leaf seat (Sch May · WN May · Rosa Grass). Not a substitute for Emerald (historical quiet). Not a substitute for 534 (orange-olive). Not Aquarius (undersea separation).",
+      "ace_history": "Rosa Gallery is Kyiv's student-to-pro line; Grass Green is the local name for the same 20th-century leaf convenience every European catalog reinvented. Phthalo + cool yellow, sold as lawn.",
       "toxicity": "low",
-      "temp_role": "Cool yellow · Cool lemon primary yellow"
+      "temp_role": "Warm-leaning grass leaf · Phthalo + arylide lemon (PG7/PY3) · Ukrainian spring convenience · same leaf seat"
     },
     {
       "transparency": 2,
@@ -3463,10 +3463,10 @@
     {
       "transparency": 2,
       "lightfastness": 1,
-      "granulating": false,
+      "granulating": true,
       "staining": false,
-      "pigment": "PG7/PBr7",
-      "notes": "Jun 28 batch.",
+      "pigment": "PY150/PBr25/PB29",
+      "notes": "Roman Szmal Aquarius Green 346. Official PY150/PBr25/PB29 (Undersea family) — not catalog PG7/PBr7. Cousin of DS Undersea Green.",
       "id": "rs-346",
       "brand": "Roman Szmal",
       "name_en": "Aquarius Green",
@@ -3480,10 +3480,10 @@
         "roman-szmal",
         "polish"
       ],
-      "ace_note": "Aquarius green — muted olive, Polish landscape mist.",
-      "ace_history": "Aquarius green is Roman Szmal's muted olive — Polish landscape tradition favors quiet greens that match Central European fields, not Mediterranean lime.",
+      "ace_note": "Aquarius green — muted olive, Polish landscape mist.\n\nCatalog lie (big one): this is not PG7 + PBr7 earth-olive. Charts list Aquarius Green 346 as PY150 (nickel azo yellow) + PBr25 (benzimidazolone brown) + PB29 (ultramarine). That is the Undersea Green family — yellow + blue + a brown ballast — not phthalo green stained with iron earth.\n\nYou already own Daniel Smith Undersea Green (PB29/PY150, tube, granulating). Aquarius is the Polish cousin: often a touch darker/earthier (the PBr25), famous for separation — ultramarine flocks, yellow-brown halo.\n\nWhy the old note said olive: muted landscape green looks olive in the well. Chemistry is undersea/kelp/wet field, not Desert Green's PG7+PBr7.\n\nBehavior: honey-bound Aquarius pans stay a bit soft. Staining organics + granulating ultramarine = don't scrub whites. Not a May leaf. Not a 534 hedge.\n\nPlay lab (separation): Wet cold-press, drop, don't stir. Look for blue grit vs warm green-gold. If nothing splits, still paint with it — but then it's a quieter convenience, not DS-undersea theatre.\n\nDual advice: one undersea/separated-green seat. Aquarius or DS Undersea — manners contest. Do not dual it with Desert Green / Rare Earth (true PG7+PBr7) as if they were twins; different recipes. vs 534: orange+phthalo olive vs nickel-azo+ultramarine undersea.",
+      "ace_history": "Roman Szmal (Kraków) builds Aquarius for European landscape painters who want granulating convenience without Seattle prices. Undersea-type greens are late-20th-century \"we mixed quin-gold / nickel azo with ultramarine so the sea floor paints itself.\" The name Aquarius is zodiac theatre; the pigments are the lesson. Catalog PG7/PBr7 was an enrich guess — retired.",
       "toxicity": "low",
-      "temp_role": "Cool green · Cool staining phthalo green"
+      "temp_role": "Warm-cool separated landscape green · Nickel azo + permanent brown + ultramarine · undersea/kelp cousin · granulating split"
     },
     {
       "transparency": 2,
@@ -6920,9 +6920,10 @@
       "toxicity": "low",
       "mix_star": true,
       "notes": "Horadam 534 Permanent Green Olive (Permanentgrün Oliv) PO62/PG7. Full pan + half-pan merged (deleted ghost id sch-hp-permanent-green-olive / old 575).",
-      "ace_note": "Olive foliage mixer — warmer than pure phthalo green, ready for trees.",
+      "ace_note": "Olive foliage mixer — warmer than pure phthalo green, ready for trees.\n\nThe permanent sermon. Official Horadam 534 is PO62 (benzimidazolone orange — modern lightfast orange) + PG7. Schmincke's pitch: lightfast alternative to old fugitive Olive Green (515). Not dirt-olive (PG7+PBr7). Not undersea. Phthalo stained with orange so the leaf goes hedge, khaki, military, late summer — warmer than May's first-leaf.\n\nHalf-pan + full pan already merged. One well, two faucets.\n\nBehavior: staining (phthalo half). Convenience mixer — star for a reason. Will not granulate like viridian. Will not separate like Aquarius.\n\nPlay lab (temperature vs May): Same dilution, 534 beside Sch or WN May. Olive should read browner/warmer/hedge; May should read spring/lime. If they look identical on your paper, you don't need both convenience greens.\n\nDual advice: one orange-olive seat — this is it. Desert Green / Rare Earth (PG7+PBr7) are earth-olive, different theology; keep at most one of those in samples. vs Aquarius: not the same. vs May/Grass: spring vs hedge — teammates only if both swatches earn a job.",
       "best_for": "Landscape greens, olive foliage, and muted botanical mid-tones.",
-      "ace_history": "Permanent greens are modern convenience mixes — orange + phthalo for olive without reinventing the wheel each session."
+      "ace_history": "\"Olive green\" on 19th-century palettes was often a soup and sometimes a weak one. \"Permanent\" on a Horadam label means we rebuilt the olive with lightfast organics. PO62 is late-century benzimidazolone orange; married to PG7 it fakes the hedgerow without fugitive lakes. Two theologies of olive: stain phthalo with earth (painter's old trick) or with orange (factory permanent). This pan is the factory.",
+      "temp_role": "Warm muted olive · Benzimidazolone orange + phthalo (PO62/PG7) · lightfast hedge · landscape middle · ◈"
     },
     {
       "id": "sch-fp-359-saturn-red",
