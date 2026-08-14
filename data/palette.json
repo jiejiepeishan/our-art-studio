@@ -1,7 +1,7 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-08-14-green-tube-mix-handwritten",
+  "updated": "2026-08-14-green-tube-rest-handwritten",
   "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein)",
   "color_count": 248,
   "colors": [
@@ -3926,10 +3926,10 @@
         "professional",
         "sennelier"
       ],
-      "ace_note": "Bottle emerald — lush, straightforward foliage green.",
-      "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch.",
+      "ace_note": "Bottle emerald — lush, straightforward foliage green.\n\nFrench Vert émeraude 707 is not the emerald you already wrote (Sch 513, PG18 viridian). It is phthalo in honey, looking lush in the well because honey makes jewelry of everything. The name is the same trap as student \"viridian hue.\"\n\nDual advice: not a twin of 513. Is a twin of 519 / Graham / WN BS. One engine. If you keep a Sennelier green tube, prefer 807 Deep (actually a different recipe) over this fake emerald.",
+      "ace_history": "Émeraude on a série 1 tube is a 19th-century word glued to a 1935 dye. Real emerald green was arsenic. Real viridian is chromium hydrate. This is neither.",
       "toxicity": "low",
-      "temp_role": "Cool green · Cool staining phthalo green"
+      "temp_role": "Cool staining mixing green · PG7 wearing émeraude · not viridian"
     },
     {
       "transparency": 2,
@@ -3951,10 +3951,10 @@
         "professional",
         "sennelier"
       ],
-      "ace_note": "House green — proprietary blend, try it against May Green.",
-      "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch.",
+      "ace_note": "House green — proprietary blend, try it against May Green.\n\nThere is no house secret. PG7+PY3 is Sch May, WN May, Rosa Grass. This is the honey-tube faucet of April leaf. It is a green with a lemon inside.\n\nIf you can mix it from Phthalo + cool yellow, or you already kept a May pan, this tube is dessert.\n\nDual advice: one leaf seat. Not sap (gold/nickel). Not 534 (orange olive).",
+      "ace_history": "Every European catalog bottled \"our green\" as phthalo + cool yellow once PG7 existed. Sennelier put their name on the marriage.",
       "toxicity": "low",
-      "temp_role": "Cool yellow · Cool lemon primary yellow"
+      "temp_role": "Warm-leaning spring leaf · PG7 + arylide lemon · honey May · same seat as the pans"
     },
     {
       "transparency": 2,
@@ -4368,8 +4368,8 @@
       "lightfastness": 1,
       "granulating": true,
       "staining": false,
-      "pigment": "PG7/PB29",
-      "notes": "Deep Sea series 5ml tube. Jul 7 batch.",
+      "pigment": "PG18/PB29",
+      "notes": "Horadam Supergranulating 954 Deep Sea Green. Official PG18 + PB29 (not PG7/PB29). Viridian + French ultramarine.",
       "id": "sch-tube-954-deep-sea-green",
       "brand": "Schmincke",
       "code": "954",
@@ -4383,10 +4383,10 @@
         "professional",
         "horadam"
       ],
-      "ace_note": "Schmincke Deep Sea Green — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.",
-      "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch. Horadam milling aims for creamy rewet and control.",
+      "ace_note": "Schmincke Deep Sea Green — Jul 7 batch. Check 5ml tube vs any 2ml sample twin in your set.\n\nPhthalo cannot supergranulate. Catalog PG7/PB29 is the same kind of enrich lie as Glacier's old PG7/PW6. Official 954 is PG18 (viridian) + PB29 (ultramarine) — a granulating turquoise. You already own both halves: Emerald 513 and ultramarine. This tube is the marriage as weather: chromium-green grit one way, soda-fired blue flocks the other.\n\nReviewers sometimes say the Deep Sea set's \"green\" is barely green — more teal-blue. Believe the split, not the word Green.\n\nvs Sen 807: two dyes, smooth ink. vs Glacier: cobalt teal + Potter's Pink (ice-rose). vs Undersea: gold floats, ultramarine sinks (kelp). vs Cascade: earth + phthalo blue (pine). Four splitters, four marriages. This one is the nineteenth-century pair in a twenty-first-century climate bottle.\n\nPlay lab: Wet cold-press, tilt, walk away. Name the green grit vs the blue flocks. Stir it and you paid Supergranulating prices for teal soup.\n\nDual advice: one viridian+ultramarine weather seat. Emerald 513 stays the quiet single. Don't also stack a later \"Hooker's\" that's secretly the same two pigments.",
+      "ace_history": "Deep Sea is Schmincke climate poetry (with Glacier, Galaxy…). Viridian = mid-19th-c. hydrated chromium oxide, the safe answer to arsenic emerald. Ultramarine = 1820s French synthetic lapis. Neither is phthalo. The catalog guessed PG7 because the wash looks teal. Supergranulation requires two granulating pigments. Trust 954.",
       "toxicity": "low",
-      "temp_role": "Warm blue · Cool staining phthalo green · granulating"
+      "temp_role": "Cool teal weather · Viridian + French ultramarine · Deep Sea climate · not phthalo"
     },
     {
       "transparency": 2,
@@ -4853,10 +4853,10 @@
         "professional",
         "premium"
       ],
-      "ace_note": "DS holiday Christmas Tree Green — festive 15ml, paint something ridiculous and beautiful.",
-      "ace_history": "PBr7 covers raw and burnt earths — iron-rich clays, sometimes with manganese in umbers. Roasting (calcining) swings the same family from cool espresso to warm red-brown.",
+      "ace_note": "DS holiday Christmas Tree Green — festive 15ml, paint something ridiculous and beautiful.\n\nSame marriage as Cascade and Taiga: no green pigment — dirt + phthalo blue. The 15ml and the Santa name are how DS sells extra milliliters of a seat you already starred. Fun. Not a fourth pine.\n\nCatalog granulating flag is suspicious. Earth + PB15 usually sediments. If your wash flocks, trust the paper. This tube is not a burnt-sienna lesson.\n\nPlay lab: Beside Cascade, same water. If Christmas is quieter/smoother, it's the party dress of the same recipe. If it splits the same, one pine well.\n\nDual advice: one earth+blue pine. Keep the 15ml only if Cascade's 5ml actually runs out.",
+      "ace_history": "Limited-edition greens are often remixes. Christmas Tree is PBr7+PB15 in a festive dress. The Cascades and the taiga were here first.",
       "toxicity": "low",
-      "temp_role": "Cool blue · Natural/synthetic iron earth brown"
+      "temp_role": "Cool pine-earth green · Iron earth + phthalo blue · holiday 15ml · same pine as Cascade"
     },
     {
       "transparency": 2,
@@ -4950,10 +4950,10 @@
         "professional",
         "winsor-newton"
       ],
-      "ace_note": "W&N Professional Winsor Green (Blue Shade) — classic British workhorse in 5ml.",
-      "ace_history": "Phthalo green (PG7) revolutionized mixing in the 20th century — one touch turns yellows into vivid leaf; respect the ratio or it eats the sketch.",
+      "ace_note": "W&N Professional Winsor Green (Blue Shade) — classic British workhorse in 5ml.\n\nThe useful word on the tube is Blue Shade. W&N split phthalo green the honest way: BS = PG7, YS = PG36. You already own YS as Helio 514. This 5ml is the British engine — often a little more staining/transparent-feeling than honey, famous for dyeing the rinse water. \"Winsor\" is a house crown, not a pigment.\n\nDual advice: folds into one PG7. Keep this 5ml only if you like British rewet better than Horadam or honey. Pair with Helio if you want both shades; don't buy a second BS.",
+      "ace_history": "W&N stamped industrial phthalos with the Winsor name (Green, Blue, Violet…). Blue Shade vs Yellow Shade is the only distinction that survived the marketing.",
       "toxicity": "low",
-      "temp_role": "Cool green · Cool staining phthalo green · staining · transparent"
+      "temp_role": "Cool staining mixing green · PG7 · British workhorse · blue-shade = not Helio"
     },
     {
       "transparency": 1,
@@ -5818,10 +5818,10 @@
       "staining": true,
       "toxicity": "low",
       "notes": "Chlorinated copper phthalocyanine (PG7). LF I, transparent, staining. Series 2. Blue-shade phthalo green. Tube/label photo Jul 10 2026.",
-      "ace_note": "Boss green — one molecule of this dyes the whole party. Whisper-light for jewel glazes; heavy-handed and it owns the mix. Honey keeps it friendly on the palette.",
+      "ace_note": "Boss green — one molecule of this dyes the whole party. Whisper-light for jewel glazes; heavy-handed and it owns the mix. Honey keeps it friendly on the palette.\n\nYou already have the engine (Sch 519 + the half-pan). This is the open jar. Honey + 15ml means it stays scoopable on the palette for a long session. That is a studio habit, not a new green. If you paint large and hate rewetting a half-pan, this is the rational PG7. If you don't, it is a monument.\n\nIt will still do the pyrrol chromatic-black trick. It will still eat a mix. Honey does not tame the stain — it only keeps the puddle from turning to stone overnight.\n\nPlay lab: Leave a pea on the palette overnight. Mist it. If it reopens like jam, that's why people buy Graham. Then forget the brand and dose it like 519.\n\nDual advice: one PG7. This or Sch tube or the pan in the daily tin. Don't keep Graham and Sennelier 707 \"because both are honey.\"",
       "mix_star": true,
       "best_for": "Tropical foliage, teal waters with yellow, and staining underlayers that won't lift.",
-      "ace_history": "Phthalo green (PG7) is a mid-20th-century industrial pigment that watercolorists adopted for unmatched intensity — the modern stand-in for weaker historical greens.",
+      "ace_history": "Same 1935 Monastral green. M. Graham's contribution is walnut-honey binder — West-coast handling of an industrial dye. The 15ml is the American studio size.",
       "mix_tips": [
         {
           "with": [
@@ -5838,7 +5838,7 @@
           "verified": false
         }
       ],
-      "temp_role": "Cool green · Cool staining phthalo green · ◈ mixer · staining · transparent"
+      "temp_role": "Cool staining mixing green · PG7 · honey studio barrel · same engine as Sch 519"
     },
     {
       "id": "mg-192-ultramarine-pink",
@@ -6033,10 +6033,10 @@
       "staining": true,
       "toxicity": "low",
       "notes": "Vert Anglais Foncé / Phthalo Green Deep. PG7 + PB15:3 per Sennelier. Série 1. Transparent, strong tinting, staining. Tube photo Jul 10-2 2026 — 10ml l'Aquarelle.",
-      "ace_note": "Deep teal-leaning boss green — English green by name, phthalo by personality. One drop dyes foliage forever; honey keeps it creamy on the palette.",
+      "ace_note": "Deep teal-leaning boss green — English green by name, phthalo by personality. One drop dyes foliage forever; honey keeps it creamy on the palette.\n\nThis is the one Sennelier green that earns a card. Extra PB15:3 (phthalo blue, green-shade) yanks PG7 toward ink-teal / bottle green. Cooler and duskier than 519. Still a dye. Still not viridian, not Deep Sea (minerals), not Cascade (earth+blue).\n\n\"Vert Anglais Foncé\" is a French memory of British bottle greens — shop windows, railings, the Channel — rebuilt with two phthalos. Verdigris energy without copper acetate.\n\nPlay lab: Same dilution beside Sch 519. Deep should read bluer, more spruce-night. If they match, you don't need the cousin.\n\nDual advice: one teal-phthalo. vs Deep Sea 954: dye teal vs viridian+ultramarine weather. vs Helio: opposite bias (blue-deep vs yellow-sun).",
       "mix_star": true,
       "best_for": "Deep foliage, tropical shadows, teal waters, and staining greens that won't lift.",
-      "ace_history": "Sennelier's Phthalo Green Deep blends PG7 with a touch of phthalo blue for a cooler, deeper green than single-pigment phthalo green — a modern stand-in for historical verdigris energy without the toxicity.",
+      "ace_history": "Sennelier stacked two Monastral cousins (green + blue) and called it English green deep. Modern stand-in for historical copper greens, minus the poison.",
       "mix_tips": [
         {
           "with": [
@@ -6053,7 +6053,7 @@
           "verified": false
         }
       ],
-      "temp_role": "Cool blue · Cool staining green powerhouse · ◈ mixer · staining · transparent"
+      "temp_role": "Cool teal-deep mixing green · PG7 + phthalo blue · Vert Anglais Foncé · cousin, not a fifth engine"
     },
     {
       "id": "sch-hp-940-brilliant-red-violet",
