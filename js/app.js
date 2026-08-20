@@ -1,24 +1,41 @@
-let palette = { colors: [] };
-let basePalette = { colors: [] };
-let selectedMixSlots = [null, null, null];
-let mixPickerBuilt = false;
-let mixPickerStarsOnly = false;
-let variantIndex = new Map();
-let detailColor = null;
-let editingColorId = null;
-
 const STORAGE = StudioData.STORAGE;
 
-/** Creative Fun: multi-kit pool + intention mode */
-let creativePoolKitIds = [];
-let creativeMode = "play"; // play | mix | temp | complement
-let creativeDrawIds = [];
+/** Live studio state — search `state.` to see reads/writes (step 2). */
+const state = {
+  palette: { colors: [] },
+  basePalette: { colors: [] },
+  selectedMixSlots: [null, null, null],
+  mixPickerBuilt: false,
+  mixPickerStarsOnly: false,
+  variantIndex: new Map(),
+  detailColor: null,
+  editingColorId: null,
+  creativePoolKitIds: [],
+  creativeMode: "play", // play | mix | temp | complement
+  creativeDrawIds: [],
+  userData: { removed: [], added: [], overrides: {} },
+  kits: [],
+  activeKitId: null,
+  kitFillSlotIndex: null,
+  kitWheel: { a: null, b: null, nextTap: "a", drag: null },
+  kitWellEditMode: false,
+  waterLabColorId: null,
+  practiceShuffleNonce: 0,
+  paletteReadOpenOverride: null,
+  paletteReadKitId: null,
+  syncApiAvailable: false,
+  skipNextSyncPush: false,
+  syncPushTimer: null,
+  localSyncRevision: 0,
+  brandStories: [],
+  selectedBrandId: null,
+};
 
 const SYNC_BUNDLE_VERSION = StudioData.SYNC_BUNDLE_VERSION;
 /** Soft ceiling so a kit doesn’t grow forever; wells are added/removed on the fly */
 const KIT_SLOT_MAX = 36;
 /** Bump with sw.js CACHE (+ index chip) when shipping UI/data */
-const APP_VERSION = "146";
+const APP_VERSION = "147";
 
 /** Resolve assets for GitHub project pages and local server */
 function appBasePath() {
@@ -70,34 +87,16 @@ const HOME_DEFAULT_SLOTS = [
   "ds-moonglow",
 ];
 
-let userData = { removed: [], added: [], overrides: {} };
-let kits = [];
-let activeKitId = null;
-let kitFillSlotIndex = null;
-/** Kit mix wheel: color ids snapped to active kit */
-let kitWheelA = null;
-let kitWheelB = null;
-let kitWheelNextTap = "a";
-let kitWheelDrag = null; // { which: 'a'|'b', pointerId }
-/** iOS-style jiggle mode for removing pans from spectrum */
-let kitWellEditMode = false;
-/** Water lab: selected practice color id (must stay in active kit) */
-let waterLabColorId = null;
-/** Extra entropy for Practice card shuffle (0 = daily seed only) */
-let practiceShuffleNonce = 0;
-/**
- * Ace’s palette read open state:
- * null = auto (open when teaching gaps, collapsed when solid)
- * true/false = user override until kit switch
- */
-let paletteReadOpenOverride = null;
-let paletteReadKitId = null;
-let syncApiAvailable = false;
-let skipNextSyncPush = false;
-let syncPushTimer = null;
-let localSyncRevision = 0;
-let brandStories = [];
-let selectedBrandId = null;
+function setActiveKit(id) {
+  state.activeKitId = id;
+  state.kitWellEditMode = false;
+  state.paletteReadOpenOverride = null;
+  state.paletteReadKitId = id || null;
+  state.kitWheel.a = null;
+  state.kitWheel.b = null;
+  state.kitWheel.drag = null;
+  state.waterLabColorId = null;
+}
 
 const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => document.querySelectorAll(sel);
@@ -136,21 +135,21 @@ async function init() {
     10000
   );
   if (!res.ok) throw new Error(`Could not load palette (${res.status})`);
-  basePalette = await res.json();
-  if (!basePalette.colors || !basePalette.colors.length) {
+  state.basePalette = await res.json();
+  if (!state.basePalette.colors || !state.basePalette.colors.length) {
     throw new Error("Palette is empty");
   }
-  palette =
+  state.palette =
     typeof structuredClone === "function"
-      ? structuredClone(basePalette)
-      : JSON.parse(JSON.stringify(basePalette));
+      ? structuredClone(state.basePalette)
+      : JSON.parse(JSON.stringify(state.basePalette));
   loadUserData();
   applyUserChanges();
 
   const nameEl = $("#studio-name");
   const nameZhEl = $("#studio-name-zh");
-  if (nameEl) nameEl.textContent = palette.studio_name || "Our Art Studio";
-  if (nameZhEl) nameZhEl.textContent = palette.studio_name_zh || "";
+  if (nameEl) nameEl.textContent = state.palette.studio_name || "Our Art Studio";
+  if (nameZhEl) nameZhEl.textContent = state.palette.studio_name_zh || "";
   updatePaletteMeta();
   renderCaveats();
   buildVariantIndex();
@@ -280,7 +279,7 @@ function initVersionChip() {
 function renderCaveats() {
   const list = $("#caveats-list");
   const banner = $("#caveats-banner");
-  const items = palette.caveats || [];
+  const items = state.palette.caveats || [];
   if (!list) return;
   if (!items.length) {
     if (banner) banner.hidden = true;
@@ -299,13 +298,13 @@ function renderCaveats() {
 function updatePaletteMeta() {
   const meta = $("#palette-meta");
   if (!meta) return;
-  const base = `${palette.colors.length} colors`;
-  const custom = userData.added.length;
-  const edited = Object.keys(userData.overrides).length;
+  const base = `${state.palette.colors.length} colors`;
+  const custom = state.userData.added.length;
+  const edited = Object.keys(state.userData.overrides).length;
   const bits = [base];
   if (custom) bits.push(`${custom} yours`);
   if (edited) bits.push(`${edited} edited`);
-  bits.push(`updated ${palette.updated || basePalette.updated || "today"}`);
+  bits.push(`updated ${state.palette.updated || state.basePalette.updated || "today"}`);
   meta.textContent = bits.join(" · ");
 }
 
@@ -314,7 +313,7 @@ function resetFilterSelect(sel, firstLabel) {
 }
 
 function populateBrandFilter() {
-  const brands = [...new Set(palette.colors.map((c) => c.brand))].sort();
+  const brands = [...new Set(state.palette.colors.map((c) => c.brand))].sort();
   const sel = $("#brand-filter");
   if (!sel) return;
   brands.forEach((b) => {
@@ -327,21 +326,21 @@ function populateBrandFilter() {
 
 function populateFamilyFilter() {
   const sel = $("#family-filter");
-  const families = [...new Set(palette.colors.map((c) => c.family).filter(Boolean))].sort();
+  const families = [...new Set(state.palette.colors.map((c) => c.family).filter(Boolean))].sort();
   families.forEach((f) => {
     const opt = document.createElement("option");
     opt.value = f;
     opt.textContent = f.charAt(0).toUpperCase() + f.slice(1);
     sel.appendChild(opt);
   });
-  const granCount = palette.colors.filter((c) => c.granulating).length;
+  const granCount = state.palette.colors.filter((c) => c.granulating).length;
   if (granCount) {
     const gran = document.createElement("option");
     gran.value = "_granulating";
     gran.textContent = `✦ Granulating (${granCount})`;
     sel.appendChild(gran);
   }
-  const mixCount = palette.colors.filter((c) => c.mix_star).length;
+  const mixCount = state.palette.colors.filter((c) => c.mix_star).length;
   if (mixCount) {
     const mix = document.createElement("option");
     mix.value = "_mix_star";
@@ -367,7 +366,7 @@ function populateFamilyFormSelect() {
   const current = sel.value;
   const families = [
     ...new Set(
-      (palette.colors || [])
+      (state.palette.colors || [])
         .map((c) => (c.family || "").trim())
         .filter(Boolean)
     ),
@@ -447,7 +446,7 @@ function matchesFormatFilter(c, format) {
 function populateFormatFilter() {
   const sel = $("#format-filter");
   const counts = Object.fromEntries(FORMAT_FILTER_OPTIONS.map((o) => [o.value, 0]));
-  palette.colors.forEach((c) => {
+  state.palette.colors.forEach((c) => {
     formatCategories(c).forEach((cat) => {
       if (counts[cat] !== undefined) counts[cat] += 1;
     });
@@ -485,7 +484,7 @@ function filteredColors() {
   const family = $("#family-filter").value;
   const toxicity = $("#toxicity-filter")?.value || "";
   const format = $("#format-filter")?.value || "";
-  const filtered = palette.colors.filter((c) => {
+  const filtered = state.palette.colors.filter((c) => {
     if (brand && c.brand !== brand) return false;
     if (family === "_granulating") {
       if (!c.granulating) return false;
@@ -510,11 +509,11 @@ function saveStoredIds(key, ids) {
 }
 
 function loadUserData() {
-  userData = StudioData.loadUserData();
+  state.userData = StudioData.loadUserData();
 }
 
 function saveUserData() {
-  StudioData.saveUserData(userData);
+  StudioData.saveUserData(state.userData);
 }
 
 function mergeColorEntry(base, override) {
@@ -522,9 +521,9 @@ function mergeColorEntry(base, override) {
 }
 
 function applyUserChanges() {
-  const next = StudioData.applyUserChanges(basePalette, userData);
-  palette.colors = next.colors;
-  palette.color_count = next.color_count;
+  const next = StudioData.applyUserChanges(state.basePalette, state.userData);
+  state.palette.colors = next.colors;
+  state.palette.color_count = next.color_count;
 }
 
 function persistPaletteChanges() {
@@ -533,40 +532,40 @@ function persistPaletteChanges() {
   buildVariantIndex();
   updatePaletteMeta();
   rebuildFilters();
-  mixPickerBuilt = false;
+  state.mixPickerBuilt = false;
   loadUserLists();
   loadKits();
   renderPalette();
   renderKits();
   updateTabBadges();
   if ($("#panel-mix").classList.contains("active")) ensureMixPicker();
-  if (brandStories.length) renderBrandChips();
-  if (!skipNextSyncPush) scheduleSyncPush();
-  skipNextSyncPush = false;
+  if (state.brandStories.length) renderBrandChips();
+  if (!state.skipNextSyncPush) scheduleSyncPush();
+  state.skipNextSyncPush = false;
 }
 
 function buildSyncBundle() {
-  localSyncRevision += 1;
+  state.localSyncRevision += 1;
   return StudioData.buildSyncBundle({
-    userData,
-    kits,
-    activeKitId,
-    revision: localSyncRevision,
+    userData: state.userData,
+    kits: state.kits,
+    activeKitId: state.activeKitId,
+    revision: state.localSyncRevision,
   });
 }
 
 function applySyncBundle(bundle) {
   const next = StudioData.readSyncBundle(bundle);
   if (!next) return false;
-  userData = next.userData;
+  state.userData = next.userData;
   if (next.kits) {
-    kits = next.kits.map(normalizeKit);
-    activeKitId = next.activeKitId || kits[0]?.id || null;
+    state.kits = next.kits.map(normalizeKit);
+    state.activeKitId = next.activeKitId || state.kits[0]?.id || null;
     saveKits();
   }
-  if (next.revision) localSyncRevision = Math.max(localSyncRevision, next.revision);
+  if (next.revision) state.localSyncRevision = Math.max(state.localSyncRevision, next.revision);
   if (next.updatedAt) StudioData.setLastSyncedAt(next.updatedAt);
-  skipNextSyncPush = true;
+  state.skipNextSyncPush = true;
   persistPaletteChanges();
   return true;
 }
@@ -610,7 +609,7 @@ function setSyncStatus(message, tone = "") {
 function updateSyncOfflineReminder() {
   const el = $("#sync-offline-reminder");
   if (!el) return;
-  if (syncApiAvailable) {
+  if (state.syncApiAvailable) {
     el.hidden = true;
     el.innerHTML = "";
     return;
@@ -622,9 +621,9 @@ function updateSyncOfflineReminder() {
 function applySyncStatusLine() {
   const saved = getSavedPassphrase();
   const last = StudioData.getLastSyncedAt();
-  if (syncApiAvailable && saved) {
+  if (state.syncApiAvailable && saved) {
     setSyncStatus(`Auto-sync on · last ${formatSyncTime(last)}`, "ok");
-  } else if (syncApiAvailable) {
+  } else if (state.syncApiAvailable) {
     setSyncStatus("Auto-sync ready — set a passphrase on each device.", "ok");
   } else {
     setSyncStatus("Not syncing right now — your changes stay on this device until the server is back.", "warn");
@@ -632,7 +631,7 @@ function applySyncStatusLine() {
 }
 
 async function refreshSyncPanel() {
-  syncApiAvailable = await checkSyncApi();
+  state.syncApiAvailable = await checkSyncApi();
   updateSyncOfflineReminder();
   applySyncStatusLine();
 }
@@ -652,7 +651,7 @@ async function pullRemoteSync({ quiet = false } = {}) {
     if (!quiet) setSyncStatus("Set a sync passphrase first.", "warn");
     return false;
   }
-  if (!syncApiAvailable) {
+  if (!state.syncApiAvailable) {
     if (!quiet) setSyncStatus("Sync API not available on this host — use Export / Import.", "warn");
     return false;
   }
@@ -684,7 +683,7 @@ async function pushRemoteSync({ quiet = false } = {}) {
     if (!quiet) setSyncStatus("Set a sync passphrase first.", "warn");
     return false;
   }
-  if (!syncApiAvailable) {
+  if (!state.syncApiAvailable) {
     if (!quiet) setSyncStatus("Sync API not available on this host — use Export / Import.", "warn");
     return false;
   }
@@ -715,9 +714,9 @@ async function pushRemoteSync({ quiet = false } = {}) {
 }
 
 function scheduleSyncPush() {
-  if (!getSavedPassphrase() || !syncApiAvailable) return;
-  clearTimeout(syncPushTimer);
-  syncPushTimer = setTimeout(() => {
+  if (!getSavedPassphrase() || !state.syncApiAvailable) return;
+  clearTimeout(state.syncPushTimer);
+  state.syncPushTimer = setTimeout(() => {
     pushRemoteSync({ quiet: true });
   }, 1200);
 }
@@ -735,13 +734,13 @@ async function initStudioSync() {
     const passInput = $("#sync-passphrase");
     if (passInput && saved) passInput.value = saved;
     await refreshSyncPanel();
-    if (syncApiAvailable && saved) {
+    if (state.syncApiAvailable && saved) {
       await pullRemoteSync({ quiet: true });
       applySyncStatusLine();
     }
   } catch (err) {
     console.warn("Studio sync init failed:", err);
-    syncApiAvailable = false;
+    state.syncApiAvailable = false;
     updateSyncOfflineReminder();
     setSyncStatus("Sync unavailable — try Sync now or Export / Import.", "warn");
   }
@@ -774,7 +773,7 @@ function importStudioFile(file) {
         applySyncBundle(bundle);
         setSyncStatus(`Imported from file (${formatSyncTime(bundle.updatedAt)}).`, "ok");
         showToast("Studio imported", { type: "ok" });
-        if (syncApiAvailable && getSavedPassphrase()) pushRemoteSync({ quiet: true });
+        if (state.syncApiAvailable && getSavedPassphrase()) pushRemoteSync({ quiet: true });
       });
     } catch (err) {
       setSyncStatus(`Import failed: ${err.message}`, "error");
@@ -805,8 +804,8 @@ function slugifyId(text) {
 function uniqueColorId(brand, name, code) {
   const base = slugifyId(`${brand}-${code || name}`);
   let id = base || `color-${Date.now()}`;
-  const taken = new Set(palette.colors.map((c) => c.id));
-  userData.added.forEach((c) => taken.add(c.id));
+  const taken = new Set(state.palette.colors.map((c) => c.id));
+  state.userData.added.forEach((c) => taken.add(c.id));
   let n = 2;
   while (taken.has(id)) {
     id = `${base}-${n}`;
@@ -816,35 +815,35 @@ function uniqueColorId(brand, name, code) {
 }
 
 function isUserAddedColor(id) {
-  return userData.added.some((c) => c.id === id);
+  return state.userData.added.some((c) => c.id === id);
 }
 
 function getEditableColor(id) {
-  const added = userData.added.find((c) => c.id === id);
+  const added = state.userData.added.find((c) => c.id === id);
   if (added) return { ...added };
-  const base = basePalette.colors.find((c) => c.id === id);
+  const base = state.basePalette.colors.find((c) => c.id === id);
   if (!base) return null;
-  return mergeColorEntry(base, userData.overrides[id]);
+  return mergeColorEntry(base, state.userData.overrides[id]);
 }
 
 async function removeColorFromStudio(id) {
-  const name = palette.colors.find((c) => c.id === id)?.name_en || id;
+  const name = state.palette.colors.find((c) => c.id === id)?.name_en || id;
   const msg = `Remove “${name}” from your studio? You can add it again later from Add Color.`;
   if (!(await softConfirm(msg))) return;
 
   if (isUserAddedColor(id)) {
-    userData.added = userData.added.filter((c) => c.id !== id);
+    state.userData.added = state.userData.added.filter((c) => c.id !== id);
   } else {
-    if (!userData.removed.includes(id)) userData.removed.push(id);
-    delete userData.overrides[id];
+    if (!state.userData.removed.includes(id)) state.userData.removed.push(id);
+    delete state.userData.overrides[id];
   }
 
   removeColorIdFromAllKits(id);
-  selectedMixSlots = selectedMixSlots.map((x) => (x === id ? null : x));
+  state.selectedMixSlots = state.selectedMixSlots.map((x) => (x === id ? null : x));
   compactMixSlots();
 
   persistPaletteChanges();
-  detailColor = null;
+  state.detailColor = null;
   $("#detail-sheet").close();
   showToast(`Removed “${name}”`, { type: "ok" });
 }
@@ -883,7 +882,7 @@ function colorFromForm() {
 
 function fillColorForm(c) {
   if (!c) {
-    editingColorId = null;
+    state.editingColorId = null;
     $("#color-form").reset();
     $("#f-hex-picker").value = "#888888";
     $("#f-toxicity").value = "low";
@@ -895,7 +894,7 @@ function fillColorForm(c) {
     updateFormSwatchPreview();
     return;
   }
-  editingColorId = c.id;
+  state.editingColorId = c.id;
   $("#f-brand").value = c.brand || "";
   $("#f-code").value = c.code || "";
   $("#f-name-en").value = c.name_en || "";
@@ -962,14 +961,14 @@ function saveColorFromForm(e) {
     return;
   }
 
-  if (editingColorId) {
-    if (isUserAddedColor(editingColorId)) {
-      const idx = userData.added.findIndex((c) => c.id === editingColorId);
+  if (state.editingColorId) {
+    if (isUserAddedColor(state.editingColorId)) {
+      const idx = state.userData.added.findIndex((c) => c.id === state.editingColorId);
       if (idx >= 0) {
-        userData.added[idx] = { ...userData.added[idx], ...data, id: editingColorId, user_added: true };
+        state.userData.added[idx] = { ...state.userData.added[idx], ...data, id: state.editingColorId, user_added: true };
       }
     } else {
-      const base = basePalette.colors.find((c) => c.id === editingColorId);
+      const base = state.basePalette.colors.find((c) => c.id === state.editingColorId);
       if (!base) {
         showFormStatus("Could not find that color to edit.", true);
         return;
@@ -978,11 +977,11 @@ function saveColorFromForm(e) {
       Object.keys(override).forEach((k) => {
         if (override[k] === base[k]) delete override[k];
       });
-      if (Object.keys(override).length) userData.overrides[editingColorId] = override;
-      else delete userData.overrides[editingColorId];
+      if (Object.keys(override).length) state.userData.overrides[state.editingColorId] = override;
+      else delete state.userData.overrides[state.editingColorId];
     }
     persistPaletteChanges();
-    const updated = palette.colors.find((c) => c.id === editingColorId);
+    const updated = state.palette.colors.find((c) => c.id === state.editingColorId);
     showFormStatus(`Updated “${updated?.name_en || data.name_en}”.`);
     showToast(`Updated “${updated?.name_en || data.name_en}”`, { type: "ok" });
     fillColorForm(null);
@@ -994,13 +993,13 @@ function saveColorFromForm(e) {
   }
 
   const id = uniqueColorId(data.brand, data.name_en, data.code);
-  userData.added.push({ ...data, id, user_added: true });
+  state.userData.added.push({ ...data, id, user_added: true });
   persistPaletteChanges();
   showFormStatus(`Added “${data.name_en}” to your studio.`);
   showToast(`Added “${data.name_en}”`, { type: "ok" });
   fillColorForm(null);
   switchTab("palette");
-  const created = palette.colors.find((c) => c.id === id);
+  const created = state.palette.colors.find((c) => c.id === id);
   if (created) openDetail(created);
 }
 
@@ -1024,7 +1023,7 @@ function normalizeKit(raw) {
   // Flexible wells: size = colors you keep. Drop empty pads from older fixed-size kits.
   const rawSlots = Array.isArray(raw.slots) ? raw.slots : [];
   const slots = rawSlots
-    .map((id) => (id && palette.colors.some((c) => c.id === id) ? id : null))
+    .map((id) => (id && state.palette.colors.some((c) => c.id === id) ? id : null))
     .filter(Boolean)
     .slice(0, KIT_SLOT_MAX);
   // Personal note is locked for the user; migrate legacy `notes` if needed
@@ -1048,7 +1047,7 @@ function normalizeKit(raw) {
 
 function makeHomeKit() {
   const slots = HOME_DEFAULT_SLOTS.map((id) =>
-    id && palette.colors.some((c) => c.id === id) ? id : null
+    id && state.palette.colors.some((c) => c.id === id) ? id : null
   ).filter(Boolean);
   // Keep length at 32; pad only if some defaults missing from catalog
   while (slots.length < HOME_TIN.total) slots.push(null);
@@ -1064,26 +1063,26 @@ function makeHomeKit() {
 }
 
 function saveKits() {
-  StudioData.saveKits(kits, activeKitId);
+  StudioData.saveKits(state.kits, state.activeKitId);
 }
 
 function loadKits() {
-  const valid = new Set(palette.colors.map((c) => c.id));
+  const valid = new Set(state.palette.colors.map((c) => c.id));
   const loaded = StudioData.loadKitsRaw();
   if (!Array.isArray(loaded) || !loaded.length) {
-    kits = [makeHomeKit()];
-    activeKitId = kits[0].id;
+    state.kits = [makeHomeKit()];
+    state.activeKitId = state.kits[0].id;
     saveKits();
     return;
   }
-  kits = loaded.map((k) => {
+  state.kits = loaded.map((k) => {
     const n = normalizeKit(k);
     // Drop missing/invalid colors entirely (no empty pad wells)
     n.slots = n.slots.filter((id) => id && valid.has(id));
     return n;
   });
   // Refresh Home kit: 32 wells, drop empty padding, apply known remaps
-  const home = kits.find((k) => k.id === "kit-home" || k.name === "Home");
+  const home = state.kits.find((k) => k.id === "kit-home" || k.name === "Home");
   if (home) {
     let patched = false;
     home.layout = "grid";
@@ -1125,17 +1124,17 @@ function loadKits() {
     if (patched) saveKits();
   }
   const savedActive = StudioData.loadActiveKitId();
-  activeKitId =
-    kits.find((k) => k.id === savedActive)?.id || kits[0]?.id || null;
+  state.activeKitId =
+    state.kits.find((k) => k.id === savedActive)?.id || state.kits[0]?.id || null;
 }
 
 function getActiveKit() {
-  return kits.find((k) => k.id === activeKitId) || kits[0] || null;
+  return state.kits.find((k) => k.id === state.activeKitId) || state.kits[0] || null;
 }
 
 function removeColorIdFromAllKits(id) {
   let changed = false;
-  kits.forEach((k) => {
+  state.kits.forEach((k) => {
     k.slots = k.slots.map((s) => {
       if (s === id) {
         changed = true;
@@ -1217,36 +1216,36 @@ function softConfirm(message) {
 /* —— Creative Fun (kit-scoped limited draws) —— */
 function loadCreativeFunState() {
   const raw = StudioData.loadCreativeFunRaw();
-  if (raw?.mode) creativeMode = raw.mode;
-  if (Array.isArray(raw?.poolKitIds)) creativePoolKitIds = raw.poolKitIds.filter(Boolean);
-  if (Array.isArray(raw?.ids) && raw.ids.length === 3) creativeDrawIds = raw.ids;
+  if (raw?.mode) state.creativeMode = raw.mode;
+  if (Array.isArray(raw?.poolKitIds)) state.creativePoolKitIds = raw.poolKitIds.filter(Boolean);
+  if (Array.isArray(raw?.ids) && raw.ids.length === 3) state.creativeDrawIds = raw.ids;
   // Ensure pool defaults to active kit when empty/invalid
-  const valid = new Set(kits.map((k) => k.id));
-  creativePoolKitIds = creativePoolKitIds.filter((id) => valid.has(id));
-  if (!creativePoolKitIds.length && activeKitId) creativePoolKitIds = [activeKitId];
-  if (!creativePoolKitIds.length && kits[0]) creativePoolKitIds = [kits[0].id];
+  const valid = new Set(state.kits.map((k) => k.id));
+  state.creativePoolKitIds = state.creativePoolKitIds.filter((id) => valid.has(id));
+  if (!state.creativePoolKitIds.length && state.activeKitId) state.creativePoolKitIds = [state.activeKitId];
+  if (!state.creativePoolKitIds.length && state.kits[0]) state.creativePoolKitIds = [state.kits[0].id];
 }
 
 function saveCreativeFunState() {
   StudioData.saveCreativeFunState({
-    mode: creativeMode,
-    poolKitIds: creativePoolKitIds,
-    ids: creativeDrawIds,
+    mode: state.creativeMode,
+    poolKitIds: state.creativePoolKitIds,
+    ids: state.creativeDrawIds,
     date: localDateKey(),
   });
 }
 
 function creativePoolColors() {
   const idSet = new Set();
-  creativePoolKitIds.forEach((kid) => {
-    const kit = kits.find((k) => k.id === kid);
+  state.creativePoolKitIds.forEach((kid) => {
+    const kit = state.kits.find((k) => k.id === kid);
     if (!kit) return;
     kit.slots.forEach((id) => {
       if (id) idSet.add(id);
     });
   });
   return [...idSet]
-    .map((id) => palette.colors.find((c) => c.id === id))
+    .map((id) => state.palette.colors.find((c) => c.id === id))
     .filter(Boolean);
 }
 
@@ -1276,27 +1275,27 @@ function pickRandomFrom(arr, n) {
 function drawCreativeTrio(forceNew = false) {
   const pool = creativePoolColors();
   if (pool.length < 3) {
-    creativeDrawIds = pool.map((c) => c.id);
+    state.creativeDrawIds = pool.map((c) => c.id);
     saveCreativeFunState();
     return pool;
   }
 
-  if (!forceNew && creativeDrawIds.length === 3) {
-    const kept = creativeDrawIds
+  if (!forceNew && state.creativeDrawIds.length === 3) {
+    const kept = state.creativeDrawIds
       .map((id) => pool.find((c) => c.id === id))
       .filter(Boolean);
     if (kept.length === 3) return kept;
   }
 
   let picked = [];
-  if (creativeMode === "mix") {
+  if (state.creativeMode === "mix") {
     const stars = pool.filter((c) => c.mix_star);
     const rest = pool.filter((c) => !c.mix_star);
     picked = pickRandomFrom(stars.length ? stars : pool, Math.min(2, stars.length || 2));
     const need = 3 - picked.length;
     const others = rest.filter((c) => !picked.includes(c));
     picked = picked.concat(pickRandomFrom(others.length ? others : pool.filter((c) => !picked.includes(c)), need));
-  } else if (creativeMode === "temp") {
+  } else if (state.creativeMode === "temp") {
     const warm = pool.filter((c) => hueBandWarmCool(c) === "warm");
     const cool = pool.filter((c) => hueBandWarmCool(c) === "cool");
     if (warm.length && cool.length) {
@@ -1307,7 +1306,7 @@ function drawCreativeTrio(forceNew = false) {
     } else {
       picked = pickRandomFrom(pool, 3);
     }
-  } else if (creativeMode === "complement") {
+  } else if (state.creativeMode === "complement") {
     const a = pickRandomFrom(pool, 1)[0];
     const target = (Mixing.hexToHsl(a.hex).h + 180) % 360;
     let best = null;
@@ -1336,7 +1335,7 @@ function drawCreativeTrio(forceNew = false) {
     picked = picked.concat(pickRandomFrom(rest, 3 - picked.length));
   }
 
-  creativeDrawIds = picked.slice(0, 3).map((c) => c.id);
+  state.creativeDrawIds = picked.slice(0, 3).map((c) => c.id);
   saveCreativeFunState();
   return picked.slice(0, 3);
 }
@@ -1353,8 +1352,8 @@ function creativeModeLabel(mode) {
 }
 
 function creativePoolSummary() {
-  const names = creativePoolKitIds
-    .map((id) => kits.find((k) => k.id === id)?.name)
+  const names = state.creativePoolKitIds
+    .map((id) => state.kits.find((k) => k.id === id)?.name)
     .filter(Boolean);
   if (!names.length) return "Select kits…";
   if (names.length === 1) return names[0];
@@ -1366,8 +1365,8 @@ function creativePoolSummary() {
 function creativeKitNamesForColor(colorId) {
   if (!colorId) return [];
   const names = [];
-  creativePoolKitIds.forEach((kid) => {
-    const kit = kits.find((k) => k.id === kid);
+  state.creativePoolKitIds.forEach((kid) => {
+    const kit = state.kits.find((k) => k.id === kid);
     if (!kit) return;
     if (kit.slots.includes(colorId)) names.push(kit.name);
   });
@@ -1378,9 +1377,9 @@ function creativeColorCaption(c) {
   const bits = [c.name_en, c.brand].filter(Boolean);
   const kitNames = creativeKitNamesForColor(c.id);
   // When drawing from multiple kits, show where to find the pan
-  if (creativePoolKitIds.length > 1 && kitNames.length) {
+  if (state.creativePoolKitIds.length > 1 && kitNames.length) {
     bits.push(kitNames.join(" / "));
-  } else if (creativePoolKitIds.length === 1 && kitNames[0]) {
+  } else if (state.creativePoolKitIds.length === 1 && kitNames[0]) {
     // Single kit still helpful as a quiet cue
     bits.push(kitNames[0]);
   }
@@ -1402,17 +1401,17 @@ function renderCreativeKitDropdown() {
   btn.textContent = creativePoolSummary();
   panel.innerHTML = "";
 
-  if (!kits.length) {
+  if (!state.kits.length) {
     panel.innerHTML = `<p class="creative-status" style="margin:8px">Add a kit first.</p>`;
     return;
   }
 
-  kits.forEach((kit) => {
+  state.kits.forEach((kit) => {
     const n = kitFilledCount(kit);
     const label = document.createElement("label");
     label.className =
       "creative-dd-option" + (n === 0 ? " is-disabled" : "");
-    const checked = creativePoolKitIds.includes(kit.id);
+    const checked = state.creativePoolKitIds.includes(kit.id);
     label.innerHTML = `
       <input type="checkbox" value="${escapeHtml(kit.id)}" ${checked ? "checked" : ""} ${n === 0 ? "disabled" : ""} />
       <span>${escapeHtml(kit.name)} <span style="color:var(--ink-faint)">(${n})</span></span>`;
@@ -1420,14 +1419,14 @@ function renderCreativeKitDropdown() {
     input?.addEventListener("change", () => {
       if (n === 0) return;
       if (input.checked) {
-        if (!creativePoolKitIds.includes(kit.id)) creativePoolKitIds.push(kit.id);
+        if (!state.creativePoolKitIds.includes(kit.id)) state.creativePoolKitIds.push(kit.id);
       } else {
-        if (creativePoolKitIds.length <= 1) {
+        if (state.creativePoolKitIds.length <= 1) {
           input.checked = true;
           showToast("Keep at least one kit in the pool", { type: "info" });
           return;
         }
-        creativePoolKitIds = creativePoolKitIds.filter((id) => id !== kit.id);
+        state.creativePoolKitIds = state.creativePoolKitIds.filter((id) => id !== kit.id);
       }
       saveCreativeFunState();
       drawCreativeTrio(true);
@@ -1442,20 +1441,20 @@ function renderCreativeFun() {
   if (!section) return;
 
   // Keep pool valid — default to active kit
-  const valid = new Set(kits.map((k) => k.id));
-  creativePoolKitIds = creativePoolKitIds.filter((id) => valid.has(id));
-  if (!creativePoolKitIds.length && activeKitId && valid.has(activeKitId)) {
-    creativePoolKitIds = [activeKitId];
+  const valid = new Set(state.kits.map((k) => k.id));
+  state.creativePoolKitIds = state.creativePoolKitIds.filter((id) => valid.has(id));
+  if (!state.creativePoolKitIds.length && state.activeKitId && valid.has(state.activeKitId)) {
+    state.creativePoolKitIds = [state.activeKitId];
   }
-  if (!creativePoolKitIds.length && kits[0]) {
-    creativePoolKitIds = [kits[0].id];
+  if (!state.creativePoolKitIds.length && state.kits[0]) {
+    state.creativePoolKitIds = [state.kits[0].id];
   }
 
   renderCreativeKitDropdown();
 
   const modeSel = $("#creative-mode-select");
-  if (modeSel && modeSel.value !== creativeMode) {
-    modeSel.value = creativeMode;
+  if (modeSel && modeSel.value !== state.creativeMode) {
+    modeSel.value = state.creativeMode;
   }
 
   const pool = creativePoolColors();
@@ -1490,7 +1489,7 @@ function renderCreativeFun() {
     return;
   }
 
-  if (status) status.textContent = creativeModeLabel(creativeMode);
+  if (status) status.textContent = creativeModeLabel(state.creativeMode);
   if (toMix) toMix.hidden = false;
 
   colors.forEach((c) => {
@@ -1527,15 +1526,15 @@ function shuffleCreativeFun() {
 }
 
 function sendCreativeTrioToMixLab() {
-  const colors = creativeDrawIds
-    .map((id) => palette.colors.find((c) => c.id === id))
+  const colors = state.creativeDrawIds
+    .map((id) => state.palette.colors.find((c) => c.id === id))
     .filter(Boolean)
     .slice(0, 3);
   if (colors.length < 2) {
     showToast("Shuffle a trio first", { type: "info" });
     return;
   }
-  selectedMixSlots = [...colors.map((c) => c.id), null, null, null].slice(0, 3);
+  state.selectedMixSlots = [...colors.map((c) => c.id), null, null, null].slice(0, 3);
   switchTab("mix");
   renderMixWorkspace();
   renderMixPicker();
@@ -1558,7 +1557,7 @@ function updateFormSwatchPreview() {
 
 function colorsByIds(ids) {
   return Mixing.sortBySpectrum(
-    ids.map((id) => palette.colors.find((c) => c.id === id)).filter(Boolean)
+    ids.map((id) => state.palette.colors.find((c) => c.id === id)).filter(Boolean)
   );
 }
 
@@ -1652,16 +1651,13 @@ function toggleKitSwitcher() {
 }
 
 function selectActiveKit(kitId) {
-  if (!kits.some((k) => k.id === kitId)) return;
-  activeKitId = kitId;
-  kitWellEditMode = false;
-  paletteReadOpenOverride = null; // re-auto open/collapse for the new tin
-  paletteReadKitId = kitId;
+  if (!state.kits.some((k) => k.id === kitId)) return;
+  setActiveKit(kitId);
   closeKitSwitcher();
   saveKits();
   // Default Creative Fun pool follows the kit you're viewing (if only one selected)
-  if (creativePoolKitIds.length <= 1) {
-    creativePoolKitIds = [kitId];
+  if (state.creativePoolKitIds.length <= 1) {
+    state.creativePoolKitIds = [kitId];
     saveCreativeFunState();
   }
   renderKits();
@@ -1673,13 +1669,13 @@ function renderKitSwitcherPanel() {
   const panel = $("#kit-switcher-panel");
   if (!panel) return;
   panel.innerHTML = "";
-  if (!kits.length) {
+  if (!state.kits.length) {
     panel.innerHTML = `<p class="empty-state" style="margin:8px;padding:4px">No kits yet.</p>`;
     return;
   }
-  kits.forEach((kit) => {
+  state.kits.forEach((kit) => {
     const n = kitFilledCount(kit);
-    const active = kit.id === activeKitId;
+    const active = kit.id === state.activeKitId;
     const opt = document.createElement("button");
     opt.type = "button";
     opt.setAttribute("role", "option");
@@ -1735,8 +1731,8 @@ function renderKits() {
   renderWaterLab(kit);
   // Drop wheel picks that left the kit
   const inKit = new Set(kit.slots.filter(Boolean));
-  if (kitWheelA && !inKit.has(kitWheelA)) kitWheelA = null;
-  if (kitWheelB && !inKit.has(kitWheelB)) kitWheelB = null;
+  if (state.kitWheel.a && !inKit.has(state.kitWheel.a)) state.kitWheel.a = null;
+  if (state.kitWheel.b && !inKit.has(state.kitWheel.b)) state.kitWheel.b = null;
   renderKitWheel();
   renderWetInWet(kit);
   renderKitCurriculum(kit);
@@ -1750,7 +1746,7 @@ function renderKits() {
  */
 function analyzeKitPortrait(kit) {
   const colors = (kit?.slots || [])
-    .map((id) => palette.colors.find((c) => c.id === id))
+    .map((id) => state.palette.colors.find((c) => c.id === id))
     .filter(Boolean);
   const n = colors.length;
 
@@ -2122,7 +2118,7 @@ function analyzeKitRoles(colors) {
 
 /** Prefer catalog colors not already in kit; score by role match */
 function findCatalogForRole(role, inKitIds) {
-  const pool = palette.colors.filter((c) => c && c.id && !inKitIds.has(c.id));
+  const pool = state.palette.colors.filter((c) => c && c.id && !inKitIds.has(c.id));
   const scored = [];
   pool.forEach((c) => {
     let score = 0;
@@ -2149,7 +2145,7 @@ function findCatalogForRole(role, inKitIds) {
  */
 function buildAcePaletteRead(kit) {
   const colors = (kit?.slots || [])
-    .map((id) => palette.colors.find((c) => c.id === id))
+    .map((id) => state.palette.colors.find((c) => c.id === id))
     .filter(Boolean);
   const roles = analyzeKitRoles(colors);
   const paragraphs = [];
@@ -2376,9 +2372,9 @@ function renderPaletteRead(kit) {
   const section = $("#palette-read");
   if (!section || !kit) return;
 
-  if (paletteReadKitId !== kit.id) {
-    paletteReadKitId = kit.id;
-    paletteReadOpenOverride = null;
+  if (state.paletteReadKitId !== kit.id) {
+    state.paletteReadKitId = kit.id;
+    state.paletteReadOpenOverride = null;
   }
 
   const read = buildAcePaletteRead(kit);
@@ -2414,7 +2410,7 @@ function renderPaletteRead(kit) {
         .join("");
       sugWrap.querySelectorAll(".palette-read-suggest").forEach((btn) => {
         btn.addEventListener("click", () => {
-          const col = palette.colors.find((x) => x.id === btn.dataset.colorId);
+          const col = state.palette.colors.find((x) => x.id === btn.dataset.colorId);
           if (col && typeof openDetail === "function") openDetail(col);
         });
       });
@@ -2427,7 +2423,7 @@ function renderPaletteRead(kit) {
   // Hybrid open state
   const defaultOpen = read.needsTeaching;
   const open =
-    paletteReadOpenOverride === null ? defaultOpen : paletteReadOpenOverride;
+    state.paletteReadOpenOverride === null ? defaultOpen : state.paletteReadOpenOverride;
   const body = $("#palette-read-body");
   const toggle = $("#palette-read-toggle");
   if (body) body.hidden = !open;
@@ -2438,7 +2434,7 @@ function togglePaletteRead() {
   const body = $("#palette-read-body");
   if (!body) return;
   const next = body.hidden;
-  paletteReadOpenOverride = next;
+  state.paletteReadOpenOverride = next;
   body.hidden = !next;
   $("#palette-read-toggle")?.setAttribute("aria-expanded", String(next));
 }
@@ -2519,7 +2515,7 @@ function renderWaterLab(kit) {
   if (!section || !kit) return;
 
   const colors = (kit.slots || [])
-    .map((id) => palette.colors.find((c) => c.id === id))
+    .map((id) => state.palette.colors.find((c) => c.id === id))
     .filter(Boolean);
 
   const emptyEl = $("#water-lab-empty");
@@ -2532,17 +2528,17 @@ function renderWaterLab(kit) {
   if (!colors.length) {
     if (emptyEl) emptyEl.hidden = false;
     if (bodyEl) bodyEl.hidden = true;
-    waterLabColorId = null;
+    state.waterLabColorId = null;
     return;
   }
   if (emptyEl) emptyEl.hidden = true;
   if (bodyEl) bodyEl.hidden = false;
 
   // Keep selection inside this kit; default first pan
-  if (!waterLabColorId || !colors.some((c) => c.id === waterLabColorId)) {
-    waterLabColorId = colors[0].id;
+  if (!state.waterLabColorId || !colors.some((c) => c.id === state.waterLabColorId)) {
+    state.waterLabColorId = colors[0].id;
   }
-  const active = colors.find((c) => c.id === waterLabColorId) || colors[0];
+  const active = colors.find((c) => c.id === state.waterLabColorId) || colors[0];
 
   if (select) {
     const prevFocus = document.activeElement === select;
@@ -2618,8 +2614,8 @@ function renderWetInWet(kit) {
   const section = $("#wet-lab");
   if (!section) return;
 
-  const a = kitWheelA ? palette.colors.find((c) => c.id === kitWheelA) : null;
-  const b = kitWheelB ? palette.colors.find((c) => c.id === kitWheelB) : null;
+  const a = state.kitWheel.a ? state.palette.colors.find((c) => c.id === state.kitWheel.a) : null;
+  const b = state.kitWheel.b ? state.palette.colors.find((c) => c.id === state.kitWheel.b) : null;
   // Must both be in this kit (wheel can lag one frame)
   const inKit = new Set((kit?.slots || []).filter(Boolean));
   const aOk = a && inKit.has(a.id);
@@ -2668,7 +2664,7 @@ function renderWetInWet(kit) {
 /** Stable daily seed so practice card doesn’t flicker every re-render; shuffle nonce refreshes picks */
 function practiceSeed(kitId) {
   const day = new Date().toDateString();
-  const s = `${kitId || "kit"}|${day}|${APP_VERSION}|${practiceShuffleNonce}`;
+  const s = `${kitId || "kit"}|${day}|${APP_VERSION}|${state.practiceShuffleNonce}`;
   let h = 2166136261;
   for (let i = 0; i < s.length; i++) {
     h ^= s.charCodeAt(i);
@@ -2678,7 +2674,7 @@ function practiceSeed(kitId) {
 }
 
 function shufflePracticeCard() {
-  practiceShuffleNonce += 1;
+  state.practiceShuffleNonce += 1;
   const kit = getActiveKit();
   if (kit) renderKitCurriculum(kit);
   showToast("Fresh practice picks", { type: "ok", duration: 1600 });
@@ -2803,7 +2799,7 @@ function formatStudyExercise(recipe, colors, seed, index) {
 
   if (!resultText) {
     try {
-      const mix = Mixing.mixColors([a, b], palette);
+      const mix = Mixing.mixColors([a, b], state.palette);
       resultText = mix.hueName
         ? `a ${mix.hueName} (screen guess ≈ ${mix.hex.toUpperCase()})`
         : `a mixed hue (screen guess ≈ ${mix.hex.toUpperCase()})`;
@@ -2820,7 +2816,7 @@ function formatStudyExercise(recipe, colors, seed, index) {
   // Hue for subject: parse from mix when we have hex
   let hueName = resultText;
   try {
-    const mix = Mixing.mixColors([a, b], palette);
+    const mix = Mixing.mixColors([a, b], state.palette);
     hueName = mix.hueName || resultText;
     mixHex = mix.hex || mixHex;
   } catch {
@@ -2846,7 +2842,7 @@ function formatStudyExercise(recipe, colors, seed, index) {
  */
 function buildCurriculumExercises(kit) {
   const colors = (kit?.slots || [])
-    .map((id) => palette.colors.find((c) => c.id === id))
+    .map((id) => state.palette.colors.find((c) => c.id === id))
     .filter(Boolean);
   if (!colors.length) return [];
 
@@ -3017,7 +3013,7 @@ function updateKitGuidance(_kit) {
 
 function analyzeKitBuild(kit) {
   const colors = kit.slots
-    .map((id) => palette.colors.find((c) => c.id === id))
+    .map((id) => state.palette.colors.find((c) => c.id === id))
     .filter(Boolean);
   const n = colors.length;
   // Wells grow on demand — coach by palette balance, not a fixed tin size
@@ -3175,19 +3171,19 @@ function analyzeKitBuild(kit) {
 function updateKitTinHint() {
   const hint = $("#kit-tin-hint");
   const done = $("#kit-edit-done");
-  if (done) done.hidden = !kitWellEditMode;
+  if (done) done.hidden = !state.kitWellEditMode;
   if (!hint) return;
-  hint.textContent = kitWellEditMode
+  hint.textContent = state.kitWellEditMode
     ? "Jiggle mode · tap − to remove a well · Done when finished"
     : "Spectrum · 6 / row · tap = A/B · hold = edit · + = add well";
 }
 
 function setKitWellEditMode(on) {
-  kitWellEditMode = !!on;
+  state.kitWellEditMode = !!on;
   const kit = getActiveKit();
   if (kit) renderKitTin(kit);
   else updateKitTinHint();
-  if (kitWellEditMode) {
+  if (state.kitWellEditMode) {
     showToast("Tap − to remove pans · Done when finished", {
       type: "info",
       duration: 2400,
@@ -3200,8 +3196,8 @@ function removeColorFromKitSlot(kit, index, colorId) {
   // Drop the well entirely (not leave a null hole) — size follows the painting kit
   kit.slots.splice(index, 1);
   kit.orderMode = "manual";
-  if (colorId && kitWheelA === colorId) kitWheelA = null;
-  if (colorId && kitWheelB === colorId) kitWheelB = null;
+  if (colorId && state.kitWheel.a === colorId) state.kitWheel.a = null;
+  if (colorId && state.kitWheel.b === colorId) state.kitWheel.b = null;
   saveKits();
   renderKits();
   updateTabBadges();
@@ -3239,7 +3235,7 @@ function renderKitTin(kit) {
   const tin = $("#kit-tin");
   if (!tin) return;
   tin.className =
-    "kit-tin kit-tin--spectrum" + (kitWellEditMode ? " is-editing" : "");
+    "kit-tin kit-tin--spectrum" + (state.kitWellEditMode ? " is-editing" : "");
   tin.innerHTML = "";
   updateKitTinHint();
 
@@ -3250,7 +3246,7 @@ function renderKitTin(kit) {
       emptyIdx.push(index);
       return;
     }
-    const color = palette.colors.find((c) => c.id === id);
+    const color = state.palette.colors.find((c) => c.id === id);
     if (color) filled.push({ index, color });
     else emptyIdx.push(index);
   });
@@ -3307,10 +3303,10 @@ function makeKitWell(kit, index, color) {
   btn.className =
     "kit-well" +
     (color ? "" : " kit-well--empty") +
-    (color && color.id === kitWheelA && !kitWellEditMode
+    (color && color.id === state.kitWheel.a && !state.kitWellEditMode
       ? " kit-well--wheel-a"
       : "") +
-    (color && color.id === kitWheelB && !kitWellEditMode
+    (color && color.id === state.kitWheel.b && !state.kitWellEditMode
       ? " kit-well--wheel-b"
       : "");
   btn.dataset.slot = String(index);
@@ -3319,18 +3315,18 @@ function makeKitWell(kit, index, color) {
     const marks = [];
     if (color.granulating) marks.push("✦ granulating");
     if (color.mix_star) marks.push("◈ good for mix");
-    btn.title = kitWellEditMode
+    btn.title = state.kitWellEditMode
       ? `${color.name_en} · tap − to remove`
       : [color.name_en, ...marks, "tap → A/B · hold → edit mode"].join(" · ");
-    const removeHtml = kitWellEditMode
+    const removeHtml = state.kitWellEditMode
       ? `<span class="kit-well-remove" data-remove="1" aria-label="Remove ${escapeHtml(color.name_en)}">−</span>`
       : "";
     btn.innerHTML = `${removeHtml}${swatchMarksHtml(color)}<span class="kit-well-name">${escapeHtml(color.name_en)}</span>`;
   } else {
-    btn.title = kitWellEditMode
+    btn.title = state.kitWellEditMode
       ? "Empty well · tap − to delete · tap + area to fill"
       : "Empty well — tap to pick a color";
-    const removeHtml = kitWellEditMode
+    const removeHtml = state.kitWellEditMode
       ? `<span class="kit-well-remove" data-remove="1" aria-label="Remove empty well">−</span>`
       : "";
     btn.innerHTML = `${removeHtml}<span class="kit-well-plus">+</span>`;
@@ -3344,7 +3340,7 @@ function makeKitWell(kit, index, color) {
   };
 
   btn.addEventListener("pointerdown", (e) => {
-    if (!color || kitWellEditMode) return;
+    if (!color || state.kitWellEditMode) return;
     // Don't start long-press from the remove badge
     if (e.target?.closest?.("[data-remove]")) return;
     longPressed = false;
@@ -3363,7 +3359,7 @@ function makeKitWell(kit, index, color) {
     if (longPressed) return;
 
     // Edit mode: − deletes the well; empty well can still fill via tap
-    if (kitWellEditMode) {
+    if (state.kitWellEditMode) {
       if (e.target?.closest?.("[data-remove]")) {
         e.preventDefault();
         e.stopPropagation();
@@ -3376,24 +3372,24 @@ function makeKitWell(kit, index, color) {
 
     if (color) {
       // Tap selected A/B again → unselect; else assign A then B
-      if (color.id === kitWheelA) {
-        kitWheelA = null;
-        kitWheelNextTap = "a";
-      } else if (color.id === kitWheelB) {
-        kitWheelB = null;
-        kitWheelNextTap = kitWheelA ? "b" : "a";
-      } else if (kitWheelNextTap === "a" || !kitWheelA) {
-        kitWheelA = color.id;
-        kitWheelNextTap = "b";
-      } else if (!kitWheelB) {
-        kitWheelB = color.id;
-        kitWheelNextTap = "a";
-      } else if (kitWheelNextTap === "b") {
-        kitWheelB = color.id;
-        kitWheelNextTap = "a";
+      if (color.id === state.kitWheel.a) {
+        state.kitWheel.a = null;
+        state.kitWheel.nextTap = "a";
+      } else if (color.id === state.kitWheel.b) {
+        state.kitWheel.b = null;
+        state.kitWheel.nextTap = state.kitWheel.a ? "b" : "a";
+      } else if (state.kitWheel.nextTap === "a" || !state.kitWheel.a) {
+        state.kitWheel.a = color.id;
+        state.kitWheel.nextTap = "b";
+      } else if (!state.kitWheel.b) {
+        state.kitWheel.b = color.id;
+        state.kitWheel.nextTap = "a";
+      } else if (state.kitWheel.nextTap === "b") {
+        state.kitWheel.b = color.id;
+        state.kitWheel.nextTap = "a";
       } else {
-        kitWheelA = color.id;
-        kitWheelNextTap = "b";
+        state.kitWheel.a = color.id;
+        state.kitWheel.nextTap = "b";
       }
       renderKitWheel();
       renderKitTin(kit);
@@ -3412,7 +3408,7 @@ function kitColorsForWheel() {
   const kit = getActiveKit();
   if (!kit) return [];
   return kit.slots
-    .map((id) => palette.colors.find((c) => c.id === id))
+    .map((id) => state.palette.colors.find((c) => c.id === id))
     .filter(Boolean);
 }
 
@@ -3491,8 +3487,8 @@ function paintKitMarker(el, color) {
 function renderKitWheel() {
   const stage = $("#kit-wheel-stage");
   if (!stage) return;
-  const a = kitWheelA ? palette.colors.find((c) => c.id === kitWheelA) : null;
-  const b = kitWheelB ? palette.colors.find((c) => c.id === kitWheelB) : null;
+  const a = state.kitWheel.a ? state.palette.colors.find((c) => c.id === state.kitWheel.a) : null;
+  const b = state.kitWheel.b ? state.palette.colors.find((c) => c.id === state.kitWheel.b) : null;
   const ha = $("#kit-wheel-handle-a");
   const hb = $("#kit-wheel-handle-b");
   const tagA = $("#kit-wheel-a-line .kit-wheel-tag");
@@ -3528,7 +3524,7 @@ function renderKitWheel() {
   const note = $("#kit-wheel-note");
 
   if (a && b) {
-    const mix = Mixing.mixColors([a, b], palette);
+    const mix = Mixing.mixColors([a, b], state.palette);
     swatch.style.background = mix.hex;
     label.textContent = mix.hueName || "mix";
     const tips = mix.tips?.length ? mix.tips[0].result : "";
@@ -3580,25 +3576,25 @@ function bindKitWheelHandles() {
   stage.dataset.bound = "1";
 
   const onMove = (e) => {
-    if (!kitWheelDrag) return;
+    if (!state.kitWheel.drag) return;
     const angle = kitWheelAngleFromEvent(e, stage);
     const snapped = snapToKitColor(angleToHue(angle));
     if (!snapped) return;
-    if (kitWheelDrag.which === "a") kitWheelA = snapped.id;
-    else kitWheelB = snapped.id;
+    if (state.kitWheel.drag.which === "a") state.kitWheel.a = snapped.id;
+    else state.kitWheel.b = snapped.id;
     renderKitWheel();
     const kit = getActiveKit();
     if (kit) renderKitTin(kit);
   };
 
   const onUp = (e) => {
-    if (!kitWheelDrag) return;
+    if (!state.kitWheel.drag) return;
     try {
       stage.releasePointerCapture(e.pointerId);
     } catch {
       /* ignore */
     }
-    kitWheelDrag = null;
+    state.kitWheel.drag = null;
   };
 
   ["a", "b"].forEach((which) => {
@@ -3607,7 +3603,7 @@ function bindKitWheelHandles() {
     el.addEventListener("pointerdown", (e) => {
       e.preventDefault();
       e.stopPropagation();
-      kitWheelDrag = { which, pointerId: e.pointerId };
+      state.kitWheel.drag = { which, pointerId: e.pointerId };
       try {
         stage.setPointerCapture(e.pointerId);
       } catch {
@@ -3623,7 +3619,7 @@ function bindKitWheelHandles() {
 }
 
 function openKitPicker(slotIndex) {
-  kitFillSlotIndex = slotIndex;
+  state.kitFillSlotIndex = slotIndex;
   const sheet = $("#kit-picker-sheet");
   const search = $("#kit-picker-search");
   if (search) search.value = "";
@@ -3639,7 +3635,7 @@ function closeKitPicker() {
   else if (document.activeElement?.blur) document.activeElement.blur();
   const sheet = $("#kit-picker-sheet");
   if (sheet?.open) sheet.close();
-  kitFillSlotIndex = null;
+  state.kitFillSlotIndex = null;
   // Nudge layout after dialog closes (helps some iOS versions settle scale)
   requestAnimationFrame(() => {
     window.scrollTo(window.scrollX, window.scrollY);
@@ -3726,7 +3722,7 @@ function renderKitPickerGrid() {
   const raw = ($("#kit-picker-search")?.value || "").trim().toLowerCase();
   // tokens: split on whitespace / commas; ignore empties
   const tokens = raw.split(/[\s,]+/).filter(Boolean);
-  let list = Mixing.sortBySpectrum(palette.colors);
+  let list = Mixing.sortBySpectrum(state.palette.colors);
   if (tokens.length) {
     list = list.filter((c) => colorMatchesSearchTokens(c, tokens));
   }
@@ -3751,15 +3747,15 @@ function renderKitPickerGrid() {
 
 function fillKitSlot(colorId) {
   const kit = getActiveKit();
-  if (!kit || kitFillSlotIndex == null) return;
-  if (!palette.colors.some((c) => c.id === colorId)) return;
+  if (!kit || state.kitFillSlotIndex == null) return;
+  if (!state.palette.colors.some((c) => c.id === colorId)) return;
   if (kit.slots.includes(colorId)) {
     showToast("Already in this kit", { type: "info", duration: 1800 });
     return;
   }
 
   // -1 = grow-on-demand (new well); else fill a legacy empty index
-  if (kitFillSlotIndex === -1) {
+  if (state.kitFillSlotIndex === -1) {
     // Prefer reusing a null hole from older fixed-size kits, else append
     const empty = kit.slots.indexOf(null);
     if (empty >= 0) {
@@ -3771,11 +3767,11 @@ function fillKitSlot(colorId) {
       kit.slots.push(colorId);
     }
   } else {
-    if (kitFillSlotIndex < 0 || kitFillSlotIndex >= kit.slots.length) return;
-    kit.slots[kitFillSlotIndex] = colorId;
+    if (state.kitFillSlotIndex < 0 || state.kitFillSlotIndex >= kit.slots.length) return;
+    kit.slots[state.kitFillSlotIndex] = colorId;
   }
   kit.orderMode = "manual";
-  kitFillSlotIndex = null;
+  state.kitFillSlotIndex = null;
   saveKits();
   closeKitPicker();
   renderKits();
@@ -3787,7 +3783,7 @@ function fillKitSlot(colorId) {
 function arrangeActiveKitSpectrum() {
   const kit = getActiveKit();
   if (!kit) return;
-  const filled = kit.slots.map((id) => palette.colors.find((c) => c.id === id)).filter(Boolean);
+  const filled = kit.slots.map((id) => state.palette.colors.find((c) => c.id === id)).filter(Boolean);
   if (filled.length < 2) {
     showToast("Add at least two colors before arranging.", { type: "info" });
     return;
@@ -3814,9 +3810,8 @@ function createNewKit() {
     notes: "",
     orderMode: "spectrum",
   });
-  kits.push(kit);
-  activeKitId = kit.id;
-  kitWellEditMode = false;
+  state.kits.push(kit);
+  setActiveKit(kit.id);
   closeKitSwitcher();
   saveKits();
   renderKits();
@@ -3837,15 +3832,15 @@ function renameActiveKit() {
 async function deleteActiveKit() {
   const kit = getActiveKit();
   if (!kit) return;
-  if (kits.length <= 1) {
+  if (state.kits.length <= 1) {
     showToast("Keep at least one kit — or empty its wells.", { type: "info" });
     return;
   }
   if (!(await softConfirm(`Delete kit “${kit.name}”?`))) return;
-  kits = kits.filter((k) => k.id !== kit.id);
-  activeKitId = kits[0].id;
-  creativePoolKitIds = creativePoolKitIds.filter((id) => id !== kit.id);
-  if (!creativePoolKitIds.length) creativePoolKitIds = [activeKitId];
+  state.kits = state.kits.filter((k) => k.id !== kit.id);
+  setActiveKit(state.kits[0].id);
+  state.creativePoolKitIds = state.creativePoolKitIds.filter((id) => id !== kit.id);
+  if (!state.creativePoolKitIds.length) state.creativePoolKitIds = [state.activeKitId];
   saveCreativeFunState();
   saveKits();
   renderKits();
@@ -3857,7 +3852,7 @@ async function deleteActiveKit() {
 
 function addToActiveKit(id) {
   const kit = getActiveKit();
-  if (!kit || !palette.colors.some((c) => c.id === id)) return;
+  if (!kit || !state.palette.colors.some((c) => c.id === id)) return;
   if (kit.slots.includes(id)) return;
   const empty = kit.slots.indexOf(null);
   if (empty >= 0) {
@@ -3884,8 +3879,8 @@ function removeFromActiveKit(id) {
   // Remove the well entirely (same as tin −)
   kit.slots = kit.slots.filter((s) => s !== id);
   kit.orderMode = "manual";
-  if (kitWheelA === id) kitWheelA = null;
-  if (kitWheelB === id) kitWheelB = null;
+  if (state.kitWheel.a === id) state.kitWheel.a = null;
+  if (state.kitWheel.b === id) state.kitWheel.b = null;
   saveKits();
   renderKits();
   renderPalette();
@@ -3894,34 +3889,34 @@ function removeFromActiveKit(id) {
 }
 
 function refreshDetailActions() {
-  if (!detailColor) return;
-  updateDetailActionButtons(detailColor);
+  if (!state.detailColor) return;
+  updateDetailActionButtons(state.detailColor);
 }
 
 function getSelectedMixColors() {
-  return selectedMixSlots.map((id) =>
-    id ? palette.colors.find((c) => c.id === id) || null : null
+  return state.selectedMixSlots.map((id) =>
+    id ? state.palette.colors.find((c) => c.id === id) || null : null
   );
 }
 
 function compactMixSlots() {
-  const ids = selectedMixSlots.filter(Boolean);
-  selectedMixSlots = [...ids, null, null, null].slice(0, 3);
+  const ids = state.selectedMixSlots.filter(Boolean);
+  state.selectedMixSlots = [...ids, null, null, null].slice(0, 3);
 }
 
 function applyMixSwap(replaceId, withId) {
   if (!replaceId || !withId || replaceId === withId) return;
-  const target = palette.colors.find((c) => c.id === withId);
+  const target = state.palette.colors.find((c) => c.id === withId);
   if (!target) return;
 
-  const idx = selectedMixSlots.indexOf(replaceId);
+  const idx = state.selectedMixSlots.indexOf(replaceId);
   if (idx < 0) return;
 
-  const existing = selectedMixSlots.indexOf(withId);
+  const existing = state.selectedMixSlots.indexOf(withId);
   if (existing >= 0 && existing !== idx) {
-    selectedMixSlots[existing] = null;
+    state.selectedMixSlots[existing] = null;
   }
-  selectedMixSlots[idx] = withId;
+  state.selectedMixSlots[idx] = withId;
   compactMixSlots();
   renderMixPicker();
 }
@@ -3983,7 +3978,7 @@ function renderMixWorkspace() {
 
   let mix = null;
   if (filled.length >= 2) {
-    mix = Mixing.mixColors(filled, palette);
+    mix = Mixing.mixColors(filled, state.palette);
     swatchHtml += `<span class="combo-result-swatch" style="background:${mix.hex}"></span>`;
   } else {
     swatchHtml += '<span class="combo-result-swatch mix-result-empty"></span>';
@@ -4057,9 +4052,9 @@ function renderMixWorkspace() {
 }
 
 function mixPickerColors() {
-  const colors = mixPickerStarsOnly
-    ? palette.colors.filter((c) => c.mix_star)
-    : palette.colors;
+  const colors = state.mixPickerStarsOnly
+    ? state.palette.colors.filter((c) => c.mix_star)
+    : state.palette.colors;
   return Mixing.sortBySpectrum(colors);
 }
 
@@ -4069,14 +4064,14 @@ function renderMixPicker() {
   wrap.innerHTML = "";
   const toggle = $("#mix-stars-toggle");
   if (toggle) {
-    toggle.setAttribute("aria-pressed", String(mixPickerStarsOnly));
-    toggle.classList.toggle("is-active", mixPickerStarsOnly);
+    toggle.setAttribute("aria-pressed", String(state.mixPickerStarsOnly));
+    toggle.classList.toggle("is-active", state.mixPickerStarsOnly);
   }
   mixPickerColors().forEach((c) => {
     const chip = document.createElement("button");
     chip.type = "button";
     chip.className =
-      "mix-chip" + (selectedMixSlots.includes(c.id) ? " selected" : "");
+      "mix-chip" + (state.selectedMixSlots.includes(c.id) ? " selected" : "");
     chip.dataset.id = c.id;
     const marks = swatchMarksHtml(c);
     chip.innerHTML = `
@@ -4104,13 +4099,13 @@ function formatPriority(c) {
 }
 
 function buildVariantIndex() {
-  variantIndex = new Map();
-  palette.colors.forEach((c) => {
+  state.variantIndex = new Map();
+  state.palette.colors.forEach((c) => {
     const key = (c.name_en || "").toLowerCase();
-    if (!variantIndex.has(key)) variantIndex.set(key, []);
-    variantIndex.get(key).push(c);
+    if (!state.variantIndex.has(key)) state.variantIndex.set(key, []);
+    state.variantIndex.get(key).push(c);
   });
-  variantIndex.forEach((list) => {
+  state.variantIndex.forEach((list) => {
     list.sort((a, b) => {
       const byBrand = (a.brand || "").localeCompare(b.brand || "");
       if (byBrand) return byBrand;
@@ -4120,13 +4115,13 @@ function buildVariantIndex() {
 }
 
 function findColorVariants(c) {
-  return variantIndex.get((c.name_en || "").toLowerCase()) || [];
+  return state.variantIndex.get((c.name_en || "").toLowerCase()) || [];
 }
 
 function ensureMixPicker() {
-  if (!mixPickerBuilt) {
+  if (!state.mixPickerBuilt) {
     renderMixPicker();
-    mixPickerBuilt = true;
+    state.mixPickerBuilt = true;
   }
 }
 
@@ -4207,7 +4202,7 @@ function bindHueCodeLinks(container) {
   container.querySelectorAll(".hue-code-link").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
-      const col = palette.colors.find((x) => x.id === btn.dataset.colorId);
+      const col = state.palette.colors.find((x) => x.id === btn.dataset.colorId);
       if (col) openDetail(col);
     });
   });
@@ -4267,15 +4262,15 @@ function showHueColorInfo(c, anchorCard) {
 function bindColorLocateClick(el, card) {
   el.addEventListener("click", (e) => {
     e.stopPropagation();
-    const col = palette.colors.find((x) => x.id === el.dataset.colorId);
+    const col = state.palette.colors.find((x) => x.id === el.dataset.colorId);
     if (col) showHueColorInfo(col, card);
   });
 }
 
 function loadMixIntoPicker(colors) {
   const ids = (colors || []).filter(Boolean).map((c) => c.id).slice(0, 3);
-  selectedMixSlots = [...ids, null, null, null].slice(0, 3);
-  mixPickerBuilt = false;
+  state.selectedMixSlots = [...ids, null, null, null].slice(0, 3);
+  state.mixPickerBuilt = false;
   ensureMixPicker();
   renderMixPicker();
   const workspace = $("#mix-workspace");
@@ -4288,27 +4283,27 @@ function loadMixIntoPicker(colors) {
 
 function clearMixSlotAt(index) {
   if (index < 0 || index > 2) return;
-  if (!selectedMixSlots[index]) return;
-  selectedMixSlots[index] = null;
+  if (!state.selectedMixSlots[index]) return;
+  state.selectedMixSlots[index] = null;
   compactMixSlots();
   renderMixPicker();
 }
 
 function toggleMixColor(c) {
-  const slot = selectedMixSlots.indexOf(c.id);
+  const slot = state.selectedMixSlots.indexOf(c.id);
   if (slot >= 0) {
-    selectedMixSlots[slot] = null;
+    state.selectedMixSlots[slot] = null;
     compactMixSlots();
   } else {
-    const empty = selectedMixSlots.indexOf(null);
+    const empty = state.selectedMixSlots.indexOf(null);
     if (empty < 0) return;
-    selectedMixSlots[empty] = c.id;
+    state.selectedMixSlots[empty] = c.id;
   }
   renderMixPicker();
 }
 
 function locateColorInPalette(colorId) {
-  const c = palette.colors.find((x) => x.id === colorId);
+  const c = state.palette.colors.find((x) => x.id === colorId);
   if (!c) return;
 
   $$(".tab").forEach((tab) => {
@@ -4387,7 +4382,7 @@ function buildHueComboCard(combo) {
   card.querySelector(".combo-load-mix")?.addEventListener("click", (e) => {
     e.stopPropagation();
     const ids = (e.currentTarget.dataset.loadIds || "").split(",").filter(Boolean);
-    const cols = ids.map((id) => palette.colors.find((x) => x.id === id)).filter(Boolean);
+    const cols = ids.map((id) => state.palette.colors.find((x) => x.id === id)).filter(Boolean);
     if (cols.length) loadMixIntoPicker(cols);
   });
   return card;
@@ -4437,7 +4432,7 @@ function runHueSearch() {
 
   let groups;
   try {
-    groups = Mixing.findCombinations(palette, input);
+    groups = Mixing.findCombinations(state.palette, input);
   } catch (err) {
     console.error(err);
     container.innerHTML =
@@ -4491,7 +4486,7 @@ function renderMixTipsHtml(tips) {
     .map((tip) => {
       const partners = (tip.with || [])
         .map((pid) => {
-          const col = palette.colors.find((x) => x.id === pid);
+          const col = state.palette.colors.find((x) => x.id === pid);
           if (!col) return escapeHtml(pid);
           return `<button type="button" class="mix-tip-link" data-color-id="${escapeHtml(pid)}">${escapeHtml(col.name_en)}</button>`;
         })
@@ -4508,14 +4503,14 @@ function bindMixTipLinks(container) {
   container.querySelectorAll(".mix-tip-link").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
-      const col = palette.colors.find((x) => x.id === btn.dataset.colorId);
+      const col = state.palette.colors.find((x) => x.id === btn.dataset.colorId);
       if (col) openDetail(col);
     });
   });
 }
 
 function openDetail(c) {
-  detailColor = c;
+  state.detailColor = c;
   const sheet = $("#detail-sheet");
   const swatchEl = $("#sheet-swatch");
   swatchEl.style.background = c.hex;
@@ -4553,7 +4548,7 @@ function openDetail(c) {
     chipsEl.querySelectorAll(".variant-chip").forEach((btn) => {
       btn.addEventListener("click", (e) => {
         e.stopPropagation();
-        const col = palette.colors.find((x) => x.id === btn.dataset.colorId);
+        const col = state.palette.colors.find((x) => x.id === btn.dataset.colorId);
         if (col) openDetail(col);
       });
     });
@@ -4599,7 +4594,7 @@ function openDetail(c) {
   }
 
   const tox = toxicityLevel(c);
-  const brandVariants = palette.colors.filter((x) => brandNameKey(x) === brandNameKey(c));
+  const brandVariants = state.palette.colors.filter((x) => brandNameKey(x) === brandNameKey(c));
   const formatSpec = uniqueFormatTexts(brandVariants).join(", ") || formatDisplayText(c) || null;
   const specs = [
     ["Format", formatSpec],
@@ -4661,10 +4656,10 @@ async function loadBrandStories() {
     );
     if (!res.ok) return;
     const data = await res.json();
-    const studioBrands = new Set(palette.colors.map((c) => c.brand));
-    brandStories = (data.brands || []).filter((b) => studioBrands.has(b.name));
-    if (!selectedBrandId || !brandStories.some((b) => b.id === selectedBrandId)) {
-      selectedBrandId = brandStories[0] ? brandStories[0].id : null;
+    const studioBrands = new Set(state.palette.colors.map((c) => c.brand));
+    state.brandStories = (data.brands || []).filter((b) => studioBrands.has(b.name));
+    if (!state.selectedBrandId || !state.brandStories.some((b) => b.id === state.selectedBrandId)) {
+      state.selectedBrandId = state.brandStories[0] ? state.brandStories[0].id : null;
     }
     renderBrandChips();
     renderBrandStory();
@@ -4674,19 +4669,19 @@ async function loadBrandStories() {
 }
 
 function brandColorCount(name) {
-  return palette.colors.filter((c) => c.brand === name).length;
+  return state.palette.colors.filter((c) => c.brand === name).length;
 }
 
 function renderBrandChips() {
   const wrap = $("#brand-chips");
   if (!wrap) return;
-  if (!brandStories.length) {
+  if (!state.brandStories.length) {
     wrap.innerHTML = '<p class="empty-state">No brand stories for your current palette yet.</p>';
     return;
   }
-  wrap.innerHTML = brandStories
+  wrap.innerHTML = state.brandStories
     .map((b) => {
-      const active = b.id === selectedBrandId;
+      const active = b.id === state.selectedBrandId;
       const count = brandColorCount(b.name);
       return `<button type="button" class="brand-chip${active ? " active" : ""}" data-brand-id="${escapeHtml(b.id)}" role="option" aria-selected="${active}">
         <span class="brand-chip-name">${escapeHtml(b.name)}</span>
@@ -4700,7 +4695,7 @@ function brandPaletteStripeHtml(brandName, customHexes) {
   const hexes =
     Array.isArray(customHexes) && customHexes.length
       ? customHexes
-      : Mixing.sortBySpectrum(palette.colors.filter((c) => c.brand === brandName))
+      : Mixing.sortBySpectrum(state.palette.colors.filter((c) => c.brand === brandName))
           .slice(0, 6)
           .map((c) => c.hex);
   const spans =
@@ -4775,7 +4770,7 @@ function bindPaintingDemoImages(container) {
 function renderBrandStory() {
   const el = $("#brand-story");
   if (!el) return;
-  const brand = brandStories.find((b) => b.id === selectedBrandId);
+  const brand = state.brandStories.find((b) => b.id === state.selectedBrandId);
   if (!brand) {
     el.innerHTML = "";
     return;
@@ -4813,8 +4808,8 @@ function renderBrandStory() {
 }
 
 function selectBrand(brandId) {
-  if (!brandStories.some((b) => b.id === brandId)) return;
-  selectedBrandId = brandId;
+  if (!state.brandStories.some((b) => b.id === brandId)) return;
+  state.selectedBrandId = brandId;
   renderBrandChips();
   renderBrandStory();
 }
@@ -4853,8 +4848,8 @@ function resetMixPanel() {
   $("#hue-results").innerHTML = "";
   clearInlineHueColorInfo();
   $$(".hue-chip").forEach((c) => c.classList.remove("active"));
-  selectedMixSlots = [null, null, null];
-  mixPickerStarsOnly = false;
+  state.selectedMixSlots = [null, null, null];
+  state.mixPickerStarsOnly = false;
   setActiveColorLinks(null);
   renderMixPicker();
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -4871,7 +4866,7 @@ function resetKitsPanel() {
 }
 
 function resetAddPanel() {
-  if (!editingColorId) return;
+  if (!state.editingColorId) return;
   fillColorForm(null);
   clearFormStatus();
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -4912,7 +4907,7 @@ function switchTab(tabName) {
 
 function openMoreTarget(target) {
   if (target === "brands") resetBrandsPanel();
-  if (target === "add" && !editingColorId) {
+  if (target === "add" && !state.editingColorId) {
     fillColorForm(null);
     clearFormStatus();
   }
@@ -4964,7 +4959,7 @@ function bindEvents() {
   $("#creative-shuffle")?.addEventListener("click", shuffleCreativeFun);
   $("#creative-to-mix")?.addEventListener("click", sendCreativeTrioToMixLab);
   $("#creative-mode-select")?.addEventListener("change", (e) => {
-    creativeMode = e.target.value || "play";
+    state.creativeMode = e.target.value || "play";
     saveCreativeFunState();
     drawCreativeTrio(true);
     renderCreativeFun();
@@ -5010,7 +5005,7 @@ function bindEvents() {
   $("#kit-note-personal")?.addEventListener("input", saveActiveKitPersonalNote);
   $("#kit-note-personal")?.addEventListener("change", saveActiveKitPersonalNote);
   $("#water-lab-color")?.addEventListener("change", (e) => {
-    waterLabColorId = e.target.value || null;
+    state.waterLabColorId = e.target.value || null;
     const kit = getActiveKit();
     if (kit) {
       renderWaterLab(kit);
@@ -5025,12 +5020,12 @@ function bindEvents() {
   $("#palette-read-toggle")?.addEventListener("click", togglePaletteRead);
   $("#kit-edit-done")?.addEventListener("click", () => setKitWellEditMode(false));
   $("#mix-clear")?.addEventListener("click", () => {
-    selectedMixSlots = [null, null, null];
+    state.selectedMixSlots = [null, null, null];
     renderMixWorkspace();
     renderMixPicker();
   });
   $("#mix-stars-toggle")?.addEventListener("click", () => {
-    mixPickerStarsOnly = !mixPickerStarsOnly;
+    state.mixPickerStarsOnly = !state.mixPickerStarsOnly;
     renderMixPicker();
   });
   $("#hue-search-btn")?.addEventListener("click", runHueSearch);
@@ -5039,9 +5034,9 @@ function bindEvents() {
   });
 
   $("#sheet-current-btn")?.addEventListener("click", () => {
-    if (!detailColor) return;
-    if (colorInActiveKit(detailColor.id)) removeFromActiveKit(detailColor.id);
-    else addToActiveKit(detailColor.id);
+    if (!state.detailColor) return;
+    if (colorInActiveKit(state.detailColor.id)) removeFromActiveKit(state.detailColor.id);
+    else addToActiveKit(state.detailColor.id);
   });
 
   $("#kit-add-btn")?.addEventListener("click", createNewKit);
@@ -5062,12 +5057,12 @@ function bindEvents() {
     search?.blur();
   });
   $("#sheet-remove-btn")?.addEventListener("click", () => {
-    if (!detailColor) return;
-    removeColorFromStudio(detailColor.id);
+    if (!state.detailColor) return;
+    removeColorFromStudio(state.detailColor.id);
   });
   $("#sheet-edit-btn")?.addEventListener("click", () => {
-    if (!detailColor) return;
-    startEditColor(detailColor);
+    if (!state.detailColor) return;
+    startEditColor(state.detailColor);
   });
   $("#color-form")?.addEventListener("submit", saveColorFromForm);
   $("#color-form-cancel")?.addEventListener("click", () => {
@@ -5089,12 +5084,12 @@ function bindEvents() {
   });
   updateFormSwatchPreview();
   $("#sheet-close")?.addEventListener("click", () => {
-    detailColor = null;
+    state.detailColor = null;
     $("#detail-sheet")?.close();
   });
   $("#detail-sheet")?.addEventListener("click", (e) => {
     if (e.target === $("#detail-sheet")) {
-      detailColor = null;
+      state.detailColor = null;
       $("#detail-sheet").close();
     }
   });
