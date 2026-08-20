@@ -1,5 +1,5 @@
 /* Our Art Studio — service worker (GitHub Pages project site safe) */
-const CACHE = "our-art-studio-v147";
+const CACHE = "our-art-studio-v148";
 const FETCH_TIMEOUT_MS = 12000;
 
 /** Core shell — must install for offline. Failures here are serious. */
@@ -10,6 +10,7 @@ const CORE_ASSETS = [
   "./js/app.js",
   "./js/mixing.js",
   "./js/data.js",
+  "./js/render.js",
   "./data/palette.json",
   "./data/brands.json",
   "./manifest.json",

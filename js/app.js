@@ -35,7 +35,7 @@ const SYNC_BUNDLE_VERSION = StudioData.SYNC_BUNDLE_VERSION;
 /** Soft ceiling so a kit doesn’t grow forever; wells are added/removed on the fly */
 const KIT_SLOT_MAX = 36;
 /** Bump with sw.js CACHE (+ index chip) when shipping UI/data */
-const APP_VERSION = "147";
+const APP_VERSION = "148";
 
 /** Resolve assets for GitHub project pages and local server */
 function appBasePath() {
@@ -128,6 +128,13 @@ async function fetchWithTimeout(url, options = {}, ms = 8000) {
 }
 
 async function init() {
+  StudioRender.configure({
+    onOpen: (c) => openDetail(c),
+    isInKit: (id) => colorInActiveKit(id),
+    brandLine: (c, variants) => cardBrandLine(c, variants),
+    swatchMarks: (c) => swatchMarksHtml(c),
+    escapeHtml,
+  });
   try {
   const res = await fetchWithTimeout(
     assetUrl(`data/palette.json?v=${Date.now()}`),
@@ -1562,50 +1569,17 @@ function colorsByIds(ids) {
 }
 
 function buildColorCard(group, { showListMarkers = true } = {}) {
-  const c = group.primary || group;
-  const variants = group.variants || [c];
-  const wrap = document.createElement("div");
-  wrap.className = "color-card-wrap";
-
-  const btn = document.createElement("button");
-  btn.type = "button";
-  btn.className = "color-card";
-  btn.dataset.colorId = c.id;
-  const swatchMarks = swatchMarksHtml(c);
-  const inKit = variants.some((v) => colorInActiveKit(v.id));
-  const markerHtml =
-    showListMarkers && inKit ? `<p class="brand-tag card-marker">★ kit</p>` : "";
-  btn.innerHTML = `
-    <div class="swatch" style="background:${c.hex}">${swatchMarks}</div>
-    <div class="color-card-meta">
-      <p class="name-en">${escapeHtml(c.name_en)}</p>
-      <p class="name-zh">${escapeHtml(c.name_zh || "")}</p>
-      <p class="brand-tag">${escapeHtml(cardBrandLine(c, variants))}</p>
-      ${markerHtml}
-    </div>
-  `;
-  btn.addEventListener("click", () => openDetail(c));
-  wrap.appendChild(btn);
-
-  return wrap;
+  return StudioRender.buildColorCard(group, { showListMarkers });
 }
 
 function renderColorGrid(container, colors, options = {}) {
-  container.innerHTML = "";
-  if (!colors.length) {
-    container.innerHTML = `<p class="empty-state">${escapeHtml(options.emptyMessage || "No colors yet.")}</p>`;
-    return;
-  }
   const groups =
     options.groupVariants === false
       ? colors.map((c) => ({ primary: c, variants: [c] }))
       : groupColorsByBrandName(colors);
-  groups.forEach((group) => {
-    container.appendChild(
-      buildColorCard(group, {
-        showListMarkers: options.showListMarkers,
-      })
-    );
+  StudioRender.colorGrid(container, groups, {
+    emptyMessage: options.emptyMessage,
+    showListMarkers: options.showListMarkers,
   });
 }
 
@@ -1666,48 +1640,20 @@ function selectActiveKit(kitId) {
 }
 
 function renderKitSwitcherPanel() {
-  const panel = $("#kit-switcher-panel");
-  if (!panel) return;
-  panel.innerHTML = "";
-  if (!state.kits.length) {
-    panel.innerHTML = `<p class="empty-state" style="margin:8px;padding:4px">No kits yet.</p>`;
-    return;
-  }
-  state.kits.forEach((kit) => {
-    const n = kitFilledCount(kit);
-    const active = kit.id === state.activeKitId;
-    const opt = document.createElement("button");
-    opt.type = "button";
-    opt.setAttribute("role", "option");
-    opt.setAttribute("aria-selected", String(active));
-    opt.className = "kit-switcher-option" + (active ? " is-active" : "");
-    opt.innerHTML = `
-      <span class="kit-switcher-option-name">${escapeHtml(kit.name)}</span>
-      <span class="kit-switcher-option-meta">${n} pan${n === 1 ? "" : "s"}</span>
-      ${active ? `<span class="kit-switcher-check" aria-hidden="true">✓</span>` : ""}`;
-    opt.addEventListener("click", (e) => {
-      e.stopPropagation();
-      selectActiveKit(kit.id);
-    });
-    panel.appendChild(opt);
+  StudioRender.kitSwitcherPanel({
+    kits: state.kits,
+    activeKitId: state.activeKitId,
+    filledCount: kitFilledCount,
+    onSelect: selectActiveKit,
   });
 }
 
 function renderKitSwitcherButton() {
-  const btn = $("#kit-switcher-btn");
-  if (!btn) return;
   const kit = getActiveKit();
-  if (!kit) {
-    btn.textContent = "Select kit";
-    return;
-  }
-  const n = kitFilledCount(kit);
-  btn.textContent = `${kit.name} · ${n} pan${n === 1 ? "" : "s"}`;
+  StudioRender.kitSwitcherButton(kit, kit ? kitFilledCount(kit) : 0);
 }
 
 function renderKits() {
-  const workspace = $("#kit-workspace");
-  const empty = $("#kit-empty-state");
   if (!$("#kit-switcher-btn")) return;
 
   renderKitSwitcherButton();
@@ -1717,13 +1663,8 @@ function renderKits() {
   }
 
   const kit = getActiveKit();
-  if (!kit) {
-    workspace.hidden = true;
-    empty.hidden = false;
-    return;
-  }
-  empty.hidden = true;
-  workspace.hidden = false;
+  StudioRender.kitWorkspace(Boolean(kit));
+  if (!kit) return;
   updateKitGuidance(kit);
   renderKitTin(kit);
   renderKitNote(kit);
