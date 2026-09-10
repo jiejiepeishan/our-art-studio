@@ -35,7 +35,7 @@ const SYNC_BUNDLE_VERSION = StudioData.SYNC_BUNDLE_VERSION;
 /** Soft ceiling so a kit doesn’t grow forever; wells are added/removed on the fly */
 const KIT_SLOT_MAX = 36;
 /** Bump with sw.js CACHE (+ index chip) when shipping UI/data */
-const APP_VERSION = "154";
+const APP_VERSION = "155";
 
 /** Resolve assets for GitHub project pages and local server */
 function appBasePath() {
@@ -2599,14 +2599,14 @@ function renderWetInWet(kit) {
       wetLabPairChipHtml("B", b);
   }
 
-  const soft = $("#wet-lab-demo-soft");
-  const hard = $("#wet-lab-demo-hard");
-  if (soft) {
-    soft.style.background = `linear-gradient(90deg, ${a.hex} 0%, ${a.hex} 28%, ${hexToRgba(b.hex, 0.85)} 52%, ${b.hex} 100%)`;
+  const softFill = $("#wet-lab-demo-soft .wet-lab-demo-fill");
+  const hardA = $("#wet-lab-demo-hard .wet-lab-demo-fill--a");
+  const hardB = $("#wet-lab-demo-hard .wet-lab-demo-fill--b");
+  if (softFill) {
+    softFill.style.background = `linear-gradient(90deg, ${a.hex} 0%, ${a.hex} 28%, ${hexToRgba(b.hex, 0.85)} 52%, ${b.hex} 100%)`;
   }
-  if (hard) {
-    hard.style.background = `linear-gradient(90deg, ${a.hex} 0%, ${a.hex} 48%, ${b.hex} 52%, ${b.hex} 100%)`;
-  }
+  if (hardA) hardA.style.background = a.hex;
+  if (hardB) hardB.style.background = b.hex;
 
   const drills = $("#wet-lab-drills");
   if (drills) {

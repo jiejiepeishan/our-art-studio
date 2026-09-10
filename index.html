@@ -19,7 +19,7 @@
         return;
       }
       // One-time: kill any service worker so a stuck SW cannot pin "Loading studio"
-      var FLAG = "oas-disable-sw-v154";
+      var FLAG = "oas-disable-sw-v155";
       try {
         if (sessionStorage.getItem(FLAG)) return;
         if (!("serviceWorker" in navigator)) {
@@ -53,7 +53,7 @@
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
   <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
-  <link rel="stylesheet" href="css/style.css?v=154" />
+  <link rel="stylesheet" href="css/style.css?v=155" />
 </head>
 <body>
   <p id="stuck-hint" class="load-status" hidden>
@@ -90,7 +90,7 @@
     </div>
     <p class="studio-tagline">watercolor palette & mix lab</p>
     <p class="palette-meta" id="palette-meta"></p>
-    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v154</button>
+    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v155</button>
   </header>
 
   <aside class="caveats-banner" id="caveats-banner" aria-label="Studio notes">
@@ -301,11 +301,16 @@
               <div class="wet-lab-pair" id="wet-lab-pair" aria-live="polite"></div>
               <div class="wet-lab-demos" aria-hidden="true">
                 <div class="wet-lab-demo">
-                  <div class="wet-lab-demo-swatch wet-lab-demo-swatch--soft" id="wet-lab-demo-soft"></div>
+                  <div class="wet-lab-demo-swatch" id="wet-lab-demo-soft">
+                    <span class="wet-lab-demo-fill"></span>
+                  </div>
                   <span class="wet-lab-demo-label">Soft edge</span>
                 </div>
                 <div class="wet-lab-demo">
-                  <div class="wet-lab-demo-swatch wet-lab-demo-swatch--hard" id="wet-lab-demo-hard"></div>
+                  <div class="wet-lab-demo-swatch" id="wet-lab-demo-hard">
+                    <span class="wet-lab-demo-fill wet-lab-demo-fill--a"></span>
+                    <span class="wet-lab-demo-fill wet-lab-demo-fill--b"></span>
+                  </div>
                   <span class="wet-lab-demo-label">Hard edge</span>
                 </div>
               </div>
@@ -777,9 +782,9 @@
     </div>
   </dialog>
 
-  <script src="js/mixing.js?v=154" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load mixing.js';document.getElementById('load-status').hidden=true;"></script>
-  <script src="js/data.js?v=154" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load data.js';document.getElementById('load-status').hidden=true;"></script>
-  <script src="js/render.js?v=154" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load render.js';document.getElementById('load-status').hidden=true;"></script>
-  <script src="js/app.js?v=154" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load app.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/mixing.js?v=155" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load mixing.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/data.js?v=155" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load data.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/render.js?v=155" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load render.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/app.js?v=155" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load app.js';document.getElementById('load-status').hidden=true;"></script>
 </body>
 </html>

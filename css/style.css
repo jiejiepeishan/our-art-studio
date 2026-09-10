@@ -3169,12 +3169,29 @@ button.mix-slot-swatch--filled:active {
 }
 
 .wet-lab-demo-swatch {
+  position: relative;
   width: 100%;
   aspect-ratio: 1.4;
   border-radius: 12px;
-  border: 1px solid rgba(61, 52, 41, 0.12);
-  background-color: #f7f1e8;
   overflow: hidden;
+  isolation: isolate;
+  box-shadow: inset 0 0 0 1px rgba(61, 52, 41, 0.12);
+  background: transparent;
+}
+
+.wet-lab-demo-fill {
+  position: absolute;
+  inset: -1px;
+  display: block;
+  pointer-events: none;
+}
+
+.wet-lab-demo-fill--a {
+  right: 50%;
+}
+
+.wet-lab-demo-fill--b {
+  left: 50%;
 }
 
 .wet-lab-demo-label {
