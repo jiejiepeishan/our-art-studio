@@ -2872,6 +2872,48 @@ button.mix-slot-swatch--filled:active {
   margin-bottom: 12px;
 }
 
+.kit-fold-summary {
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.kit-fold-summary::-webkit-details-marker {
+  display: none;
+}
+
+.kit-fold-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.kit-fold-chevron {
+  flex-shrink: 0;
+  color: var(--ink-faint);
+  font-size: 0.85rem;
+  transition: transform 0.15s ease;
+  margin-top: 2px;
+}
+
+.kit-fold[open] > .kit-fold-summary .kit-fold-chevron {
+  transform: rotate(-180deg);
+}
+
+.kit-fold-body {
+  margin-top: 12px;
+}
+
+.kit-fold-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
 .water-lab-title {
   margin: 0;
   font-family: var(--font-display);
