@@ -434,6 +434,17 @@ textarea {
   font-weight: 600;
 }
 
+.mini-class-demo-caption {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--ink-faint);
+}
+
+.mini-class-demo-swatches {
+  margin: 0 0 14px;
+}
+
 @media (max-width: 400px) {
   .tab-nav {
     gap: 6px;

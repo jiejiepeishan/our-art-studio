@@ -19,7 +19,7 @@
         return;
       }
       // One-time: kill any service worker so a stuck SW cannot pin "Loading studio"
-      var FLAG = "oas-disable-sw-v151";
+      var FLAG = "oas-disable-sw-v152";
       try {
         if (sessionStorage.getItem(FLAG)) return;
         if (!("serviceWorker" in navigator)) {
@@ -53,7 +53,7 @@
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
   <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
-  <link rel="stylesheet" href="css/style.css?v=151" />
+  <link rel="stylesheet" href="css/style.css?v=152" />
 </head>
 <body>
   <p id="stuck-hint" class="load-status" hidden>
@@ -90,7 +90,7 @@
     </div>
     <p class="studio-tagline">watercolor palette & mix lab</p>
     <p class="palette-meta" id="palette-meta"></p>
-    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v151</button>
+    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v152</button>
   </header>
 
   <aside class="caveats-banner" id="caveats-banner" aria-label="Studio notes">
@@ -420,6 +420,8 @@
           </summary>
           <div class="mini-class-body">
             <p>Same hue, more pigment each step. This is the dictionary. Practice it on Kits → Water lab with a pan from the tin.</p>
+            <p class="mini-class-demo-caption">Demo: French Ultramarine — granulating, so tea and milk show flocks. Butter is still the same blue, just denser.</p>
+            <div id="class-water-swatches" class="water-lab-swatch-row mini-class-demo-swatches" role="list" aria-label="Demo water ladder"></div>
             <ol class="mini-class-ladder">
               <li><strong>Tea</strong> — Mostly water, a breath of pigment. Tinted water, not “light paint.”</li>
               <li><strong>Milk</strong> — Still transparent — paper glow shows through. First washes, sky bases.</li>
@@ -736,9 +738,9 @@
     </div>
   </dialog>
 
-  <script src="js/mixing.js?v=151" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load mixing.js';document.getElementById('load-status').hidden=true;"></script>
-  <script src="js/data.js?v=151" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load data.js';document.getElementById('load-status').hidden=true;"></script>
-  <script src="js/render.js?v=151" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load render.js';document.getElementById('load-status').hidden=true;"></script>
-  <script src="js/app.js?v=151" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load app.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/mixing.js?v=152" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load mixing.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/data.js?v=152" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load data.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/render.js?v=152" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load render.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/app.js?v=152" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load app.js';document.getElementById('load-status').hidden=true;"></script>
 </body>
 </html>

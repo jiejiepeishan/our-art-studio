@@ -35,7 +35,7 @@ const SYNC_BUNDLE_VERSION = StudioData.SYNC_BUNDLE_VERSION;
 /** Soft ceiling so a kit doesn’t grow forever; wells are added/removed on the fly */
 const KIT_SLOT_MAX = 36;
 /** Bump with sw.js CACHE (+ index chip) when shipping UI/data */
-const APP_VERSION = "151";
+const APP_VERSION = "152";
 
 /** Resolve assets for GitHub project pages and local server */
 function appBasePath() {
@@ -172,6 +172,11 @@ async function init() {
     renderPalette();
   } catch (e) {
     console.warn("renderPalette", e);
+  }
+  try {
+    renderClassWaterDemo();
+  } catch (e) {
+    console.warn("classWaterDemo", e);
   }
   try {
     renderKits();
@@ -2407,6 +2412,27 @@ const WATER_LADDER = [
     recipe: "Pigment-rich, little free water. For darks and accents — easy to overdo if the paper is still shiny.",
   },
 ];
+
+const CLASS_WATER_DEMO_ID = "ds-034-french-ultramarine";
+const CLASS_WATER_DEMO_HEX = "#3A4A9C";
+
+function renderClassWaterDemo() {
+  const row = $("#class-water-swatches");
+  if (!row) return;
+  const color = state.palette.colors.find((c) => c.id === CLASS_WATER_DEMO_ID);
+  const hex = color?.hex || CLASS_WATER_DEMO_HEX;
+  row.innerHTML = "";
+  WATER_LADDER.forEach((step) => {
+    const cell = document.createElement("div");
+    cell.className = "water-lab-swatch";
+    cell.setAttribute("role", "listitem");
+    cell.title = `${step.label}: ${step.recipe}`;
+    cell.innerHTML = `
+        <span class="water-lab-swatch-fill" style="background:${hexToRgba(hex, step.opacity)}"></span>
+        <span class="water-lab-swatch-label">${escapeHtml(step.label)}</span>`;
+    row.appendChild(cell);
+  });
+}
 
 function hexToRgba(hex, alpha) {
   const h = String(hex || "#888888").replace("#", "");
@@ -4856,6 +4882,7 @@ function openMoreTarget(target) {
     clearFormStatus();
   }
   if (target === "sync") void resetSyncPanel();
+  if (target === "classroom") renderClassWaterDemo();
   switchTab(target);
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
