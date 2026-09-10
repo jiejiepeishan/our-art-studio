@@ -19,7 +19,7 @@
         return;
       }
       // One-time: kill any service worker so a stuck SW cannot pin "Loading studio"
-      var FLAG = "oas-disable-sw-v152";
+      var FLAG = "oas-disable-sw-v153";
       try {
         if (sessionStorage.getItem(FLAG)) return;
         if (!("serviceWorker" in navigator)) {
@@ -53,7 +53,7 @@
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
   <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
-  <link rel="stylesheet" href="css/style.css?v=152" />
+  <link rel="stylesheet" href="css/style.css?v=153" />
 </head>
 <body>
   <p id="stuck-hint" class="load-status" hidden>
@@ -90,7 +90,7 @@
     </div>
     <p class="studio-tagline">watercolor palette & mix lab</p>
     <p class="palette-meta" id="palette-meta"></p>
-    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v152</button>
+    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v153</button>
   </header>
 
   <aside class="caveats-banner" id="caveats-banner" aria-label="Studio notes">
@@ -363,6 +363,25 @@
       </div>
       <p id="kit-empty-state" class="empty-state">No kits yet — tap + New kit.</p>
     </section>
+
+    <dialog id="water-dict-sheet" class="water-dict-sheet" aria-labelledby="water-dict-title">
+      <div class="water-dict-inner">
+        <h2 id="water-dict-title" class="water-dict-title">Tea · milk · cream · butter</h2>
+        <p class="water-dict-lead">Same hue, more pigment. Cheat-sheet — you’re still in Water lab.</p>
+        <ol class="water-dict-list">
+          <li><strong>Tea</strong> — Mostly water, a breath of pigment. Tinted water, not “light paint.”</li>
+          <li><strong>Milk</strong> — Still transparent — paper glow shows through. First washes, sky bases.</li>
+          <li><strong>Cream</strong> — Paint and water share the brush. Mid-values, still movable for a moment.</li>
+          <li><strong>Butter</strong> — Pigment-rich, little free water. Darks and accents. Easy to overdo if the paper is still shiny.</li>
+        </ol>
+        <ul class="water-dict-flags">
+          <li><strong>✦ Granulating</strong> — tea and milk show texture best; don’t scrub butter into mud.</li>
+          <li><strong>Staining</strong> — tea is your friend for first layers; butter won’t lift clean later.</li>
+          <li><strong>◈ Mixer</strong> — try the ladder, then mix a neighbor at milk strength only.</li>
+        </ul>
+        <button type="button" id="water-dict-got-it" class="btn-primary water-dict-got-it">Got it</button>
+      </div>
+    </dialog>
 
     <!-- Kit color picker sheet (tap dimmed backdrop to close) -->
     <dialog id="kit-picker-sheet" class="detail-sheet kit-picker-sheet">
@@ -738,9 +757,9 @@
     </div>
   </dialog>
 
-  <script src="js/mixing.js?v=152" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load mixing.js';document.getElementById('load-status').hidden=true;"></script>
-  <script src="js/data.js?v=152" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load data.js';document.getElementById('load-status').hidden=true;"></script>
-  <script src="js/render.js?v=152" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load render.js';document.getElementById('load-status').hidden=true;"></script>
-  <script src="js/app.js?v=152" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load app.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/mixing.js?v=153" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load mixing.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/data.js?v=153" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load data.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/render.js?v=153" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load render.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/app.js?v=153" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load app.js';document.getElementById('load-status').hidden=true;"></script>
 </body>
 </html>

@@ -35,7 +35,7 @@ const SYNC_BUNDLE_VERSION = StudioData.SYNC_BUNDLE_VERSION;
 /** Soft ceiling so a kit doesn’t grow forever; wells are added/removed on the fly */
 const KIT_SLOT_MAX = 36;
 /** Bump with sw.js CACHE (+ index chip) when shipping UI/data */
-const APP_VERSION = "152";
+const APP_VERSION = "153";
 
 /** Resolve assets for GitHub project pages and local server */
 function appBasePath() {
@@ -4819,6 +4819,8 @@ function resetKitsPanel() {
   if (sheet?.open) sheet.close();
   const picker = $("#kit-picker-sheet");
   if (picker?.open) picker.close();
+  const waterDict = $("#water-dict-sheet");
+  if (waterDict?.open) waterDict.close();
   closeKitSwitcher();
   renderKits();
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -4975,7 +4977,14 @@ function bindEvents() {
   });
   $("#kit-note-personal")?.addEventListener("input", saveActiveKitPersonalNote);
   $("#kit-note-personal")?.addEventListener("change", saveActiveKitPersonalNote);
-  $("#water-lab-to-class")?.addEventListener("click", () => openClassroom("class-water"));
+  $("#water-lab-to-class")?.addEventListener("click", () => {
+    const d = $("#water-dict-sheet");
+    if (d && !d.open) d.showModal();
+  });
+  $("#water-dict-got-it")?.addEventListener("click", () => $("#water-dict-sheet")?.close());
+  $("#water-dict-sheet")?.addEventListener("click", (e) => {
+    if (e.target === e.currentTarget) e.currentTarget.close();
+  });
   $("#water-lab-color")?.addEventListener("change", (e) => {
     state.waterLabColorId = e.target.value || null;
     const kit = getActiveKit();

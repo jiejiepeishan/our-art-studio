@@ -3009,6 +3009,60 @@ button.mix-slot-swatch--filled:active {
   margin-top: 10px;
 }
 
+.water-dict-sheet {
+  border: none;
+  padding: 0;
+  margin: auto;
+  max-width: 22rem;
+  width: calc(100% - 32px);
+  background: transparent;
+}
+
+.water-dict-sheet::backdrop {
+  background: rgba(61, 52, 41, 0.35);
+  backdrop-filter: blur(4px);
+}
+
+.water-dict-inner {
+  background: var(--paper);
+  border-radius: 18px;
+  box-shadow: var(--shadow-lg);
+  padding: 18px 18px 16px;
+}
+
+.water-dict-title {
+  margin: 0 0 6px;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.water-dict-lead {
+  margin: 0 0 12px;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--ink-faint);
+}
+
+.water-dict-list,
+.water-dict-flags {
+  margin: 0 0 12px;
+  padding-left: 1.15em;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.water-dict-list li,
+.water-dict-flags li {
+  margin-bottom: 8px;
+}
+
+.water-dict-got-it {
+  width: 100%;
+}
+
 /* Wet-in-wet pair + demos */
 .wet-lab-pair {
   display: flex;
