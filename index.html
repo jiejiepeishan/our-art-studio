@@ -19,7 +19,7 @@
         return;
       }
       // One-time: kill any service worker so a stuck SW cannot pin "Loading studio"
-      var FLAG = "oas-disable-sw-v150";
+      var FLAG = "oas-disable-sw-v151";
       try {
         if (sessionStorage.getItem(FLAG)) return;
         if (!("serviceWorker" in navigator)) {
@@ -53,7 +53,7 @@
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
   <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
-  <link rel="stylesheet" href="css/style.css?v=150" />
+  <link rel="stylesheet" href="css/style.css?v=151" />
 </head>
 <body>
   <p id="stuck-hint" class="load-status" hidden>
@@ -90,7 +90,7 @@
     </div>
     <p class="studio-tagline">watercolor palette & mix lab</p>
     <p class="palette-meta" id="palette-meta"></p>
-    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v150</button>
+    <button type="button" id="app-version-chip" class="version-chip" title="Tap to fetch the latest studio">v151</button>
   </header>
 
   <aside class="caveats-banner" id="caveats-banner" aria-label="Studio notes">
@@ -263,7 +263,7 @@
         <section id="water-lab" class="water-lab" aria-label="Water lab">
           <div class="water-lab-head">
             <h3 class="water-lab-title">Water lab</h3>
-            <p class="water-lab-sub">Same color, four water loads — train your eye before the paper judges you.</p>
+            <p class="water-lab-sub">Same pan, four loads. The dictionary lives in Ace’s Mini Class.</p>
           </div>
           <div id="water-lab-empty" class="water-lab-empty" hidden>
             Add a pan to this kit first — then pick one and climb the ladder.
@@ -274,8 +274,8 @@
               <select id="water-lab-color" class="water-lab-color-select" aria-label="Color for water ladder"></select>
             </label>
             <div id="water-lab-swatch-row" class="water-lab-swatch-row" role="list" aria-label="Water ladder targets"></div>
-            <ol id="water-lab-steps" class="water-lab-steps"></ol>
             <p id="water-lab-tip" class="water-lab-tip"></p>
+            <button type="button" id="water-lab-to-class" class="btn-ghost btn-compact">Ace’s Mini Class · water loads</button>
           </div>
         </section>
 
@@ -408,6 +408,62 @@
       </div>
     </section>
 
+    <!-- Ace's Mini Class -->
+    <section id="panel-classroom" class="panel" role="tabpanel" hidden>
+      <h2 class="section-title">Ace’s Mini Class</h2>
+      <p class="section-hint">Cute door. Cool notes. Fold a class when you’re done — they stay independent.</p>
+      <div class="classroom-list">
+        <details class="mini-class" id="class-water">
+          <summary class="mini-class-summary">
+            <span class="mini-class-kicker">Class 1</span>
+            <span class="mini-class-title">Water loads · tea to butter</span>
+          </summary>
+          <div class="mini-class-body">
+            <p>Same hue, more pigment each step. This is the dictionary. Practice it on Kits → Water lab with a pan from the tin.</p>
+            <ol class="mini-class-ladder">
+              <li><strong>Tea</strong> — Mostly water, a breath of pigment. Tinted water, not “light paint.”</li>
+              <li><strong>Milk</strong> — Still transparent — paper glow shows through. First washes, sky bases.</li>
+              <li><strong>Cream</strong> — Paint and water share the brush. Mid-values, still movable for a moment.</li>
+              <li><strong>Butter</strong> — Pigment-rich, little free water. Darks and accents. Easy to overdo if the paper is still shiny.</li>
+            </ol>
+            <p>Climb only when the previous step loses its shine. Shiny = still wet enough to bloom; matte = safer for the next darker step.</p>
+            <ul class="mini-class-flags">
+              <li><strong>✦ Granulating</strong> — tea and milk show texture best; don’t scrub butter into mud.</li>
+              <li><strong>Staining</strong> — tea is your friend for first layers; butter won’t lift clean later.</li>
+              <li><strong>◈ Mixer</strong> — try the ladder, then mix a neighbor at milk strength only.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="mini-class" id="class-candy">
+          <summary class="mini-class-summary">
+            <span class="mini-class-kicker">Class 2</span>
+            <span class="mini-class-title">Candy mute · macarons &amp; milk</span>
+          </summary>
+          <div class="mini-class-body">
+            <p>Soft mute, not grey soup. Treat the macarons as a <em>low-chroma cousin</em> of the loud color — not as a new personality. Icy, Nova, Mint Dream, milky lavenders: same milk logic (titanium white in the well).</p>
+            <p><strong>Mix</strong> (while the puddle is still wet). Take the bright you already use. Touch in a <em>small</em> amount of the cousin:</p>
+            <table class="mini-class-table">
+              <thead><tr><th>Loud thing you own</th><th>Icy cousin</th></tr></thead>
+              <tbody>
+                <tr><td>Opera / magenta / PR122</td><td>910 Icy Pink</td></tr>
+                <tr><td>Pyrrol / fire orange</td><td>908 Icy Orange or 909 Icy Red</td></tr>
+                <tr><td>Hansa / lemon</td><td>907 Icy Yellow</td></tr>
+                <tr><td>Phthalo / Helio / May</td><td>915 Icy Green or 914 Blue-green</td></tr>
+                <tr><td>Ultramarine / loud blue</td><td>912 Icy Blue or 911 Icy Violet</td></tr>
+                <tr><td>Burnt sienna / brick</td><td>916 Red-brown or 917 Icy Brown</td></tr>
+              </tbody>
+            </table>
+            <p>You want chroma to drop and the color to get a little powdery-soft. If the mix jumps a whole hue, wrong cousin or too much.</p>
+            <p><strong>Glaze</strong> (after the first wash dries). Thin, even veil of the macaron over the loud passage. One pass. Let it dry before you decide it failed. Sweater, not a new drawing.</p>
+            <p><strong>How much.</strong> Start with almost nothing. These sets are white-heavy. Too much and the wash goes milky, chalky, and light — muted like candy, not like air. If it suddenly looks like gouache, you added a blob, not a touch.</p>
+            <p><strong>Don’t.</strong> Mute by stirring three macarons together (mud with a French name). Mute a dark with a pale macaron if you still need the dark — value jumps up and the form dies. Use them as your only grey — you still need a real neutral sometimes. <strong>918 Icy Grey</strong> is a candy grey, not Payne’s.</p>
+            <p>A fat mute <strong>kills granulation</strong> (Ultramarine, Melon, Cascade). If you wanted grit, glaze thinner or mute with a speck, not a blob.</p>
+            <p><strong>Test strip.</strong> Raw color | +tiny macaron | +a bit more | thin glaze of macaron over dry raw. Two minutes. Then you stop guessing.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
     <!-- Brands Story -->
     <section id="panel-brands" class="panel" role="tabpanel" hidden>
       <h2 class="section-title">Brands Story</h2>
@@ -418,8 +474,23 @@
 
     <!-- More hub -->
     <section id="panel-more" class="panel" role="tabpanel" hidden>
-      <p class="section-hint">Brand stories, new colors, and keeping devices in sync.</p>
+      <p class="section-hint">Ace’s Mini Class, brand stories, new colors, and keeping devices in sync.</p>
       <div class="more-menu" role="menu">
+        <button type="button" class="more-menu-item" role="menuitem" data-more-target="classroom">
+          <span class="more-menu-icon ace-face" aria-hidden="true">
+            <svg viewBox="0 0 36 36" width="28" height="28" fill="none">
+              <circle cx="18" cy="18" r="15" fill="#F4E4C8" stroke="#3D3429" stroke-width="1.6"/>
+              <circle cx="13.2" cy="16" r="1.7" fill="#3D3429"/>
+              <circle cx="22.8" cy="16" r="1.7" fill="#3D3429"/>
+              <path d="M13 23c1.6 2.2 8.4 2.2 10 0" stroke="#3D3429" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="more-menu-body">
+            <span class="more-menu-title">Ace’s Mini Class</span>
+            <span class="more-menu-desc">Messing with Ace — water loads, candy mute, cool notes</span>
+          </span>
+          <span class="more-menu-chevron" aria-hidden="true">›</span>
+        </button>
         <button type="button" class="more-menu-item" role="menuitem" data-more-target="brands">
           <span class="more-menu-icon" aria-hidden="true">✦</span>
           <span class="more-menu-body">
@@ -665,9 +736,9 @@
     </div>
   </dialog>
 
-  <script src="js/mixing.js?v=150" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load mixing.js';document.getElementById('load-status').hidden=true;"></script>
-  <script src="js/data.js?v=150" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load data.js';document.getElementById('load-status').hidden=true;"></script>
-  <script src="js/render.js?v=150" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load render.js';document.getElementById('load-status').hidden=true;"></script>
-  <script src="js/app.js?v=150" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load app.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/mixing.js?v=151" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load mixing.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/data.js?v=151" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load data.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/render.js?v=151" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load render.js';document.getElementById('load-status').hidden=true;"></script>
+  <script src="js/app.js?v=151" onerror="document.getElementById('load-error').hidden=false;document.getElementById('load-error').textContent='Failed to load app.js';document.getElementById('load-status').hidden=true;"></script>
 </body>
 </html>

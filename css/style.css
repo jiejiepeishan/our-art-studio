@@ -337,6 +337,103 @@ textarea {
   opacity: 0.6;
 }
 
+.more-menu-icon.ace-face {
+  padding: 0;
+  background: transparent;
+}
+
+.more-menu-icon.ace-face svg {
+  display: block;
+}
+
+.classroom-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.mini-class {
+  border-radius: 14px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.mini-class-summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mini-class-summary::-webkit-details-marker {
+  display: none;
+}
+
+.mini-class-kicker {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  font-weight: 600;
+}
+
+.mini-class-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.mini-class-body {
+  padding: 0 16px 16px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.mini-class-body p {
+  margin: 0 0 10px;
+}
+
+.mini-class-body p:last-child {
+  margin-bottom: 0;
+}
+
+.mini-class-ladder,
+.mini-class-flags {
+  margin: 0 0 12px;
+  padding-left: 1.15em;
+}
+
+.mini-class-ladder li,
+.mini-class-flags li {
+  margin-bottom: 8px;
+}
+
+.mini-class-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 12px;
+  font-size: 0.8rem;
+}
+
+.mini-class-table th,
+.mini-class-table td {
+  text-align: left;
+  padding: 6px 8px 6px 0;
+  vertical-align: top;
+  border-bottom: 1px solid var(--blush);
+}
+
+.mini-class-table th {
+  color: var(--ink-faint);
+  font-weight: 600;
+}
+
 @media (max-width: 400px) {
   .tab-nav {
     gap: 6px;
@@ -2895,6 +2992,10 @@ button.mix-slot-swatch--filled:active {
 
 .water-lab-tip:empty {
   display: none;
+}
+
+#water-lab-to-class {
+  margin-top: 10px;
 }
 
 /* Wet-in-wet pair + demos */

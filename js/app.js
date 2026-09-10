@@ -35,7 +35,7 @@ const SYNC_BUNDLE_VERSION = StudioData.SYNC_BUNDLE_VERSION;
 /** Soft ceiling so a kit doesn’t grow forever; wells are added/removed on the fly */
 const KIT_SLOT_MAX = 36;
 /** Bump with sw.js CACHE (+ index chip) when shipping UI/data */
-const APP_VERSION = "150";
+const APP_VERSION = "151";
 
 /** Resolve assets for GitHub project pages and local server */
 function appBasePath() {
@@ -2463,7 +2463,6 @@ function renderWaterLab(kit) {
   const bodyEl = $("#water-lab-body");
   const select = $("#water-lab-color");
   const swatchRow = $("#water-lab-swatch-row");
-  const stepsEl = $("#water-lab-steps");
   const tipEl = $("#water-lab-tip");
 
   if (!colors.length) {
@@ -2506,13 +2505,6 @@ function renderWaterLab(kit) {
         <span class="water-lab-swatch-label">${escapeHtml(step.label)}</span>`;
       swatchRow.appendChild(cell);
     });
-  }
-
-  if (stepsEl) {
-    stepsEl.innerHTML = WATER_LADDER.map(
-      (step) =>
-        `<li><strong>${escapeHtml(step.label)}</strong> — ${escapeHtml(step.recipe)}</li>`
-    ).join("");
   }
 
   if (tipEl) {
@@ -4821,15 +4813,26 @@ async function resetSyncPanel() {
 }
 
 function isMoreSubpanel(tabName) {
-  return tabName === "brands" || tabName === "add" || tabName === "sync";
+  return tabName === "classroom" || tabName === "brands" || tabName === "add" || tabName === "sync";
 }
 
 function moreSubpanelOpen() {
   return (
+    $("#panel-classroom")?.classList.contains("active") ||
     $("#panel-brands").classList.contains("active") ||
     $("#panel-add").classList.contains("active") ||
     $("#panel-sync").classList.contains("active")
   );
+}
+
+function openClassroom(classId) {
+  openMoreTarget("classroom");
+  if (!classId) return;
+  const el = document.getElementById(classId);
+  if (el) {
+    el.open = true;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 }
 
 function switchTab(tabName) {
@@ -4945,6 +4948,7 @@ function bindEvents() {
   });
   $("#kit-note-personal")?.addEventListener("input", saveActiveKitPersonalNote);
   $("#kit-note-personal")?.addEventListener("change", saveActiveKitPersonalNote);
+  $("#water-lab-to-class")?.addEventListener("click", () => openClassroom("class-water"));
   $("#water-lab-color")?.addEventListener("change", (e) => {
     state.waterLabColorId = e.target.value || null;
     const kit = getActiveKit();
