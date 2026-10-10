@@ -1,9 +1,9 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-09-10-medium-tox-audit",
-  "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein) · 2608 new colors haul (Holbein HPN/HWC, Horadam 337/Naturals, Liquid Earth, Akademie Icy)",
-  "color_count": 270,
+  "updated": "2026-10-10-rublev-rs376",
+  "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein) · 2608 new colors haul (Holbein HPN/HWC, Horadam 337/Naturals, Liquid Earth, Akademie Icy) · 2026-10-10 order photo: Rublev 103 Lazurite half-pan, Rublev 204 Malachite full pan, Roman Szmal 376 Raspberry Red",
+  "color_count": 273,
   "colors": [
     {
       "brand_traits": [
@@ -7885,6 +7885,91 @@
       "best_for": "Macaron / high-key illustration, ice-cream still life, and student-bright sketches.",
       "ace_note": "Icy Grey (918) — Akademie Icy, not Horadam.\n\nEvery color in this set is titanium white (PW6) plus a modern organic. They are macarons: pretty, covering, chalky if stacked, weak as mixers. Four-pigment convenience grey. Fast shadow for the set. Not Payne's, not a mixing neutral to learn from.\n\nDual advice: treat the twelve as one pastel kit, not twelve new primaries. vs Mint Dream / Nova / Holbein lavender: same milk-logic. Don't buy Horadam 15ml of a color you only needed as ice-cream.",
       "ace_history": "Akademie Aquarell is Schmincke's student line. The Icy / 马卡龙 set is 21st-century pastel marketing: white in every well so the dots look like gelato. Codes 907–918 must never be filed as Horadam Supergranulating 9xx."
+    },
+    {
+      "id": "rublev-103-lazurite",
+      "brand": "Rublev",
+      "brand_traits": [
+        "professional",
+        "historical"
+      ],
+      "name_en": "Lazurite",
+      "name_zh": "青金石",
+      "code": "103",
+      "pigment": "PB29",
+      "hex": "#2E5A9C",
+      "format": "half-pan",
+      "size": "half-pan",
+      "family": "blue",
+      "transparency": 2,
+      "lightfastness": 1,
+      "granulating": true,
+      "staining": true,
+      "toxicity": "low",
+      "mix_star": false,
+      "mix_tips": [],
+      "notes": "Rublev Colours 103 Lazurite, half pan (order: 半块). SKU 850-103. Natural Pigments product page: genuine lapis, Colour Index PB29, semi-transparent, granulation strong, particles medium, staining moderate/average, ASTM I, gum arabic, no additives, non-hazardous. Specs table leaves the pigment code blank. Tinting strength disagrees on the same page (moderate / average / good / excellent) — filed as moderate. Hex is the seller thumbnail, not a studio swatch. Still in transit on the order photo.",
+      "temp_role": "Cool gem blue · Natural lazurite (PB29 rock, not 1828 synthetic) · strong granulation",
+      "best_for": "Old skies, stone cloth, and a lapis that is allowed to settle.",
+      "ace_note": "This is the rock, not French ultramarine's loud cousin.\n\nRublev 103 is genuine lapis (lazurite). Natural Pigments files it as PB29 — same index as synthetic ultramarine, because the blue mineral is the same family. The paint is not the same job. Their page: semi-transparent, medium particles, strong granulation, moderate staining, ASTM I. Tinting strength is a mess on that page (moderate, average, good, and excellent all appear). Treat it as moderate until your wash says otherwise.\n\nPlay lab (granulation): cold-press, lots of water, one drop, no scrubbing. Look for blue flocks and any pyrite glitter. If it goes flat grey soup, you stirred the stone to death.\n\nDual advice: one lapis seat. You already have Daniel Smith PrimaTek Lapis (quiet blue-grey, 2ml). Rublev's own words say intense deep blue. Swatch them on the same strip before both stay. Neither replaces PB29 French for violets and sienna storms.",
+      "ace_history": "Lapis was the medieval luxury blue, ground from the stone, until Guimet's 1828 synthesis made the sky cheap. Rublev (Natural Pigments) puts the mineral back in gum arabic and sugar, and still prints PB29 — the index of the synthetic twin. The number is chemistry. The pan is the rock."
+    },
+    {
+      "id": "rublev-204-malachite",
+      "brand": "Rublev",
+      "brand_traits": [
+        "professional",
+        "historical"
+      ],
+      "name_en": "Malachite",
+      "name_zh": "孔雀石绿",
+      "code": "204",
+      "pigment": "PG39",
+      "hex": "#3D9A78",
+      "format": "full pan",
+      "size": "full pan",
+      "family": "green",
+      "transparency": 2,
+      "lightfastness": 1,
+      "granulating": false,
+      "staining": true,
+      "toxicity": "low",
+      "mix_star": false,
+      "mix_tips": [],
+      "notes": "Rublev Colours 204 Malachite, full pan (order: 全块). SKU 850-204. Natural Pigments: natural malachite, Ural (Nizhniy Tagil), copper carbonate hydroxide, Colour Index PG39. Composition table: semi-transparent, ASTM I, tinting high, staining low. Attribute block on the same shop: coarse particles, granulation none, staining medium (55–75%), lightfastness not listed, pigment code N/A. Specs table also leaves the code and lightfastness blank. Card follows PG39, ASTM I, granulation off, staining on (the measured 55–75%). Kremer indexes natural malachite as PB30. This card uses PG39, so a PB30 search will not find it. CI 77492 is also the iron-oxide yellow number; do not file this as PY42. Rublev's health column says non-hazardous. Hex is the seller thumbnail. Still in transit on the order photo.",
+      "temp_role": "Cool mineral green · Natural malachite (PG39) · coarse, listed as not granulating",
+      "best_for": "Stone green, old mineral passages, and a green that is not a leaf engine.",
+      "ace_note": "Peacock stone, not phthalo, not viridian.\n\nRublev 204 is natural malachite: basic copper carbonate, semi-transparent. Natural Pigments says the ore is from Nizhniy Tagil in the Urals. Their composition table says ASTM I, high tint, low stain. A second block on the same site says coarse particles, granulation none, and medium staining (55–75% stays down). The card believes the measured stain and the explicit \"granulation: none.\" Coarse rock can still texture. First wash decides — if it flocks, the paper wins and the granulating mark goes on.\n\nIt will not make May greens or clean spring. It sits as mineral green: patina, stone, a glaze that stays blue-green instead of yelling.\n\nDual advice: one genuine-malachite seat. vs Schmincke viridian 513 (PG18): chromium hydrate, often granulating, quieter chemistry. vs Emerald Green Nova: milk + May, a highlighter. vs phthalo: that is the mixing engine. This pan is the rock. Don't keep it as a second leaf green.",
+      "ace_history": "Malachite green is older than phthalo by a few thousand years — ground copper ore, Egyptian and medieval, famous for going pale if you grind it too fine. Rublev's sheet still calls the paint non-hazardous. It is copper carbonate anyway: wash hands, keep it off food. Kremer's catalog files the same mineral as PB30; Rublev prints PG39. Trust PG39 for this pan."
+    },
+    {
+      "id": "rs-376-raspberry-red",
+      "brand": "Roman Szmal",
+      "brand_traits": [
+        "professional",
+        "roman-szmal",
+        "polish"
+      ],
+      "name_en": "Raspberry Red",
+      "name_zh": "覆盆子红",
+      "code": "376",
+      "pigment": "PR272",
+      "hex": "#E23A4C",
+      "format": "full pan",
+      "size": "full pan",
+      "family": "red",
+      "transparency": 3,
+      "lightfastness": 1,
+      "granulating": true,
+      "staining": true,
+      "toxicity": "low",
+      "mix_star": false,
+      "mix_tips": [],
+      "notes": "Roman Szmal Aquarius 376 Raspberry Red, full pan (order: 固体全块). Pigment PR272 on the seller swatch and on Paperconcept's label block. PR272 is diketopyrrolopyrrole flame red (Ciba Irgazin / Cromophtal DPP Flame Red), a pyrrole cousin of PR254 with a raspberry lean. Handling below is that shop's label block, not a page on Roman Szmal's own site: staining, medium-granulating, semi-opaque, Blue Wool 7/8, series 3. Honey + gum arabic, as with the rest of Aquarius. Hex is the seller swatch. Still in transit on the order photo. If the pan's printed symbols differ, correct this card.",
+      "temp_role": "Cool-leaning pyrrole red · PR272 DPP flame red · raspberry, semi-opaque, medium grit",
+      "best_for": "Berry reds, floral punch, and a pyrrole that is not a clean primary.",
+      "ace_note": "Raspberry, not a second cadmium, not Opera.\n\nAquarius 376 is single-pigment PR272: DPP flame red, the later pyrrole cousin of PR254. Slightly blue of a mid pyrrole — berry, not fire-engine. The Polish shop that prints the label fields says staining, medium granulation, semi-opaque, Blue Wool 7/8. I have not opened Roman Szmal's own page for 376. If your pan's little symbols disagree, the pan wins.\n\nPlay lab (granulation): a juicy bead on cold-press. A pyrrole that flocks is a surprise — most pyrroles stain smooth. If this one settles, keep the tooth. If it stains flat, we turn the grit mark off.\n\nSemi-opaque means it covers more than quin rose and chalks sooner if you stack it. Not a glazing crimson.\n\nDual advice: one raspberry/pyrrol-red seat. Roman Szmal also makes 210 Pyrrole Red (PR254) — same family, mid red, usually the cleaner mixer. Keep 376 only if the berry shift is obvious next to whatever pyrrole or quin you already use. Not a substitute for Potter's Pink, not a substitute for Opera.",
+      "ace_history": "PR272 is Ciba's DPP flame red, industrial cousin of the 1980s pyrrole reds (PR254 and friends). Roman Szmal put it in an Aquarius pan and named the hue raspberry. The chemistry is modern and lightfast. The name is the fruit, not a historic lake."
     }
   ],
   "caveats": [
