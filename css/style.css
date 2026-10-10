@@ -857,9 +857,10 @@ textarea {
   min-height: 6rem;
 }
 
-/* Trait marks: ✦ granulating · ◈ good for mix — always top-left of patch */
+/* Trait marks: ☾ single pigment · ✦ granulating · ◈ good for mix — always top-left of patch */
 .granule-mark,
-.mix-mark {
+.mix-mark,
+.single-mark {
   display: block;
   line-height: 1;
   color: rgba(255, 255, 255, 0.95);
@@ -881,7 +882,8 @@ textarea {
 }
 
 .swatch-marks .granule-mark,
-.swatch-marks .mix-mark {
+.swatch-marks .mix-mark,
+.swatch-marks .single-mark {
   position: static;
   display: inline-flex;
   align-items: center;
@@ -889,10 +891,22 @@ textarea {
   line-height: 1;
 }
 
+/* Crescent is drawn, so its box matches the ✦ / ◈ em size on every swatch. */
+.swatch-marks .single-mark svg {
+  width: 1.08em;
+  height: 1.08em;
+  display: block;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.55));
+}
+
 /* ✦ draws smaller than ◈ at the same em size on iOS — nudge on touch screens */
 @media (hover: none) and (pointer: coarse) {
   .swatch-marks .granule-mark {
     font-size: 1.28em;
+  }
+  .swatch-marks .single-mark svg {
+    width: 1.2em;
+    height: 1.2em;
   }
 }
 
@@ -2222,6 +2236,10 @@ button.mix-slot-swatch--filled:active {
   border-radius: 999px;
   background: var(--paper-deep);
   color: var(--ink-soft);
+}
+
+.trait.single {
+  background: rgba(196, 184, 212, 0.45);
 }
 
 .trait.granulating {

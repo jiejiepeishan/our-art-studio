@@ -35,7 +35,7 @@ const SYNC_BUNDLE_VERSION = StudioData.SYNC_BUNDLE_VERSION;
 /** Soft ceiling so a kit doesn’t grow forever; wells are added/removed on the fly */
 const KIT_SLOT_MAX = 36;
 /** Bump with sw.js CACHE (+ index chip) when shipping UI/data */
-const APP_VERSION = "156";
+const APP_VERSION = "157";
 
 /** Resolve assets for GitHub project pages and local server */
 function appBasePath() {
@@ -505,7 +505,7 @@ function filteredColors() {
     } else if (family && c.family !== family) return false;
     if (toxicity && toxicityLevel(c) !== toxicity) return false;
     if (!matchesFormatFilter(c, format)) return false;
-    // Same multi-token AND search as kit picker (code · hue · brand · name)
+    // Same multi-token AND search as kit picker (code · hue · brand · name · pigment)
     if (tokens.length && !colorMatchesSearchTokens(c, tokens)) return false;
     return true;
   });
@@ -3272,6 +3272,7 @@ function makeKitWell(kit, index, color) {
   if (color) {
     btn.style.background = color.hex;
     const marks = [];
+    if (isSinglePigment(color)) marks.push("☾ single pigment");
     if (color.granulating) marks.push("✦ granulating");
     if (color.mix_star) marks.push("◈ good for mix");
     btn.title = state.kitWellEditMode
@@ -3601,7 +3602,43 @@ function closeKitPicker() {
   });
 }
 
-/** Multi-token AND search: code, name, brand, family, hue words */
+/** Colour Index tokens in a pigment string: "PR101/PW6" → ["PR101","PW6"]. */
+function pigmentCodeTokens(pigment) {
+  return String(pigment || "")
+    .toUpperCase()
+    .split(/[/+,|&\s]+/)
+    .map((p) => p.trim())
+    .filter(Boolean);
+}
+
+/** PR101, PB15:3, PBr7, NR4:1 — a code, not a hue word. */
+function isPigmentCodeQuery(tok) {
+  return /^(?:P|N)[A-Z]{0,2}\d{1,3}(?::\d+)?$/i.test(tok);
+}
+
+/**
+ * Code matches that pigment, including mixes (PR101 inside PR101/PW6).
+ * PB15 also matches PB15:3. PR10 does not match PR101.
+ */
+function pigmentCodeHits(pigment, query) {
+  const q = String(query || "").toUpperCase();
+  return pigmentCodeTokens(pigment).some((tok) => tok === q || tok.startsWith(q + ":"));
+}
+
+/**
+ * One colour in the well: a single CI code (PB15:3 counts as one),
+ * or one genuine / natural mineral. PR101/PW6 is a mix — no crescent.
+ */
+function isSinglePigment(c) {
+  const raw = String(c.pigment || "").trim();
+  if (!raw) return false;
+  const parts = raw.split(/[/+,|&]+/).map((s) => s.trim()).filter(Boolean);
+  if (parts.length !== 1) return false;
+  if (/^(?:P|N)[A-Za-z]{1,2}\d{1,3}(?::\d+)?$/i.test(parts[0])) return true;
+  return /^(?:genuine|natural)\b/i.test(parts[0]);
+}
+
+/** Multi-token AND search: code, name, brand, family, hue words, pigment code */
 function colorMatchesSearchTokens(c, tokens) {
   if (!tokens.length) return true;
   const nameEn = (c.name_en || "").toLowerCase();
@@ -3636,6 +3673,9 @@ function colorMatchesSearchTokens(c, tokens) {
   };
 
   return tokens.every((tok) => {
+    // A pigment code looks at the pigment field only, so a note that says
+    // "not PR101" does not pull that color into a PR101 search.
+    if (isPigmentCodeQuery(tok)) return pigmentCodeHits(c.pigment, tok);
     if (hay.includes(tok)) return true;
     // bare numbers match product codes (211, 33-107, 284600034)
     if (/^\d{2,}$/.test(tok)) {
@@ -4591,6 +4631,7 @@ function openDetail(c) {
 
   const traits = [];
   if (c.user_added) traits.push({ label: "Added by you", cls: "" });
+  if (isSinglePigment(c)) traits.push({ label: "Single pigment", cls: "single" });
   if (c.granulating) traits.push({ label: "Granulating", cls: "granulating" });
   if (c.staining) traits.push({ label: "Staining", cls: "staining" });
   (c.brand_traits || []).forEach((t) => {
@@ -5105,8 +5146,13 @@ function mixStarMarkHtml() {
   return '<span class="mix-mark" title="Great for mixing">◈</span>';
 }
 
+function singlePigmentMarkHtml() {
+  return '<span class="single-mark" title="Single pigment"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg></span>';
+}
+
 function swatchMarksHtml(c) {
   let html = "";
+  if (isSinglePigment(c)) html += singlePigmentMarkHtml();
   if (c.granulating) html += granuleMarkHtml();
   if (c.mix_star) html += mixStarMarkHtml();
   if (!html) return "";
