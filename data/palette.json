@@ -1,9 +1,9 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-10-10-rublev-rs376",
-  "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein) · 2608 new colors haul (Holbein HPN/HWC, Horadam 337/Naturals, Liquid Earth, Akademie Icy) · 2026-10-10 order photo: Rublev 103 Lazurite half-pan, Rublev 204 Malachite full pan, Roman Szmal 376 Raspberry Red",
-  "color_count": 273,
+  "updated": "2026-10-16-agallo-two",
+  "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein) · 2608 new colors haul (Holbein HPN/HWC, Horadam 337/Naturals, Liquid Earth, Akademie Icy) · 2026-10-10 order photo: Rublev 103 Lazurite half-pan, Rublev 204 Malachite full pan, Roman Szmal 376 Raspberry Red · 2026-10-16 A. Gallo half pans: 312 Icelandic Red Earth, 221 Notturno",
+  "color_count": 275,
   "colors": [
     {
       "brand_traits": [
@@ -7970,6 +7970,64 @@
       "best_for": "Berry reds, floral punch, and a pyrrole that is not a clean primary.",
       "ace_note": "Raspberry, not a second cadmium, not Opera.\n\nAquarius 376 is single-pigment PR272: DPP flame red, the later pyrrole cousin of PR254. Slightly blue of a mid pyrrole — berry, not fire-engine. The label says staining, medium granulation, semi-opaque, Blue Wool 7/8.\n\nPlay lab (granulation): a juicy bead on cold-press. A pyrrole that flocks is a surprise — most pyrroles stain smooth. If this one settles, keep the tooth. If it stains flat, we turn the grit mark off.\n\nSemi-opaque means it covers more than quin rose and chalks sooner if you stack it. Not a glazing crimson.\n\nDual advice: one raspberry/pyrrol-red seat. Roman Szmal also makes 210 Pyrrole Red (PR254) — same family, mid red, usually the cleaner mixer. Keep 376 only if the berry shift is obvious next to whatever pyrrole or quin you already use. Not a substitute for Potter's Pink, not a substitute for Opera.",
       "ace_history": "PR272 is Ciba's DPP flame red, industrial cousin of the 1980s pyrrole reds (PR254 and friends). Roman Szmal put it in an Aquarius pan and named the hue raspberry. The chemistry is modern and lightfast. The name is the fruit, not a historic lake."
+    },
+    {
+      "id": "agallo-312-icelandic-red-earth",
+      "brand": "A. Gallo",
+      "brand_traits": [
+        "professional",
+        "honey",
+        "handmade"
+      ],
+      "name_en": "Icelandic Red Earth",
+      "name_zh": "冰岛红土",
+      "code": "312",
+      "pigment": "Natural volcanic earth",
+      "hex": "#CF9381",
+      "format": "half-pan",
+      "size": "half-pan",
+      "family": "earth",
+      "transparency": 2,
+      "lightfastness": 1,
+      "granulating": true,
+      "staining": false,
+      "toxicity": "low",
+      "mix_star": false,
+      "mix_tips": [],
+      "notes": "A. Gallo 312 Icelandic Red Earth, half pan. Official shop: natural earth, semi-transparent, excellent lightfastness, plum and red ochre, variegated. Collected by David Kremer and Peter Lang near Snæfellsjökull, western Iceland. No Colour Index on the product page. Code 312 is the Jackson's half-pan code WGH312 and the Artist Pigments listing. That chart also marks it non-staining and granulating (series 3, new in 2023). Handmade in Assisi: gum arabic, honey, rosemary oil, wetting agent. Cadmium, cobalt, lead, and mercury free. Hex from the published masstone Lab (L* 66.35, a* 20.03, b* 18.38), not a studio swatch.",
+      "temp_role": "Warm plum-ochre earth · Icelandic volcanic earth · no CI code · variegated",
+      "best_for": "Volcanic ground, old brick with a plum lean, and a red earth that is not a Mars brick.",
+      "ace_note": "Plum in the ochre — a place, not a generic brick.\n\nA. Gallo 312 is one natural earth from near Snæfellsjökull. The shop prints no Colour Index: natural earth, semi-transparent, excellent lightfastness, subtly variegated plum and red ochre. A measured chart marks it granulating and non-staining. The crescent is for that single earth. Honey binder, Assisi, half pan.\n\nPlay lab (granulation): cold-press, a juicy wash, leave it alone. The plum and the ochre should separate a little. If the wash stays flat, the grit mark was the chart talking, and we can turn it off.\n\nDual advice: one volcanic red-earth seat. English Venetian and the other PR101 bricks are calcined iron, opaque or staining, a different job. This pan is the Icelandic dirt. Keep it when the plum lean is the point. It will not do clean scarlet, and it will not replace a transparent red oxide.",
+      "ace_history": "The earth was gathered by pigment dealer David Kremer and landscape painter Peter Lang near the volcano Snæfellsjökull, then mulled in Assisi. A. Gallo filed it in 2023 as Icelandic Red Earth, with the honesty of no fake CI number."
+    },
+    {
+      "id": "agallo-221-notturno",
+      "brand": "A. Gallo",
+      "brand_traits": [
+        "professional",
+        "honey",
+        "handmade"
+      ],
+      "name_en": "Notturno",
+      "name_zh": "夜曲",
+      "code": "221",
+      "pigment": "PB29/PR101/PV19",
+      "hex": "#3E315C",
+      "format": "half-pan",
+      "size": "half-pan",
+      "family": "purple",
+      "transparency": 2,
+      "lightfastness": 1,
+      "granulating": true,
+      "staining": true,
+      "toxicity": "low",
+      "mix_star": false,
+      "mix_tips": [],
+      "notes": "A. Gallo 221 Notturno, half pan. Liz confirmed the current recipe PB29/PR101/PV19 (the older page title still said PB29, PR179). Official shop: excellent lightfastness, semi-transparent. Ultramarine settles; the shop still describes the float as perylene even though the printed codes are iron oxide plus quinacridone. Artist Pigments marks the tube staining, granulating, lightfastness 8, series 3. Handmade in Assisi. Cadmium, cobalt, lead, and mercury free. Hex is a night-purple stand-in, not a studio swatch.",
+      "temp_role": "Cool night purple · PB29/PR101/PV19 convenience blend · ultramarine settles",
+      "best_for": "Dusk washes, violet shadows, and a night color that separates.",
+      "ace_note": "A nocturne, not a single violet.\n\nNotturno 221 is three pigments: French ultramarine PB29, red iron oxide PR101, and quinacridone PV19. Semi-transparent, excellent lightfastness. The heavy blue settles. The iron and the quin ride higher, so a wet wash goes from dusk violet to a warmer bloom. A measured chart marks it staining and granulating. Honey, Assisi, half pan. No crescent — this is a blend.\n\nPlay lab (granulation): flood the paper, drop one bead, tip the board. Let the ultramarine find the valleys. Scrubbing turns night into mud.\n\nDual advice: one night-purple seat. Roman Szmal Mineral Violet is PB29 plus PV19 without the iron, so it stays cleaner and cooler. Notturno's PR101 is the warmth. Keep this pan when you want the dusk to go earthy. It is not a primary violet, and it is not a second ultramarine.",
+      "ace_history": "Notturno is the Italian word for a nocturne, a night piece. A. Gallo's signature blend puts ultramarine under quinacridone and iron oxide so the wash can play light against dark. An older title on the shop still says PR179. The pan Liz has is the current line, PB29/PR101/PV19."
     }
   ],
   "caveats": [
