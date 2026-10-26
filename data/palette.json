@@ -1,9 +1,9 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-10-26-wn-field-lemon-sap",
-  "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein) · 2608 new colors haul (Holbein HPN/HWC, Horadam 337/Naturals, Liquid Earth, Akademie Icy) · 2026-10-10 order photo: Rublev 103 Lazurite half-pan, Rublev 204 Malachite full pan, Roman Szmal 376 Raspberry Red · 2026-10-16 A. Gallo half pans: 312 Icelandic Red Earth, 221 Notturno · 2026-10-26 Winsor & Newton Professional Field Pocket Set half pans: 890 Cadmium-Free Yellow, 901 Cadmium-Free Red, 004 Alizarin Crimson · 722 Winsor Lemon, 503 Permanent Sap Green",
-  "color_count": 280,
+  "updated": "2026-10-26-old-holland-four",
+  "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein) · 2608 new colors haul (Holbein HPN/HWC, Horadam 337/Naturals, Liquid Earth, Akademie Icy) · 2026-10-10 order photo: Rublev 103 Lazurite half-pan, Rublev 204 Malachite full pan, Roman Szmal 376 Raspberry Red · 2026-10-16 A. Gallo half pans: 312 Icelandic Red Earth, 221 Notturno · 2026-10-26 Winsor & Newton Professional Field Pocket Set half pans: 890 Cadmium-Free Yellow, 901 Cadmium-Free Red, 004 Alizarin Crimson · 722 Winsor Lemon, 503 Permanent Sap Green · 2026-10-26 Old Holland Classic half pans: A244 Ultramarine Blue Deep, C145 Coral Orange, C136 Golden Barok Red, C24 Scheveningen Red Deep",
+  "color_count": 284,
   "colors": [
     {
       "brand_traits": [
@@ -8163,6 +8163,115 @@
       "best_for": "Mid leaves, a hedge that is already mixed, and a green that does not need a second yellow stirred in.",
       "ace_note": "A leaf that arrives already mixed.\n\nColour 503 is yellow-shade phthalo PG36 plus isoindolinone yellow PY110. Transparent, staining, series 1, excellent lightfastness. No crescent. This is a blend. No nickel in this recipe, and no granulation.\n\nPlay lab (staining): one touch is a whole shrub. Thin it before it dyes the rinse. It will not settle into grit.\n\nDual advice: one sap seat with QoR Sap Green. QoR is PR101, PY150, and PG36, and the gold in that tube is nickel. This pan is the yellower phthalo-and-isoindolinone cut. Keep it when you want the leaf without the nickel. It will not replace a single-pigment green.",
       "ace_history": "Sap green began as a lake from unripe buckthorn berries, beautiful and fugitive. Permanent Sap Green keeps the mid-leaf job and drops the berry. Winsor & Newton builds it from PG36 and PY110."
+    },
+    {
+      "id": "oh-a244-ultramarine-blue-deep",
+      "brand": "Old Holland",
+      "brand_traits": [
+        "professional"
+      ],
+      "name_en": "Ultramarine Blue Deep",
+      "name_zh": "深群青",
+      "code": "A244",
+      "pigment": "PB29",
+      "hex": "#2C3F86",
+      "format": "half-pan",
+      "size": "half-pan",
+      "family": "blue",
+      "transparency": 2,
+      "lightfastness": 1,
+      "granulating": true,
+      "staining": false,
+      "toxicity": "low",
+      "mix_star": true,
+      "mix_tips": [],
+      "notes": "Old Holland Classic Watercolour A244 Ultramarine Blue Deep, half pan (order line: 半块). Pigment PB29, synthetic ultramarine. Series A. Semi-transparent. The chart marks it a granular colour. Old Holland prints one lightfastness line for the range: lightfast, ASTM category 1 and 2. The page does not split I from II, and it does not rate staining. Hex is a stand-in, not a studio swatch.",
+      "temp_role": "Deep granular ultramarine · PB29 · semi-transparent · Old Holland granular",
+      "best_for": "Night water, a deeper sky, and an ultramarine wash that wants grit.",
+      "ace_note": "The deep one, and it is supposed to grit.\n\nA244 is single-pigment PB29, so the crescent is on. Semi-transparent, series A, and Old Holland prints it as a granular colour. Old Holland prints one lightfastness line for the range: lightfast, ASTM category 1 and 2. The page does not split I from II, and it does not rate staining.\n\nPlay lab (granulation): cold-press, one juicy bead, tip the board. The blue should flock. Scrubbing turns it into flat navy.\n\nDual advice: one deep granular ultramarine seat. Schmincke French Ultramarine and Daniel Smith French Ultramarine are the same pigment in a sky cut. Keep this pan when the wash needs more night and more tooth. It will not replace a lapis.",
+      "ace_history": "Synthetic ultramarine, PB29, is the 1828 sky pigment. Old Holland's deep cut is the one they mark granular. The name Deep is the darker grind, not a second chemistry."
+    },
+    {
+      "id": "oh-c145-coral-orange",
+      "brand": "Old Holland",
+      "brand_traits": [
+        "professional"
+      ],
+      "name_en": "Coral Orange",
+      "name_zh": "珊瑚橙",
+      "code": "C145",
+      "pigment": "PO67",
+      "hex": "#E36A45",
+      "format": "half-pan",
+      "size": "half-pan",
+      "family": "orange",
+      "transparency": 2,
+      "lightfastness": 1,
+      "granulating": false,
+      "staining": false,
+      "toxicity": "low",
+      "mix_star": true,
+      "mix_tips": [],
+      "notes": "Old Holland Classic Watercolour C145 Coral Orange, half pan (order line: 半块). Pigment PO67, pyrazoloquinazolone. Series C. Old Holland says semi-transparent. The seller mark said semi-opaque. The card follows Old Holland. Old Holland prints one lightfastness line for the range: lightfast, ASTM category 1 and 2. The page does not split I from II, and it does not rate staining. Hex is a stand-in, not a studio swatch.",
+      "temp_role": "Coral orange · PO67 · semi-transparent · single pigment",
+      "best_for": "Coral, warm skin, and an orange that glazes instead of covering.",
+      "ace_note": "A coral with one pigment in it.\n\nC145 is PO67. Semi-transparent on Old Holland's page, series C, crescent on. The seller's little box said semi-opaque. The card follows the maker. Old Holland prints one lightfastness line for the range: lightfast, ASTM category 1 and 2. The page does not split I from II, and it does not rate staining.\n\nIt will glaze. The Cadmium-Free Yellow and Cadmium-Free Red in the Winsor tin are the ones that cover.\n\nDual advice: one clean coral-orange seat. Golden Barok Red beside it is the nickel orange-red, a different job. Keep this pan when the orange should stay bright and light. It will not do a cadmium body.",
+      "ace_history": "PO67 is a pyrazoloquinazolone orange, a modern organic built to stay. Old Holland uses it for Coral Orange instead of a cadmium."
+    },
+    {
+      "id": "oh-c136-golden-barok-red",
+      "brand": "Old Holland",
+      "brand_traits": [
+        "professional"
+      ],
+      "name_en": "Golden Barok Red",
+      "name_zh": "巴洛克金红",
+      "code": "C136",
+      "pigment": "PO65",
+      "hex": "#C45C32",
+      "format": "half-pan",
+      "size": "half-pan",
+      "family": "red",
+      "transparency": 1,
+      "lightfastness": 1,
+      "granulating": false,
+      "staining": false,
+      "toxicity": "medium",
+      "toxicity_habit": "Nickel-containing pigment — wash hands after sessions; no eating at the desk.",
+      "mix_star": false,
+      "mix_tips": [],
+      "notes": "Old Holland Classic Watercolour C136 Golden Barok Red, half pan (order line: 半块). Pigment PO65. Old Holland classifies it as a metal complex and rates it transparent, series C. Blick's pigment note names PO65 an azomethine nickel complex. The oil paint of this name is a different recipe, PBr23 and PR177. Old Holland prints one lightfastness line for the range: lightfast, ASTM category 1 and 2. The page does not split I from II, and it does not rate staining. Hex is a stand-in, not a studio swatch.",
+      "temp_role": "Golden orange-red · PO65 nickel complex · transparent",
+      "best_for": "Warm brick, autumn fruit, and a red-orange that glows instead of shouting.",
+      "ace_note": "A golden red, and the nickel stays on your hands.\n\nC136 is single-pigment PO65, so the crescent is on. Old Holland calls it a metal complex and rates the watercolour transparent, series C. Blick names that complex an azomethine nickel. Wash hands. The oil tube with the same name is PBr23 and PR177. This half pan is the watercolour. Old Holland prints one lightfastness line for the range: lightfast, ASTM category 1 and 2. The page does not split I from II, and it does not rate staining.\n\nDual advice: one golden-red seat. Coral Orange is the cleaner PO67. This pan is the dusk orange, warmer and quieter. It will not be your scarlet.",
+      "ace_history": "Old Holland spells it Barok. PO65 is a nickel metal-complex orange that almost nobody else puts in a watercolour pan. The oil colour of the same words is another paint."
+    },
+    {
+      "id": "oh-c24-scheveningen-red-deep",
+      "brand": "Old Holland",
+      "brand_traits": [
+        "professional"
+      ],
+      "name_en": "Scheveningen Red Deep",
+      "name_zh": "斯海弗宁恩深红",
+      "code": "C24",
+      "pigment": "PR214",
+      "hex": "#8E2438",
+      "format": "half-pan",
+      "size": "half-pan",
+      "family": "red",
+      "transparency": 1,
+      "lightfastness": 1,
+      "granulating": false,
+      "staining": false,
+      "toxicity": "low",
+      "mix_star": true,
+      "mix_tips": [],
+      "notes": "Old Holland Classic Watercolour C24 Scheveningen Red Deep, half pan (order line: 半块). Pigment PR214, disazo condensation. Series C. Transparent. Old Holland prints one lightfastness line for the range: lightfast, ASTM category 1 and 2. The page does not split I from II, and it does not rate staining. Hex is a stand-in, not a studio swatch.",
+      "temp_role": "Deep transparent red · PR214 · Scheveningen lightfast stand-in",
+      "best_for": "Deep floral shadows, a red that has to last, and a glaze under a darker night.",
+      "ace_note": "The deep red that is allowed to stay.\n\nC24 is single-pigment PR214, a disazo condensation red. Transparent, series C, crescent on. Scheveningen in the name is Old Holland's word for the lightfast colour that took an old job. Old Holland prints one lightfastness line for the range: lightfast, ASTM category 1 and 2. The page does not split I from II, and it does not rate staining.\n\nDual advice: one deep transparent red seat. Alizarin Crimson in the Winsor tin is PR83, and thin washes of that one fade. Cadmium-Free Red is the opaque body. Keep this pan when the crimson has to glaze and still be there next year. It will not cover a drawing the way the cadmium-free red does.",
+      "ace_history": "Scheveningen is the Hague district where Albert Roelofs moved the paint works around 1905. Painters used the town's name for quality. PR214 is the modern deep red in that line."
     }
   ],
   "caveats": [

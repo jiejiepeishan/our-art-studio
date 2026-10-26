@@ -1,5 +1,5 @@
 {
-  "version": 7,
+  "version": 8,
   "brands": [
     {
       "id": "daniel-smith",
@@ -668,6 +668,34 @@
               "caption": "Single hues in conversation — the Extra-pan dream.",
               "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Vassily_Kandinsky%2C_1913_-_Color_Study%2C_Squares_with_Concentric_Circles.jpg/960px-Vassily_Kandinsky%2C_1913_-_Color_Study%2C_Squares_with_Concentric_Circles.jpg",
               "image_local": "images/brands/vassily-kandinsky-2c-1913-color-study-2c-squares-with-concentric-circles.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "old-holland",
+      "name": "Old Holland",
+      "origin": "Driebergen, Netherlands",
+      "tagline": "Thick pigment, Scheveningen names",
+      "story": [
+        "Old Holland traces its colour-making to 1664, when the Hague painters' confraternity Pictura started grinding its own paint. In 1870 the Hague School painter Willem Roelofs took the workshop on. Around 1905 his son Albert moved it to Scheveningen, and painters started using that town's name as a word for quality.",
+        "The watercolour is the thick classic line: a lot of pigment in gum arabic. The chart marks a colour granular when the grit is the point. Ultramarine Blue Deep is one of those.",
+        "A Scheveningen name is their lightfast stand-in for an old job. Scheveningen Red Deep is PR214. It is not the fugitive madder that used to wear a crimson name.",
+        "Four half pans are in the studio so far. Golden Barok Red is a nickel complex, so wash your hands. The oil paint of that same name is a different recipe."
+      ],
+      "artists": [
+        {
+          "name": "Willem Roelofs",
+          "note": "Hague School landscapist. In 1870 he took over the paint workshop that became Old Holland.",
+          "works": [
+            {
+              "title": "In the Floodplains of the River IJssel",
+              "year": "1870–1897",
+              "artist": "Willem Roelofs",
+              "caption": "Oil, not watercolor. Flat Dutch light, cows, and weather. He ran the colour workshop while he painted this kind of land.",
+              "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Willem_Roelofs_-_In_de_uiterwaarden_van_de_IJssel.jpg/960px-Willem_Roelofs_-_In_de_uiterwaarden_van_de_IJssel.jpg",
+              "image_local": null
             }
           ]
         }
