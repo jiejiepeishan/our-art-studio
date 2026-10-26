@@ -1,9 +1,9 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-10-16-agallo-two",
-  "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein) · 2608 new colors haul (Holbein HPN/HWC, Horadam 337/Naturals, Liquid Earth, Akademie Icy) · 2026-10-10 order photo: Rublev 103 Lazurite half-pan, Rublev 204 Malachite full pan, Roman Szmal 376 Raspberry Red · 2026-10-16 A. Gallo half pans: 312 Icelandic Red Earth, 221 Notturno",
-  "color_count": 275,
+  "updated": "2026-10-26-wn-field-three",
+  "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein) · 2608 new colors haul (Holbein HPN/HWC, Horadam 337/Naturals, Liquid Earth, Akademie Icy) · 2026-10-10 order photo: Rublev 103 Lazurite half-pan, Rublev 204 Malachite full pan, Roman Szmal 376 Raspberry Red · 2026-10-16 A. Gallo half pans: 312 Icelandic Red Earth, 221 Notturno · 2026-10-26 Winsor & Newton Professional Field Pocket Set half pans: 890 Cadmium-Free Yellow, 901 Cadmium-Free Red, 004 Alizarin Crimson",
+  "color_count": 278,
   "colors": [
     {
       "brand_traits": [
@@ -8028,6 +8028,87 @@
       "best_for": "Dusk washes, violet shadows, and a night color that separates.",
       "ace_note": "A nocturne, not a single violet.\n\nNotturno 221 is three pigments: French ultramarine PB29, red iron oxide PR101, and quinacridone PV19. Semi-transparent, excellent lightfastness. The heavy blue settles. The iron and the quin ride higher, so a wet wash goes from dusk violet to a warmer bloom. A measured chart marks it staining and granulating. Honey, Assisi, half pan. No crescent — this is a blend.\n\nPlay lab (granulation): flood the paper, drop one bead, tip the board. Let the ultramarine find the valleys. Scrubbing turns night into mud.\n\nDual advice: one night-purple seat. Roman Szmal Mineral Violet is PB29 plus PV19 without the iron, so it stays cleaner and cooler. Notturno's PR101 is the warmth. Keep this pan when you want the dusk to go earthy. It is not a primary violet, and it is not a second ultramarine.",
       "ace_history": "Notturno is the Italian word for a nocturne, a night piece. A. Gallo's signature blend puts ultramarine under quinacridone and iron oxide so the wash can play light against dark. An older title on the shop still says PR179. The pan Liz has is the current line, PB29/PR101/PV19."
+    },
+    {
+      "id": "wn-890-cadmium-free-yellow",
+      "brand": "Winsor & Newton",
+      "brand_traits": [
+        "professional"
+      ],
+      "name_en": "Cadmium-Free Yellow",
+      "name_zh": "无镉黄",
+      "code": "890",
+      "pigment": "Cadmium-free blend",
+      "hex": "#E2A317",
+      "format": "half-pan",
+      "size": "half-pan",
+      "family": "yellow",
+      "transparency": 3,
+      "lightfastness": 1,
+      "granulating": false,
+      "staining": false,
+      "toxicity": "low",
+      "mix_star": false,
+      "mix_tips": [],
+      "notes": "Winsor & Newton Professional 890 Cadmium-Free Yellow, half pan, Field Pocket Set. Official page: a strong deep yellow with a warm red mass tone, the alternative to Cadmium Yellow. Opaque, excellent lightfastness, permanent, series 4. The page does not print a pigment code, and the chart leaves granulation and staining blank, so those marks stay off and there is no crescent. This pan has no cadmium in it. Hex is a stand-in, not a studio swatch.",
+      "temp_role": "Warm opaque yellow · cadmium-free stand-in for Cadmium Yellow · series 4 · pigment unpublished",
+      "best_for": "Sun on a wall, flower centers, and a mid yellow that has to cover.",
+      "ace_note": "A warm yellow with a body, and no cadmium in it.\n\nColour 890 is the stand-in for Cadmium Yellow. Winsor & Newton calls it a strong deep yellow with a warm red mass tone. Opaque, excellent lightfastness, permanent, series 4. They do not print a pigment code, so there is no crescent. The chart leaves granulation and staining blank, so those marks stay off until a swatch says otherwise.\n\nOpaque means it sits on the paper. A second layer goes chalky sooner than a Hansa or a Winsor Yellow.\n\nDual advice: one warm opaque yellow seat. Schmincke Lemon Yellow is PY3, cooler and more transparent, a different job. Keep this pan when the yellow has to cover. It will not do a clean glaze.",
+      "ace_history": "Winsor & Newton built the cadmium-free line so the mass tone of cadmium yellow could stay in a professional pan without cadmium metal. The formula is theirs. The card files the name and the ratings, and leaves the index blank."
+    },
+    {
+      "id": "wn-901-cadmium-free-red",
+      "brand": "Winsor & Newton",
+      "brand_traits": [
+        "professional"
+      ],
+      "name_en": "Cadmium-Free Red",
+      "name_zh": "无镉红",
+      "code": "901",
+      "pigment": "Cadmium-free blend",
+      "hex": "#C43545",
+      "format": "half-pan",
+      "size": "half-pan",
+      "family": "red",
+      "transparency": 3,
+      "lightfastness": 1,
+      "granulating": false,
+      "staining": false,
+      "toxicity": "low",
+      "mix_star": false,
+      "mix_tips": [],
+      "notes": "Winsor & Newton Professional 901 Cadmium-Free Red, half pan, Field Pocket Set. Official page: a blue-shade red with a deep mass tone and soft creamy undertones, the alternative to Cadmium Red. Opaque, excellent lightfastness, permanent, series 4. No pigment code on the page. Granulation and staining are unmarked. This pan has no cadmium in it. Hex is a stand-in, not a studio swatch.",
+      "temp_role": "Blue-shade opaque red · cadmium-free stand-in for Cadmium Red · series 4 · pigment unpublished",
+      "best_for": "A mid red that covers, flower hearts, and a red that has to sit on the drawing.",
+      "ace_note": "The mid red that covers, still without cadmium.\n\nColour 901 stands in for Cadmium Red. The shop calls it a blue-shade red with a deep mass tone and soft creamy undertones. Opaque, excellent lightfastness, permanent, series 4. The pigment line is unpublished, so no crescent. Stain and grit stay unmarked because the page leaves both blank.\n\nIt will cover a drawing. Stacked like a glaze, it chalks.\n\nDual advice: one opaque mid-red seat. Alizarin Crimson in the same box is the transparent blue-crimson, and that one is only moderately durable. Keep 901 when the red has to sit and stay. It will not glaze like a rose.",
+      "ace_history": "The cadmium-free reds were made to keep cadmium red's covering mass tone and drop the cadmium. Winsor & Newton still does not publish the blend. The card keeps the name, the opacity, and the blank index."
+    },
+    {
+      "id": "wn-004-alizarin-crimson",
+      "brand": "Winsor & Newton",
+      "brand_traits": [
+        "professional"
+      ],
+      "name_en": "Alizarin Crimson",
+      "name_zh": "茜素深红",
+      "code": "004",
+      "pigment": "PR83",
+      "hex": "#8E2440",
+      "format": "half-pan",
+      "size": "half-pan",
+      "family": "red",
+      "transparency": 1,
+      "lightfastness": 3,
+      "granulating": false,
+      "staining": true,
+      "toxicity": "low",
+      "mix_star": false,
+      "mix_tips": [],
+      "notes": "Winsor & Newton Professional Alizarin Crimson, colour 004 (the shop also lists it as 4), half pan, Field Pocket Set. Pigment PR83. A synthetic madder lake, first made in 1868. Deep transparent red with a blue undertone. Staining, series 1, no granulation. Permanence is moderately durable, so the card says Fair, not Excellent. Permanent Alizarin Crimson is a different colour, 466, PR179. Hex is a stand-in, not a studio swatch.",
+      "temp_role": "Cool transparent crimson · PR83 synthetic madder · staining · moderately durable",
+      "best_for": "A blue-crimson glaze in a study, floral shadows, and a rose that is allowed to be temporary.",
+      "ace_note": "The blue rose that does not promise to last.\n\nColour 004 is single-pigment PR83, the 1868 synthetic madder. Transparent, staining, series 1, a blue undertone. The crescent is for that one pigment. Winsor & Newton rates the permanence moderately durable, so the lightfastness on the card is Fair. A thin wash is the part that fades. A heavier pool holds longer, and it is still not an archival red.\n\nPlay lab (staining): one committed wash. Lifting fights the dye.\n\nDual advice: one alizarin seat. Permanent Alizarin Crimson is a different pan, colour 466, PR179. Quinacridone reds and perylene maroon are the reds that stay. White Nights Claret already carries some PR83 inside a blend. Keep this half pan for the blue undertone in a study. It will not be the red in a painting you need to keep.",
+      "ace_history": "Alizarin was the first natural dye to be synthesized, in 1868, from the chemistry of the madder root. Painters loved the blue-crimson, and then watched thin washes leave. The name on this pan is still that dye. The permanent version is a different colour."
     }
   ],
   "caveats": [
