@@ -1,9 +1,9 @@
 {
   "studio_name": "Our Art Studio",
   "studio_name_zh": "我们的画室",
-  "updated": "2026-10-26-wn-field-three",
-  "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein) · 2608 new colors haul (Holbein HPN/HWC, Horadam 337/Naturals, Liquid Earth, Akademie Icy) · 2026-10-10 order photo: Rublev 103 Lazurite half-pan, Rublev 204 Malachite full pan, Roman Szmal 376 Raspberry Red · 2026-10-16 A. Gallo half pans: 312 Icelandic Red Earth, 221 Notturno · 2026-10-26 Winsor & Newton Professional Field Pocket Set half pans: 890 Cadmium-Free Yellow, 901 Cadmium-Free Red, 004 Alizarin Crimson",
-  "color_count": 278,
+  "updated": "2026-10-26-wn-field-lemon-sap",
+  "source": "Our Art Studio — Jul 21 Pinax Extra photo · DS 2ml samples · Schmincke 486 full pan · M.Graham Azo Yellow · 260808 new colors photo haul (DS/QoR/Schmincke/WN/Holbein) · 2608 new colors haul (Holbein HPN/HWC, Horadam 337/Naturals, Liquid Earth, Akademie Icy) · 2026-10-10 order photo: Rublev 103 Lazurite half-pan, Rublev 204 Malachite full pan, Roman Szmal 376 Raspberry Red · 2026-10-16 A. Gallo half pans: 312 Icelandic Red Earth, 221 Notturno · 2026-10-26 Winsor & Newton Professional Field Pocket Set half pans: 890 Cadmium-Free Yellow, 901 Cadmium-Free Red, 004 Alizarin Crimson · 722 Winsor Lemon, 503 Permanent Sap Green",
+  "color_count": 280,
   "colors": [
     {
       "brand_traits": [
@@ -8109,6 +8109,60 @@
       "best_for": "A blue-crimson glaze in a study, floral shadows, and a rose that is allowed to be temporary.",
       "ace_note": "The blue rose that does not promise to last.\n\nColour 004 is single-pigment PR83, the 1868 synthetic madder. Transparent, staining, series 1, a blue undertone. The crescent is for that one pigment. Winsor & Newton rates the permanence moderately durable, so the lightfastness on the card is Fair. A thin wash is the part that fades. A heavier pool holds longer, and it is still not an archival red.\n\nPlay lab (staining): one committed wash. Lifting fights the dye.\n\nDual advice: one alizarin seat. Permanent Alizarin Crimson is a different pan, colour 466, PR179. Quinacridone reds and perylene maroon are the reds that stay. White Nights Claret already carries some PR83 inside a blend. Keep this half pan for the blue undertone in a study. It will not be the red in a painting you need to keep.",
       "ace_history": "Alizarin was the first natural dye to be synthesized, in 1868, from the chemistry of the madder root. Painters loved the blue-crimson, and then watched thin washes leave. The name on this pan is still that dye. The permanent version is a different colour."
+    },
+    {
+      "id": "wn-722-winsor-lemon",
+      "brand": "Winsor & Newton",
+      "brand_traits": [
+        "professional"
+      ],
+      "name_en": "Winsor Lemon",
+      "name_zh": "温莎柠檬黄",
+      "code": "722",
+      "pigment": "PY175",
+      "hex": "#F3E15A",
+      "format": "half-pan",
+      "size": "half-pan",
+      "family": "yellow",
+      "transparency": 2,
+      "lightfastness": 1,
+      "granulating": false,
+      "staining": true,
+      "toxicity": "low",
+      "mix_star": true,
+      "mix_tips": [],
+      "notes": "Winsor & Newton Professional 722 Winsor Lemon, half pan, Field Pocket Set. Pigment PY175, benzimidazolone yellow. Semi-transparent, staining, series 1, permanence Permanent. The shop sentence still calls it a variation of the Hansa pigments. Hansa yellow is PY3. This watercolour prints PY175. The oil colour of the same name is a different paint. The big chart leaves the separate lightfastness code blank. Hex is a stand-in, not a studio swatch.",
+      "temp_role": "Cool lemon primary · PY175 benzimidazolone · semi-transparent · staining",
+      "best_for": "Clean spring greens, a cool mixing yellow, and a lemon that stains instead of covering.",
+      "ace_note": "The cool lemon in the box, and a single pigment.\n\nColour 722 is PY175. Semi-transparent, staining, series 1, permanent. The crescent is for that one benzimidazolone. Winsor & Newton still describes it as a Hansa variation. The code on the pan is PY175, not PY3. A little of it walks into every green.\n\nPlay lab (staining): one rice-grain into a blue wash. It commits. The opaque Cadmium-Free Yellow beside it is the one that covers.\n\nDual advice: one cool lemon seat with Schmincke Lemon Yellow 215, which is PY3. Swatch them once. Keep this pan when you want the W&N primary lemon. It will not do the covering job of Cadmium-Free Yellow 890.",
+      "ace_history": "Winsor Lemon is the cool yellow in Winsor & Newton's own three-colour mixing set, with Winsor Blue Red Shade and Permanent Rose. PY175 is a benzimidazolone yellow from the later Hansa family. The older arylide lemon is PY3, which is what their oil colour of this name still uses."
+    },
+    {
+      "id": "wn-503-permanent-sap-green",
+      "brand": "Winsor & Newton",
+      "brand_traits": [
+        "professional"
+      ],
+      "name_en": "Permanent Sap Green",
+      "name_zh": "永久树汁绿",
+      "code": "503",
+      "pigment": "PG36/PY110",
+      "hex": "#45682C",
+      "format": "half-pan",
+      "size": "half-pan",
+      "family": "green",
+      "transparency": 1,
+      "lightfastness": 1,
+      "granulating": false,
+      "staining": true,
+      "toxicity": "low",
+      "mix_star": false,
+      "mix_tips": [],
+      "notes": "Winsor & Newton Professional 503 Permanent Sap Green, half pan, Field Pocket Set. Pigment PG36/PY110. A rich mid green with a yellow undertone. Transparent, staining, series 1, excellent lightfastness, permanent. No granulation. The old sap was a buckthorn-berry lake. This one is the permanent convenience. Hex is from a published masstone Lab (L* 40.14, a* -21.82, b* 28.98), not a studio swatch.",
+      "temp_role": "Yellow-green sap convenience · PG36 + PY110 · transparent · staining",
+      "best_for": "Mid leaves, a hedge that is already mixed, and a green that does not need a second yellow stirred in.",
+      "ace_note": "A leaf that arrives already mixed.\n\nColour 503 is yellow-shade phthalo PG36 plus isoindolinone yellow PY110. Transparent, staining, series 1, excellent lightfastness. No crescent. This is a blend. No nickel in this recipe, and no granulation.\n\nPlay lab (staining): one touch is a whole shrub. Thin it before it dyes the rinse. It will not settle into grit.\n\nDual advice: one sap seat with QoR Sap Green. QoR is PR101, PY150, and PG36, and the gold in that tube is nickel. This pan is the yellower phthalo-and-isoindolinone cut. Keep it when you want the leaf without the nickel. It will not replace a single-pigment green.",
+      "ace_history": "Sap green began as a lake from unripe buckthorn berries, beautiful and fugitive. Permanent Sap Green keeps the mid-leaf job and drops the berry. Winsor & Newton builds it from PG36 and PY110."
     }
   ],
   "caveats": [
